@@ -1,0 +1,317 @@
+.main
+    &__promo
+        background-color: #1C1D1D
+        padding: 14px 0px 94px
+        &-about 
+            display: flex
+            justify-content: space-between
+            &-descr
+                max-width: 646px
+            &-button 
+                margin-top: 45px
+        &-slider
+            width: 100%
+            height: 655px
+            position: relative
+            margin-bottom: 50px
+            &-item 
+                opacity: 0
+                visibility: hidden
+                height: 0
+                transition: 1.5s opacity
+                &.active
+                    opacity: 1
+                    height: 100%
+                    visibility: visible
+        &-logo 
+            display: flex
+            align-items: flex-end
+            margin-bottom: 36px
+            img 
+                width: 868px
+                margin-right: 20px
+    &__advantages
+        padding: 170px 0px
+        &-items 
+            margin-top: 80px
+            display: flex
+            justify-content: space-between
+        &-item 
+            display: flex
+            align-items: flex-start
+            width: 385px
+            &-title 
+                margin: 4px 0px 16px
+            img 
+                width: 35px
+                margin-right: 16px
+    &__services
+        padding: 70px 0px 170px
+        &-skip 
+            width: 32px
+            height: 65px
+            border: 1px solid #D8612B
+            border-radius: 38px
+            display: flex
+            justify-content: center
+            align-items: flex-start
+            padding: 15px 0px
+            margin: 24px auto 0px
+            cursor: pointer
+            img 
+                transform: rotate(90deg)
+                width: 11px
+        &-pages
+            margin-top: 10px
+            display: flex
+            position: relative
+            min-height: 458px
+        &-names 
+            padding: 16px 0px
+            border-top: 1px solid #D9D9D9
+            border-bottom: 1px solid #D9D9D9
+            display: flex
+            justify-content: space-between
+        &-name 
+            display: flex
+            align-items: center
+            cursor: pointer
+            img 
+                display: none
+                width: 14px
+                margin-right: 12px
+            span
+                opacity: 0.5
+            &.active
+                span 
+                    opacity: 1
+                    border-bottom: 1px solid #D8612B
+                img 
+                    display: inline-block
+        &-page 
+            width: 100%
+            height: 100%
+            background-color: #fff
+            border-top: 1px solid #D9D9D9
+            display: flex
+            justify-content: space-between
+            position: absolute
+            transition: 0.5s all
+            &-info 
+                padding: 30px 0px
+                display: flex
+                flex-direction: column
+                justify-content: center
+            &-blocks 
+                display: flex
+                justify-content: space-between
+                margin: 36px 0px 42px
+                &-title
+                    margin-bottom: 12px
+                &-item 
+                    max-width: 346px
+                    &:first-child
+                        margin-right: 32px
+            &-image 
+                height: 100%
+                width: 535px
+                position: relative
+                margin-left: 51px
+                img 
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+    &__market
+        &-items 
+            margin: 154px 0px 50px
+        &-item 
+            display: flex
+            justify-content: space-between
+            border-top: 1px solid #D9D9D9
+            border-bottom: 1px solid #D9D9D9
+            height: 670px
+            width: 100%
+            &-info 
+                padding: 30px 0px
+                display: flex
+                flex-direction: column
+                justify-content: center
+                width: 54.498%
+            &-blocks
+                margin: 68px 0px 42px
+                display: flex
+                justify-content: space-between
+                &-item 
+                    max-width: 342px
+                &-title 
+                    margin-bottom: 12px
+            &-file 
+                height: 100%
+                width: 40.778%
+                position: relative
+                margin-left: 62px
+                overflow: hidden
+                video
+                    height: 100%
+                    width: 100%
+                    object-fit: cover
+                    transform: scale(1.5)
+                    pointer-events: none
+        &-title
+            &-top 
+                display: flex
+                align-items: flex-start
+                span 
+                    margin: 23px 18px 0px 0px
+            &-bott 
+                display: flex
+                align-items: flex-end
+                span 
+                    margin: 0px 0px 23px 39px
+                    max-width: 364px
+    &__blog 
+        padding: 200px 0px
+        &-items 
+            margin: 50px 0px
+            display: grid
+            grid-template: auto / repeat(3, 424px)
+            justify-content: space-between
+        &-item 
+            &-title 
+                margin-bottom: 12px
+            &-top 
+                max-width: 231px
+            &-info 
+                height: 349px
+                background-color: #F9F9F9
+                padding: 30px 23px 16px
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+            &-result 
+                padding: 23px 23px 21px
+                height: 84px
+                background-color: #D8612B
+                display: flex
+                align-items: center
+                justify-content: space-between
+                img 
+                    &.bott
+                        transform: rotate(180deg)
+                span 
+                    max-width: 231px
+    &__cases
+        padding: 230px 0px
+        &-item
+            padding: 24px 0px 16px
+            border-bottom: 1px solid #D9D9D9
+            min-height: 200px
+            display: flex
+            justify-content: space-between
+            cursor: pointer
+            position: relative
+            &::before
+                transition: 0.5s all
+                content: ''
+                display: block
+                height: 100%
+                top: 0
+                width: 1000vw
+                left: -50%
+                background-color: #F7F7F7
+                position: absolute
+                z-index: -1
+                opacity: 0
+                visibility: hidden
+            &:hover 
+                &::before
+                    opacity: 1
+                    visibility: visible
+            &-type 
+                width: 343px
+                margin-left: 20px
+                display: flex
+                justify-content: flex-end
+                align-items: flex-end
+                flex-wrap: wrap
+                span 
+                    border: 1px solid #D8612B
+                    border-radius: 38px
+                    padding: 2px 12px
+                    margin: 12px 0px 0px 12px
+            &-result 
+                opacity: 0.5
+                b, strong 
+                    font-weight: 700
+                    font-size: 48px
+                    line-height: 54px
+            &-logo 
+                margin: 0px 48px 0px 41px
+                height: 100%
+                display: flex
+                align-items: center
+                justify-content: center
+                img 
+                    max-height: 125px
+            &-title 
+                margin-bottom: 4px
+            &-character
+                text-align: right
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+            &-main 
+                display: flex
+            &:first-child
+                border-top: 1px solid #D9D9D9
+        &-items 
+            padding-left: 222px
+            margin: 57px 0px 50px
+    &__stocks
+        padding: 80px 0px 84px
+        background-color: #1C1D1D
+        &-items
+            position: relative
+            margin-top: 16px
+        &-list 
+            position: absolute
+            bottom: 85px
+            right: 210px
+            display: flex
+            width: 325px
+            flex-wrap: wrap
+            align-items: flex-end
+            &-item 
+                position: relative
+                width: 92px
+                height: 64px
+                margin: 0px 16px 16px 0px
+                transition: 0.7s all
+                cursor: pointer
+                &.active
+                    box-shadow: 0px 4px 9px rgba(94, 94, 94, 0.25)
+                    border: 6px solid #fff
+        &-item 
+            width: 100%
+            display: flex
+            justify-content: space-between
+            height: 0
+            opacity: 0
+            visibility: hidden
+            transition: 0.7s opacity
+            &.active
+                visibility: visible
+                height: auto
+                opacity: 1
+            &-info 
+                max-width: 346px
+            &-title 
+                margin-bottom: 21px
+            &-image 
+                position: relative
+                height: 593px
+                width: 930px
