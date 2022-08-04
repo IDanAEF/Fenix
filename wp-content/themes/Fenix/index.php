@@ -324,6 +324,12 @@
         </div>
     </section>
     <?php endif; ?>
+    <section class="main__feed">
+        <div class="container">
+            <h2 class="main__feed-title title title_fz120 text_fw700 text_upper">Напишите нам</h2>
+            <?php echo do_shortcode('[contact-form-7 id="6" title="Main"]'); ?>
+        </div>
+    </section>
 </main>
 <?php
     get_footer();

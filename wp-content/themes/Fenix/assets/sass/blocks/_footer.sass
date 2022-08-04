@@ -22,8 +22,10 @@
     ul 
         li 
             margin-bottom: 12px
-            a 
-                opacity: 0.5
+            opacity: 0.5
+            transition: 0.3s all 
+            &:hover 
+                opacity: 1
     &__siteinfo
         display: flex
         flex-direction: column
@@ -39,9 +41,12 @@
         .social
             display: flex
             align-items: center
-            opacity: 0.5
             img 
+                opacity: 0.5
                 margin-left: 12px
+                transition: 0.3s all
+                &:hover
+                    opacity: 1
     &__boss
         display: flex
         height: fit-content
@@ -70,5 +75,4 @@
         &-pages 
             ul
                 li 
-                    a 
-                        opacity: 1
+                    opacity: 1

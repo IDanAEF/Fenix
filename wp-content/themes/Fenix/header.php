@@ -12,6 +12,14 @@
 <body>
     <header class="header text text_fz12 text_white">
         <div class="container">
+            <div class="header__mobile">
+                <div class="header__humburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <?php the_custom_logo(); ?>
+            </div>
             <nav class="header__nav">
                 <?php 
 					wp_nav_menu( [

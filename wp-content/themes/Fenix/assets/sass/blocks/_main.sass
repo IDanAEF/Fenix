@@ -133,7 +133,7 @@
             justify-content: space-between
             border-top: 1px solid #D9D9D9
             border-bottom: 1px solid #D9D9D9
-            height: 670px
+            min-height: 670px
             width: 100%
             &-info 
                 padding: 30px 0px
@@ -150,7 +150,7 @@
                 &-title 
                     margin-bottom: 12px
             &-file 
-                height: 100%
+                height: inherit
                 width: 40.778%
                 position: relative
                 margin-left: 62px
@@ -315,3 +315,49 @@
                 position: relative
                 height: 593px
                 width: 930px
+    &__feed
+        padding: 150px 0px 115px
+        form 
+            .undertitle
+                margin-bottom: 101px
+                display: block
+            input, textarea
+                border: none
+                background: none
+                border-bottom: 1px solid #B6B6B6
+            textarea
+                padding: 5px
+                width: 400px
+                height: 119px
+                resize: none
+            input 
+                padding: 5px 0px
+                margin-bottom: 19px
+                width: 100%
+                &[type="file"]
+                    display: none
+            .file_label
+                display: flex
+                align-items: center
+                color: #B6B6B6
+                cursor: pointer
+                .gray_arrow
+                    width: 13px
+                    height: 17px
+                    border: 1px solid #B6B6B6
+                    border-radius: 2px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    margin-right: 6px
+                    img
+                        width: 8px
+            .policy
+                color: #BDBDBD
+                margin: 24px 0px 36px
+            .form
+                &_blocks
+                    width: 400px
+                    margin-right: 44px
+                &_fields
+                    display: flex
