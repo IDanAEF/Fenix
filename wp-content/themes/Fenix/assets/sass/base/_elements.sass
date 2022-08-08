@@ -3,6 +3,11 @@
     margin: 0 auto
 .text
     color: #000
+    &_animate
+        transition: 0.5s all
+        transform: rotateX(90deg)
+        &.anim
+            transform: rotateX(00deg)
     &_fz10
         font-size: 10px
         line-height: 14px
@@ -69,6 +74,26 @@
         border-bottom: 4px solid #000
         display: inline-flex
         float: right
+        position: relative
+        span 
+            position: absolute
+            top: 0
+            left: calc(100% + 8px)
+a
+    &.back_top
+        position: fixed
+        right: 4%
+        width: 63px
+        bottom: 15%
+        z-index: 12%
+        opacity: 0
+        visibility: hidden
+        transition: 0.5s all
+        &.active
+            visibility: visible
+            opacity: 1
+        img 
+            width: 100%
 .img
     &_bg
         position: absolute 
@@ -81,3 +106,6 @@
 html, body 
     &.fixed
         overflow: hidden
+p 
+    padding: 0
+    margin: 0

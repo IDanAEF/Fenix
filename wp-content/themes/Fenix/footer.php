@@ -80,6 +80,9 @@
         </div>
     </div>
 </footer>
+<a href="#header" class="back_top">
+    <img src="<?php echo bloginfo('template_url') ?>/assets/images/back_top.svg" alt="back_top">
+</a>
 <div class="mobile text_white">
     <div class="mobile__close">
         <span></span>

@@ -10,7 +10,7 @@
     ?>
 </head>
 <body>
-    <header class="header text text_fz12 text_white">
+    <header id="header" class="header text text_fz12 text_white">
         <div class="container">
             <div class="header__mobile">
                 <div class="header__humburger">
@@ -29,7 +29,7 @@
 						'echo'            => true,
 						'fallback_cb'     => 'wp_page_menu',
 						'items_wrap'      => '<ul class="header__nav-list">%3$s</ul>',
-						'depth'           => 1
+						'depth'           => 2
 					] );
 				?>
             </nav>

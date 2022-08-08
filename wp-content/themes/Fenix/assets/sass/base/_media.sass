@@ -24,7 +24,9 @@
                     height: 310px
         &__market
             &-item 
-                min-height: 600px
+                height: 600px
+                &:not(:last-child)
+                    margin-bottom: 23px
         &__cases
             &-items 
                 padding-left: 180px
@@ -94,7 +96,7 @@
             &-items 
                 margin: 100px 0px 50px
             &-item 
-                min-height: 500px
+                height: 500px
                 &-blocks 
                     margin: 42px 0px
                 &-file 
@@ -180,6 +182,11 @@
                 min-height: 326px
             &-skip 
                 height: 44px
+            &-names 
+                overflow-y: auto
+            &-name 
+                margin-right: 10px
+                min-width: fit-content
             &-page 
                 &-info 
                     width: 385px
@@ -195,7 +202,10 @@
             &-items 
                 margin: 50px 0px
             &-item 
+                height: unset
                 min-height: 427px
+                &:not(:last-child)
+                    margin-bottom: 6px
                 &-info 
                     width: 60%
                     padding: 20px 0px
@@ -257,6 +267,9 @@
 @media (max-width: 768px)
     .container
         width: 540px
+    .button
+        &_black 
+            margin-right: 32px
     .text
         &_fz12
             font-size: 11px
@@ -491,11 +504,6 @@
                 &-image 
                     width: 0
                     margin-left: 0
-            &-names 
-                overflow-y: auto
-            &-name 
-                margin-right: 10px
-                min-width: fit-content
             &-skip 
                 margin: 9px auto 0px
         &__market 
@@ -505,7 +513,7 @@
                     width: 100%
                 &-file 
                     width: 100%
-                    height: 339px
+                    height: 538px
             &-title 
                 &-top, &-bott 
                     flex-direction: column
@@ -537,3 +545,13 @@
                 margin-bottom: 17px
                 .half
                     margin: 0px 4px
+@media (max-width: 400px)
+    .main
+        &__market 
+            &-item 
+                flex-direction: column-reverse
+                &-info 
+                    width: 100%
+                &-file 
+                    width: 100%
+                    height: 339px

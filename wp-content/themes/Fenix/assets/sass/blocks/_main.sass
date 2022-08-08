@@ -127,14 +127,27 @@
                     transform: translate(-50%, -50%)
     &__market
         &-items 
+            overflow: hidden
             margin: 154px 0px 50px
+            position: relative
+            height: 100vh
         &-item 
             display: flex
             justify-content: space-between
             border-top: 1px solid #D9D9D9
             border-bottom: 1px solid #D9D9D9
-            min-height: 670px
+            //height: 670px
+            height: 100vh
             width: 100%
+            position: absolute
+            background-color: #fff
+            transition: 0.5s all
+            &:not(:first-child)
+                top: 100%
+            &:not(:last-child)
+                margin-bottom: 37px
+            &-title 
+                max-width: 480px
             &-info 
                 padding: 30px 0px
                 display: flex
@@ -290,9 +303,9 @@
                 width: 92px
                 height: 64px
                 margin: 0px 16px 16px 0px
-                transition: 0.7s all
                 cursor: pointer
-                &.active
+                transition: 0.7s all
+                &.active, &:hover
                     box-shadow: 0px 4px 9px rgba(94, 94, 94, 0.25)
                     border: 6px solid #fff
         &-item 
@@ -325,6 +338,8 @@
                 border: none
                 background: none
                 border-bottom: 1px solid #B6B6B6
+                &::placeholder
+                    color: #BDBDBD
             textarea
                 padding: 5px
                 width: 400px
