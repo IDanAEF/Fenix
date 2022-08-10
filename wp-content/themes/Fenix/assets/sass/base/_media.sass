@@ -24,7 +24,7 @@
                     height: 310px
         &__market
             &-item 
-                height: 600px
+                //height: 600px
                 &:not(:last-child)
                     margin-bottom: 23px
         &__cases
@@ -85,18 +85,18 @@
         &__services
             padding: 70px 0px 100px
             &-pages 
-                min-height: 400px
+                //min-height: 400px
             &-page 
                 &-info 
                     width: 526px
                 &-image 
-                    width: 430px
+                    //width: 430px
                     margin-left: 25px
         &__market
             &-items 
                 margin: 100px 0px 50px
             &-item 
-                height: 500px
+                //height: 500px
                 &-blocks 
                     margin: 42px 0px
                 &-file 
@@ -155,6 +155,9 @@
 @media (max-width: 992px)
     .container
         width: 720px
+    a 
+        &.back_top
+            width: 43px
     .title
         &_fz32 
             font-size: 20px
@@ -178,9 +181,14 @@
                     margin-right: 5px
         &__services
             padding: 70px 0px
+            .container
+                width: 720px
+            &-window 
+                height: unset
             &-pages 
                 min-height: 326px
             &-skip 
+                display: none
                 height: 44px
             &-names 
                 overflow-y: auto
@@ -201,7 +209,9 @@
         &__market 
             &-items 
                 margin: 50px 0px
+                height: unset
             &-item 
+                position: static
                 height: unset
                 min-height: 427px
                 &:not(:last-child)
@@ -443,6 +453,9 @@
     .container
         width: 100%
         padding: 0px 15px
+    a 
+        &.back_top 
+            width: 29px
     .title 
         &_fz120 
             font-size: 36px

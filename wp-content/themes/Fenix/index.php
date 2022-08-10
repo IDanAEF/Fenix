@@ -57,64 +57,66 @@
     <section class="main__services">
         <div class="container">
             <h2 class="main__services-title title title_fz120 text_fw700 text_upper text_animate">Услуги</h2>
-            <div class="main__services-pages">
-            <?php
-                $names = [];
-                $my_posts = get_posts(array(
-                    'numberposts' => -1,
-                    'category_name'    => 'services',
-                    'orderby'     => 'date',
-                    'order'       => 'DESC',
-                    'post_type'   => 'post',
-                    'suppress_filters' => true
-                ));
-
-                foreach ($my_posts as $post) {
-                    setup_postdata($post);
-                    $names[] = get_the_title();
-                    ?>
-                        <article class="main__services-page text text_fz14">
-                            <div class="main__services-page-info">
-                                <h3 class="main__services-page-title title_fz32 text_fw700 text_animate"><?php the_title(); ?></h3>
-                                <div class="main__services-page-blocks">
-                                    <div class="main__services-page-blocks-item">
-                                        <div class="main__services-page-blocks-title text_fw700 text_upper text_animate">Что делаем</div>
-                                        <div class="main__services-page-blocks-descr text_animate"><?php the_field('todo'); ?></div>
-                                    </div>
-                                    <div class="main__services-page-blocks-item">
-                                        <div class="main__services-page-blocks-title text_fw700 text_upper text_animate">Результат</div>
-                                        <div class="main__services-page-blocks-descr text_animate"><?php the_field('result'); ?></div>
-                                    </div>
-                                </div>
-                                <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
-                            </div>
-                            <div class="main__services-page-image">
-                                <?php the_post_thumbnail(); ?>
-                            </div>
-                        </article>
-                    <?php
-			    }
-
-			    wp_reset_postdata();
-			?>
-            </div>
-            <div class="main__services-names text text_fz14">
+            <div class="main__services-window">
+                <div class="main__services-pages">
                 <?php
-                    for($i = count($names) - 1; $i >= 0; $i--) {
+                    $names = [];
+                    $my_posts = get_posts(array(
+                        'numberposts' => -1,
+                        'category_name'    => 'services',
+                        'orderby'     => 'date',
+                        'order'       => 'DESC',
+                        'post_type'   => 'post',
+                        'suppress_filters' => true
+                    ));
+
+                    foreach ($my_posts as $post) {
+                        setup_postdata($post);
+                        $names[] = get_the_title();
                         ?>
-                        <div class="main__services-name<?=$i == count($names) - 1 ? ' active': ''?>">
-                            <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""><span><?=$names[$i]?></span>
-                        </div>
+                            <article class="main__services-page text text_fz14">
+                                <div class="main__services-page-info">
+                                    <h3 class="main__services-page-title title_fz32 text_fw700 text_animate"><?php the_title(); ?></h3>
+                                    <div class="main__services-page-blocks">
+                                        <div class="main__services-page-blocks-item">
+                                            <div class="main__services-page-blocks-title text_fw700 text_upper text_animate">Что делаем</div>
+                                            <div class="main__services-page-blocks-descr text_animate"><?php the_field('todo'); ?></div>
+                                        </div>
+                                        <div class="main__services-page-blocks-item">
+                                            <div class="main__services-page-blocks-title text_fw700 text_upper text_animate">Результат</div>
+                                            <div class="main__services-page-blocks-descr text_animate"><?php the_field('result'); ?></div>
+                                        </div>
+                                    </div>
+                                    <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
+                                </div>
+                                <div class="main__services-page-image">
+                                    <?php the_post_thumbnail(); ?>
+                                </div>
+                            </article>
                         <?php
                     }
+
+                    wp_reset_postdata();
                 ?>
-            </div>
-            <div class="main__services-skip">
-                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
+                </div>
+                <div class="main__services-names text text_fz14">
+                    <?php
+                        for($i = count($names) - 1; $i >= 0; $i--) {
+                            ?>
+                            <div class="main__services-name">
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""><span><?=$names[$i]?></span>
+                            </div>
+                            <?php
+                        }
+                    ?>
+                </div>
+                <a href="#market" class="main__services-skip">
+                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
+                </a>
             </div>
         </div>
     </section>
-    <section class="main__market">
+    <section id="market" class="main__market">
         <?php
             $market = [];
             $my_posts = get_posts(array(

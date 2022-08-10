@@ -18,18 +18,20 @@ function animate() {
             allBott = true;
 
         window.addEventListener('scroll', () => {
-            if ((window.pageYOffset >= contPos() && !stop && !allTop) || (window.pageYOffset + window.innerHeight <= contPosBott() && !stop && !allBott)) {
-                document.querySelector('html').classList.add('fixed');
-                document.querySelector('body').classList.add('fixed');
-                stop = true;
-            }
-            if (stop) {
-                window.scroll(0, contPos());
+            if (window.innerWidth >= 992) {
+                if ((window.pageYOffset >= contPos() && !stop && !allTop) || (window.pageYOffset + window.innerHeight <= contPosBott() && !stop && !allBott)) {
+                    document.querySelector('html').classList.add('fixed');
+                    document.querySelector('body').classList.add('fixed');
+                    stop = true;
+                }
+                if (stop) {
+                    window.scroll(0, contPos());
+                }
             }
         });
 
         window.addEventListener('mousewheel', (e) => {
-            if (stop) {
+            if (stop && window.innerWidth >= 992) {
                 if (e.deltaY > 0) {
                     top -= 10;
                     if (top == -10) {
@@ -75,15 +77,19 @@ function animate() {
         //text animate
         const targetText = document.querySelectorAll('.text_animate');
 
+        function returnHeight() {
+            return window.innerWidth <= 600 ? window.innerHeight / 1.05 : window.innerHeight / 1.2
+        }
+
         targetText.forEach(item => {
-            if ((window.innerHeight / 1.2) + window.pageYOffset >= item.getBoundingClientRect().y + window.pageYOffset) {
+            if (returnHeight() + window.pageYOffset >= item.getBoundingClientRect().y + window.pageYOffset) {
                 item.classList.add('anim');
             }
         });
 
         window.addEventListener('scroll', () => {
             targetText.forEach(item => {
-                if ((window.innerHeight / 1.2) + window.pageYOffset >= item.getBoundingClientRect().y + window.pageYOffset) {
+                if (returnHeight() + window.pageYOffset >= item.getBoundingClientRect().y + window.pageYOffset) {
                     item.classList.add('anim');
                 }
             });

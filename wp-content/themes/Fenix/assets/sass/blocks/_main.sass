@@ -47,6 +47,10 @@
                 margin-right: 16px
     &__services
         padding: 70px 0px 170px
+        .container
+            width: 95%
+        &-window 
+            height: 97vh
         &-skip 
             width: 32px
             height: 65px
@@ -58,6 +62,10 @@
             padding: 15px 0px
             margin: 24px auto 0px
             cursor: pointer
+            transition: 0.5s all
+            &.hide
+                opacity: 0
+                visibility: hidden
             img 
                 transform: rotate(90deg)
                 width: 11px
@@ -65,7 +73,9 @@
             margin-top: 10px
             display: flex
             position: relative
-            min-height: 458px
+            //min-height: 458px
+            min-height: 80%
+            overflow: hidden
         &-names 
             padding: 16px 0px
             border-top: 1px solid #D9D9D9
@@ -77,17 +87,23 @@
             align-items: center
             cursor: pointer
             img 
-                display: none
-                width: 14px
+                display: inline-block
+                width: 0
+                opacity: 0
+                visibility: hidden
                 margin-right: 12px
+                transition: 0.5s all
             span
                 opacity: 0.5
+                transition: 0.5s all
             &.active
                 span 
                     opacity: 1
                     border-bottom: 1px solid #D8612B
                 img 
-                    display: inline-block
+                    width: 14px
+                    visibility: visible
+                    opacity: 1
         &-page 
             width: 100%
             height: 100%
@@ -96,7 +112,10 @@
             display: flex
             justify-content: space-between
             position: absolute
-            transition: 0.5s all
+            transition: 0.8s all
+            left: 0%
+            &.slide
+                left: -100% !important
             &-info 
                 padding: 30px 0px
                 display: flex
@@ -114,7 +133,8 @@
                         margin-right: 32px
             &-image 
                 height: 100%
-                width: 535px
+                //width: 535px
+                width: 56%
                 position: relative
                 margin-left: 51px
                 img 
@@ -331,6 +351,18 @@
     &__feed
         padding: 150px 0px 115px
         form 
+            position: relative
+            &[data-status="invalid"], &[data-status="failed"]
+                .wpcf7-response-output
+                    color: #C92626
+            .wpcf7-response-output
+                padding: 0
+                margin: 0
+                border: none
+                position: absolute
+                bottom: 136px
+            .wpcf7-not-valid-tip
+                display: none
             .undertitle
                 margin-bottom: 101px
                 display: block
@@ -349,13 +381,54 @@
                 padding: 5px 0px
                 margin-bottom: 19px
                 width: 100%
+                &[aria-invalid="true"]
+                    &::placeholder
+                        color: #C92626
                 &[type="file"]
                     display: none
+            .file_name
+                display: flex
+                align-items: center
+                justify-content: space-between
+                margin-bottom: 10px
+                .close
+                    position: relative
+                    width: 15px
+                    height: 15px
+                    cursor: pointer
+                    span 
+                        background-color: #B6B6B6
+                        width: 100%
+                        height: 1px
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        transform: translate(-50%, -50%)
+                        &:first-child
+                            transform: translate(-50%, -50%) rotate(-45deg)
+                        &:last-child
+                            transform: translate(-50%, -50%) rotate(45deg)
             .file_label
                 display: flex
                 align-items: center
                 color: #B6B6B6
                 cursor: pointer
+                .plus
+                    width: 10px
+                    height: 10px
+                    margin-right: 6px
+                    position: relative
+                    span 
+                        display: block
+                        background-color: #BDBDBD
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        width: 100%
+                        height: 1px
+                        transform: translate(-50%, -50%)
+                        &:first-child
+                            transform: translate(-50%, -50%) rotate(90deg)
                 .gray_arrow
                     width: 13px
                     height: 17px
@@ -370,6 +443,8 @@
             .policy
                 color: #BDBDBD
                 margin: 24px 0px 36px
+                &.mt
+                    margin: 65px 0px 36px
             .form
                 &_blocks
                     width: 400px
