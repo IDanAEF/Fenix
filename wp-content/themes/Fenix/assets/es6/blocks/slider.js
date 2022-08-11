@@ -108,18 +108,56 @@ function slider() {
 
         let stop = false,
             allLeft = false,
-            allRight = true;
+            allRight = true,
+            once = false,
+            timing = false,
+            skipTop = false;
 
         sSliderSkip.addEventListener('click', () => {
             stop = false;
             allLeft = true;
             allRight = false;
+            skipTop = true;
             document.querySelector('html').classList.remove('fixed');
             document.querySelector('body').classList.remove('fixed');
         });
 
+        function setAnimSlide(delta) {
+            if (delta > 0) {
+                count++;
+                if (count >= sSliderItem.length) {
+                    stop = false;
+                    count = sSliderItem.length - 1;
+                    allLeft = true;
+                    allRight = false;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
+                    once = false;
+                } else {
+                    setSSlide(count);
+                }
+            } else {
+                count--;
+                if (count < 0) {
+                    stop = false;
+                    count = 0;
+                    allLeft = false;
+                    allRight = true;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
+                    once = false;
+                } else {
+                    setSSlide(count);
+                }
+            }
+        }
+
+        const marketPos = document.querySelector('#market').getBoundingClientRect().top + window.pageYOffset;
+
         window.addEventListener('scroll', () => {
-            if (window.innerWidth >= 992) {
+            if (skipTop && marketPos <= window.pageYOffset) {
+                skipTop = false;
+            } else if (!skipTop && window.innerWidth >= 992) {
                 if ((window.pageYOffset >= contPos() && !stop && !allLeft) || (window.pageYOffset + window.innerHeight <= contPosBott() && !stop && !allRight)) {
                     document.querySelector('html').classList.add('fixed');
                     document.querySelector('body').classList.add('fixed');
@@ -131,64 +169,14 @@ function slider() {
             }
         });
 
-        window.addEventListener('mousewheel', (e) => {
+        window.addEventListener('wheel', (e) => {
             if (stop && window.innerWidth >= 992) {
-                if (e.deltaY > 0) {
-                    count++;
-                    if (count >= sSliderItem.length) {
-                        stop = false;
-                        count = sSliderItem.length - 1;
-                        allLeft = true;
-                        allRight = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    } else {
-                        setSSlide(count);
-                    }
-                    /*left -= 10;
-                    if (left == -110) {
-                        left = 0;
-                        count++;
-                    }
-                    if (count < sSliderItem.length) {
-                        sSliderItem[count].style.left = `${left}%`;
-                    } else {
-                        stop = false;
-                        count = sSliderItem.length - 1;
-                        left = 0;
-                        allLeft = true;
-                        allRight = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }*/
-                } else {
-                    count--;
-                    if (count < 0) {
-                        stop = false;
-                        count = 0;
-                        allLeft = false;
-                        allRight = true;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    } else {
-                        setSSlide(count);
-                    }
-                    /*left += 10;
-                    if (left == 110) {
-                        left = 0;
-                        count--;
-                    }
-                    if (count >= 1) {
-                        sSliderItem[count].style.left = `${left}%`;
-                    } else {
-                        stop = false;
-                        count = 1;
-                        left = 100;
-                        allRight = true;
-                        allLeft = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }*/
+                if (!timing) {
+                    timing = true;
+                    setAnimSlide(e.deltaY);
+                    setTimeout(() => {
+                        timing = false;
+                    }, 2000);
                 }
             }
         });

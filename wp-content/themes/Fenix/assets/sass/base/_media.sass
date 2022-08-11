@@ -8,6 +8,9 @@
         &__nav
             display: none
     .main
+        &__letter 
+            .container
+                padding: 0px 48px
         &__promo
             &-logo 
                 display: none
@@ -72,6 +75,10 @@
             img 
                 width: 100px
     .main
+        &__letter 
+            height: 211px
+            &-form 
+                width: 332px
         &__promo 
             padding: 10px 0px 60px
             &-slider 
@@ -167,6 +174,20 @@
             &-market
                 margin: 0px 48px 0px 35px
     .main
+        &__letter 
+            height: 155px
+            &-nospam 
+                top: 48px
+                right: -32px
+            .container
+                padding: 0px 30px
+            .tnp-subscription
+                margin: 0 !important
+                div.tnp-field
+                    margin-bottom: 5px !important
+            &-form 
+                .tnp-email
+                    margin-top: 5px !important
         &__promo 
             &-slider 
                 height: 364px
@@ -196,6 +217,7 @@
                 margin-right: 10px
                 min-width: fit-content
             &-page 
+                transition: 1s all
                 &-info 
                     width: 385px
                 &-image 
@@ -320,6 +342,24 @@
                     li
                         margin-bottom: 9px
     .main
+        &__letter
+            height: unset
+            .container
+                overflow: hidden
+                padding: 30px 30px 50px
+                flex-direction: column
+            &-title 
+                margin-bottom: 10px
+            &-form 
+                width: 290px
+                z-index: 2
+            &-image 
+                position: absolute
+                top: 0
+                left: -78px
+                z-index: 1
+            &-nospam 
+                right: -40px
         &__promo
             &-slider 
                 height: 281px
@@ -343,6 +383,8 @@
         &__services
             &-pages 
                 min-height: 337px
+            .container
+                width: 540px
             &-page 
                 z-index: 3
                 &-info 
@@ -506,10 +548,16 @@
                     img 
                         width: 18px
     .main
+        &__letter 
+            &-image 
+                opacity: 0.2
         &__promo 
             &-slider 
                 height: 210px
         &__services 
+            .container
+                width: 100%
+                padding: 0px 15px
             &-page 
                 &-info 
                     width: 100%

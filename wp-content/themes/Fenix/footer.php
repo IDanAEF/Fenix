@@ -46,6 +46,7 @@
                 <div class="footer__boss-image">
                     <img src="<?php the_field('boss_photo', 12); ?>" alt="<?php the_field('boss_name', 12); ?>" class="personal img_bg">
                     <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" class="telegram">
+                    <div class="online"></div>
                 </div>
                 <div class="footer__boss-info">
                     <h3 class="footer__boss-title text_fz18 text_fw700"><?php the_field('boss_name', 12); ?></h3>

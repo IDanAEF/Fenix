@@ -112,7 +112,7 @@
             display: flex
             justify-content: space-between
             position: absolute
-            transition: 0.8s all
+            transition: 2s all
             left: 0%
             &.slide
                 left: -100% !important
@@ -237,6 +237,62 @@
                         transform: rotate(180deg)
                 span 
                     max-width: 231px
+    &__letter
+        height: 290px
+        .container
+            height: 100%
+            background: #1C1D1D
+            display: flex
+            align-items: center
+            justify-content: space-between
+            padding: 0px 126px 0px 102px
+            position: relative
+        &-form 
+            width: 400px
+            &-mess 
+                position: absolute
+            form 
+                position: relative
+            .tnp-email
+                border: none !important
+                background: none !important
+                border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important
+                height: unset !important
+                padding: 7px 20px 7px 0px !important
+                margin-top: 30px !important
+                color: #fff !important
+            .tnp-field-button
+                position: absolute !important
+                width: 15px !important
+                height: 15px !important
+                right: 0
+                top: 50%
+                transform: translateY(-50%)
+                input 
+                    position: absolute
+                    z-index: 3
+                    width: 100% !important
+                    height: 100% !important
+                    background: none !important
+                    border: none !important
+                img 
+                    z-index: 2
+                    width: 15px
+                    height: 15px
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    opacity: 0.5
+                    transform: translate(-50%, -50%) rotate(90deg)
+        &-image 
+            height: 100%
+            width: auto
+        &-nospam
+            position: absolute
+            opacity: 0.5
+            transform: rotate(-90deg)
+            top: 53px
+            right: -25px
     &__cases
         padding: 230px 0px
         &-item
@@ -377,7 +433,20 @@
                 width: 400px
                 height: 119px
                 resize: none
-            input 
+                padding-bottom: 15px
+            span[data-name="text"]
+                position: relative
+                z-index: 1
+                &::after
+                    content: ''
+                    position: absolute
+                    display: block
+                    width: 100%
+                    height: 100%
+                    z-index: 2
+                    background: linear-gradient(0deg,#fff 48%,rgba(0,0,0,0) 154%)
+                    top: -6px
+            input
                 padding: 5px 0px
                 margin-bottom: 19px
                 width: 100%
@@ -443,6 +512,8 @@
             .policy
                 color: #BDBDBD
                 margin: 24px 0px 36px
+                a 
+                    text-decoration: underline
                 &.mt
                     margin: 65px 0px 36px
             .form

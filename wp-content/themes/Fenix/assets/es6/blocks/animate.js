@@ -30,11 +30,11 @@ function animate() {
             }
         });
 
-        window.addEventListener('mousewheel', (e) => {
+        window.addEventListener('wheel', (e) => {
             if (stop && window.innerWidth >= 992) {
                 if (e.deltaY > 0) {
-                    top -= 10;
-                    if (top == -10) {
+                    top -= 5;
+                    if (top == -5) {
                         top = 100;
                         count++;
                     }
@@ -50,8 +50,8 @@ function animate() {
                         document.querySelector('body').classList.remove('fixed');
                     }
                 } else {
-                    top += 10;
-                    if (top == 110) {
+                    top += 5;
+                    if (top == 105) {
                         top = 0;
                         count--;
                     }

@@ -1,4 +1,13 @@
 function form() {
+    async function postData(url, data) {
+        let res = await fetch(url, {
+            method: "POST",
+            body: data
+        });
+    
+        return await res.text();
+    }
+
     try {
         //main feed
         const mFeed = document.querySelector('.main__feed form'),
@@ -68,6 +77,26 @@ function form() {
             if (fileInp.files[0]) {
                 addNewInp(fileInp.files[0]['name']);
             }
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
+
+    try {
+        //letter
+        const letterForm = document.querySelector('.main__letter-form form');
+
+        letterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let formData = new FormData(letterForm);
+
+            postData('http://fenix.tw1.ru/?na=s', formData)
+            .then(() => {
+                letterForm.querySelector('.main__letter-form-mess').textContent = 'Спасибо за подписку!';
+            })
+            .catch(() => {
+                letterForm.querySelector('.main__letter-form-mess').textContent = 'Что-то пошло не так!';
+            });
         });
     } catch (e) {
         console.log(e.stack);

@@ -23,7 +23,7 @@
                 
             </div>
             <div class="main__promo-about">
-                <h2 class="main__promo-about-title title_fz32 text_fw700 text_animate">О компании</h2>
+                <h2 class="main__promo-about-title title_fz32 text_fw700 text_animate text_upper">О компании</h2>
                 <div class="main__promo-about-descr text_animate">
                     <?php the_field('about_descr') ?>
                     <a href="<?php the_field('about_button') ?>" class="main__promo-about-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
@@ -76,7 +76,7 @@
                         ?>
                             <article class="main__services-page text text_fz14">
                                 <div class="main__services-page-info">
-                                    <h3 class="main__services-page-title title_fz32 text_fw700 text_animate"><?php the_title(); ?></h3>
+                                    <h3 class="main__services-page-title title_fz32 text_fw700 text_animate text_upper"><?php the_title(); ?></h3>
                                     <div class="main__services-page-blocks">
                                         <div class="main__services-page-blocks-item">
                                             <div class="main__services-page-blocks-title text_fw700 text_upper text_animate">Что делаем</div>
@@ -181,7 +181,7 @@
                                         <?php
                                     } else {
                                         ?>
-                                        <video src="<?=$val['file']?>" autoplay preload muted loop></video>
+                                        <video src="<?=$val['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
                                         <?php
                                     }
                                 ?>
@@ -241,6 +241,32 @@
             <?php if ($i >= 3) : ?>
             <a href="/blog/" class="main__market-all button button_black title title_fz48 text_fw700 text_animate">смотреть все<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>
             <?php endif; ?>
+        </div>
+    </section>
+    <section class="main__letter">
+        <div class="container">
+            <div class="main__letter-title title_fz48 text_fw700 text_white text_upper">Подписка</div>
+            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" class="main__letter-image">
+            <div class="main__letter-form">
+                <div class="main__letter-form-sub text_white text_fz14">
+                    Подпишитесь на нашу ежемесячную рассылку<br>и будьте в курсе самых свежих обновлений
+                </div>
+                <div class="tnp tnp-subscription text_white text_fz12">
+                    <form method="post" action="http://fenix.tw1.ru/?na=s">
+
+                    <input type="hidden" name="nlang" value=""><div class="tnp-field tnp-field-email">
+                    <input class="tnp-email" type="email" name="ne" id="tnp-1" value="" required placeholder="Введите ваш e-mail"></div>
+                    <div class="tnp-field tnp-field-button">
+                        <input class="tnp-submit" type="submit" value="" >
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_light_small.svg" alt="arrow_light">
+                    </div>
+                    <div class="main__letter-form-mess text-white text_fz14"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="main__letter-nospam text_white text_fz12">
+            Никакого спама
+            </div>
         </div>
     </section>
     <section class="main__cases">
