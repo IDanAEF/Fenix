@@ -1,12 +1,86 @@
-@media (max-width: 1400px)
-    .container
-        width: 1140px
+@media (min-width: 1930px)
+    .text
+        &_fz10
+            font-size: 20px
+            line-height: 24px
+        &_fz12
+            font-size: 22px
+            line-height: 27px
+        &_fz14 
+            font-size: 24px
+            line-height: 30px
+        &_fz18
+            font-size: 28px
+            line-height: 35px
+    .title
+        &_fz24
+            font-size: 34px
+            line-height: 42px
+        &_fz32 
+            font-size: 42px
+            line-height: 54px
+        &_fz48 
+            font-size: 58px
+            line-height: 64px
+        &_fz120
+            font-size: 130px
+            line-height: 150px
     .header
-        &__mobile
-            display: flex
+        &__nav 
+            ul 
+                li
+                    &.menu-item-has-children
+                        &::before
+                           width: 15px
+                           height: 7px
+                           background: url(../images/arrow_down_menu.svg) center center/cover no-repeat 
+    .main
+        &__promo 
+            &-slider 
+                height: 1100px
+        &__cases 
+            &-item 
+                &-type 
+                    width: 620px
+                &-main 
+                    max-width: 70%
+        &__market 
+            &-title 
+                &-bott 
+                    span 
+                        max-width: 601px
+        &__stocks 
+            &-list 
+                width: 567px
+                &-item 
+                    width: 171px
+                    height: 124px
+            &-item 
+                &-image 
+                    height: 990px
+    .footer
+        &__boss 
             align-items: center
-        &__nav
-            display: none
+            &-image 
+                width: 101px
+                height: 101px
+                .telegram
+                    width: 37px
+                .online
+                    width: 15px
+                    height: 15px
+@media (max-width: 1400px)
+    /*.container
+        width: 1140px*/
+    .header
+        &__nav 
+            ul 
+                li 
+                    &.menu-item-has-children
+                        &::before
+                            right: -14px
+                    &:not(:last-child)
+                        margin-right: 18px
     .main
         &__letter 
             .container
@@ -18,29 +92,31 @@
                 height: 570px
         &__advantages
             &-item 
-                width: 360px
+                //width: 360px
         &__blog 
             &-items 
-                grid-template: auto / repeat(3, 365px)
+                //grid-template: auto / repeat(3, 365px)
             &-item 
                 &-info
                     height: 310px
         &__market
+            &-items 
+                height: 600px
             &-item 
-                //height: 600px
+                height: 600px
                 &:not(:last-child)
                     margin-bottom: 23px
         &__cases
             &-items 
-                padding-left: 180px
+                //padding-left: 180px
         &__stocks
             &-item 
                 &-image 
                     height: 518px
-                    width: 765px
+                    //width: 765px
 @media (max-width: 1200px)
-    .container
-        width: 960px
+    //.container
+    //    width: 960px
     .button_arrow
         .arrow
             width: 33px
@@ -71,14 +147,18 @@
     .header
         height: 74px
         padding: 23px 0px
+        &__nav 
+            display: none
         &__mobile
+            display: flex
+            align-items: center
             img 
                 width: 100px
     .main
         &__letter 
             height: 211px
             &-form 
-                width: 332px
+                //width: 332px
         &__promo 
             padding: 10px 0px 60px
             &-slider 
@@ -88,33 +168,33 @@
             &-items 
                 margin-top: 60px
             &-item 
-                width: 310px
+                //width: 310px
         &__services
             padding: 70px 0px 100px
             &-pages 
                 //min-height: 400px
             &-page 
                 &-info 
-                    width: 526px
+                    //width: 526px
                 &-image 
                     //width: 430px
                     margin-left: 25px
         &__market
             &-items 
                 margin: 100px 0px 50px
+                height: 500px
             &-item 
-                //height: 500px
+                height: 500px
                 &-blocks 
                     margin: 42px 0px
                 &-file 
                     width: 40%
-                    margin-left: 37px
                 &-info 
                     width: 56%
         &__blog 
             padding: 100px 0px
             &-items 
-                grid-template: auto / repeat(3, 311px)
+                //grid-template: auto / repeat(3, 311px)
             &-item 
                 &-info 
                     height: 252px
@@ -122,10 +202,13 @@
                 &-result 
                     padding: 16px
                     height: 72px
+                    span 
+                        max-width: 84%
         &__cases 
-            padding: 150px 0px
+            //padding: 150px 0px
+            padding-bottom: 150px
             &-items 
-                padding-left: 80px
+                //padding-left: 80px
             &-item 
                 padding: 16px 0px
                 min-height: 200px
@@ -151,17 +234,17 @@
             &-item 
                 &-image 
                     height: 428px
-                    width: 658px
+                    //width: 658px
                 &-info 
-                    max-width: 267px
+                    //max-width: 267px
         &__feed
             padding: 100px 0px 100px
             form 
                 .undertitle
                     margin-bottom: 60px
 @media (max-width: 992px)
-    .container
-        width: 720px
+    //.container
+    //    width: 720px
     a 
         &.back_top
             width: 43px
@@ -176,6 +259,8 @@
     .main
         &__letter 
             height: 155px
+            &-form
+                width: 47.5%
             &-nospam 
                 top: 48px
                 right: -32px
@@ -193,17 +278,17 @@
                 height: 364px
             &-about 
                 &-descr
-                    max-width: 468px
+                    //max-width: 468px
         &__advantages
             &-item 
-                width: 228px
+                //width: 228px
                 img 
                     width: 22px
                     margin-right: 5px
         &__services
             padding: 70px 0px
-            .container
-                width: 720px
+            //.container
+            //    width: 720px
             &-window 
                 height: unset
             &-pages 
@@ -219,15 +304,12 @@
             &-page 
                 transition: 1s all
                 &-info 
-                    width: 385px
+                    //width: 385px
                 &-image 
-                    width: 318px
+                    //width: 318px
                     margin-left: 12px
                 &-blocks 
                     margin: 28px 0px
-                    &-item
-                        &:first-child
-                            margin-right: 4px
         &__market 
             &-items 
                 margin: 50px 0px
@@ -245,7 +327,6 @@
                     margin: 25px 0px
                 &-file 
                     width: 37%
-                    margin-left: 0
         &__blog 
             &-item 
                 &-info 
@@ -254,9 +335,10 @@
                     img 
                         width: 19px
             &-items 
-                    grid-template: auto / repeat(3, 233px)
+                //grid-template: auto / repeat(3, 233px)
         &__cases 
-            padding: 100px 0px
+            //padding: 100px 0px
+            padding-bottom: 100px
             &-items 
                 padding-left: 0
             &-item 
@@ -273,9 +355,9 @@
             &-item 
                 &-image 
                     height: 312px
-                    width: 463px
+                    //width: 463px
                 &-info 
-                    max-width: 231px
+                    //max-width: 231px
             &-list 
                 bottom: -43px
                 right: 26px
@@ -297,8 +379,8 @@
                 margin-bottom: 10px
                 margin-right: 0
 @media (max-width: 768px)
-    .container
-        width: 540px
+    //.container
+    //    width: 540px
     .button
         &_black 
             margin-right: 32px
@@ -317,7 +399,7 @@
             font-size: 15px
             line-height: 23px
         &_fz32 
-            font-size: 17px
+            font-size: 23px
             line-height: 29px
         &_fz48 
             font-size: 22px
@@ -371,7 +453,7 @@
                 &-descr
                     max-width: 100%
         &__advantages
-            padding: 70px 0px
+            padding: 39px 0px 0px
             &-items 
                 margin-top: 40px
                 flex-direction: column
@@ -383,12 +465,12 @@
         &__services
             &-pages 
                 min-height: 337px
-            .container
-                width: 540px
+            //.container
+            //    width: 540px
             &-page 
                 z-index: 3
                 &-info 
-                    width: 414px
+                    //width: 414px
                     background-color: rgba(255, 255, 255, 0.7)
                     padding: 30px 18px
                     z-index: 2
@@ -398,8 +480,8 @@
                     &-title 
                         margin-bottom: 0
                     &-item
+                        max-width: 100%
                         &:first-child
-                            margin-right: 0
                             margin-bottom: 5px
                 &-image 
                     position: static
@@ -477,6 +559,10 @@
                     width: 100%
                 textarea
                     margin-bottom: 20px
+                span 
+                    &[data-name="text"]
+                        &::after
+                            top: -25px
     .footer
         padding: 30px 0px
         &__top
@@ -500,32 +586,91 @@
             width: 29px
     .title 
         &_fz120 
-            font-size: 36px
-            line-height: 50px
+            font-size: 33px
+            line-height: 43px
     .mobile
         overflow-y: auto
         padding: 55px 32px 32px
         &__close
             top: 18px
             right: 19px
+            width: 27px
+            height: 27px
+            span 
+                background-color: #D8612B
+        &__arrows 
+            &.active
+                width: auto
+                visibility: visible
+                opacity: 1
         &__phone 
+            display: none
             margin: 16px 0px
             position: relative
             left: 50%
             transform: translateX(-50%)
         &__nav 
             flex-wrap: wrap
+            flex-direction: column-reverse
+            &-title
+                &.active
+                    color: #D8612B
+                    padding-left: 39px
+            li, &-title 
+                transition: 0.5s all 
+                &:hover
+                    color: #fff
+            &-pages, &-title
+                font-size: 22px
+                color: rgba(255, 255, 255, 0.8)
+            &-pages 
+                ul 
+                    li 
+                        margin-bottom: 14px
+            &-market, &-services 
+                &-list 
+                    width: 100vw
+                    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25)
+                    padding: 0px 32px
+                    left: 50%
+                    transform: translateX(-50%)
+                ul
+                    height: 0
+                    opacity: 0
+                    visibility: hidden
+                    transition: 0.5s all
+                    position: absolute
+                    z-index: 10
+                    background-color: #1c1d1d
+                    &.active
+                        height: auto
+                        opacity: 1
+                        visibility: visible
+                    li 
+                        font-size: 15px
+                        line-height: 20px
             nav 
                 margin: 0px 17px 14px 0px
+                width: 100%
+                position: relative
         &__bott 
             flex-direction: column
+            align-items: flex-start
         &__info 
             margin-top: 18px
+        &__button 
+            font-size: 16px
+            margin: 25px 0px 30px
+            color: #D8612B
+            border-bottom: 1px solid #d8612b
+            .arrow
+                display: none
     .header
-        height: 86px
+        height: 59px
         padding: 16px 0px
         position: relative
         &__lang 
+            display: none
             margin-right: 8px
         .container
             flex-direction: column
@@ -534,11 +679,21 @@
             justify-content: space-between
             margin-top: 11px
             width: 100%
+        &__humburger
+            margin-right: 0
+            width: 33px
+            height: 17px
         &__mobile
-            align-items: 
+            align-items: center
+            flex-direction: row-reverse
+            justify-content: space-between
+            width: 100%
             img 
-                width: 87px
+                width: 113px
+        &__button
+            display: none
         &__contact
+            display: none
             position: absolute
             right: 16px
             top: 21px
@@ -552,58 +707,214 @@
             &-image 
                 opacity: 0.2
         &__promo 
+            padding: 0px 0px 60px
             &-slider 
-                height: 210px
+                width: 100vw
+                position: relative
+                left: 50%
+                transform: translateX(-50%)
+                height: 512px
+        &__blog 
+            padding: 100px 0px 67px
+            &-item 
+                &-back 
+                    display: none
         &__services 
+            padding: 62px 0px 50px
             .container
                 width: 100%
                 padding: 0px 15px
+            &-window 
+                display: flex
+                flex-direction: column-reverse
+            &-pages 
+                min-height: 495px
+            &-rage 
+                display: block
             &-page 
                 &-info 
-                    width: 100%
+                    max-width: 100%
                     background-color: rgba(255,255,255,.85)
                 &-image 
+                    display: none
                     width: 0
                     margin-left: 0
+                &-blocks 
+                    margin: 36px 0px
+                    &-item 
+                        &:first-child
+                            margin-bottom: 24px
             &-skip 
                 margin: 9px auto 0px
         &__market 
+            &-items 
+                overflow: visible
             &-item 
                 flex-direction: column-reverse
+                padding: 30px 0px
+                min-height: auto
+                &-title 
+                    display: none
+                &-tap 
+                    display: flex
+                    &.active
+                        margin-bottom: 30px
+                        img 
+                            transform: rotate(-135deg)
                 &-info 
                     width: 100%
+                    height: 0px 
+                    opacity: 0
+                    overflow: hidden
+                    transition: 0.5s all
+                    padding: 0
+                    &.active
+                        padding: 13px 0px
+                        height: auto
+                        opacity: 1
                 &-file 
-                    width: 100%
-                    height: 538px
+                    width: 100vw
+                    left: -15px
+                    height: 0px
+                    opacity: 0
+                    transition: 0.5s all
+                    &.active
+                        opacity: 1
+                        height: 538px
+                &-blocks 
+                    &-item 
+                        &:first-child
+                            margin-bottom: 24px
+                    &-title 
+                        margin-bottom: 12px
             &-title 
+                &-top 
+                    margin-left: 32px
+                    position: relative
+                    span 
+                        position: absolute
+                        bottom: -36px
+                        right: -11px
+                        font-size: 11px
+                        line-height: 16px
                 &-top, &-bott 
                     flex-direction: column
                     align-items: flex-start
                     span 
                         margin: 0
+                &-bott 
+                    span 
+                        margin-top: 16px
         &__cases
             &-item 
+                padding: 23px 0px
+                min-height: auto
+                &-title 
+                    width: 85%
+                    margin-bottom: 10px
+                &-target 
+                    display: block
+                    transition: 0.5s all
+                    &.active
+                        transform: rotate(45deg)
+                &-character 
+                    flex-direction: column
+                    opacity: 0
+                    visibility: hidden
+                    height: 0
+                    overflow: hidden
+                    transition: 0.5s opacity
+                    &.active
+                        height: auto
+                        opacity: 1
+                        visibility: visible
+                &-result 
+                    display: flex
+                    align-items: flex-end
+                    justify-content: space-around
+                    flex-wrap: wrap
+                    margin: 24px 0px
+                &-logo 
+                    display: none
                 &-type 
                     margin-left: 0
         &__stocks
             &-item 
                 &-image 
+                    position: relative
+                    left: -15px
                     height: 263px
-                    margin-bottom: 113px
+                    margin-bottom: 48px
             &-list 
-                bottom: 104px
-                right: 50%
-                transform: translateX(50%)
+                bottom: 135px
+                right: -17px
+                width: 232px
+                justify-content: flex-end
         &__feed 
-            padding: 35px 0px
+            padding: 35px 0px 81px
             form 
+                .wpcf7-response-output
+                    bottom: -44px
+                textarea
+                    height: 78px
+                .policy
+                    margin: 118px 0px 15px !important
                 .undertitle 
                     margin-bottom: 30px
+                span
+                    &[data-name=text]
+                        position: absolute
+                        width: 100%
+                        height: 16px
+                        bottom: 160px
+                        &::after 
+                            top: unset
+                            bottom: -61px
     .footer
+        padding: 53px 0px 35px
+        nav 
+            display: none
+        .header
+            &__lang 
+                display: none
+        &__boss 
+            margin-bottom: 72px
+            &-title 
+                font-size: 18px
+            &-image 
+                width: 96px
+                height: 96px
+                margin-bottom: 18px
+                .online 
+                    right: 11px
+                    width: 14px
+                    height: 14px
+                .telegram
+                    width: 35px
+        &__top 
+            flex-direction: column
+            align-items: center
+        &__siteinfo 
+            width: 100%
+            text-align: left
+            align-items: flex-start
+            .email 
+                font-size: 15px
+            .social 
+                margin-top: 62px
         &__bott 
             flex-direction: column
+            margin-top: 56px
+            position: relative
+            img 
+                width: 137px
+            &-right 
+                position: absolute
+                bottom: calc(100% + 52px)
+                right: 0
             &-left 
-                margin-bottom: 17px
+                width: 100%
+                justify-content: space-between
                 .half
                     margin: 0px 4px
 @media (max-width: 400px)
@@ -614,5 +925,6 @@
                 &-info 
                     width: 100%
                 &-file 
-                    width: 100%
-                    height: 339px
+                    height: 0px
+                    &.active
+                        height: 400px

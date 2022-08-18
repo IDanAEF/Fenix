@@ -56,7 +56,7 @@
     </section>
     <section class="main__services">
         <div class="container">
-            <h2 class="main__services-title title title_fz120 text_fw700 text_upper text_animate">Услуги</h2>
+            <h2 class="main__services-title title title_fz120 text_fw700 text_upper text_animate">Услуги<div class="main__services-rage text_fz18 text_fw400"><span class="curr text_orange"></span> / <span class="all"></span></div></h2>
             <div class="main__services-window">
                 <div class="main__services-pages">
                 <?php
@@ -186,6 +186,10 @@
                                     }
                                 ?>
                             </div>
+                            <div class="main__market-item-tap title title_fz48 text_upper text_fw700">
+                                <?=$val['title']?>
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
+                            </div>
                         </article>
                         <?php
                     }
@@ -198,7 +202,7 @@
     </section>
     <section class="main__blog">
         <div class="container">
-            <h2 class="main__blog-title title title_fz48 text_fw700 text_upper text_animate">Блог</h2>
+            <h2 class="main__blog-title title title_fz48 text_fw700 text_upper text_animate">О НАС ГОВОРЯТ</h2>
             <div class="main__blog-items">
             <?php
                 $my_posts = get_posts(array(
@@ -214,8 +218,11 @@
                 foreach ($my_posts as $post) {
                     setup_postdata($post);
                     ?>
-                    <article class="main__blog-item text text_fz14">
+                    <article class="main__blog-item text text_fz14" onclick="window.location.href='<?php echo get_the_permalink(); ?>';">
                         <div class="main__blog-item-info">
+                            <div class="main__blog-item-back">
+                                <?= get_the_post_thumbnail() ? get_the_post_thumbnail() : '<img src="/wp-content/themes/Fenix/assets/images/point.svg" alt="back">'; ?>
+                            </div>
                             <div class="main__blog-item-top">
                                 <h3 class="main__blog-item-title text_fw700 text_upper text_animate"><?php the_title(); ?></h3>
                                 <div class="main__blog-item-undertitle text_animate">
@@ -228,7 +235,9 @@
                         </div>
                         <div class="main__blog-item-result text_white">
                             <span><?php the_field('result'); ?></span>
+                            <?php if (get_field('result')) : ?>
                             <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_light.svg" alt="arrow_light" class="<?php the_field('arrow'); ?>">
+                            <?php endif; ?>
                         </div>
                     </article>
                     <?php
@@ -243,7 +252,7 @@
             <?php endif; ?>
         </div>
     </section>
-    <section class="main__letter">
+    <!--<section class="main__letter">
         <div class="container">
             <div class="main__letter-title title_fz48 text_fw700 text_white text_upper">Подписка</div>
             <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" class="main__letter-image">
@@ -268,7 +277,7 @@
             Никакого спама
             </div>
         </div>
-    </section>
+    </section>-->
     <section class="main__cases">
         <div class="container">
             <h2 class="main__cases-title text text_fz14 text_fw400 text_animate">Кейсы наших клиентов</h2>
@@ -286,7 +295,11 @@
                 foreach ($my_posts as $post) {
                     setup_postdata($post);
                     ?>
-                    <article class="main__cases-item text text_fz14" onclick="window.location.href='<?php echo get_the_permalink(); ?>';">
+                    <article class="main__cases-item text text_fz14" data-url="<?php echo get_the_permalink(); ?>">
+                        <div class="main__cases-item-target">
+                            <span></span>
+                            <span></span>
+                        </div>
                         <div class="main__cases-item-main">
                             <div class="main__cases-item-number text_animate">(<?=$i++?>)</div>
                             <div class="main__cases-item-logo text_animate"><?php the_post_thumbnail(); ?></div>
@@ -316,7 +329,7 @@
             ?>
             </div>
             <?php if ($i > 5) : ?>
-            <a href="/projects/" class="main__market-all button button_black title title_fz48 text_fw700 text_animate">все кейсы<span class="text text_fz12 text_fw400 text_normal">(17)</span></a>
+            <a href="/projects/" class="main__market-all button button_black title title_fz48 text_fw700 text_animate">все кейсы<span class="text text_fz12 text_fw400 text_normal">(17+)</span></a>
             <?php endif; ?>
         </div>
     </section>

@@ -105,7 +105,7 @@
                 ?>
             </nav>
             <nav class="mobile__nav-market text_fz12">
-                <a href="/market/" class="mobile__nav-title title_fz32 text_fw700 text_upper text_orange">Маркетплейс решений</a>
+                <a href="/market/" class="mobile__nav-title title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Маркетплейс решений<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
                 <?php 
                     wp_nav_menu( [
                         'menu'            => 'Market',
@@ -119,7 +119,7 @@
                 ?>
             </nav>
             <nav class="mobile__nav-services text_fz12">
-                <a href="/services/" class="mobile__nav-title title_fz32 text_fw700 text_upper text_orange">Услуги</a>
+                <a href="/services/" class="mobile__nav-title title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Услуги<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
                 <?php 
                     wp_nav_menu( [
                         'menu'            => 'Services',

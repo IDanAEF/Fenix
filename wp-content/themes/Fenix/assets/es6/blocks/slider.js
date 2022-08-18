@@ -47,7 +47,7 @@ function slider() {
         console.log(e.stack);
     }
 
-    try {
+    /*try {
         //main-page services-slider
         const sSliderTap = document.querySelectorAll('.main__services-name'),
               sSliderItem = document.querySelectorAll('.main__services-page'),
@@ -154,7 +154,7 @@ function slider() {
 
         const marketPos = document.querySelector('#market').getBoundingClientRect().top + window.pageYOffset;
 
-        window.addEventListener('scroll', () => {
+        function scrollEvent() {
             if (skipTop && marketPos <= window.pageYOffset) {
                 skipTop = false;
             } else if (!skipTop && window.innerWidth >= 992) {
@@ -167,9 +167,9 @@ function slider() {
                     window.scroll(0, contPos());
                 }
             }
-        });
+        }
 
-        window.addEventListener('wheel', (e) => {
+        function wheelEvent(e) {
             if (stop && window.innerWidth >= 992) {
                 if (!timing) {
                     timing = true;
@@ -179,10 +179,18 @@ function slider() {
                     }, 2000);
                 }
             }
-        });
+        }
+
+        window.addEventListener('scroll', scrollEvent);
+        window.addEventListener('wheel', wheelEvent);
+        window.onbeforeunload = () => {
+            window.removeEventListener('scroll', scrollEvent);
+            window.removeEventListener('wheel', wheelEvent);
+            window.scroll(0, 0);
+        }
     } catch (e) {
         console.log(e.stack);
-    }
+    }*/
 }
 
 export default slider;

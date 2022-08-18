@@ -16,6 +16,26 @@ function modals() {
             document.querySelector('html').classList.remove('fixed');
             document.querySelector('body').classList.remove('fixed');
         });
+
+        const mobileTiltes = document.querySelectorAll('.mobile__nav-title');
+
+        mobileTiltes.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (e.target.nodeName == 'IMG' && e.target.classList.contains('light_right')) {
+                    e.preventDefault();
+                    item.classList.add('active');
+                    item.querySelector('.orange_left').classList.add('active');
+                    e.target.classList.remove('active');
+                    item.nextElementSibling.classList.add('active');
+                } else if (e.target.nodeName == 'IMG' && e.target.classList.contains('orange_left')) {
+                    e.preventDefault();
+                    item.classList.remove('active');
+                    item.querySelector('.light_right').classList.add('active');
+                    e.target.classList.remove('active');
+                    item.nextElementSibling.classList.remove('active');
+                }
+            });
+        });
     } catch (e) {
         console.log(e.stack);
     }
@@ -63,6 +83,45 @@ function modals() {
 
         window.addEventListener('resize', () => {
             setPadding();
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
+
+    try {
+        //cases blocks
+        const casesItems = document.querySelectorAll('.main__cases-item');
+
+        casesItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (window.innerWidth > 576) {
+                    window.location.href = item.getAttribute('data-url');
+                } else if (window.innerWidth <= 576) {
+                    if (item.classList.contains('active') && !e.composedPath().some(it => it.nodeName == 'DIV' && it.classList.contains('main__cases-item-target'))) {
+                        window.location.href = item.getAttribute('data-url');
+                    }
+                    if (e.composedPath().some(it => it == item || (it.nodeName == 'DIV' && it.classList.contains('main__cases-item-target')))) {
+                        item.classList.toggle('active');
+                        item.querySelector('.main__cases-item-target').classList.toggle('active');
+                        item.querySelector('.main__cases-item-character').classList.toggle('active');
+                    }
+                }
+            });
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
+
+    try {
+        //market blocks
+        const marketItems = document.querySelectorAll('.main__market-item-tap');
+
+        marketItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+                item.previousElementSibling.previousElementSibling.classList.toggle('active');
+                item.previousElementSibling.classList.toggle('active');
+            });
         });
     } catch (e) {
         console.log(e.stack);
