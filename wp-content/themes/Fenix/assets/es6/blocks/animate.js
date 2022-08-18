@@ -3,6 +3,8 @@ function animate() {
         //main market scroll
         const marketItem = document.querySelectorAll('.main__market-item');
 
+        let scrollingPage = false;
+
         const contPos = () => {
             //return marketItem[0].getBoundingClientRect().y + window.pageYOffset
             return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
@@ -17,10 +19,11 @@ function animate() {
             top = 100,
             stop = false,
             allTop = false,
-            allBott = true;
+            allBott = true,
+            timing2 = false;
 
         function scrollEvent() {
-            if (window.innerWidth >= 992) {
+            if (window.innerWidth >= 992 && !scrollingPage) {
                 if (((window.pageYOffset + (window.innerHeight / 2)) >= contPos() && !stop && !allTop) || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott() && !stop && !allBott)) {
                     document.querySelector('html').classList.add('fixed');
                     document.querySelector('body').classList.add('fixed');
@@ -32,42 +35,74 @@ function animate() {
             }
         }
 
-        function wheelEvent(e) {
-            if (stop && window.innerWidth >= 992) {
-                if (e.deltaY > 0) {
-                    top -= 10;
-                    if (top == -10) {
-                        top = 100;
-                        count++;
-                    }
-                    if (count < marketItem.length) {
-                        marketItem[count].style.top = `${top}%`;
-                    } else {
-                        stop = false;
-                        count = marketItem.length - 1;
-                        top = 0;
-                        allTop = true;
-                        allBott = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }
+        function setMarketSlide(delta) {
+            if (delta > 0) {
+                if (count >= marketItem.length) {
+                    stop = false;
+                    count = marketItem.length;
+                    allTop = true;
+                    allBott = false;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
                 } else {
-                    top += 10;
-                    if (top == 110) {
-                        top = 0;
-                        count--;
-                    }
-                    if (count >= 1) {
-                        marketItem[count].style.top = `${top}%`;
-                    } else {
-                        stop = false;
-                        count = 1;
-                        top = 100;
-                        allBott = true;
-                        allTop = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }
+                    marketItem[count].classList.add('active');
+                    count++;
+                }
+                /*top -= 10;
+                if (top == -10) {
+                    top = 100;
+                    count++;
+                }
+                if (count < marketItem.length) {
+                    marketItem[count].style.top = `${top}%`;
+                } else {
+                    stop = false;
+                    count = marketItem.length - 1;
+                    top = 0;
+                    allTop = true;
+                    allBott = false;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
+                }*/
+            } else {
+                count--;
+                if (count <= 0) {
+                    stop = false;
+                    count = 1;
+                    allTop = false;
+                    allBott = true;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
+                } else {
+                    marketItem[count].classList.remove('active');
+                }
+                /*top += 10;
+                if (top == 110) {
+                    top = 0;
+                    count--;
+                }
+                if (count >= 1) {
+                    marketItem[count].style.top = `${top}%`;
+                } else {
+                    stop = false;
+                    count = 1;
+                    top = 100;
+                    allBott = true;
+                    allTop = false;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
+                }*/
+            }
+        }
+
+        function wheelEvent(e) {
+            if (stop && window.innerWidth >= 992 && !scrollingPage) {
+                if (!timing2) {
+                    timing2 = true;
+                    setMarketSlide(e.deltaY);
+                    setTimeout(() => {
+                        timing2 = false;
+                    }, 1000);
                 }
             }
         }
@@ -130,11 +165,13 @@ function animate() {
         const sSliderWindow = document.querySelector('.main__services-window');
 
         const contPos2 = () => {
-            return sSliderWindow.getBoundingClientRect().y + window.pageYOffset
+            //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset
+            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset;
         }
 
         const contPosBott2 = () => {
-            return sSliderWindow.getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
+            //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
+            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset;
         }
 
         let stop2 = false,
@@ -186,22 +223,22 @@ function animate() {
         const marketPos = document.querySelector('#market').getBoundingClientRect().top + window.pageYOffset;
 
         function scrollEvent2() {
-            if (skipTop && marketPos <= window.pageYOffset) {
+            if (skipTop && !scrollingPage) {
                 skipTop = false;
-            } else if (!skipTop && window.innerWidth >= 992) {
-                if ((window.pageYOffset >= contPos2() && !stop2 && !allLeft) || (window.pageYOffset + window.innerHeight <= contPosBott2() && !stop2 && !allRight)) {
+            } else if (!skipTop && window.innerWidth >= 992 && !scrollingPage) {
+                if ((window.pageYOffset + (window.innerHeight / 2) >= contPos2() && !stop2 && !allLeft) || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott2() && !stop2 && !allRight)) {
                     document.querySelector('html').classList.add('fixed');
                     document.querySelector('body').classList.add('fixed');
                     stop2 = true;
                 }
                 if (stop2) {
-                    window.scroll(0, contPos2());
+                    window.scroll(0, contPos2() - (window.innerHeight / 2));
                 }
             }
         }
 
         function wheelEvent2(e) {
-            if (stop2 && window.innerWidth >= 992) {
+            if (stop2 && window.innerWidth >= 992 && !scrollingPage) {
                 if (!timing) {
                     timing = true;
                     setAnimSlide(e.deltaY);
@@ -222,6 +259,23 @@ function animate() {
             window.scroll(0, 0);
         }
 
+        function SmoothVerticalScrolling(e, time, where) {
+            var eTop = e.getBoundingClientRect().top;
+            var eAmt = eTop / 100;
+            var curTime = 0;
+            while (curTime <= time) {
+                window.setTimeout(SVS_B, curTime, eAmt, where);
+                curTime += time / 100;
+            }
+        }
+        
+        function SVS_B(eAmt, where) {
+            if(where == "center" || where == "")
+                window.scrollBy(0, eAmt / 2);
+            if (where == "top")
+                window.scrollBy(0, eAmt);
+        }
+
         //smooth scroll
         document.querySelectorAll('a[href^="#"').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -234,10 +288,24 @@ function animate() {
                       elementPosition = scrollTarget.getBoundingClientRect().top,
                       offsetPosition = elementPosition - topOffset;
 
-                window.scrollBy({
+                scrollingPage = true;
+
+                setTimeout(() => {
+                    scrollingPage = false;
+                    if (link.classList.contains('back_top')) {
+                        allTop = false;
+                        allBott = true;
+                        allLeft = false;
+                        allRight = true;
+                    }
+                }, 1000);
+
+                SmoothVerticalScrolling(scrollTarget, 275, 'top');
+
+                /*window.scrollBy({
                     top: offsetPosition,
                     behavior: 'smooth'
-                });
+                });*/
             });
         });
     } catch (e) {
