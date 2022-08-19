@@ -179,7 +179,11 @@ function animate() {
             allRight = true,
             once2 = false,
             timing = false,
-            skipTop = false;
+            skipTop = false,
+            leftAnimate = false,
+            rightAnimate = false;
+
+        let timeout;
 
         sSliderSkip.addEventListener('click', () => {
             stop2 = false;
@@ -241,8 +245,24 @@ function animate() {
             if (stop2 && window.innerWidth >= 992 && !scrollingPage) {
                 if (!timing) {
                     timing = true;
+                    if (e.deltaY < 0) {
+                        leftAnimate = true;
+                        rightAnimate = false;
+                    } else {
+                        leftAnimate = false;
+                        rightAnimate = true;
+                    }
                     setAnimSlide(e.deltaY);
-                    setTimeout(() => {
+                    timeout = setTimeout(() => {
+                        timing = false;
+                    }, 1000);
+                }
+                if (e.deltaY < 0 && rightAnimate || e.deltaY > 0 && leftAnimate) {
+                    leftAnimate = false;
+                    rightAnimate = false;
+                    clearTimeout(timeout);
+                    setAnimSlide(e.deltaY);
+                    timeout = setTimeout(() => {
                         timing = false;
                     }, 1000);
                 }

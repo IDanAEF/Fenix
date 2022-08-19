@@ -1,9 +1,21 @@
 @media (min-width: 2100px) 
     .main
+        &__blog 
+            &-items 
+                //grid-template: auto / repeat(3, 628px) !important
+            &-item 
+                &-info 
+                    //height: 496px !important
+                &-result 
+                    height: 147px !important
         &__services
             &-pages 
-                min-height: 900px
-        &__market 
+                min-height: 900px !important
+        &__stocks 
+            &-item 
+                &-image 
+                    width: 1550px !important
+        /*&__market 
             &-items 
                 height: 1080px
             &-item 
@@ -54,14 +66,26 @@
                     width: 620px
                 &-main 
                     max-width: 70%
+        &__blog 
+            &-items 
+                //grid-template: auto / repeat(3, 563px)
+            &-item 
+                &-info 
+                    //height: 426px
+                &-result 
+                    height: 127px
+                    span 
+                        max-width: 78.2%
+                    img 
+                        width: 39px
         &__services
             &-pages 
                 min-height: 760px
         &__market 
-            &-items 
-                height: 1000px
-            &-item 
-                height: 1000px
+            // &-items 
+            //     height: 1000px
+            // &-item 
+            //     height: 1000px
             &-title 
                 &-bott 
                     span 
@@ -74,7 +98,8 @@
                     height: 124px
             &-item 
                 &-image 
-                    height: 990px
+                    height: 810px
+                    width: 1260px
     .footer
         &__boss 
             align-items: center
@@ -103,8 +128,6 @@
             .container
                 padding: 0px 48px
         &__promo
-            &-logo 
-                display: none
             &-slider 
                 height: 570px
         &__advantages
@@ -115,7 +138,7 @@
                 //grid-template: auto / repeat(3, 365px)
             &-item 
                 &-info
-                    height: 310px
+                    //height: 310px
         &__market
             &-items 
                 //height: 600px
@@ -130,7 +153,7 @@
             &-item 
                 &-image 
                     height: 518px
-                    //width: 765px
+                    width: 765px
 @media (max-width: 1200px)
     //.container
     //    width: 960px
@@ -178,6 +201,8 @@
                 //width: 332px
         &__promo 
             padding: 10px 0px 60px
+            &-logo 
+                display: none
             &-slider 
                 height: 500px
         &__advantages
@@ -214,7 +239,7 @@
                 //grid-template: auto / repeat(3, 311px)
             &-item 
                 &-info 
-                    height: 252px
+                    //height: 252px
                     padding: 16px
                 &-result 
                     padding: 16px
@@ -251,7 +276,7 @@
             &-item 
                 &-image 
                     height: 428px
-                    //width: 658px
+                    width: 658px
                 &-info 
                     //max-width: 267px
         &__feed
@@ -348,11 +373,13 @@
             &-item 
                 &-info 
                     height: 219px
+                    aspect-ratio: unset
                 &-result 
                     img 
                         width: 19px
             &-items 
-                //grid-template: auto / repeat(3, 233px)
+                //grid-template: auto / repeat(3, 244px)
+                gap: 10px
         &__cases 
             //padding: 100px 0px
             padding-bottom: 100px
@@ -372,7 +399,7 @@
             &-item 
                 &-image 
                     height: 312px
-                    //width: 463px
+                    width: 463px
                 &-info 
                     //max-width: 231px
             &-list 
@@ -530,7 +557,7 @@
         &__blog 
             &-items 
                 grid-template: auto / repeat(1, 100%)
-                gap: 18px
+                //gap: 18px
         &__cases
             &-item 
                 flex-direction: column
@@ -797,7 +824,7 @@
                     transition: 0.5s all
                     &.active
                         opacity: 1
-                        height: 538px
+                        height: 670px
                 &-blocks 
                     &-item 
                         &:first-child
@@ -826,9 +853,12 @@
             &-item 
                 padding: 23px 0px
                 min-height: auto
+                &-number 
+                    margin-right: 5px
                 &-title 
                     width: 85%
                     margin-bottom: 10px
+                    margin-top: 5px
                 &-target 
                     display: block
                     transition: 0.5s all
@@ -934,6 +964,14 @@
                 justify-content: space-between
                 .half
                     margin: 0px 4px
+@media (max-width: 500px) 
+    .main
+        &__market 
+            &-item 
+                &-file 
+                    height: 0px
+                    &.active
+                        height: 578px
 @media (max-width: 400px)
     .main
         &__market 
@@ -944,4 +982,4 @@
                 &-file 
                     height: 0px
                     &.active
-                        height: 400px
+                        height: 480px

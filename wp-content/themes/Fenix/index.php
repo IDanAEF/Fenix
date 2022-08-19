@@ -136,7 +136,8 @@
                     'for' => get_field('for'),
                     'problem' => get_field('problem'),
                     'file' => get_field('file'),
-                    'link' => get_the_permalink()
+                    'link' => get_the_permalink(),
+                    'file_pos' => get_field('file_pos')
                 ];
                 $i++;
             }
@@ -177,11 +178,11 @@
                                 <?php
                                     if (strpos($val['file'], '.jpg') !== false || strpos($val['file'], '.png') !== false || strpos($val['file'], '.svg') !== false || strpos($val['file'], '.jpeg') !== false || strpos($val['file'], '.webp') !== false) {
                                         ?>
-                                        <img src="<?=$val['file']?>" alt="<?=$val['title']?>" class="img_bg">
+                                        <img style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" alt="<?=$val['title']?>">
                                         <?php
                                     } else {
                                         ?>
-                                        <video src="<?=$val['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                        <video style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
                                         <?php
                                     }
                                 ?>
