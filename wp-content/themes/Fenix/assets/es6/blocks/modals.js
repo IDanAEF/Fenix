@@ -5,13 +5,31 @@ function modals() {
               mobileClose = document.querySelector('.mobile__close'),
               mobileMenu = document.querySelector('.mobile');
 
+        const menuLi = mobileMenu.querySelectorAll('li');
+
+        menuLi.forEach(item => {
+            item.classList.add('anim_left');
+        });
+
+        const animTarget = mobileMenu.querySelectorAll('.anim_left');
+
         humburger.addEventListener('click', () => {
+            let time = 400;
+            animTarget.forEach(item => {
+                setTimeout(() => {
+                    item.classList.add('showanim');
+                }, time);
+                time += 70;
+            });
             mobileMenu.classList.add('active');
             document.querySelector('html').classList.add('fixed');
             document.querySelector('body').classList.add('fixed');
         });
 
         mobileClose.addEventListener('click', () => {
+            animTarget.forEach(item => {
+                item.classList.remove('showanim');
+            });
             mobileMenu.classList.remove('active');
             document.querySelector('html').classList.remove('fixed');
             document.querySelector('body').classList.remove('fixed');
@@ -122,6 +140,30 @@ function modals() {
                 item.previousElementSibling.previousElementSibling.classList.toggle('active');
                 item.previousElementSibling.classList.toggle('active');
             });
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
+
+    try {
+        //header fixed
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset >= 350) {
+                header.classList.add('trans');
+                header.classList.add('active');
+            } else {
+                header.classList.remove('active');
+            }
+            if (window.pageYOffset >= 150) {
+                header.classList.add('fixed');
+                document.querySelector('main').style.cssText = `padding-top: ${header.clientHeight}px;`;
+            } else {
+                header.classList.remove('trans');
+                header.classList.remove('fixed');
+                document.querySelector('main').style.cssText = ``;
+            }
         });
     } catch (e) {
         console.log(e.stack);

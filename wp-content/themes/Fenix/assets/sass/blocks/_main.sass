@@ -41,7 +41,7 @@
             display: flex
             align-items: flex-start
             //width: 385px
-            width: 30%
+            width: 34%
             &-title 
                 margin: 4px 0px 16px
             img 
@@ -71,12 +71,30 @@
             margin: 24px auto 0px
             cursor: pointer
             transition: 0.5s all
+            overflow: hidden
+            position: relative
             &.hide
                 opacity: 0
                 visibility: hidden
             img 
                 transform: rotate(90deg)
                 width: 11px
+                position: relative
+                transition: 0.5s top, 0.2s opacity
+                top: 0
+                opacity: 1
+            .anim_img 
+                position: absolute
+                top: -100%
+                transition: 0.5s top, 0.5s opacity 0.2s
+                opacity: 0
+            &:hover 
+                img
+                    opacity: 0
+                    top: 68px
+                .anim_img 
+                    opacity: 1
+                    top: 24%
         &-pages
             margin-top: 10px
             display: flex
@@ -125,7 +143,7 @@
             &.slide
                 left: -102% !important
             &-info 
-                max-width: 57%
+                width: 57%
                 padding: 30px 0px
                 display: flex
                 flex-direction: column
@@ -138,7 +156,7 @@
                     margin-bottom: 12px
                 &-item 
                     //max-width: 346px
-                    max-width: 45%
+                    width: 49%
             &-image 
                 height: 100%
                 //width: 535px
@@ -157,7 +175,7 @@
             overflow: hidden
             margin: 154px 0px 50px
             position: relative
-            height: 95vh
+            height: 78vh
             //max-height: 900px
             //height: 670px
         &-item 
@@ -167,7 +185,7 @@
             border-bottom: 1px solid #D9D9D9
             //height: 670px
             //max-height: 900px
-            height: 95vh
+            height: 78vh
             width: 100%
             position: absolute
             background-color: #fff
@@ -195,14 +213,14 @@
                 display: flex
                 flex-direction: column
                 justify-content: center
-                width: 54.498%
+                width: 57%
             &-blocks
                 margin: 68px 0px 42px
                 display: flex
                 justify-content: space-between
                 &-item 
                     //max-width: 342px
-                    max-width: 48.5%
+                    width: 49%
                 &-title 
                     margin-bottom: 12px
             &-file 
@@ -260,7 +278,7 @@
                 img 
                     position: absolute
                     width: 100%
-                    height: 100%
+                    height: 99%
                     object-fit: cover
                     top: 50%
                     left: 50%
@@ -268,7 +286,7 @@
             &-title 
                 margin-bottom: 12px
             &-top 
-                max-width: 231px
+                max-width: 100%
             &-info 
                 position: relative
                 //height: 349px
@@ -399,8 +417,8 @@
                     opacity: 1
                     visibility: visible
             &-type 
-                width: 343px
-                margin-left: 20px
+                width: 294px
+                //margin-left: 20px
                 display: flex
                 justify-content: flex-end
                 align-items: flex-end
@@ -450,13 +468,13 @@
             bottom: 85px
             right: 210px
             display: flex
-            width: 325px
+            width: 509px
             flex-wrap: wrap
             align-items: flex-end
             &-item 
                 position: relative
-                width: 92px
-                height: 64px
+                width: 156px
+                height: 92px
                 margin: 0px 16px 16px 0px
                 cursor: pointer
                 transition: 0.7s all
@@ -480,14 +498,15 @@
             &-info 
                 //max-width: 346px
                 margin-left: 20px
-                max-width: 26.7%
+                max-width: 25.7%
             &-title 
                 margin-bottom: 21px
             &-image 
                 position: relative
-                height: 593px
-                width: 930px
-                //width: 71.8%
+                //height: 593px
+                //width: 930px
+                aspect-ratio: 16/10
+                width: 63%
     &__feed
         padding: 150px 0px 115px
         form 

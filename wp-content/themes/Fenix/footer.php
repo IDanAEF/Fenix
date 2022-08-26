@@ -105,7 +105,7 @@
                 ?>
             </nav>
             <nav class="mobile__nav-market text_fz12">
-                <a href="/market/" class="mobile__nav-title title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Маркетплейс решений<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
+                <a href="/market/" class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Маркетплейс решений<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
                 <?php 
                     wp_nav_menu( [
                         'menu'            => 'Market',
@@ -119,7 +119,7 @@
                 ?>
             </nav>
             <nav class="mobile__nav-services text_fz12">
-                <a href="/services/" class="mobile__nav-title title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Услуги<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
+                <a href="/services/" class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Услуги<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
                 <?php 
                     wp_nav_menu( [
                         'menu'            => 'Services',
@@ -133,17 +133,17 @@
                 ?>
             </nav>
         </div>
-        <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="mobile__phone text_fz12"><?php the_field('phone', 12); ?></a>
+        <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="mobile__phone anim_left text_fz12"><?php the_field('phone', 12); ?></a>
     </div>
     <div class="mobile__bott text_fz12">
-        <button class="mobile__button button button_arrow text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></button>
+        <button class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></button>
         <div class="mobile__info">
-            <div class="social">
+            <div class="social anim_left">
                 <a href="<?php the_field('telegram', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
                 <a href="<?php the_field('whatsapp', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
                 <a href="<?php the_field('youtube', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
             </div>
-            <div class="header__lang text_fz12">
+            <div class="header__lang text_fz12 anim_left">
                 <div>RU</div>
                 <span></span>
                 <a href="/en<?php echo $_SERVER['REQUEST_URI']; ?>">EN</a>

@@ -111,6 +111,7 @@
                     ?>
                 </div>
                 <a href="#market" class="main__services-skip">
+                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="" class="anim_img">
                     <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
                 </a>
             </div>
@@ -137,7 +138,8 @@
                     'problem' => get_field('problem'),
                     'file' => get_field('file'),
                     'link' => get_the_permalink(),
-                    'file_pos' => get_field('file_pos')
+                    'file_pos' => get_field('file_pos'),
+                    'file_mobile' => get_field('file_mobile')
                 ];
                 $i++;
             }
@@ -145,14 +147,14 @@
             wp_reset_postdata();
         ?>
         <div class="container">
-            <h1 class="main__market-title title title_fz120 text_fw700 text_upper">
+            <h1 class="main__market-title title text_fz14 text_fw700 text_upper">
                 <div class="main__market-title-top text_animate">
-                    <span class="text_fz14 text_fw400 text_normal">(35+ готовых решений)</span>
-                    Маркетплейс
+                    <span class="text_fw400 text_normal">(35+ готовых решений)</span>
+                    <div class="title_fz120">Маркетплейс</div>
                 </div>
                 <div class="main__market-title-bott text_animate">
-                    решений
-                    <span class="text_fz14 text_fw400 text_normal">Разрабатываем индивидуальные решения под клиентов и универсальные публичные модули</span>
+                    <div class="title_fz120">решений</div>
+                    <span class="text_fw400 text_normal">Разрабатываем индивидуальные решения<br>под клиентов и универсальные публичные модули</span>
                 </div>
             </h1>
             <div class="main__market-items">
@@ -174,15 +176,15 @@
                                 </div>
                                 <a href="<?=$val['link']?>" class="main__market-item-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
                             </div>
-                            <div class="main__market-item-file">
+                            <div class="main__market-item-file" data-file="<?=$val['file']?>" data-mobile="<?=$val['file_mobile']?>">
                                 <?php
                                     if (strpos($val['file'], '.jpg') !== false || strpos($val['file'], '.png') !== false || strpos($val['file'], '.svg') !== false || strpos($val['file'], '.jpeg') !== false || strpos($val['file'], '.webp') !== false) {
                                         ?>
-                                        <img style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" alt="<?=$val['title']?>">
+                                        <img class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" alt="<?=$val['title']?>">
                                         <?php
                                     } else {
                                         ?>
-                                        <video style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                        <video class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
                                         <?php
                                     }
                                 ?>
@@ -248,7 +250,7 @@
                 wp_reset_postdata();
             ?>
             </div>
-            <?php if ($i >= 3) : ?>
+            <?php if ($i > 3) : ?>
             <a href="/blog/" class="main__market-all button button_black title title_fz48 text_fw700 text_animate">смотреть все<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>
             <?php endif; ?>
         </div>

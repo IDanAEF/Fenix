@@ -10,7 +10,8 @@
     ?>
 </head>
 <body>
-    <header id="header" class="header text text_fz12 text_white">
+    <div id="header"></div>
+    <header class="header text text_fz12 text_white">
         <div class="container">
             <div class="header__mobile">
                 <div class="header__humburger">

@@ -1,4 +1,21 @@
 @media (min-width: 2100px) 
+    .text
+        &_fz14 
+            font-size: 22px
+            line-height: 30px
+    .header
+        &.fixed
+            height: 100px
+            padding: 27px 0px
+        &__humburger
+            width: 55px
+            height: 26px
+        &__mobile 
+            img 
+                width: 193px
+        &__contact
+            img 
+                width: 33px
     .main
         &__blog 
             &-items 
@@ -29,7 +46,7 @@
             font-size: 20px
             line-height: 27px
         &_fz14 
-            font-size: 24px
+            font-size: 17px
             line-height: 30px
         &_fz18
             font-size: 28px
@@ -111,9 +128,45 @@
                 .online
                     width: 15px
                     height: 15px
+@media (min-width: 1850px) 
+    .mobile
+        .title
+            &_fz32
+                font-size: 57px
+                line-height: 77px
+        .text
+            &_fz14 
+                font-size: 24px
+            &_fz12
+                font-size: 26px
+                line-height: 40px
+@media (min-width: 1650px) 
+    .mobile
+        &__close 
+            width: 55px 
+            height: 55px
+        &__info 
+            .social
+                img 
+                    min-width: 37px
+        .title
+            &_fz32
+                font-size: 47px
+                line-height: 67px
+        .text
+            &_fz14 
+                font-size: 20px
+            &_fz12
+                font-size: 23px
+                line-height: 37px
+@media (max-width: 1650px) 
+    body, html 
+        font-size: 94%
 @media (max-width: 1400px)
     /*.container
         width: 1140px*/
+    body, html 
+        font-size: 100%
     .header
         &__nav 
             ul 
@@ -133,6 +186,14 @@
         &__advantages
             &-item 
                 //width: 360px
+        &__services
+            &-page 
+                &-blocks
+                    flex-direction: column
+                    &-item
+                        width: 100%
+                        &:first-child
+                            margin-bottom: 5px
         &__blog 
             &-items 
                 //grid-template: auto / repeat(3, 365px)
@@ -146,13 +207,24 @@
                 //height: 600px
                 &:not(:last-child)
                     margin-bottom: 23px
+                &-blocks 
+                    flex-direction: column
+                    &-item 
+                        width: 100%
+                        &:first-child
+                            margin-bottom: 10px
         &__cases
             &-items 
                 //padding-left: 180px
         &__stocks
+            &-list 
+                width: 325px
+                &-item 
+                    width: 92px
+                    height: 64px
             &-item 
                 &-image 
-                    height: 518px
+                    //height: 518px
                     width: 765px
 @media (max-width: 1200px)
     //.container
@@ -166,7 +238,7 @@
             font-size: 11px
             line-height: 16px
         &_fz14 
-            font-size: 13px
+            //font-size: 13px
             line-height: 19px
         &_fz18
             font-size: 14px
@@ -250,7 +322,7 @@
             //padding: 150px 0px
             padding-bottom: 150px
             &-items 
-                //padding-left: 80px
+                padding-left: 0
             &-item 
                 padding: 16px 0px
                 min-height: 200px
@@ -275,7 +347,7 @@
                     margin: 0px 11px 11px 0px
             &-item 
                 &-image 
-                    height: 428px
+                    //height: 428px
                     width: 658px
                 &-info 
                     //max-width: 267px
@@ -322,8 +394,12 @@
                 &-descr
                     //max-width: 468px
         &__advantages
+            &-items 
+                flex-wrap: wrap
+                justify-content: space-around
             &-item 
-                //width: 228px
+                width: 40%
+                margin-bottom: 32px
                 img 
                     width: 22px
                     margin-right: 5px
@@ -334,7 +410,7 @@
             &-window 
                 height: unset
             &-pages 
-                min-height: 326px
+                min-height: 386px
             &-skip 
                 display: none
                 height: 44px
@@ -353,6 +429,10 @@
                 &-blocks 
                     margin: 28px 0px
         &__market 
+            &-title 
+                &-bott 
+                    span 
+                        font-size: 12px
             &-items 
                 margin: 50px 0px
                 height: unset
@@ -388,20 +468,29 @@
             &-item 
                 padding: 10px 0px
                 min-height: 185px
+                flex-direction: column
+                &-main 
+                    margin-bottom: 10px
+                &-character
+                    flex-direction: row-reverse
                 &-logo 
                     margin: 0px 18px
+                    img 
+                        width: auto
                 &-type 
-                    width: 279px
+                    width: 287px
+                    justify-content: flex-start
                     span 
                         margin: 5px 0px 0px 5px
                         padding: 2px 8px
         &__stocks
             &-item 
                 &-image 
-                    height: 312px
+                    //height: 312px
                     width: 463px
                 &-info 
                     //max-width: 231px
+                    max-width: 36.7%
             &-list 
                 bottom: -43px
                 right: 26px
@@ -425,6 +514,8 @@
 @media (max-width: 768px)
     //.container
     //    width: 540px
+    body, html 
+        font-size: 94%
     .button
         &_black 
             margin-right: 32px
@@ -433,7 +524,7 @@
             font-size: 11px
             line-height: 16px
         &_fz14 
-            font-size: 12px
+            //font-size: 12px
             line-height: 18px
         &_fz18
             font-size: 12px
@@ -515,18 +606,14 @@
                 z-index: 3
                 &-info 
                     //width: 414px
+                    width: 76%
                     background-color: rgba(255, 255, 255, 0.7)
                     padding: 30px 18px
                     z-index: 2
                 &-blocks
                     margin: 13px 0px
-                    flex-direction: column
                     &-title 
                         margin-bottom: 0
-                    &-item
-                        max-width: 100%
-                        &:first-child
-                            margin-bottom: 5px
                 &-image 
                     position: static
                     img 
@@ -547,36 +634,22 @@
                     padding: 13px 0px
                 &-blocks 
                     margin: 25px 0px
-                    flex-direction: column
                     &-title 
                         margin-bottom: 0
-                    &-item 
-                        max-width: 100%
-                        &:first-child
-                            margin-bottom: 10px
         &__blog 
             &-items 
                 grid-template: auto / repeat(1, 100%)
                 //gap: 18px
         &__cases
             &-item 
-                flex-direction: column
                 &-result 
                     b, strong 
                         font-size: 22px
                         line-height: 28px
-                &-main 
-                    margin-bottom: 10px
                 &-logo 
                     margin: 0px 14px
                     img 
                         max-height: 85px
-                        width: auto
-                &-character
-                    flex-direction: row-reverse
-                &-type 
-                    width: 287px
-                    justify-content: flex-start
         &__stocks
             &-list 
                 bottom: 55px
@@ -592,7 +665,7 @@
                 &-title 
                     margin-bottom: 3px
                 &-image 
-                    height: 343px
+                    //height: 343px
                     width: 100%
                     margin-bottom: 20px
         &__feed 
@@ -621,7 +694,12 @@
                     margin: 0px 20px
             img 
                 width: 100px
+@media (max-width: 650px)
+    body, html 
+        font-size: 87%
 @media (max-width: 576px)
+    body, html 
+        font-size: 90%
     .container
         width: 100%
         padding: 0px 15px
@@ -709,10 +787,17 @@
             border-bottom: 1px solid #d8612b
             .arrow
                 display: none
+    main 
+        padding-top: 59px
     .header
-        height: 59px
-        padding: 16px 0px
-        position: relative
+        height: 59px !important
+        padding: 16px 0px !important
+        position: fixed
+        width: 100%
+        z-index: 99
+        &.fixed
+            opacity: 1
+            visibility: visible
         &__lang 
             display: none
             margin-right: 8px
@@ -777,7 +862,8 @@
                 display: block
             &-page 
                 &-info 
-                    max-width: 100%
+                    padding: 0
+                    width: 100%
                     background-color: rgba(255,255,255,.85)
                 &-image 
                     display: none
@@ -983,3 +1069,7 @@
                     height: 0px
                     &.active
                         height: 480px
+@media (max-width: 372px) 
+    body, html 
+        font-size: 82%
+    
