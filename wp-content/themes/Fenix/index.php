@@ -5,7 +5,7 @@
     <section class="main__promo text text_fz14 text_white">
         <div class="container">
             <h1 class="main__promo-logo">
-                <img src="<?php echo bloginfo('template_url') ?>/assets/images/logo.svg" alt="logo">
+                <img class="elem_animate" src="<?php echo bloginfo('template_url') ?>/assets/images/logo.svg" alt="logo">
                 <div class="main__promo-under text_fw400 text_fz14 text_animate">
                     VIP интегратор RetailCRM
                 </div>
@@ -15,16 +15,23 @@
                     $i = 0;
                     while(have_rows('slider')) {
                         the_row();
-                        ?>
-                        <img src="<?php the_sub_field('image') ?>" alt="" class="main__promo-slider-item img_bg">
-                        <?php
+                        $fileUrl = get_sub_field('image');
+                        if (strpos($fileUrl, '.jpg') !== false || strpos($fileUrl, '.png') !== false || strpos($fileUrl, '.svg') !== false || strpos($fileUrl, '.jpeg') !== false || strpos($fileUrl, '.webp') !== false) {
+                            ?>
+                            <img src="<?=$fileUrl?>" alt="" class="main__promo-slider-item img_bg">
+                            <?php
+                        } else {
+                            ?>
+                            <video class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted="muted" autoplay="autoplay" loop preload></video>
+                            <?php
+                        }
                     }
                 ?>
                 
             </div>
             <div class="main__promo-about">
-                <h2 class="main__promo-about-title title_fz32 text_fw700 text_animate text_upper">О компании</h2>
-                <div class="main__promo-about-descr text_animate">
+                <h2 class="main__promo-about-title title_fz32 text_fw700 text_upper text_animate">О компании</h2>
+                <div class="main__promo-about-descr elem_animate">
                     <?php the_field('about_descr') ?>
                     <a href="<?php the_field('about_button') ?>" class="main__promo-about-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
                 </div>
@@ -42,10 +49,10 @@
                     the_row();
                     ?>
                         <div class="main__advantages-item">
-                            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
+                            <img class="elem_animate" src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
                             <div class="main__advantages-item-info">
                                 <h3 class="main__advantages-item-title title title_fz24 text_fw700 text_upper text_animate"><?php the_sub_field('name'); ?></h3>
-                                <div class="main__advantages-item-undertitle text_animate"><?php the_sub_field('descr'); ?></div>
+                                <div class="main__advantages-item-undertitle elem_animate"><?php the_sub_field('descr'); ?></div>
                             </div>
                         </div>
                     <?php
@@ -56,7 +63,7 @@
     </section>
     <section class="main__services">
         <div class="container">
-            <h2 class="main__services-title title title_fz120 text_fw700 text_upper text_animate">Услуги<div class="main__services-rage text_fz18 text_fw400"><span class="curr text_orange"></span> / <span class="all"></span></div></h2>
+            <h2 class="main__services-title title title_fz120 text_fw700 text_upper"><span class="text_animate">Услуги</span><div class="main__services-rage text_fz18 text_fw400"><span class="curr text_orange"></span> / <span class="all"></span></div></h2>
             <div class="main__services-window">
                 <div class="main__services-pages">
                 <?php
@@ -76,18 +83,18 @@
                         ?>
                             <article class="main__services-page text text_fz14">
                                 <div class="main__services-page-info">
-                                    <h3 class="main__services-page-title title_fz32 text_fw700 text_animate text_upper"><?php the_title(); ?></h3>
+                                    <h3 class="main__services-page-title title_fz32 text_fw700 text_upper text_animate"><?php the_title(); ?></h3>
                                     <div class="main__services-page-blocks">
                                         <div class="main__services-page-blocks-item">
                                             <div class="main__services-page-blocks-title text_fw700 text_upper text_animate">Что делаем</div>
-                                            <div class="main__services-page-blocks-descr text_animate"><?php the_field('todo'); ?></div>
+                                            <div class="main__services-page-blocks-descr elem_animate"><?php the_field('todo'); ?></div>
                                         </div>
                                         <div class="main__services-page-blocks-item">
                                             <div class="main__services-page-blocks-title text_fw700 text_upper text_animate">Результат</div>
-                                            <div class="main__services-page-blocks-descr text_animate"><?php the_field('result'); ?></div>
+                                            <div class="main__services-page-blocks-descr elem_animate"><?php the_field('result'); ?></div>
                                         </div>
                                     </div>
-                                    <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
+                                    <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow elem_animate">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
                                 </div>
                                 <div class="main__services-page-image">
                                     <?php the_post_thumbnail(); ?>
@@ -148,13 +155,13 @@
         ?>
         <div class="container">
             <h1 class="main__market-title title text_fz14 text_fw700 text_upper">
-                <div class="main__market-title-top text_animate">
-                    <span class="text_fw400 text_normal">(35+ готовых решений)</span>
-                    <div class="title_fz120">Маркетплейс</div>
+                <div class="main__market-title-top">
+                    <span class="text_fw400 text_normal text_animate">(35+ готовых решений)</span>
+                    <div class="title_fz120 text_animate">Маркетплейс</div>
                 </div>
-                <div class="main__market-title-bott text_animate">
-                    <div class="title_fz120">решений</div>
-                    <span class="text_fw400 text_normal">Разрабатываем индивидуальные решения<br>под клиентов и универсальные публичные модули</span>
+                <div class="main__market-title-bott">
+                    <div class="title_fz120 text_animate">решений</div>
+                    <span class="text_fw400 text_normal elem_animate">Не просто обновить систему для сбора заказов -<br>а в целом усовершенствовать свой магазин</span>
                 </div>
             </h1>
             <div class="main__market-items">
@@ -167,14 +174,14 @@
                                 <div class="main__market-item-blocks">
                                     <div class="main__market-item-blocks-item">
                                         <div class="main__market-item-blocks-title title_fz24 text_fw700 text_upper<?=($key == 0 ? ' text_animate' : '')?>">Для кого</div>
-                                        <div class="main__market-item-blocks-undertitle<?=($key == 0 ? ' text_animate' : '')?>"><?=$val['for']?></div>
+                                        <div class="main__market-item-blocks-undertitle<?=($key == 0 ? ' elem_animate' : '')?>"><?=$val['for']?></div>
                                     </div>
                                     <div class="main__market-item-blocks-item">
                                         <div class="main__market-item-blocks-title title_fz24 text_fw700 text_upper<?=($key == 0 ? ' text_animate' : '')?>">решает проблему</div>
-                                        <div class="main__market-item-blocks-undertitle<?=($key == 0 ? ' text_animate' : '')?>"><?=$val['problem']?></div>
+                                        <div class="main__market-item-blocks-undertitle<?=($key == 0 ? ' elem_animate' : '')?>"><?=$val['problem']?></div>
                                     </div>
                                 </div>
-                                <a href="<?=$val['link']?>" class="main__market-item-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
+                                <a href="<?=$val['link']?>" class="main__market-item-button button button_arrow elem_animate">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
                             </div>
                             <div class="main__market-item-file" data-file="<?=$val['file']?>" data-mobile="<?=$val['file_mobile']?>">
                                 <?php
@@ -190,7 +197,7 @@
                                 ?>
                             </div>
                             <div class="main__market-item-tap title title_fz48 text_upper text_fw700">
-                                <?=$val['title']?>
+                                <span class="text_animate"><?=$val['title']?></span>
                                 <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
                             </div>
                         </article>
@@ -199,7 +206,7 @@
                 ?>
             </div>
             <?php if ($i >= 4) : ?>
-            <a href="/market/" class="main__market-all button button_black title title_fz48 text_fw700 text_animate">все решения<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>
+            <a href="/market/" class="main__market-all button button_black title title_fz48 text_fw700 elem_animate">все решения<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>
             <?php endif; ?>
         </div>
     </section>
@@ -228,16 +235,16 @@
                             </div>
                             <div class="main__blog-item-top">
                                 <h3 class="main__blog-item-title text_fw700 text_upper text_animate"><?php the_title(); ?></h3>
-                                <div class="main__blog-item-undertitle text_animate">
+                                <div class="main__blog-item-undertitle elem_animate">
                                     <?php the_field('descr'); ?>
                                 </div>
                             </div>
-                            <div class="main__blog-item-bott title_fz32 text_fw700 text_upper text_animate">
+                            <div class="main__blog-item-bott title_fz32 text_fw700 text_upper elem_animate">
                                 <?php the_field('gain'); ?>
                             </div>
                         </div>
                         <div class="main__blog-item-result text_white">
-                            <span><?php the_field('result'); ?></span>
+                            <span class="text_animate"><?php the_field('result'); ?></span>
                             <?php if (get_field('result')) : ?>
                             <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_light.svg" alt="arrow_light" class="<?php the_field('arrow'); ?>">
                             <?php endif; ?>
@@ -251,7 +258,7 @@
             ?>
             </div>
             <?php if ($i > 3) : ?>
-            <a href="/blog/" class="main__market-all button button_black title title_fz48 text_fw700 text_animate">смотреть все<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>
+            <a href="/blog/" class="main__market-all button button_black title title_fz48 text_fw700 elem_animate">смотреть все<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>
             <?php endif; ?>
         </div>
     </section>
@@ -304,16 +311,16 @@
                             <span></span>
                         </div>
                         <div class="main__cases-item-main">
-                            <div class="main__cases-item-number text_animate">(<?=$i++?>)</div>
-                            <div class="main__cases-item-logo text_animate"><?php the_post_thumbnail(); ?></div>
+                            <div class="main__cases-item-number">(<?=$i++?>)</div>
+                            <div class="main__cases-item-logo elem_animate"><?php the_post_thumbnail(); ?></div>
                             <div class="main__cases-item-info">
                                 <h3 class="main__cases-item-title title_fz48 text_fw700 text_upper text_animate"><?php the_title(); ?></h3>
-                                <div class="main__cases-item-undertitle text_animate"><?php the_field('descr'); ?></div>
+                                <div class="main__cases-item-undertitle elem_animate"><?php the_field('descr'); ?></div>
                             </div>
                         </div>
                         <div class="main__cases-item-character">
-                            <div class="main__cases-item-result text_animate"><?php the_field('result'); ?></div>
-                            <div class="main__cases-item-type text_animate">
+                            <div class="main__cases-item-result elem_animate"><?php the_field('result'); ?></div>
+                            <div class="main__cases-item-type elem_animate">
                                 <?php
                                     while(have_rows('type')) {
                                         the_row();
@@ -332,14 +339,14 @@
             ?>
             </div>
             <?php if ($i > 5) : ?>
-            <a href="/projects/" class="main__market-all button button_black title title_fz48 text_fw700 text_animate">все кейсы<span class="text text_fz12 text_fw400 text_normal">(17+)</span></a>
+            <a href="/projects/" class="main__market-all button button_black title title_fz48 text_fw700 elem_animate">все кейсы<span class="text text_fz12 text_fw400 text_normal">(17+)</span></a>
             <?php endif; ?>
         </div>
     </section>
     <?php if(have_rows('stocks')) : ?>
-    <section class="main__stocks">
+    <!--<section class="main__stocks">
         <div class="container">
-            <h2 class="main__stocks-title title_fz120 text_fw700 text_upper text_orange text_animate">Акции</h2>
+            <h2 class="main__stocks-title title_fz120 text_fw700 text_upper text_orange">Акции</h2>
             <div class="main__stocks-items">
                 <?php
                     $stocks = 0;
@@ -352,8 +359,8 @@
                                 <img src="<?php the_sub_field('image'); ?>" alt="<?php the_sub_field('title'); ?>" class="img_bg">
                             </div>
                             <div class="main__stocks-item-info">
-                                <h3 class="main__stocks-item-title title_fz32 text_fw700 text_upper text_animate"><?php the_sub_field('title'); ?></h3>
-                                <div class="main__stocks-item-undertitle text_animate"><?php the_sub_field('descr'); ?></div>
+                                <h3 class="main__stocks-item-title title_fz32 text_fw700 text_upper"><?php the_sub_field('title'); ?></h3>
+                                <div class="main__stocks-item-undertitle"><?php the_sub_field('descr'); ?></div>
                             </div>
                         </div>
                         <?php
@@ -376,7 +383,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <?php endif; ?>
     <section class="main__feed">
         <div class="container">

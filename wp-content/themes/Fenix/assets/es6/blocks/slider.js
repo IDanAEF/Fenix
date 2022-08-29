@@ -14,7 +14,7 @@ function slider() {
 
         setInterval(() => {
             setPromoSlide((iter >= promoSliderItems.length - 1 ? iter = 0 : ++iter));
-        }, 7000);
+        }, 10000);
     } catch (e) {
         console.log(e.stack);
     }

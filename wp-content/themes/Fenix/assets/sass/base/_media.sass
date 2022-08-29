@@ -22,7 +22,7 @@
                 //grid-template: auto / repeat(3, 628px) !important
             &-item 
                 &-info 
-                    //height: 496px !important
+                    min-height: 496px !important
                 &-result 
                     height: 147px !important
         &__services
@@ -88,7 +88,7 @@
                 //grid-template: auto / repeat(3, 563px)
             &-item 
                 &-info 
-                    //height: 426px
+                    min-height: 426px
                 &-result 
                     height: 127px
                     span 
@@ -115,7 +115,7 @@
                     height: 124px
             &-item 
                 &-image 
-                    height: 810px
+                    min-height: 810px
                     width: 1260px
     .footer
         &__boss 
@@ -126,8 +126,10 @@
                 .telegram
                     width: 37px
                 .online
-                    width: 15px
-                    height: 15px
+                    width: 18px !important
+                    height: 18px !important
+                    bottom: 5px
+                    right: 10px
 @media (min-width: 1850px) 
     .mobile
         .title
@@ -199,7 +201,7 @@
                 //grid-template: auto / repeat(3, 365px)
             &-item 
                 &-info
-                    //height: 310px
+                    min-height: 310px
         &__market
             &-items 
                 //height: 600px
@@ -224,7 +226,7 @@
                     height: 64px
             &-item 
                 &-image 
-                    //height: 518px
+                    min-height: 518px
                     width: 765px
 @media (max-width: 1200px)
     //.container
@@ -311,7 +313,7 @@
                 //grid-template: auto / repeat(3, 311px)
             &-item 
                 &-info 
-                    //height: 252px
+                    min-height: 252px
                     padding: 16px
                 &-result 
                     padding: 16px
@@ -347,15 +349,23 @@
                     margin: 0px 11px 11px 0px
             &-item 
                 &-image 
-                    //height: 428px
+                    min-height: 428px
                     width: 658px
                 &-info 
                     //max-width: 267px
         &__feed
-            padding: 100px 0px 100px
+            //padding: 100px 0px 100px
+            padding-bottom: 100px
             form 
                 .undertitle
                     margin-bottom: 60px
+@media (min-width: 992px) 
+    .footer
+        &__boss
+            &-image
+                .online
+                    width: 10px
+                    height: 10px
 @media (max-width: 992px)
     //.container
     //    width: 720px
@@ -398,7 +408,7 @@
                 flex-wrap: wrap
                 justify-content: space-around
             &-item 
-                width: 40%
+                max-width: 40%
                 margin-bottom: 32px
                 img 
                     width: 22px
@@ -452,7 +462,7 @@
         &__blog 
             &-item 
                 &-info 
-                    height: 219px
+                    min-height: 219px
                     aspect-ratio: unset
                 &-result 
                     img 
@@ -486,7 +496,7 @@
         &__stocks
             &-item 
                 &-image 
-                    //height: 312px
+                    min-height: 312px
                     width: 463px
                 &-info 
                     //max-width: 231px
@@ -495,7 +505,8 @@
                 bottom: -43px
                 right: 26px
         &__feed 
-            padding: 70px 0px
+            //padding: 70px 0px
+            padding-bottom: 70px
             form 
                 .policy
                     margin: 15px 0px
@@ -593,7 +604,7 @@
                 margin-top: 40px
                 flex-direction: column
             &-item 
-                width: 100%
+                max-width: 100%
                 margin-bottom: 17px
                 &-title 
                     margin: 4px 0px
@@ -665,7 +676,7 @@
                 &-title 
                     margin-bottom: 3px
                 &-image 
-                    //height: 343px
+                    min-height: 343px
                     width: 100%
                     margin-bottom: 20px
         &__feed 
@@ -976,7 +987,7 @@
                 &-image 
                     position: relative
                     left: -15px
-                    height: 263px
+                    min-height: 263px
                     margin-bottom: 48px
             &-list 
                 bottom: 135px
@@ -984,7 +995,8 @@
                 width: 232px
                 justify-content: flex-end
         &__feed 
-            padding: 35px 0px 81px
+            //padding: 35px 0px 81px
+            padding-bottom: 81px
             form 
                 .wpcf7-response-output
                     bottom: -44px

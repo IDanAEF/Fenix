@@ -214,12 +214,12 @@ function animate() {
 
         const contPos2 = () => {
             //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset
-            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset;
+            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset - 107;
         }
 
         const contPosBott2 = () => {
             //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
-            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset;
+            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset - 107;
         }
 
         let stop2 = false,
@@ -290,12 +290,12 @@ function animate() {
                     //SmoothVerticalScrolling(sSliderWindow, 575, 'center');
                     //window.scroll(0, contPos2() - (window.innerHeight / 2));
                     window.scrollBy({
-                        top: (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().top - (window.innerHeight / 2) - 50,
+                        top: (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().top - (window.innerHeight / 2) - 107,
                         behavior: 'smooth'
                     });
                     interval2 = setInterval(() => {
                         window.scrollBy({
-                            top: (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().top - (window.innerHeight / 2) - 50,
+                            top: (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().top - (window.innerHeight / 2) - 107,
                             behavior: 'smooth'
                         });
                     }, 400);
@@ -383,30 +383,45 @@ function animate() {
         console.log(e.stack);
     }
 
-    /*try {
-        //text animate
-        const targetText = document.querySelectorAll('.text_animate');
+    try {
+        //elem-text animate
+        const targetElem = document.querySelectorAll('.elem_animate'),
+              targetText = document.querySelectorAll('.text_animate');
+
+        targetText.forEach(item => {
+            let textCont = item.textContent.trim(),
+                newInner = '',
+                transit = 0;
+
+            for (let i = 0; i < textCont.length; i++) {
+                newInner += `<div class="or" style="transition: 0.6s all ${transit.toFixed(2)}s">${textCont[i]}</div>`;
+                transit += 0.04;
+            }
+            item.innerHTML = newInner;
+        });
 
         function returnHeight() {
             return window.innerWidth <= 600 ? window.innerHeight / 1.05 : window.innerHeight / 1.2
         }
 
-        targetText.forEach(item => {
-            if (returnHeight() + window.pageYOffset >= item.getBoundingClientRect().y + window.pageYOffset) {
-                item.classList.add('anim');
-            }
-        });
-
-        window.addEventListener('scroll', () => {
-            targetText.forEach(item => {
+        function setAnim(mass) {
+            mass.forEach(item => {
                 if (returnHeight() + window.pageYOffset >= item.getBoundingClientRect().y + window.pageYOffset) {
                     item.classList.add('anim');
                 }
             });
+        }
+
+        setAnim(targetElem);
+        setAnim(targetText);
+
+        window.addEventListener('scroll', () => {
+            setAnim(targetElem);
+            setAnim(targetText);
         });
     } catch (e) {
         console.log(e.stack);
-    }*/
+    }
 
     try {
         //back_top btn
