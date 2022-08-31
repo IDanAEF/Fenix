@@ -59,19 +59,19 @@
                 <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="phone text_fw700"><?php the_field('phone', 12); ?></a>
                 <span class="work"><?php the_field('work', 12); ?></span>
                 <div class="social">
-                    <a href="<?php the_field('telegram', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
-                    <a href="<?php the_field('whatsapp', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
-                    <a href="<?php the_field('youtube', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
+                    <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
+                    <a href="<?php the_field('whatsapp', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
+                    <a href="<?php the_field('youtube', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
                 </div>
             </div>
         </div>
         <div class="footer__bott">
             <div class="footer__bott-left">
-                <div class="header__lang">
+                <!--<div class="header__lang">
                     <div>RU</div>
                     <span></span>
                     <a href="/en<?php echo $_SERVER['REQUEST_URI']; ?>">EN</a>
-                </div>
+                </div>-->
                 <span class="half text_fz10">Fenix 2022©</span>
                 <a href="#" class="policy text_fz10">Политика персональных данных</a>
             </div>
@@ -139,15 +139,15 @@
         <button class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></button>
         <div class="mobile__info">
             <div class="social anim_left">
-                <a href="<?php the_field('telegram', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
-                <a href="<?php the_field('whatsapp', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
-                <a href="<?php the_field('youtube', 12); ?>" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
+                <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
+                <a href="<?php the_field('whatsapp', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
+                <a href="<?php the_field('youtube', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
             </div>
-            <div class="header__lang text_fz12 anim_left">
+            <!--<div class="header__lang text_fz12 anim_left">
                 <div>RU</div>
                 <span></span>
                 <a href="/en<?php echo $_SERVER['REQUEST_URI']; ?>">EN</a>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

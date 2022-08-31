@@ -368,6 +368,15 @@ function animate() {
                         once = false;
                         clearInterval(interval2);
                         clearInterval(interval);
+                    } else if (link.classList.contains('header__button')) {
+                        allTop = true;
+                        allBott = false;
+                        allLeft = true;
+                        allRight = false;
+                        once2 = false;
+                        once = false;
+                        clearInterval(interval2);
+                        clearInterval(interval);
                     }
                 }, 1000);
 

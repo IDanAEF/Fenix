@@ -702,7 +702,8 @@
         &__bott 
             &-left 
                 .half
-                    margin: 0px 20px
+                    margin-right: 20px
+                    //margin: 0px 20px
             img 
                 width: 100px
 @media (max-width: 650px)
@@ -805,10 +806,11 @@
         padding: 16px 0px !important
         position: fixed
         width: 100%
-        z-index: 99
+        z-index: 100
         &.fixed
             opacity: 1
             visibility: visible
+            z-index: 100
         &__lang 
             display: none
             margin-right: 8px
@@ -856,9 +858,13 @@
                 height: 512px
         &__blog 
             padding: 100px 0px 67px
+            &-items 
+                display: flex
+                width: fit-content
+                position: relative
+                transition: 0.5s all
             &-item 
-                &-back 
-                    display: none
+                width: 90vw
         &__services 
             padding: 62px 0px 50px
             .container
@@ -1061,7 +1067,8 @@
                 width: 100%
                 justify-content: space-between
                 .half
-                    margin: 0px 4px
+                    margin-right: 4px
+                    //margin: 0px 4px
 @media (max-width: 500px) 
     .main
         &__market 

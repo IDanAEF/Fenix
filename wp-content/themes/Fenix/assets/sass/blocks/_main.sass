@@ -1,7 +1,9 @@
 .main
     &__promo
+        position: relative
         background-color: #1C1D1D
         padding: 14px 0px 94px
+        z-index: 99
         &-about 
             display: flex
             justify-content: space-between
@@ -139,6 +141,7 @@
             justify-content: space-between
             position: absolute
             transition: 1s all
+            transition-timing-function: ease-in-out
             left: 0%
             &.slide
                 left: -102% !important
@@ -268,14 +271,15 @@
                 width: 100%
                 height: 100%
                 background-color: #000
-                &::before
-                    content: ''
-                    position: absolute
-                    display: block
-                    z-index: 1
-                    width: 100%
-                    height: 100%
-                    background: rgba(255, 255, 255, 0.85)
+                &.back_op
+                    &::before
+                        content: ''
+                        position: absolute
+                        display: block
+                        z-index: 1
+                        width: 100%
+                        height: 100%
+                        background: rgba(255, 255, 255, 0.85)
                 img 
                     position: absolute
                     width: 100%
@@ -306,8 +310,9 @@
                 align-items: center
                 justify-content: space-between
                 img 
-                    &.bott
-                        transform: rotate(180deg)
+                    transform: rotate(45deg)
+                    // &.bott
+                    //     transform: rotate(180deg)
                 span 
                     //max-width: 231px
                     max-width: 61.2%

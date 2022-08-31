@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="header"></div>
-    <header class="header text text_fz12 text_white">
+    <header class="header text text_fz14 text_white">
         <div class="container">
             <div class="header__mobile">
                 <div class="header__humburger">
@@ -35,18 +35,18 @@
 				?>
             </nav>
             <div class="header__right">
-                <div class="header__lang">
+                <!--<div class="header__lang">
                     <div>RU</div>
                     <span></span>
                     <a href="/en<?php echo $_SERVER['REQUEST_URI']; ?>">EN</a>
-                </div>
+                </div>-->
                 <div class="header__contact">
                     <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>"><?php the_field('phone', 12); ?></a>
-                    <a href="<?php the_field('telegram', 12); ?>"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
+                    <a href="<?php the_field('telegram', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
                 </div>
-                <button class="header__button button button_orange text_orange">
+                <a href="#feedmail" class="header__button button button_orange text_orange">
                     оставить заявку
-                </button>
+                </a>
             </div>
         </div>
     </header>
