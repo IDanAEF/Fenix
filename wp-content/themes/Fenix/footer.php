@@ -42,7 +42,7 @@
                     ] );
                 ?>
             </nav>
-            <a href="<?php the_field('link', 12); ?>" class="footer__boss">
+            <a href="<?php the_field('boss_link', 12); ?>" class="footer__boss">
                 <div class="footer__boss-image">
                     <img src="<?php the_field('boss_photo', 12); ?>" alt="<?php the_field('boss_name', 12); ?>" class="personal img_bg">
                     <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" class="telegram">

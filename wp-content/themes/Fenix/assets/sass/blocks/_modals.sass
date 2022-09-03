@@ -13,6 +13,25 @@
     transition: 1s all
     visibility: hidden
     overflow: hidden
+    .all_market_li 
+        text-transform: uppercase
+        font-size: 0.9em
+        opacity: 0.5
+        font-weight: 300
+        position: relative
+        a 
+            display: block
+        &::after 
+            content: ''
+            display: block
+            position: absolute
+            height: 8px
+            width: 8px
+            top: 50%
+            left: 90px
+            transform: translateY(-50%)
+            z-index: -1
+            background: url('/wp-content/themes/Fenix/assets/images/arrow_orange.svg') center center/cover no-repeat
     &.active
         visibility: visible
         top: 0

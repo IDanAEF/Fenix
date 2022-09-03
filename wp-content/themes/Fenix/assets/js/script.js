@@ -322,7 +322,7 @@ function animate() {
           setAnimSlide(e.deltaY);
           timeout = setTimeout(() => {
             timing = false;
-          }, 1000);
+          }, 1300);
         }
 
         if (e.deltaY < 0 && rightAnimate || e.deltaY > 0 && leftAnimate) {
@@ -332,7 +332,7 @@ function animate() {
           setAnimSlide(e.deltaY);
           timeout = setTimeout(() => {
             timing = false;
-          }, 1000);
+          }, 1300);
         }
       }
     }
@@ -360,28 +360,34 @@ function animate() {
               elementPosition = scrollTarget.getBoundingClientRect().top,
               offsetPosition = elementPosition - topOffset;
         scrollingPage = true;
+
+        if (link.classList.contains('back_top')) {
+          stop = false;
+          stop2 = false;
+          allTop = false;
+          allBott = true;
+          allLeft = false;
+          allRight = true;
+          once2 = false;
+          once = false;
+          clearInterval(interval2);
+          clearInterval(interval);
+        } else if (link.classList.contains('header__button')) {
+          stop = false;
+          stop2 = false;
+          allTop = true;
+          allBott = false;
+          allLeft = true;
+          allRight = false;
+          once2 = false;
+          once = false;
+          clearInterval(interval2);
+          clearInterval(interval);
+          addScroll();
+        }
+
         setTimeout(() => {
           scrollingPage = false;
-
-          if (link.classList.contains('back_top')) {
-            allTop = false;
-            allBott = true;
-            allLeft = false;
-            allRight = true;
-            once2 = false;
-            once = false;
-            clearInterval(interval2);
-            clearInterval(interval);
-          } else if (link.classList.contains('header__button')) {
-            allTop = true;
-            allBott = false;
-            allLeft = true;
-            allRight = false;
-            once2 = false;
-            once = false;
-            clearInterval(interval2);
-            clearInterval(interval);
-          }
         }, 1000);
         SmoothVerticalScrolling(scrollTarget, 275, 'top');
         /*window.scrollBy({
