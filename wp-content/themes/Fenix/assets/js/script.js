@@ -447,7 +447,7 @@ function animate() {
         backTop.classList.add('active');
       }
 
-      if (window.pageYOffset <= document.querySelector('body').clientHeight / 2 || window.innerHeight + window.pageYOffset >= document.querySelector('footer').getBoundingClientRect().y + window.pageYOffset) {
+      if (window.pageYOffset <= document.querySelector('body').clientHeight / 2 || window.innerHeight + window.pageYOffset >= document.querySelector('footer').getBoundingClientRect().y + document.querySelector('footer').clientHeight / 2 + window.pageYOffset) {
         backTop.classList.remove('active');
       }
     });
