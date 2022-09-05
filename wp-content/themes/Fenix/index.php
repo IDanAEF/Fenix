@@ -213,51 +213,53 @@
     <section class="main__blog">
         <div class="container">
             <h2 class="main__blog-title title title_fz48 text_fw700 text_upper">О НАС ГОВОРЯТ</h2>
-            <div class="main__blog-items">
-            <?php
-                $my_posts = get_posts(array(
-                    'numberposts' => 3,
-                    'category_name'    => 'blog',
-                    'orderby'     => 'date',
-                    'order'       => 'ASC',
-                    'post_type'   => 'post',
-                    'suppress_filters' => true
-                ));
-                $i = 0;
+            <div class="main__blog-line">
+                <div class="main__blog-items">
+                <?php
+                    $my_posts = get_posts(array(
+                        'numberposts' => 3,
+                        'category_name'    => 'blog',
+                        'orderby'     => 'date',
+                        'order'       => 'ASC',
+                        'post_type'   => 'post',
+                        'suppress_filters' => true
+                    ));
+                    $i = 0;
 
-                foreach ($my_posts as $post) {
-                    setup_postdata($post);
-                    ?>
-                    <article class="main__blog-item text text_fz14" onclick="window.open('<?php echo get_field('link') ? get_field('link') : get_the_permalink(); ?>');">
-                        <div class="main__blog-item-info">
-                            <?php if (get_the_post_thumbnail()) : ?>
-                                <div class="main__blog-item-back<?php echo get_field('back_op') ? ' back_op' : ''; ?>">
-                                    <?=get_the_post_thumbnail()?>
+                    foreach ($my_posts as $post) {
+                        setup_postdata($post);
+                        ?>
+                        <article class="main__blog-item text text_fz14" onclick="window.open('<?php echo get_field('link') ? get_field('link') : get_the_permalink(); ?>');">
+                            <div class="main__blog-item-info">
+                                <?php if (get_the_post_thumbnail()) : ?>
+                                    <div class="main__blog-item-back<?php echo get_field('back_op') ? ' back_op' : ''; ?>">
+                                        <?=get_the_post_thumbnail()?>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="main__blog-item-top">
+                                    <h3 class="main__blog-item-title text_fw700 text_upper"><?php echo get_the_title() == 'Без названия' ? '' : get_the_title(); ?></h3>
+                                    <div class="main__blog-item-undertitle">
+                                        <?php the_field('descr'); ?>
+                                    </div>
                                 </div>
-                            <?php endif; ?>
-                            <div class="main__blog-item-top">
-                                <h3 class="main__blog-item-title text_fw700 text_upper"><?php echo get_the_title() == 'Без названия' ? '' : get_the_title(); ?></h3>
-                                <div class="main__blog-item-undertitle">
-                                    <?php the_field('descr'); ?>
+                                <div class="main__blog-item-bott title_fz32 text_fw700 text_upper">
+                                    <?php the_field('gain'); ?>
                                 </div>
                             </div>
-                            <div class="main__blog-item-bott title_fz32 text_fw700 text_upper">
-                                <?php the_field('gain'); ?>
+                            <div class="main__blog-item-result text_white">
+                                <?php the_field('result'); ?>
+                                <?php if (get_field('result')) : ?>
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_light.svg" alt="arrow_light">
+                                <?php endif; ?>
                             </div>
-                        </div>
-                        <div class="main__blog-item-result text_white">
-                            <?php the_field('result'); ?>
-                            <?php if (get_field('result')) : ?>
-                            <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_light.svg" alt="arrow_light">
-                            <?php endif; ?>
-                        </div>
-                    </article>
-                    <?php
-                    $i++;
-                }
+                        </article>
+                        <?php
+                        $i++;
+                    }
 
-                wp_reset_postdata();
-            ?>
+                    wp_reset_postdata();
+                ?>
+                </div>
             </div>
             <?php if ($i > 3) : ?>
             <a href="/blog/" class="main__market-all button button_black title title_fz48 text_fw700">смотреть все<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>

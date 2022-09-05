@@ -863,13 +863,16 @@
                 height: 512px
         &__blog 
             padding: 100px 0px 67px
+            &-line 
+                width: 100%
+                overflow: hidden
             &-items 
                 display: flex
                 width: fit-content
                 position: relative
                 transition: 0.5s all
             &-item 
-                width: 90vw
+                width: calc(100vw - 30px)
         &__services 
             padding: 62px 0px 50px
             .container
@@ -893,6 +896,7 @@
                     margin-left: 0
                 &-blocks 
                     margin: 36px 0px
+                    font-size: 1.2em
                     &-item 
                         &:first-child
                             margin-bottom: 24px
@@ -934,6 +938,7 @@
                         opacity: 1
                         height: 670px
                 &-blocks 
+                    font-size: 1.2em
                     &-item 
                         &:first-child
                             margin-bottom: 24px
