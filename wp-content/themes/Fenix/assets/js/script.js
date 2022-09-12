@@ -45,16 +45,6 @@ function animate() {
       if (where == "top") window.scrollBy(0, eAmt);
     }
 
-    const contPos = () => {
-      //return marketItem[0].getBoundingClientRect().y + window.pageYOffset
-      return marketItem[0].clientHeight / 2 + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
-    };
-
-    const contPosBott = () => {
-      //return marketItem[0].getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
-      return marketItem[0].clientHeight / 2 + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
-    };
-
     let count = 1,
         top = 100,
         stop = false,
@@ -64,111 +54,124 @@ function animate() {
         once = false,
         interval;
 
-    function scrollEvent() {
-      if (window.innerWidth >= 992 && !scrollingPage) {
-        if (window.pageYOffset + window.innerHeight / 2 >= contPos() && !stop && !allTop || window.pageYOffset + window.innerHeight / 2 <= contPosBott() && !stop && !allBott) {
-          removeScroll();
-          stop = true;
-        }
+    if (marketItem[0]) {
+      const contPos = () => {
+        //return marketItem[0].getBoundingClientRect().y + window.pageYOffset
+        return marketItem[0].clientHeight / 2 + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
+      };
 
-        if (stop && !once) {
-          once = true; //window.removeEventListener('scroll', scrollEvent);
-          //SmoothVerticalScrolling(marketItem[0], 575, 'top');
-          //window.scroll(0, contPos() - (window.innerHeight / 2));
+      const contPosBott = () => {
+        //return marketItem[0].getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
+        return marketItem[0].clientHeight / 2 + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
+      };
 
-          window.scrollBy({
-            top: marketItem[0].clientHeight / 2 + marketItem[0].getBoundingClientRect().top - window.innerHeight / 2,
-            behavior: 'smooth'
-          });
-          interval = setInterval(() => {
+      function scrollEvent() {
+        if (window.innerWidth >= 992 && !scrollingPage) {
+          if (window.pageYOffset + window.innerHeight / 2 >= contPos() && !stop && !allTop || window.pageYOffset + window.innerHeight / 2 <= contPosBott() && !stop && !allBott) {
+            removeScroll();
+            stop = true;
+          }
+
+          if (stop && !once) {
+            once = true; //window.removeEventListener('scroll', scrollEvent);
+            //SmoothVerticalScrolling(marketItem[0], 575, 'top');
+            //window.scroll(0, contPos() - (window.innerHeight / 2));
+
             window.scrollBy({
               top: marketItem[0].clientHeight / 2 + marketItem[0].getBoundingClientRect().top - window.innerHeight / 2,
               behavior: 'smooth'
             });
-          }, 400);
+            interval = setInterval(() => {
+              window.scrollBy({
+                top: marketItem[0].clientHeight / 2 + marketItem[0].getBoundingClientRect().top - window.innerHeight / 2,
+                behavior: 'smooth'
+              });
+            }, 400);
+          }
         }
       }
-    }
 
-    function setMarketSlide(delta) {
-      if (delta > 0) {
-        if (count >= marketItem.length) {
-          stop = false;
-          count = marketItem.length;
-          allTop = true;
-          allBott = false;
-          addScroll();
-          once = false;
-          clearInterval(interval);
-        } else {
-          marketItem[count].classList.add('active');
-          count++;
-        }
-        /*top -= 10;
-        if (top == -10) {
-            top = 100;
-            count++;
-        }
-        if (count < marketItem.length) {
-            marketItem[count].style.top = `${top}%`;
-        } else {
+      function setMarketSlide(delta) {
+        if (delta > 0) {
+          if (count >= marketItem.length) {
             stop = false;
-            count = marketItem.length - 1;
-            top = 0;
+            count = marketItem.length;
             allTop = true;
             allBott = false;
-            document.querySelector('html').classList.remove('fixed');
-            document.querySelector('body').classList.remove('fixed');
-        }*/
+            addScroll();
+            once = false;
+            clearInterval(interval);
+          } else {
+            marketItem[count].classList.add('active');
+            count++;
+          }
+          /*top -= 10;
+          if (top == -10) {
+              top = 100;
+              count++;
+          }
+          if (count < marketItem.length) {
+              marketItem[count].style.top = `${top}%`;
+          } else {
+              stop = false;
+              count = marketItem.length - 1;
+              top = 0;
+              allTop = true;
+              allBott = false;
+              document.querySelector('html').classList.remove('fixed');
+              document.querySelector('body').classList.remove('fixed');
+          }*/
 
-      } else {
-        count--;
+        } else {
+          count--;
 
-        if (count <= 0) {
-          stop = false;
-          count = 1;
-          allTop = false;
-          allBott = true;
-          addScroll();
-          once = false;
-          clearInterval(interval);
-        } else {
-          marketItem[count].classList.remove('active');
-        }
-        /*top += 10;
-        if (top == 110) {
-            top = 0;
-            count--;
-        }
-        if (count >= 1) {
-            marketItem[count].style.top = `${top}%`;
-        } else {
+          if (count <= 0) {
             stop = false;
             count = 1;
-            top = 100;
-            allBott = true;
             allTop = false;
-            document.querySelector('html').classList.remove('fixed');
-            document.querySelector('body').classList.remove('fixed');
-        }*/
+            allBott = true;
+            addScroll();
+            once = false;
+            clearInterval(interval);
+          } else {
+            marketItem[count].classList.remove('active');
+          }
+          /*top += 10;
+          if (top == 110) {
+              top = 0;
+              count--;
+          }
+          if (count >= 1) {
+              marketItem[count].style.top = `${top}%`;
+          } else {
+              stop = false;
+              count = 1;
+              top = 100;
+              allBott = true;
+              allTop = false;
+              document.querySelector('html').classList.remove('fixed');
+              document.querySelector('body').classList.remove('fixed');
+          }*/
 
-      }
-    }
-
-    function wheelEvent(e) {
-      if (stop && window.innerWidth >= 992 && !scrollingPage) {
-        if (!timing2) {
-          timing2 = true;
-          setMarketSlide(e.deltaY);
-          setTimeout(() => {
-            timing2 = false;
-          }, 1000);
         }
       }
-    }
 
-    window.addEventListener('scroll', scrollEvent);
-    window.addEventListener('wheel', wheelEvent); //main-page services-slider
+      function wheelEvent(e) {
+        if (stop && window.innerWidth >= 992 && !scrollingPage) {
+          if (!timing2) {
+            timing2 = true;
+            setMarketSlide(e.deltaY);
+            setTimeout(() => {
+              timing2 = false;
+            }, 1000);
+          }
+        }
+      }
+
+      window.addEventListener('scroll', scrollEvent);
+      window.addEventListener('wheel', wheelEvent);
+    } //main-page services-slider
+
 
     const sSliderTap = document.querySelectorAll('.main__services-name'),
           sSliderItem = document.querySelectorAll('.main__services-page'),
@@ -372,7 +375,11 @@ function animate() {
           once = false;
           clearInterval(interval2);
           clearInterval(interval);
-        } else if (link.classList.contains('header__button')) {
+        } else if (link.classList.contains('header__button') || link.classList.contains('mobile__button')) {
+          document.querySelector('.mobile').querySelectorAll('.anim_left').forEach(item => {
+            item.classList.remove('showanim');
+          });
+          document.querySelector('.mobile').classList.remove('active');
           stop = false;
           stop2 = false;
           allTop = true;

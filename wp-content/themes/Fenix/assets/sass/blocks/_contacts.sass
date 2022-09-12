@@ -1,0 +1,72 @@
+.contacts
+    &__info 
+        padding-top: 170px
+    &__data
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin: 60px 0px 55px
+        flex-wrap: wrap
+        &-social
+            display: flex
+            align-items: center
+        &-block 
+            display: flex
+            flex-direction: column
+            color: rgba(0, 0, 0, 0.5)
+            margin: 0px 10px 15px 0px
+            a, div, span 
+                margin-top: 8px
+                color: #000
+            img 
+                filter: invert(1)
+                width: 21px
+                margin-right: 20px
+        br 
+            display: none
+    &__inter
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        justify-content: space-between
+        &-block 
+            display: flex
+            align-items: center
+            margin: 0px 10px 15px 0px
+            &-info 
+                display: flex
+                flex-direction: column
+            &-image 
+                margin-right: 21px
+                position: relative
+                border-radius: 100%
+                width: 80px
+                height: 80px
+                overflow: hidden
+                .personal 
+                    filter: brightness(0.7)
+                .center
+                    width: 30px
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+            &-descr
+                margin-top: 13px
+                color: #979797
+                opacity: 0.8
+    &__map 
+        margin: 60px 0px 160px
+        height: 521px
+        position: relative
+        #yamap0
+            filter: grayscale(1)
+            z-index: 1
+        .shape
+            position: absolute
+            width: 100%
+            height: 100%
+            z-index: 2
+            background-color: rgba(255, 255, 255, 0.8)
+            pointer-events: none 
+            mix-blend-mode: difference

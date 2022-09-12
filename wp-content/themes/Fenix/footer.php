@@ -136,7 +136,7 @@
         <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="mobile__phone anim_left text_fz12"><?php the_field('phone', 12); ?></a>
     </div>
     <div class="mobile__bott text_fz12">
-        <button class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></button>
+        <a href="#feedmail" class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
         <div class="mobile__info">
             <div class="social anim_left">
                 <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
