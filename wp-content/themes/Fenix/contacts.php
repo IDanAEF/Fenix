@@ -10,7 +10,7 @@
     </div>
     <section class="contacts__info">
         <div class="container">
-            <h1 class="contacts__title title title_fz120 text_fw700 text_upper"><?php the_title() ?></h1>
+            <h1 class="contacts__title title title_fz120 title_fz120-1 text_fw700 text_upper"><?php the_title() ?></h1>
             <div class="contacts__data text text_fz16">
                 <div class="contacts__data-block">
                     Адрес
@@ -40,7 +40,7 @@
                         <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
-                        <div class="contacts__inter-block-title title title_fz24 text_fw700"><?php the_field('inter_tel_name'); ?></div>
+                        <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('inter_tel_name'); ?></div>
                         <div class="contacts__inter-block-descr text text_fz14"><?php the_field('inter_tel_descr'); ?></div>
                     </div>
                 </a>
@@ -50,7 +50,7 @@
                         <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
-                        <div class="contacts__inter-block-title title title_fz24 text_fw700"><?php the_field('inter_whats_name'); ?></div>
+                        <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('inter_whats_name'); ?></div>
                         <div class="contacts__inter-block-descr text text_fz14"><?php the_field('inter_whats_descr'); ?></div>
                     </div>
                 </a>
@@ -60,7 +60,7 @@
                         <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
-                        <div class="contacts__inter-block-title title title_fz24 text_fw700"><?php the_field('boss_name', 12); ?></div>
+                        <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('boss_name', 12); ?></div>
                         <div class="contacts__inter-block-descr text text_fz14">Руководитель проектов </div>
                     </div>
                 </a>
@@ -73,7 +73,7 @@
     </section>
     <section class="main__feed">
         <div class="container">
-            <h2 class="main__feed-title title title_fz120 text_fw700 text_upper">Напишите нам</h2>
+            <h2 class="main__feed-title title title_fz120 title_fz120-1 text_fw700 text_upper">Напишите нам</h2>
             <?php echo do_shortcode('[contact-form-7 id="6" title="Main"]'); ?>
         </div>
     </section>

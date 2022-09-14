@@ -65,6 +65,9 @@ function modals() {
         function setPadding() {
             liWithSub.forEach(item => {
                 item.querySelector('.sub-menu').style.cssText = `padding-left: ${item.getBoundingClientRect().left}px; left: -${item.getBoundingClientRect().left}px;`;
+                if (item.classList.contains('market_place')) {
+                    document.querySelector('.market-sub').style.cssText = `padding-left: ${item.getBoundingClientRect().left}px; padding-right: ${document.querySelector('.container').getBoundingClientRect().left}px`;
+                }
             });
         }
 
@@ -73,13 +76,14 @@ function modals() {
                 its.querySelector('.sub-menu').classList.remove('open');
                 its.classList.remove('select');
             });
+            document.querySelector('.market-sub').classList.remove('open');
         }
 
         setPadding();
 
         liWithSub.forEach(item => {
             item.addEventListener('click', (e) => {
-                if (e.composedPath().some(it => it.nodeName == 'LI' && it.classList.contains('menu-item-has-children'))
+                if (e.composedPath().some(it => it.nodeName == 'LI' && it.classList.contains('menu-item-has-children') && !it.classList.contains('market_place'))
                     && !e.composedPath().some(it => it.nodeName == 'UL' && it.classList.contains('sub-menu'))) {
                     if (item.querySelector('.sub-menu').classList.contains('open')) {
                         item.querySelector('.sub-menu').classList.remove('open');
@@ -87,6 +91,16 @@ function modals() {
                     } else {
                         hideFields();
                         item.querySelector('.sub-menu').classList.add('open');
+                        item.classList.add('select');
+                    }
+                }
+                if (e.composedPath().some(it => it.nodeName == 'LI' && it.classList.contains('menu-item-has-children') && it.classList.contains('market_place'))) {
+                    if (document.querySelector('.market-sub').classList.contains('open')) {
+                        document.querySelector('.market-sub').classList.remove('open');
+                        item.classList.remove('select');
+                    } else {
+                        hideFields();
+                        document.querySelector('.market-sub').classList.add('open');
                         item.classList.add('select');
                     }
                 }

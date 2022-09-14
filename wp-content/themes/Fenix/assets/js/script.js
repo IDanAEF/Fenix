@@ -520,60 +520,19 @@ function form() {
     mFeed.addEventListener('submit', () => {
       mFeed.querySelector('.policy').classList.add('mt');
     });
-    let countFile = 2,
-        allInp = [];
+    let countFiles = 0;
+    mFeed.addEventListener('click', e => {
+      if (e.composedPath().filter(item => item.nodeName == 'A' && item.classList.contains('remove-file')).length > 0) {
+        countFiles--;
 
-    function addNewInp(fileText) {
-      let fileName = document.createElement('div');
-      fileName.classList.add('file_name');
-      fileName.setAttribute('data-inp', countFile);
-      fileName.innerHTML = `${fileText}<div class="close"><span></span><span></span></div>`;
-      fileBlock.prepend(fileName);
-      fileInpLabel.innerHTML = '<div class="plus"><span></span><span></span></div>Добавить еще файл';
-      let newInp = document.createElement('input');
-      newInp.type = 'file';
-      newInp.name = `file-${countFile}`;
-      newInp.size = '40';
-      newInp.className = 'wpcf7-form-control wpcf7-file';
-      newInp.id = `file-${countFile}`;
-      newInp.accept = 'audio/*,video/*,image/*';
-      newInp.setAttribute('aria-invalid', 'false');
-      allInp.push(countFile);
-      console.log(allInp);
-      fileInpLabel.before(newInp);
-      fileInpLabel.setAttribute('for', `file-${countFile++}`);
-      newInp.addEventListener('change', () => {
-        if (newInp.files[0]) {
-          addNewInp(newInp.files[0]['name']);
+        if (countFiles <= 0) {
+          fileInpLabel.innerHTML = '<div class="gray_arrow"><img src="/wp-content/themes/Fenix/assets/images/arrow_gray.svg" alt=""></div>Прикрепить файл';
         }
-      });
-    }
-
-    function removeInp(elem) {
-      let inpId = elem.parentElement.getAttribute('data-inp');
-      allInp = allInp.filter(item => item != inpId);
-      console.log(allInp);
-      elem.parentElement.remove();
-      fileBlock.querySelector(`#file-${inpId}`).remove();
-
-      if (allInp.length == 0) {
-        countFile = 2;
-        fileInpLabel.setAttribute('for', `file`);
-        fileInpLabel.innerHTML = '<div class="gray_arrow"><img src="/wp-content/themes/Fenix/assets/images/arrow_gray.svg" alt=""></div>Прикрепить файл';
       }
-    }
-
-    fileBlock.addEventListener('click', e => {
-      e.composedPath().forEach(item => {
-        if (item.nodeName == "DIV" && item.classList.contains('close')) {
-          removeInp(item);
-        }
-      });
     });
     fileInp.addEventListener('change', () => {
-      if (fileInp.files[0]) {
-        addNewInp(fileInp.files[0]['name']);
-      }
+      countFiles++;
+      fileInpLabel.innerHTML = '<div class="plus"><span></span><span></span></div>Добавить еще файл';
     });
   } catch (e) {
     console.log(e.stack);
@@ -724,6 +683,10 @@ function modals() {
     function setPadding() {
       liWithSub.forEach(item => {
         item.querySelector('.sub-menu').style.cssText = `padding-left: ${item.getBoundingClientRect().left}px; left: -${item.getBoundingClientRect().left}px;`;
+
+        if (item.classList.contains('market_place')) {
+          document.querySelector('.market-sub').style.cssText = `padding-left: ${item.getBoundingClientRect().left}px; padding-right: ${document.querySelector('.container').getBoundingClientRect().left}px`;
+        }
       });
     }
 
@@ -732,18 +695,30 @@ function modals() {
         its.querySelector('.sub-menu').classList.remove('open');
         its.classList.remove('select');
       });
+      document.querySelector('.market-sub').classList.remove('open');
     }
 
     setPadding();
     liWithSub.forEach(item => {
       item.addEventListener('click', e => {
-        if (e.composedPath().some(it => it.nodeName == 'LI' && it.classList.contains('menu-item-has-children')) && !e.composedPath().some(it => it.nodeName == 'UL' && it.classList.contains('sub-menu'))) {
+        if (e.composedPath().some(it => it.nodeName == 'LI' && it.classList.contains('menu-item-has-children') && !it.classList.contains('market_place')) && !e.composedPath().some(it => it.nodeName == 'UL' && it.classList.contains('sub-menu'))) {
           if (item.querySelector('.sub-menu').classList.contains('open')) {
             item.querySelector('.sub-menu').classList.remove('open');
             item.classList.remove('select');
           } else {
             hideFields();
             item.querySelector('.sub-menu').classList.add('open');
+            item.classList.add('select');
+          }
+        }
+
+        if (e.composedPath().some(it => it.nodeName == 'LI' && it.classList.contains('menu-item-has-children') && it.classList.contains('market_place'))) {
+          if (document.querySelector('.market-sub').classList.contains('open')) {
+            document.querySelector('.market-sub').classList.remove('open');
+            item.classList.remove('select');
+          } else {
+            hideFields();
+            document.querySelector('.market-sub').classList.add('open');
             item.classList.add('select');
           }
         }
@@ -903,6 +878,35 @@ function slider() {
 
         bSliderField.style.transform = `translateX(-${(bSliderElems[0].clientWidth + 10) * count}px)`;
       }
+    });
+  } catch (e) {
+    console.log(e.stack);
+  }
+
+  try {
+    //market sub menu
+    const msSliderLine = document.querySelectorAll('.market-sub__right-slider-line'),
+          msSliderOneItem = document.querySelector('.market-sub__right-slider-item');
+
+    const getOffset = () => {
+      return msSliderOneItem.clientHeight + 10;
+    };
+
+    msSliderLine.forEach((msSlider, i) => {
+      const msSliderItems = msSlider.querySelectorAll('.market-sub__right-slider-item');
+      let count = 0,
+          range = 1,
+          timeout = i == 0 ? 7000 : 7000 + 300 * i;
+      setInterval(() => {
+        if (count == 0) {
+          range = 1;
+        } else if (count == msSliderItems.length - 1) {
+          range = -1;
+        }
+
+        count += range;
+        msSlider.style.cssText = `transform: translateY(-${getOffset() * count}px)`;
+      }, timeout);
     });
   } catch (e) {
     console.log(e.stack);

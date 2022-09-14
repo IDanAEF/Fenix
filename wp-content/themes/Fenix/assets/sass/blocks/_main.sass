@@ -532,6 +532,26 @@
                 bottom: 136px
             .wpcf7-not-valid-tip
                 display: none
+            .codedropz-upload-wrapper
+                display: flex
+                flex-direction: column-reverse
+            .codedropz-upload-handler
+                display: none
+            .dnd-upload-status 
+                .dnd-upload-image
+                    display: none
+                .dnd-upload-details
+                    padding-left: 0
+                    .name 
+                        color: #000
+                        em
+                            display: none
+                    .remove-file
+                        span
+                            &::after
+                                background-image: url('../images/close_file.svg')
+                    .dnd-progress-bar
+                        display: none
             .undertitle
                 margin-bottom: 101px
                 display: block

@@ -74,6 +74,38 @@ function slider() {
     } catch (e) {
         console.log(e.stack);
     }
+
+    try {
+        //market sub menu
+        const msSliderLine = document.querySelectorAll('.market-sub__right-slider-line'),
+              msSliderOneItem = document.querySelector('.market-sub__right-slider-item');
+
+        const getOffset = () => {
+            return msSliderOneItem.clientHeight + 10;
+        }
+
+        msSliderLine.forEach((msSlider, i) => {
+            const msSliderItems = msSlider.querySelectorAll('.market-sub__right-slider-item');
+
+            let count = 0,
+                range = 1,
+                timeout = i == 0 ? 7000 : 7000 + (300 * i);
+
+            setInterval(() => {
+                if (count == 0) {
+                    range = 1;
+                } else if (count == msSliderItems.length - 1) {
+                    range = -1;
+                }
+
+                count += range;
+
+                msSlider.style.cssText = `transform: translateY(-${getOffset() * count}px)`;
+            }, timeout);
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
 }
 
 export default slider;

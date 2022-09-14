@@ -49,4 +49,105 @@
                 </a>
             </div>
         </div>
+        <div class="market-sub">
+            <div class="market-sub__left">
+                <div class="market-sub__left-points">
+                <?php
+                    $markets = [];
+
+                    $my_posts = get_posts(array(
+                        'numberposts' => 4,
+                        'category_name'    => 'market',
+                        'orderby'     => 'date',
+                        'order'       => 'ASC',
+                        'post_type'   => 'post',
+                        'suppress_filters' => true
+                    ));
+
+                    foreach ($my_posts as $post) {
+                        setup_postdata($post);
+
+                        $markets[] = [
+                            'title' => get_the_title(),
+                            'file' => get_field('file'),
+                            'link' => get_the_permalink(),
+                            'file_pos' => get_field('file_pos'),
+                        ];
+                        ?>
+                        <div class="market-sub__left-item">
+                            <a href="<?=get_the_permalink()?>" class="market-sub__left-item-title text_white text_fz16"><?php the_title(); ?></a>
+                            <div class="market-sub__left-item-descr text_white text_fz14"><?php the_field('menu_descr'); ?></div>
+                        </div>
+                        <?php
+                    }
+
+                    wp_reset_postdata();
+                ?>
+                </div>
+                <a href="/market/" class="market-sub__button button button_arrow text_fz14 text_white">
+                    Оставить заявку
+                    <div class="arrow">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
+                    </div>
+                </a>
+            </div>
+            <div class="market-sub__right">
+                <div class="market-sub__right-slider">
+                    <div class="market-sub__right-slider-line">
+                        <?php
+                            for($i = 0; $i < round(count($markets) / 2); $i++) {
+                                ?>
+                                    <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
+                                        <div class="market-sub__right-slider-item-file">
+                                        <?php
+                                            if (strpos($markets[$i]['file'], '.jpg') !== false || strpos($markets[$i]['file'], '.png') !== false || strpos($markets[$i]['file'], '.svg') !== false || strpos($markets[$i]['file'], '.jpeg') !== false || strpos($markets[$i]['file'], '.webp') !== false) {
+                                                ?>
+                                                <img class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" alt="<?=$markets[$i]['title']?>">
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <video class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                                <?php
+                                            }
+                                        ?>
+                                        </div>
+                                        <div class="market-sub__right-slider-item-title text_white text_fz16">
+                                            <?=$markets[$i]['title']?>
+                                        </div>
+                                    </a>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+                <div class="market-sub__right-slider">
+                    <div class="market-sub__right-slider-line">
+                        <?php
+                            for($i = round(count($markets) / 2); $i < count($markets); $i++) {
+                                ?>
+                                    <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
+                                        <div class="market-sub__right-slider-item-file">
+                                        <?php
+                                            if (strpos($markets[$i]['file'], '.jpg') !== false || strpos($markets[$i]['file'], '.png') !== false || strpos($markets[$i]['file'], '.svg') !== false || strpos($markets[$i]['file'], '.jpeg') !== false || strpos($markets[$i]['file'], '.webp') !== false) {
+                                                ?>
+                                                <img class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" alt="<?=$markets[$i]['title']?>">
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <video class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                                <?php
+                                            }
+                                        ?>
+                                        </div>
+                                        <div class="market-sub__right-slider-item-title text_white text_fz16">
+                                            <?=$markets[$i]['title']?>
+                                        </div>
+                                    </a>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
