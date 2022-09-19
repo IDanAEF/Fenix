@@ -7,9 +7,11 @@
     <title><?php the_title(); ?></title>
     <?php
         wp_head();
+        global $post;
     ?>
 </head>
 <body>
+    <?php if ($post->ID != 384) : ?>
     <div id="header"></div>
     <header class="header text text_fz14 text_white">
         <div class="container">
@@ -85,7 +87,7 @@
                 ?>
                 </div>
                 <a href="/market/" class="market-sub__button button button_arrow text_fz14 text_white">
-                    Оставить заявку
+                    Все решения
                     <div class="arrow">
                         <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
                     </div>
@@ -151,3 +153,4 @@
             </div>
         </div>
     </header>
+    <?php endif; ?>

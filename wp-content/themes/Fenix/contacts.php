@@ -71,7 +71,7 @@
             </div>
         </div>
     </section>
-    <section class="main__feed">
+    <section class="main__feed" id="feedmail">
         <div class="container">
             <h2 class="main__feed-title title title_fz120 title_fz120-1 text_fw700 text_upper">Напишите нам</h2>
             <?php echo do_shortcode('[contact-form-7 id="6" title="Main"]'); ?>

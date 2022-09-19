@@ -346,7 +346,6 @@
             <a href="/projects/" class="main__market-all button button_black title title_fz48 text_fw700">все кейсы<span class="text text_fz12 text_fw400 text_normal">(17+)</span></a>
             <?php endif; ?>
         </div>
-        <div class="" id="feedmail"></div>
     </section>
     <?php if(have_rows('stocks')) : ?>
     <!--<section class="main__stocks">
@@ -390,7 +389,7 @@
         </div>
     </section>-->
     <?php endif; ?>
-    <section class="main__feed">
+    <section class="main__feed" id="feedmail">
         <div class="container">
             <h2 class="main__feed-title title title_fz120 text_fw700 text_upper">Напишите нам</h2>
             <?php echo do_shortcode('[contact-form-7 id="6" title="Main"]'); ?>

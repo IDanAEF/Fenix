@@ -57,6 +57,21 @@ function form() {
     } catch (e) {
         console.log(e.stack);
     }
+    
+    try {
+        //auth form
+        const authModal = document.querySelector('.auth'),
+              checkInput = authModal.querySelector('#authcheck'),
+              checkLabelImg = authModal.querySelector('.auth__form-check-field label img');
+
+        checkInput.checked ? checkLabelImg.classList.toggle('active') : '';
+
+        checkInput.addEventListener('change', () => {
+            checkLabelImg.classList.toggle('active');
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
 }
 
 export default form;

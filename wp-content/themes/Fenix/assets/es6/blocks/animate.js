@@ -46,115 +46,116 @@ function animate() {
             once = false,
             interval;
 
-        if (marketItem[0]) {
-            const contPos = () => {
-                //return marketItem[0].getBoundingClientRect().y + window.pageYOffset
-                return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
-            }
-    
-            const contPosBott = () => {
-                //return marketItem[0].getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
-                return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
-            }
-    
-            function scrollEvent() {
-                if (window.innerWidth >= 992 && !scrollingPage) {
-                    if (((window.pageYOffset + (window.innerHeight / 2)) >= contPos() && !stop && !allTop) || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott() && !stop && !allBott)) {
-                        removeScroll();
-                        stop = true;
-                    }
-                    if (stop && !once) {
-                        once = true;
-                        //window.removeEventListener('scroll', scrollEvent);
-                        //SmoothVerticalScrolling(marketItem[0], 575, 'top');
-                        //window.scroll(0, contPos() - (window.innerHeight / 2));
+        function scrollEvent() {
+            if (window.innerWidth >= 992 && !scrollingPage) {
+                if (((window.pageYOffset + (window.innerHeight / 2)) >= contPos() && !stop && !allTop) || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott() && !stop && !allBott)) {
+                    removeScroll();
+                    stop = true;
+                }
+                if (stop && !once) {
+                    once = true;
+                    //window.removeEventListener('scroll', scrollEvent);
+                    //SmoothVerticalScrolling(marketItem[0], 575, 'top');
+                    //window.scroll(0, contPos() - (window.innerHeight / 2));
+                    window.scrollBy({
+                        top: (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().top - (window.innerHeight / 2),
+                        behavior: 'smooth'
+                    });
+                    interval = setInterval(() => {
                         window.scrollBy({
                             top: (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().top - (window.innerHeight / 2),
                             behavior: 'smooth'
                         });
-                        interval = setInterval(() => {
-                            window.scrollBy({
-                                top: (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().top - (window.innerHeight / 2),
-                                behavior: 'smooth'
-                            });
-                        }, 400);
-                    }
+                    }, 400);
                 }
             }
-    
-            function setMarketSlide(delta) {
-                if (delta > 0) {
-                    if (count >= marketItem.length) {
-                        stop = false;
-                        count = marketItem.length;
-                        allTop = true;
-                        allBott = false;
-                        addScroll();
-                        once = false;
-                        clearInterval(interval);
-                    } else {
-                        marketItem[count].classList.add('active');
-                        count++;
-                    }
-                    /*top -= 10;
-                    if (top == -10) {
-                        top = 100;
-                        count++;
-                    }
-                    if (count < marketItem.length) {
-                        marketItem[count].style.top = `${top}%`;
-                    } else {
-                        stop = false;
-                        count = marketItem.length - 1;
-                        top = 0;
-                        allTop = true;
-                        allBott = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }*/
+        }
+
+        function wheelEvent(e) {
+            if (stop && window.innerWidth >= 992 && !scrollingPage) {
+                if (!timing2) {
+                    timing2 = true;
+                    setMarketSlide(e.deltaY);
+                    setTimeout(() => {
+                        timing2 = false;
+                    }, 1000);
+                }
+            }
+        }
+
+        const contPos = () => {
+            //return marketItem[0].getBoundingClientRect().y + window.pageYOffset
+            return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
+        }
+
+        const contPosBott = () => {
+            //return marketItem[0].getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
+            return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
+        }
+
+        function setMarketSlide(delta) {
+            if (delta > 0) {
+                if (count >= marketItem.length) {
+                    stop = false;
+                    count = marketItem.length;
+                    allTop = true;
+                    allBott = false;
+                    addScroll();
+                    once = false;
+                    clearInterval(interval);
                 } else {
+                    marketItem[count].classList.add('active');
+                    count++;
+                }
+                /*top -= 10;
+                if (top == -10) {
+                    top = 100;
+                    count++;
+                }
+                if (count < marketItem.length) {
+                    marketItem[count].style.top = `${top}%`;
+                } else {
+                    stop = false;
+                    count = marketItem.length - 1;
+                    top = 0;
+                    allTop = true;
+                    allBott = false;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
+                }*/
+            } else {
+                count--;
+                if (count <= 0) {
+                    stop = false;
+                    count = 1;
+                    allTop = false;
+                    allBott = true;
+                    addScroll();
+                    once = false;
+                    clearInterval(interval);
+                } else {
+                    marketItem[count].classList.remove('active');
+                }
+                /*top += 10;
+                if (top == 110) {
+                    top = 0;
                     count--;
-                    if (count <= 0) {
-                        stop = false;
-                        count = 1;
-                        allTop = false;
-                        allBott = true;
-                        addScroll();
-                        once = false;
-                        clearInterval(interval);
-                    } else {
-                        marketItem[count].classList.remove('active');
-                    }
-                    /*top += 10;
-                    if (top == 110) {
-                        top = 0;
-                        count--;
-                    }
-                    if (count >= 1) {
-                        marketItem[count].style.top = `${top}%`;
-                    } else {
-                        stop = false;
-                        count = 1;
-                        top = 100;
-                        allBott = true;
-                        allTop = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }*/
                 }
+                if (count >= 1) {
+                    marketItem[count].style.top = `${top}%`;
+                } else {
+                    stop = false;
+                    count = 1;
+                    top = 100;
+                    allBott = true;
+                    allTop = false;
+                    document.querySelector('html').classList.remove('fixed');
+                    document.querySelector('body').classList.remove('fixed');
+                }*/
             }
-    
-            function wheelEvent(e) {
-                if (stop && window.innerWidth >= 992 && !scrollingPage) {
-                    if (!timing2) {
-                        timing2 = true;
-                        setMarketSlide(e.deltaY);
-                        setTimeout(() => {
-                            timing2 = false;
-                        }, 1000);
-                    }
-                }
-            }
+        }
+
+        if (marketItem[0]) {
     
             window.addEventListener('scroll', scrollEvent);
             window.addEventListener('wheel', wheelEvent);
@@ -169,61 +170,6 @@ function animate() {
 
         let count2 = 0;
 
-        sSliderRage.querySelector('.all').textContent = (sSliderTap.length < 10 ? '0' + sSliderTap.length : sSliderTap.length);
-
-        function setSSlide(i = 0) {
-            sSliderTap.forEach(item => item.classList.remove('active'));
-            sSliderItem.forEach(item => item.classList.remove('slide'));
-
-            sSliderTap[i].classList.add('active');
-            sSliderRage.querySelector('.curr').textContent = (i + 1 < 10 ? '0' + (i + 1) : i + 1);
-
-            //i == sSliderItem.length - 1 ? sSliderSkip.classList.add('hide') : sSliderSkip.classList.remove('hide');
-
-            if (i != 0) {
-                for (let j = sSliderItem.length - 1; j >= sSliderItem.length - i; j--) {
-                    sSliderItem[j].classList.add('slide');
-                }
-            }
-        }
-
-        setSSlide();
-
-        sSliderTap.forEach((item, i) => {
-            item.addEventListener('click', () => {
-                count2 = i;
-                setSSlide(count2);
-            });
-        });
-
-        let startPos = 0;
-        
-        sSliderLine.addEventListener('touchstart', (e) => {
-            startPos = e.changedTouches[0].screenX;
-        });
-    
-        sSliderLine.addEventListener('touchend', (e) => {
-            if (startPos - e.changedTouches[0].screenX > 50 && count2 + 1 < sSliderItem.length) {
-                count2++;
-                setSSlide(count2);
-            } else if (startPos - e.changedTouches[0].screenX < -50 && count2 - 1 >= 0) {
-                count2--;
-                setSSlide(count2);
-            }
-        });
-
-        const sSliderWindow = document.querySelector('.main__services-window');
-
-        const contPos2 = () => {
-            //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset
-            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset - 107;
-        }
-
-        const contPosBott2 = () => {
-            //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
-            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset - 107;
-        }
-
         let stop2 = false,
             allLeft = false,
             allRight = true,
@@ -236,47 +182,7 @@ function animate() {
 
         let timeout;
 
-        sSliderSkip.addEventListener('click', () => {
-            stop2 = false;
-            allLeft = true;
-            allRight = false;
-            skipTop = true;
-            once2 = false;
-            addScroll();
-            clearInterval(interval2);
-        });
-
-        function setAnimSlide(delta) {
-            if (delta > 0) {
-                count2++;
-                if (count2 >= sSliderItem.length) {
-                    stop2 = false;
-                    count2 = sSliderItem.length - 1;
-                    allLeft = true;
-                    allRight = false;
-                    addScroll();
-                    once2 = false;
-                    clearInterval(interval2);
-                } else {
-                    setSSlide(count2);
-                }
-            } else {
-                count2--;
-                if (count2 < 0) {
-                    stop2 = false;
-                    count2 = 0;
-                    allLeft = false;
-                    allRight = true;
-                    addScroll();
-                    once2 = false;
-                    clearInterval(interval2);
-                } else {
-                    setSSlide(count2);
-                }
-            }
-        }
-
-        const marketPos = document.querySelector('#market').getBoundingClientRect().top + window.pageYOffset;
+        const sSliderWindow = document.querySelector('.main__services-window');
 
         function scrollEvent2(e) {
             if (skipTop && !scrollingPage) {
@@ -333,8 +239,106 @@ function animate() {
             }
         }
 
-        window.addEventListener('scroll', scrollEvent2);
-        window.addEventListener('wheel', wheelEvent2);
+        function setSSlide(i = 0) {
+            sSliderTap.forEach(item => item.classList.remove('active'));
+            sSliderItem.forEach(item => item.classList.remove('slide'));
+
+            sSliderTap[i].classList.add('active');
+            sSliderRage.querySelector('.curr').textContent = (i + 1 < 10 ? '0' + (i + 1) : i + 1);
+
+            //i == sSliderItem.length - 1 ? sSliderSkip.classList.add('hide') : sSliderSkip.classList.remove('hide');
+
+            if (i != 0) {
+                for (let j = sSliderItem.length - 1; j >= sSliderItem.length - i; j--) {
+                    sSliderItem[j].classList.add('slide');
+                }
+            }
+        }
+
+        function setAnimSlide(delta) {
+            if (delta > 0) {
+                count2++;
+                if (count2 >= sSliderItem.length) {
+                    stop2 = false;
+                    count2 = sSliderItem.length - 1;
+                    allLeft = true;
+                    allRight = false;
+                    addScroll();
+                    once2 = false;
+                    clearInterval(interval2);
+                } else {
+                    setSSlide(count2);
+                }
+            } else {
+                count2--;
+                if (count2 < 0) {
+                    stop2 = false;
+                    count2 = 0;
+                    allLeft = false;
+                    allRight = true;
+                    addScroll();
+                    once2 = false;
+                    clearInterval(interval2);
+                } else {
+                    setSSlide(count2);
+                }
+            }
+        }
+
+        const contPos2 = () => {
+            //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset
+            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset - 107;
+        }
+
+        const contPosBott2 = () => {
+            //return sSliderWindow.getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
+            return (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().y + window.pageYOffset - 107;
+        }
+
+        if (sSliderItem[0]) {
+            sSliderRage.querySelector('.all').textContent = (sSliderTap.length < 10 ? '0' + sSliderTap.length : sSliderTap.length);
+
+            setSSlide();
+
+            sSliderTap.forEach((item, i) => {
+                item.addEventListener('click', () => {
+                    count2 = i;
+                    setSSlide(count2);
+                });
+            });
+
+            let startPos = 0;
+            
+            sSliderLine.addEventListener('touchstart', (e) => {
+                startPos = e.changedTouches[0].screenX;
+            });
+        
+            sSliderLine.addEventListener('touchend', (e) => {
+                if (startPos - e.changedTouches[0].screenX > 50 && count2 + 1 < sSliderItem.length) {
+                    count2++;
+                    setSSlide(count2);
+                } else if (startPos - e.changedTouches[0].screenX < -50 && count2 - 1 >= 0) {
+                    count2--;
+                    setSSlide(count2);
+                }
+            });
+
+            sSliderSkip.addEventListener('click', () => {
+                stop2 = false;
+                allLeft = true;
+                allRight = false;
+                skipTop = true;
+                once2 = false;
+                addScroll();
+                clearInterval(interval2);
+            });
+
+            const marketPos = document.querySelector('#market').getBoundingClientRect().top + window.pageYOffset;
+
+            window.addEventListener('scroll', scrollEvent2);
+            window.addEventListener('wheel', wheelEvent2);
+        }
+
         window.onbeforeunload = () => {
             window.removeEventListener('scroll', scrollEvent2);
             window.removeEventListener('wheel', wheelEvent2);
@@ -358,6 +362,8 @@ function animate() {
                       offsetPosition = elementPosition - topOffset;
 
                 scrollingPage = true;
+
+                let notWh = false;
 
                 if (link.classList.contains('back_top')) {
                     stop = false;
@@ -386,14 +392,21 @@ function animate() {
                     clearInterval(interval2);
                     clearInterval(interval);
                     addScroll();
+                    window.scrollBy({
+                        top: offsetPosition - 100,
+                        behavior: 'smooth'
+                    });
+                    notWh = true;
                 }
 
                 setTimeout(() => {
                     scrollingPage = false;
                 }, 1000);
 
-                SmoothVerticalScrolling(scrollTarget, 275, 'top');
-
+                if (!notWh) {
+                    SmoothVerticalScrolling(scrollTarget, 275, 'top');
+                }
+                
                 /*window.scrollBy({
                     top: offsetPosition,
                     behavior: 'smooth'

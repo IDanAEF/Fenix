@@ -1,3 +1,7 @@
+<?php
+    global $post;
+    if ($post->ID != 384) :
+?>
 <footer class="footer text text_fz12 text_white">
     <div class="container">
         <div class="footer__top">
@@ -148,6 +152,60 @@
                 <span></span>
                 <a href="/en<?php echo $_SERVER['REQUEST_URI']; ?>">EN</a>
             </div>-->
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<div class="auth<?=(!is_user_logged_in() && $post->ID == 384 ? ' active' : '')?>">
+    <?php the_custom_logo(); ?>
+    <a href="/" class="auth__close"><img src="<?php echo bloginfo('template_url') ?>/assets/images/close-circle.svg" alt="auth__close"></a>
+    <div class="auth__field main-form active">
+        <h2 class="auth__title title title_fz48 text_fw700 text_upper">войти</h2>
+        <form action="/personal/" method="get" enctype="multipart/form-data" class="auth__form">
+            <div class="auth__form-block" class="text text_fz14">
+                <label for="authemail">E-mail</label>
+                <input type="email" name="authemail" id="authemail"<?=$_GET['authemail'] ? ' value="'.$_GET['authemail'].'"' : ''?> require>
+            </div>
+            <div class="auth__form-block" class="text text_fz14">
+                <label for="authpass">Пароль</label>
+                <input type="password" name="authpass" id="authpass"<?=$_GET['authpass'] ? ' value="'.$_GET['authpass'].'"' : ''?> require>
+            </div>
+            <button class="auth__form-button text_white text_fz16 text_fw700 text_upper">войти</button>
+            <div class="auth__form-check">
+                <div class="auth__form-check-field">
+                    <input type="checkbox" name="authcheck" id="authcheck" hidden<?=$_GET['authcheck'] ? ' checked' : ''?>>
+                    <label for="authcheck" class="text text_fz14"><span><img src="<?php echo bloginfo('template_url') ?>/assets/images/check_field.svg" alt="check_field"></span>Запомнить меня</label>
+                </div>
+                <span class="auth__forget text text_fz14">Забыли пароль?</span>
+            </div>
+        </form>
+        <?=($_GET['auth_error'] ? '<div class="res_field">Поле E-mail или Пароль неверно</div>' : '')?>
+        <div class="auth__links">
+            <a href="<?php the_field('telegram', 12); ?>" class="auth__link-item">
+                <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram_black.svg" alt="telegram">
+            </a>
+            <a href="<?php the_field('whatsapp', 12); ?>" class="auth__link-item">
+                <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp_black.svg" alt="whatsapp">
+            </a>
+            <a href="<?php the_field('youtube', 12); ?>" class="auth__link-item">
+                <img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube_black.svg" alt="youtube">
+            </a>
+        </div>
+    </div>
+    <div class="auth__field rememb">
+        <h2 class="auth__title title title_fz24 text_fw700 text_upper">Восстановление пароля</h2>
+        <form action="/personal/" method="get" enctype="multipart/form-data" class="auth__form">
+            <div class="auth__form-block" class="text text_fz14">
+                <label for="authemail-rememb">E-mail</label>
+                <input type="email" name="authemail-rememb" id="authemail-rememb" require>
+            </div>
+            <button class="auth__form-button text_white text_fz16 text_fw700 text_upper">восстановить пароль</button>
+        </form>
+    </div>
+    <div class="auth__field send">
+        <h2 class="auth__title title title_fz24 text_fw700 text_upper">Письмо отправлено</h2>
+        <div class="auth__field-text text text_fz20">
+            Инструкция по восстановлению пароля<br>отправлена на указанный E-mail
         </div>
     </div>
 </div>
