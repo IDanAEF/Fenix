@@ -295,6 +295,14 @@
         .arrow
             width: 33px
             height: 33px
+    .empty
+        min-height: 620px
+        &__title 
+            margin-top: 75px
+        &__code 
+            max-width: 333px
+        &__descr
+            margin: 8px 0px 12px
     .user-profile
         &__main
             &-cont
@@ -700,6 +708,10 @@
         &_fz120
             font-size: 50px
             line-height: 80px
+    .header
+        overflow: hidden
+    .empty 
+        min-height: 555px
     .contacts
         &__info 
             padding-top: 80px
@@ -881,6 +893,13 @@
 @media (max-width: 576px)
     body, html 
         font-size: 90%
+    .empty
+        min-height: auto
+        padding-left: 15px 
+        padding-right: 15px
+        text-align: center
+        &__code 
+            max-width: 75%
     .user-profile
         &__main
             &-cont 
