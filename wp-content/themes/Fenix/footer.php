@@ -164,11 +164,11 @@
         <form action="/personal/" method="get" enctype="multipart/form-data" class="auth__form">
             <div class="auth__form-block" class="text text_fz14">
                 <label for="authemail">E-mail</label>
-                <input type="email" name="authemail" id="authemail"<?=$_GET['authemail'] ? ' value="'.$_GET['authemail'].'"' : ''?> require>
+                <input type="email" name="authemail" id="authemail"<?=$_GET['authemail'] ? ' value="'.$_GET['authemail'].'"' : ''?> required>
             </div>
             <div class="auth__form-block" class="text text_fz14">
                 <label for="authpass">Пароль</label>
-                <input type="password" name="authpass" id="authpass"<?=$_GET['authpass'] ? ' value="'.$_GET['authpass'].'"' : ''?> require>
+                <input type="password" name="authpass" id="authpass"<?=$_GET['authpass'] ? ' value="'.$_GET['authpass'].'"' : ''?> required>
             </div>
             <button class="auth__form-button text_white text_fz16 text_fw700 text_upper">войти</button>
             <div class="auth__form-check">

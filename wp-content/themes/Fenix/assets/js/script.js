@@ -575,6 +575,32 @@ function form() {
   } catch (e) {
     console.log(e.stack);
   }
+
+  try {
+    //personal form validate
+    const mForm = document.querySelector('.auth__field.main-form form'),
+          mInputs = mForm.querySelectorAll('.auth__form-block');
+    mForm.querySelector('button').addEventListener('click', e => {
+      mInputs.forEach(item => {
+        if (!item.querySelector('input').value) {
+          e.preventDefault();
+          const mLabel = item.querySelector('label'),
+                mInput = item.querySelector('input');
+          let labelText = mLabel.textContent;
+          mLabel.textContent = 'Заполните поле';
+          mLabel.classList.add('fail');
+          mInput.classList.add('fail');
+          mInput.addEventListener('focus', () => {
+            mLabel.classList.remove('fail');
+            mInput.classList.remove('fail');
+            mLabel.textContent = labelText;
+          });
+        }
+      });
+    });
+  } catch (e) {
+    console.log(e.stack);
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (form);

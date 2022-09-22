@@ -11,7 +11,7 @@
     ?>
 </head>
 <body>
-    <?php if ($post->ID != 384) : ?>
+    <?php if ($post->ID != 400) : ?>
     <div id="header"></div>
     <header class="header text text_fz14 text_white">
         <div class="container">
@@ -74,17 +74,29 @@
                             'file' => get_field('file'),
                             'link' => get_the_permalink(),
                             'file_pos' => get_field('file_pos'),
+                            'file_mobile' => get_field('file_mobile'),
+                            'menu_text' => get_field('menu_descr')
                         ];
-                        ?>
-                        <div class="market-sub__left-item">
-                            <a href="<?=get_the_permalink()?>" class="market-sub__left-item-title text_white text_fz16"><?php the_title(); ?></a>
-                            <div class="market-sub__left-item-descr text_white text_fz14"><?php the_field('menu_descr'); ?></div>
-                        </div>
-                        <?php
                     }
 
                     wp_reset_postdata();
                 ?>
+                    <div class="market-sub__left-item">
+                        <a href="<?=$markets[0]['link']?>" class="market-sub__left-item-title text_white text_fz16"><?=$markets[0]['title']?></a>
+                        <div class="market-sub__left-item-descr text_white text_fz14"><?=$markets[0]['menu_text']?></div>
+                    </div>
+                    <div class="market-sub__left-item">
+                        <a href="<?=$markets[2]['link']?>" class="market-sub__left-item-title text_white text_fz16"><?=$markets[2]['title']?></a>
+                        <div class="market-sub__left-item-descr text_white text_fz14"><?=$markets[2]['menu_text']?></div>
+                    </div>
+                    <div class="market-sub__left-item">
+                        <a href="<?=$markets[1]['link']?>" class="market-sub__left-item-title text_white text_fz16"><?=$markets[1]['title']?></a>
+                        <div class="market-sub__left-item-descr text_white text_fz14"><?=$markets[1]['menu_text']?></div>
+                    </div>
+                    <div class="market-sub__left-item">
+                        <a href="<?=$markets[3]['link']?>" class="market-sub__left-item-title text_white text_fz16"><?=$markets[3]['title']?></a>
+                        <div class="market-sub__left-item-descr text_white text_fz14"><?=$markets[3]['menu_text']?></div>
+                    </div>
                 </div>
                 <a href="/market/" class="market-sub__button button button_arrow text_fz14 text_white">
                     Все решения
@@ -97,7 +109,7 @@
                 <div class="market-sub__right-slider">
                     <div class="market-sub__right-slider-line">
                         <?php
-                            for($i = 0; $i < round(count($markets) / 2); $i++) {
+                            for($i = 0; $i < count($markets); $i += 2) {
                                 ?>
                                     <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
                                         <div class="market-sub__right-slider-item-file">
@@ -108,7 +120,7 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <video class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '3' : '1')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 2 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload></video>
                                                 <?php
                                             }
                                         ?>
@@ -125,7 +137,7 @@
                 <div class="market-sub__right-slider">
                     <div class="market-sub__right-slider-line">
                         <?php
-                            for($i = round(count($markets) / 2); $i < count($markets); $i++) {
+                            for($i = 1; $i < count($markets); $i += 2) {
                                 ?>
                                     <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
                                         <div class="market-sub__right-slider-item-file">
@@ -136,7 +148,7 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <video class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '2' : '1')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 2 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload></video>
                                                 <?php
                                             }
                                         ?>
