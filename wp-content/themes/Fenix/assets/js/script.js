@@ -912,6 +912,19 @@ function modals() {
   } catch (e) {
     console.log(e.stack);
   }
+
+  try {
+    //detail service tap
+    const sTap = document.querySelectorAll('.single-service__point-top');
+    sTap.forEach(tap => {
+      tap.addEventListener('click', () => {
+        tap.classList.toggle('active');
+        tap.nextElementSibling.classList.toggle('active');
+      });
+    });
+  } catch (e) {
+    console.log(e.stack);
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);

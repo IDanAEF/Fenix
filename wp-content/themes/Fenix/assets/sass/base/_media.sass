@@ -44,6 +44,11 @@
     .auth
         &__form 
             width: 370px
+    .single-service
+        &__banner 
+            padding: 0px 226px
+            &-title 
+                max-width: 447px
     .user-profile
         &__side 
             width: 330px
@@ -222,6 +227,18 @@
         &_fz120-1 
             font-size: 104px
             line-height: 111px
+    .single-service
+        &__banner
+            margin: 90px 0px
+            height: 263px
+            &-img 
+                left: 27%
+            &-button 
+                margin-top: 17px
+            &-title 
+                max-width: 341px
+        &__points 
+            padding: 0px 12% 220px 12%
     .develop
         &__title 
             margin-top: 143px
@@ -343,6 +360,26 @@
         .arrow
             width: 33px
             height: 33px
+    .single-service
+        &__title 
+            margin-top: 120px
+        &__banner
+            margin: 70px 0px
+            padding: 0px 20px
+            height: 226px
+            &-title 
+                max-width: 261px
+            &-img 
+                left: 20%
+        &__points 
+            padding: 0px 8% 170px 8%
+        &__point 
+            padding-bottom: 25px
+            margin-bottom: 30px
+            &-top 
+                padding-left: 14px
+                img 
+                    width: 19px
     .empty
         min-height: 620px
         &__title 
@@ -579,6 +616,24 @@
         &_fz120-1 
             font-size: 70px
             line-height: 79px
+    .single-service
+        &__title
+            padding: 0px 5%
+        &__banner 
+            flex-direction: column
+            align-items: flex-start
+            height: 257px
+            padding: 20px 55px
+            &-title 
+                max-width: 100%
+            &-img 
+                display: none
+        &__points 
+            padding: 0px 4% 100px 4%
+        &__point 
+            &-list 
+                &.active
+                    margin-top: 13px
     .develop
         &__title 
             margin-top: 105px
@@ -647,6 +702,8 @@
         &_fz32 
             font-size: 20px
             line-height: 30px
+    .header
+        overflow: hidden
     .mobile
         &__nav
             &-market
@@ -801,6 +858,17 @@
     .button
         &_black 
             margin-right: 32px
+    .single-service
+        &__banner
+            margin: 50px 0px
+            padding: 20px 4%
+        &__point 
+            &-list 
+                &-item 
+                    margin-bottom: 9px
+                    img 
+                        width: 10px
+                        margin-right: 5px
     .text
         &_fz12
             font-size: 11px
@@ -835,8 +903,6 @@
             line-height: 80px
         &_fz120-1
             line-height: 59px
-    .header
-        overflow: hidden
     .empty 
         min-height: 555px
     .develop
@@ -1057,6 +1123,48 @@
 @media (max-width: 576px)
     body, html 
         font-size: 90%
+    .single-service
+        &__title 
+            margin-top: 100px
+            padding: 0px 15px
+            span 
+                &:first-child
+                    margin-right: 15%
+        &__banner 
+            height: auto
+            margin: 65px 0px 40px
+            padding: 35px 15px
+            &-title 
+                margin-bottom: 15px
+        &__points 
+            padding: 0px 15px 70px 15px
+        &__point 
+            padding-bottom: 25px
+            margin-bottom: 39px
+            &__title 
+                max-width: 88%
+            &-top 
+                padding-left: 19px
+                img 
+                    width: 21px
+            &-list 
+                &.active
+                    margin-top: 15px
+                &-item 
+                    margin-bottom: 12px
+    .contacts
+        &__map 
+            height: 391px
+            width: 100vw
+            left: 50%
+            transform: translateX(-50%)
+            margin: 40px 0px 70px
+        &__inter 
+            flex-direction: column
+            align-items: flex-start
+        &__data 
+            flex-direction: column
+            align-items: flex-start
     .empty
         min-height: auto
         padding-left: 15px 
