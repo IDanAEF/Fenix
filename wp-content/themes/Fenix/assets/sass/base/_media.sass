@@ -1,6 +1,6 @@
 @media (min-width: 2100px) 
     .text
-        &_fz14 
+        &_fz14, &_fz14-1 
             font-size: 22px
             line-height: 30px
     .breadcrumbs 
@@ -47,6 +47,8 @@
     .single-service
         &__banner 
             padding: 0px 226px
+            &-descr
+                max-width: 726px
             &-title 
                 max-width: 447px
     .user-profile
@@ -77,7 +79,7 @@
         &_fz12
             font-size: 20px
             line-height: 27px
-        &_fz14 
+        &_fz14, &_fz14-1 
             font-size: 17px
             line-height: 30px
         &_fz16
@@ -186,7 +188,7 @@
                 font-size: 57px
                 line-height: 77px
         .text
-            &_fz14 
+            &_fz14, &_fz14-1 
                 font-size: 24px
             &_fz12
                 font-size: 26px
@@ -210,7 +212,7 @@
                 font-size: 47px
                 line-height: 67px
         .text
-            &_fz14 
+            &_fz14, &_fz14-1 
                 font-size: 20px
             &_fz12
                 font-size: 23px
@@ -230,7 +232,9 @@
     .single-service
         &__banner
             margin: 90px 0px
-            height: 263px
+            min-height: 263px
+            &-descr 
+                max-width: 550px
             &-img 
                 left: 27%
             &-button 
@@ -366,7 +370,7 @@
         &__banner
             margin: 70px 0px
             padding: 0px 20px
-            height: 226px
+            min-height: 226px
             &-title 
                 max-width: 261px
             &-img 
@@ -473,6 +477,8 @@
         &_fz14 
             //font-size: 13px
             line-height: 19px
+        &_fz14-1 
+            font-size: 13px
         &_fz16 
             font-size: 12px 
             line-height: 19px
@@ -622,8 +628,10 @@
         &__banner 
             flex-direction: column
             align-items: flex-start
-            height: 257px
+            min-height: 257px
             padding: 20px 55px
+            &-descr
+                max-width: 75%
             &-title 
                 max-width: 100%
             &-img 
@@ -862,6 +870,8 @@
         &__banner
             margin: 50px 0px
             padding: 20px 4%
+            &-descr
+                max-width: 83%
         &__point 
             &-list 
                 &-item 
@@ -876,6 +886,8 @@
         &_fz14 
             //font-size: 12px
             line-height: 18px
+        &_fz14-1
+            font-size: 12px
         &_fz16 
             font-size: 12px
             line-height: 19px
@@ -1127,13 +1139,21 @@
         &__title 
             margin-top: 100px
             padding: 0px 15px
+            width: fit-content
+            flex-direction: row
+            flex-wrap: wrap
             span 
+                font-size: 33px
                 &:first-child
-                    margin-right: 15%
+                    margin-right: 15px
+                    width: unset
+                    max-width: 100%
         &__banner 
-            height: auto
+            min-height: auto
             margin: 65px 0px 40px
             padding: 35px 15px
+            &-descr
+                max-width: 100%
             &-title 
                 margin-bottom: 15px
         &__points 
@@ -1141,7 +1161,7 @@
         &__point 
             padding-bottom: 25px
             margin-bottom: 39px
-            &__title 
+            &-title 
                 max-width: 88%
             &-top 
                 padding-left: 19px
@@ -1343,6 +1363,7 @@
         position: fixed
         width: 100%
         z-index: 100
+        display: block
         &.fixed
             opacity: 1
             visibility: visible
@@ -1384,6 +1405,9 @@
         &__letter 
             &-image 
                 opacity: 0.2
+        &__advantages
+            &-title
+                display: none
         &__promo 
             padding: 0px 0px 60px
             &-slider 
@@ -1394,6 +1418,8 @@
                 height: 512px
         &__blog 
             padding: 100px 0px 67px
+            &-arrow 
+                display: inline-block
             &-line 
                 width: 100%
                 overflow: hidden
@@ -1404,6 +1430,8 @@
                 transition: 0.5s all
             &-item 
                 width: calc(100vw - 30px)
+                &-result, &-top
+                    font-size: 12px
         &__services 
             padding: 62px 0px 50px
             .container
@@ -1479,6 +1507,7 @@
                 &-top 
                     margin-left: 32px
                     position: relative
+                    display: none
                     span 
                         position: absolute
                         bottom: -36px
@@ -1491,6 +1520,8 @@
                     span 
                         margin: 0
                 &-bott 
+                    .mob 
+                        display: inline-block
                     span 
                         margin-top: 16px
         &__cases
@@ -1618,6 +1649,20 @@
                     height: 0px
                     &.active
                         height: 578px
+@media (max-width: 486px) 
+    .single-service
+        &__title 
+            margin-top: 100px
+            padding: 0px 15px
+            width: fit-content
+            margin-left: auto
+            flex-direction: column
+            margin-right: auto
+            span 
+                &:first-child
+                    margin-right: unset
+                    width: 290px
+                    max-width: 100%
 @media (max-width: 400px)
     .main
         &__market 

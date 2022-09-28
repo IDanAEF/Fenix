@@ -480,14 +480,16 @@ function animate() {
         function changeUrl() {
             if (window.innerWidth <= 992) {
                 marketFile.forEach(item => {
-                    if (item.parentElement.getAttribute('data-mobile') && item.src != item.parentElement.getAttribute('data-mobile')) {
-                        item.src = item.parentElement.getAttribute('data-mobile');
+                    if (item.parentElement.getAttribute('data-mobile') && item.querySelector('source').src != item.parentElement.getAttribute('data-mobile')) {
+                        item.querySelector('source').src = item.parentElement.getAttribute('data-mobile');
+                        item.load();
                     }
                 });
             } else {
                 marketFile.forEach(item => {
-                    if (item.src != item.parentElement.getAttribute('data-file')) {
-                        item.src = item.parentElement.getAttribute('data-file');
+                    if (item.querySelector('source').src != item.parentElement.getAttribute('data-file')) {
+                        item.querySelector('source').src = item.parentElement.getAttribute('data-file');
+                        item.load();
                     }
                 });
             }

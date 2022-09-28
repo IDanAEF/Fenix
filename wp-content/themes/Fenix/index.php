@@ -160,7 +160,7 @@
                     <div class="title_fz120">Маркетплейс</div>
                 </div>
                 <div class="main__market-title-bott">
-                    <div class="title_fz120">решений</div>
+                    <div class="title_fz120"><div class="mob">Маркетплейс </div>решений</div>
                     <span class="text_fw400 text_normal">Не просто обновить систему для сбора заказов -<br>а в целом усовершенствовать свой магазин</span>
                 </div>
             </h1>
@@ -191,7 +191,9 @@
                                         <?php
                                     } else {
                                         ?>
-                                        <video class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                        <video class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" muted="muted" autoplay="autoplay" loop>
+                                            <source src="<?=$val['file']?>" type="video/mp4">
+                                        </video>
                                         <?php
                                     }
                                 ?>
@@ -260,6 +262,7 @@
                     wp_reset_postdata();
                 ?>
                 </div>
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/images/arrow_right_slider.png" alt="" class="main__blog-arrow">
             </div>
             <?php if ($i > 3) : ?>
             <a href="/blog/" class="main__market-all button button_black title title_fz48 text_fw700">смотреть все<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>
