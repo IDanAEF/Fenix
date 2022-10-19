@@ -97,7 +97,7 @@
                                     <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
                                 </div>
                                 <div class="main__services-page-image">
-                                    <?php the_post_thumbnail(); ?>
+                                    <?php the_field('svg_code_anonce');//the_post_thumbnail(); ?>
                                 </div>
                             </article>
                         <?php

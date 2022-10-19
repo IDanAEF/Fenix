@@ -1,0 +1,22 @@
+.market-sub__left {
+    margin-right: 40px;
+}
+.market-sub__right-slider:first-child {
+    margin-right: 25px;
+}
+.market-sub__right-slider {
+    height: 589px;
+    width: 385px;
+}
+.market-sub__right-slider-item-file {
+    height: 533px;
+}
+@media (min-width: 1930px) {
+    .market-sub__right-slider-item-file {
+        height: 551px;
+    }
+    .market-sub__right-slider {
+        height: 618px;
+        width: 445px;
+    }
+}

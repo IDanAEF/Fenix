@@ -51,7 +51,94 @@
                 </a>
             </div>
         </div>
-        <div class="market-sub">
+        <div class="market-sub" data-place="servicesplace">
+            <div class="market-sub__left">
+                <div class="market-sub__left-points">
+                <?php
+                    $markets = [];
+
+                    $my_posts = get_posts(array(
+                        'numberposts' => 6,
+                        'category_name'    => 'services',
+                        'orderby'     => 'date',
+                        'order'       => 'ASC',
+                        'post_type'   => 'post',
+                        'suppress_filters' => true
+                    ));
+
+                    foreach ($my_posts as $post) {
+                        setup_postdata($post);
+
+                        $markets[] = [
+                            'title' => get_the_title(),
+                            'file' => get_field('svg_code'),
+                            'link' => get_the_permalink(),
+                            'menu_text' => get_field('menu_descr'),
+                            'back' => get_field('slide_back')
+                        ];
+                    }
+
+                    wp_reset_postdata();
+
+                    foreach($markets as $mitem) {
+                        ?>
+                        <div class="market-sub__left-item">
+                            <a href="<?=$mitem['link']?>" class="market-sub__left-item-title text_white text_fz16"><?=$mitem['title']?></a>
+                            <div class="market-sub__left-item-descr text_white text_fz14"><?=$mitem['menu_text']?></div>
+                        </div>
+                        <?php
+                    }
+                ?>
+                </div>
+                <a href="/services/" class="market-sub__button button button_arrow text_fz14 text_white">
+                    Все услуги
+                    <div class="arrow">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
+                    </div>
+                </a>
+            </div>
+            <div class="market-sub__right">
+                <div class="market-sub__right-slider">
+                    <div class="market-sub__right-slider-line">
+                        <?php
+                            for ($i = 0; $i < count($markets) - 2; $i += 2) {
+                                ?>
+                                    <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
+                                        <div class="market-sub__right-slider-item-file" style="background: <?=$markets[$i]['back']?>;">
+                                            <?=$markets[$i]['file']?>
+                                        </div>
+                                        <div class="market-sub__right-slider-item-title text_white text_fz16">
+                                            <?=$markets[$i]['title']?>
+                                        </div>
+                                    </a>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+                <div class="market-sub__right-slider">
+                    <div class="market-sub__right-slider-line">
+                        <?php
+                            for ($i = 1; $i < count($markets); $i++) {
+                                if ($i % 2 != 0 || $i == count($markets) - 1) {
+                                ?>
+                                    <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
+                                        <div class="market-sub__right-slider-item-file" style="background: <?=$markets[$i]['back']?>;">
+                                            <?=$markets[$i]['file']?>
+                                        </div>
+                                        <div class="market-sub__right-slider-item-title text_white text_fz16">
+                                            <?=$markets[$i]['title']?>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="market-sub" data-place="marketplace">
             <div class="market-sub__left">
                 <div class="market-sub__left-points">
                 <?php
