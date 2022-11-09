@@ -20,3 +20,13 @@
         width: 445px;
     }
 }
+@media (max-width: 576px) {
+    .main__advantages {
+        display: none;
+    }
+}
+@media (max-width: 430px) {
+    .main__promo-slider {
+        height: 600px;
+    }
+}

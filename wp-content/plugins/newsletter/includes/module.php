@@ -2073,10 +2073,11 @@ class NewsletterModule {
                     break;
                 case 'f': $text = str_replace('{title}', $options_profile['title_female'], $text);
                     break;
-                case 'n': $text = str_replace('{title}', $options_profile['title_none'], $text);
-                    break;
+                //case 'n': $text = str_replace('{title}', $options_profile['title_none'], $text);
+                //    break;
                 default:
-                    $text = str_replace('{title}', '', $text);
+                    $text = str_replace('{title}', $options_profile['title_none'], $text);
+                    //$text = str_replace('{title}', '', $text);
             }
 
 
@@ -2469,10 +2470,11 @@ class NewsletterModule {
         $language_options = array();
 
         if (class_exists('SitePress')) {
-            $languages = apply_filters('wpml_active_languages', null);
+            $languages = apply_filters('wpml_active_languages', null, ['skip_missing' => 0]);
             foreach ($languages as $language) {
                 $language_options[$language['language_code']] = $language['translated_name'];
             }
+            
             return $language_options;
         } else if (function_exists('icl_get_languages')) {
             $languages = icl_get_languages();

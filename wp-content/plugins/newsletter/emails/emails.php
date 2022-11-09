@@ -345,6 +345,13 @@ class NewsletterEmails extends NewsletterModule {
     function regenerate($email, $context = []) {
 
         $context = array_merge(['last_run' => 0, 'type' => ''], $context);
+        
+        $composer = [];
+        foreach ($email->options as $k=>$v) {
+            if (strpos($k, 'composer_') !== 0) continue;
+            $composer[substr($k, 9)] = $v;
+        }
+       
 
         preg_match_all('/data-json="(.*?)"/m', $email->message, $matches, PREG_PATTERN_ORDER);
 
@@ -362,7 +369,7 @@ class NewsletterEmails extends NewsletterModule {
             }
 
             ob_start();
-            $out = $this->render_block($options['block_id'], true, $options, $context);
+            $out = $this->render_block($options['block_id'], true, $options, $context, $composer);
             if (is_array($out)) {
                 if ($out['return_empty_message'] || $out['stop']) {
                     return false;
@@ -939,8 +946,10 @@ class NewsletterEmails extends NewsletterModule {
         if (!is_file($full_file)) {
             return new WP_Error('1', 'Missing block.php file in ' . $dir);
         }
+        
+        $wp_content_dir = wp_normalize_path(realpath(WP_CONTENT_DIR));
 
-        $relative_dir = substr($dir, strlen(WP_CONTENT_DIR));
+        $relative_dir = substr($dir, strlen($wp_content_dir));
         $file = basename($dir);
 
         $data = get_file_data($full_file, ['name' => 'Name', 'section' => 'Section', 'description' => 'Description', 'type' => 'Type']);

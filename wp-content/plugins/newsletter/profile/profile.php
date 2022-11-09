@@ -266,8 +266,8 @@ class NewsletterProfile extends NewsletterModule {
             $buffer .= '<select name="nlng" class="tnp-language">';
 
             $buffer .= '<option value="" disabled ' . ( empty($user->language) ? ' selected' : '' ) . '>' . __('Select language', 'newsletter') . '</option>';
-            foreach ($languages as $key => $language) {
-                $buffer .= '<option value="' . $key . '"' . ( $user->language == $key ? ' selected' : '' ) . '>' . esc_html($language) . '</option>';
+            foreach ($languages as $key => $l) {
+                $buffer .= '<option value="' . $key . '"' . ( $user->language == $key ? ' selected' : '' ) . '>' . esc_html($l) . '</option>';
             }
 
             $buffer .= '</select>';

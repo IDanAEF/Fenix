@@ -335,7 +335,7 @@ class NewsletterFormManagerAddon extends NewsletterAddon {
     }
 
     function hook_admin_menu() {
-        add_submenu_page('newsletter_main_index', $this->menu_title, '<span class="tnp-side-menu">' . $this->menu_title . '</span>', 'manage_options', 'newsletter_' . $this->name . '_index',
+        add_submenu_page('newsletter_main_index', $this->menu_title, '<span class="tnp-side-menu">' . $this->menu_title . '</span>', 'exist', 'newsletter_' . $this->name . '_index',
                 function () {
                     require $this->dir . '/admin/index.php';
                 }

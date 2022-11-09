@@ -309,7 +309,7 @@ $current_user_email = ''; //$current_user->user_email;
 if (!defined('NEWSLETTER_CRON_WARNINGS') || NEWSLETTER_CRON_WARNINGS) {
     $x = NewsletterSystem::instance()->get_job_status();
     if ($x !== NewsletterSystem::JOB_OK) {
-        echo '<div class="tnpc-warning">The are issues with the delivery engine. Please <a href="?page=newsletter_system_scheduler">check them here</a>.</div>';
+        echo '<div class="tnpc-warning">There are issues with the delivery engine. Please <a href="?page=newsletter_system_scheduler">check them here</a>.</div>';
     }
 }
 ?>

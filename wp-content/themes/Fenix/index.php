@@ -16,13 +16,14 @@
                     while(have_rows('slider')) {
                         the_row();
                         $fileUrl = get_sub_field('image');
+                        $fileMobile = get_sub_field('file_mobile');
                         if (strpos($fileUrl, '.jpg') !== false || strpos($fileUrl, '.png') !== false || strpos($fileUrl, '.svg') !== false || strpos($fileUrl, '.jpeg') !== false || strpos($fileUrl, '.webp') !== false) {
                             ?>
-                            <img src="<?=$fileUrl?>" alt="" class="main__promo-slider-item img_bg">
+                            <img <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" src="<?=$fileUrl?>" alt="" class="main__promo-slider-item img_bg">
                             <?php
                         } else {
                             ?>
-                            <video class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted="muted" autoplay="autoplay" loop preload></video>
+                            <video <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted autoplay loop preload playsinline></video>
                             <?php
                         }
                     }
@@ -191,7 +192,7 @@
                                         <?php
                                     } else {
                                         ?>
-                                        <video class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" muted="muted" autoplay="autoplay" loop>
+                                        <video class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" muted autoplay loop playsinline>
                                             <source src="<?=$val['file']?>" type="video/mp4">
                                         </video>
                                         <?php
@@ -231,7 +232,7 @@
                     foreach ($my_posts as $post) {
                         setup_postdata($post);
                         ?>
-                        <article class="main__blog-item text text_fz14" onclick="window.open('<?php echo get_field('link') ? get_field('link') : get_the_permalink(); ?>');">
+                        <article class="main__blog-item text text_fz14 text_fz14-1" onclick="window.open('<?php echo get_field('link') ? get_field('link') : get_the_permalink(); ?>');">
                             <div class="main__blog-item-info">
                                 <?php if (get_the_post_thumbnail()) : ?>
                                     <div class="main__blog-item-back<?php echo get_field('back_op') ? ' back_op' : ''; ?>">
@@ -239,7 +240,7 @@
                                     </div>
                                 <?php endif; ?>
                                 <div class="main__blog-item-top">
-                                    <h3 class="main__blog-item-title text_fw700 text_upper"><?php echo get_the_title() == 'Без названия' ? '' : get_the_title(); ?></h3>
+                                    <h3 class="main__blog-item-title text_fw700 text_fz14-1 text_upper"><?php echo get_the_title() == 'Без названия' ? '' : get_the_title(); ?></h3>
                                     <div class="main__blog-item-undertitle">
                                         <?php the_field('descr'); ?>
                                     </div>

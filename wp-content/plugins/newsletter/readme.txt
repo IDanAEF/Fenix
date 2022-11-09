@@ -1,7 +1,7 @@
 === Newsletter - Send awesome emails from WordPress ===
 Tags: newsletter, email marketing, welcome email, signup forms, lead generation, marketing automation
-Tested up to: 6.0.1
-Stable tag: 7.5.1
+Tested up to: 6.1
+Stable tag: 7.5.5
 Contributors: satollo,webagile,michael-travan
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -125,6 +125,24 @@ Thank you, The Newsletter Team
 3. The Reports extension
 
 == Changelog ==
+
+= 7.5.5 =
+
+* Fixed access control on form manager base class
+
+= 7.5.4 =
+
+* Fixed composer icons path for Amazon AWS+Bitnami installations
+* Fixed profile form on multilanguage installation
+
+= 7.5.3 =
+
+* Fixed missing languages on profile page with WPML
+
+= 7.5.2 =
+
+* Fixed the global newsletter styles not applied when it is regenerated
+* Fixed "title" tag not showing the value for "not specified" gender
 
 = 7.5.1 =
 

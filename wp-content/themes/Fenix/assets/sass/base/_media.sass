@@ -3,6 +3,10 @@
         &_fz14, &_fz14-1 
             font-size: 22px
             line-height: 30px
+    .title
+        &_fz36
+            font-size: 50px
+            line-height: 57px
     .breadcrumbs 
         top: 150px
     .header
@@ -40,6 +44,13 @@
                 height: 1080px
             &-item 
                 height: 1080px
+    .about
+        &__projects
+            &-page
+                &-image 
+                    max-width: unset
+                &-info
+                    max-width: unset
 @media (min-width: 1930px)
     .auth
         &__form 
@@ -51,6 +62,10 @@
                 max-width: 726px
             &-title 
                 max-width: 447px
+    .about
+        &__sert
+            &-img 
+                width: 1028px 
     .user-profile
         &__side 
             width: 330px
@@ -193,6 +208,10 @@
             &_fz12
                 font-size: 26px
                 line-height: 40px
+    .about
+        &__projects 
+            &-page 
+                padding: 40px 100px
 @media (min-width: 1650px) 
     .mobile
         &__close 
@@ -229,6 +248,45 @@
         &_fz120-1 
             font-size: 104px
             line-height: 111px
+        &_fz36 
+            font-size: 30px
+            line-height: 39px
+    .about
+        padding-top: 146px
+        &__line 
+            margin: 80px 0px
+        &__sert 
+            margin-top: 43px
+            &-text 
+                div 
+                    margin-bottom: 10px
+            &-img 
+                width: 627px
+        .main__advantages
+            &-items 
+                gap: 32px 0px
+            &-item
+                width: 33%
+        &__products
+            &-item 
+                padding: 14px
+            &-blocks 
+                gap: 8px 
+                margin: 60px 0px
+        &__projects 
+            &-page 
+                padding: 20px
+                &-image 
+                    width: 59%
+                &-info 
+                    width: 39%
+                    .top 
+                        padding: 25px
+                &-result 
+                    padding: 15px 25px
+                    strong
+                        font-size: 39px
+                        line-height: 100%
     .single-service
         &__banner
             margin: 90px 0px
@@ -364,6 +422,40 @@
         .arrow
             width: 33px
             height: 33px
+    .title
+        &_fz36 
+            font-size: 28px
+            line-height: 33px
+    .about
+        padding-top: 115px
+        &__line 
+            margin: 51px 0px
+        &__sert 
+            .container
+                flex-direction: column
+            &-text 
+                width: 100%
+            &-img 
+                width: 764px
+                margin-top: 24px
+        .main__advantages-item
+            width: 48%
+        &__products 
+            &-item 
+                padding: 26px
+            &-blocks
+                grid-template: auto / repeat(1, 1fr)
+                gap: 20px
+        &__projects
+            &-page 
+                &-info 
+                    width: 43%
+                    .top
+                        padding: 15px
+                &-result 
+                    padding: 15px
+                &-image 
+                    width: 55%
     .single-service
         &__title 
             margin-top: 120px
@@ -618,7 +710,27 @@
     a 
         &.back_top
             width: 43px
+    .about
+        &__sert
+            &-img 
+                width: 683px
+        &__projects
+            &-page 
+                padding: 0
+                &-result 
+                    padding: 8px
+                    strong
+                        font-size: 26px
+                &-info 
+                    width: 44%
+                    .top 
+                        padding: 8px
+                &-image 
+                    width: 55%
     .title
+        &_fz36 
+            font-size: 22px
+            line-height: 29px
         &_fz120-1 
             font-size: 70px
             line-height: 79px
@@ -907,6 +1019,9 @@
         &_fz32 
             font-size: 23px
             line-height: 29px
+        &_fz36 
+            font-size: 16px
+            line-height: 22px
         &_fz48 
             font-size: 22px
             line-height: 28px
@@ -917,6 +1032,28 @@
             line-height: 59px
     .empty 
         min-height: 555px
+    .about 
+        &__sert 
+            margin-top: 19px
+            &-img 
+                width: 547px
+        &__projects
+            &-page 
+                &-info 
+                    width: 58%
+                &-image 
+                    width: 72%
+                    max-width: 418px
+                &-result 
+                    strong 
+                        font-size: 22px
+            .main__services
+                &-pages
+                    min-height: 376px
+                &-page 
+                    flex-direction: column
+                    padding: 10px 0px
+                    gap: 10px
     .develop
         &__title 
             margin-top: 85px
@@ -1141,6 +1278,51 @@
 @media (max-width: 576px)
     body, html 
         font-size: 90%
+    .about
+        padding-top: 160px
+        .hide_mobile
+            display: none
+        .hide_descr
+            display: block
+        &__line 
+            margin: 65px 0px 40px
+        &__sert 
+            &-img 
+                display: none
+        .main__advantages
+            &-item 
+                width: 100%
+        &__products
+            &-item 
+                padding: 20px
+        &__projects
+            &-page 
+                &-image 
+                    display: none
+                &-info 
+                    width: 100%
+                    max-width: 300px
+                    .top 
+                        padding: 0
+                        position: relative
+                        height: 267px
+                        .mob_img 
+                            position: absolute
+                            display: inline-block
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                            top: 0
+                            left: 0
+                        h3, div 
+                            display: none
+            .main__services
+                &-rage 
+                    align-self: flex-end
+                &-title 
+                    flex-direction: column
+                    align-items: flex-start
+                    gap: 25px
     .single-service
         &__title 
             margin-top: 100px
@@ -1284,7 +1466,7 @@
             font-size: 30px
             line-height: 35px
     .breadcrumbs
-        top: 96px
+        top: 75px
     .mobile
         overflow-y: auto
         padding: 55px 32px 32px

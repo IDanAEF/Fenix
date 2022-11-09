@@ -1,6 +1,6 @@
 <?php
     global $post;
-    if ($post->ID != 384) :
+    if ($post->ID != 400) :
 ?>
 <footer class="footer text text_fz12 text_white">
     <div class="container">
@@ -156,7 +156,7 @@
     </div>
 </div>
 <?php endif; ?>
-<div class="auth<?=(!is_user_logged_in() && $post->ID == 384 ? ' active' : '')?>">
+<div class="auth<?=(!is_user_logged_in() && $post->ID == 400 ? ' active' : '')?>">
     <?php the_custom_logo(); ?>
     <a href="/" class="auth__close"><img src="<?php echo bloginfo('template_url') ?>/assets/images/close-circle.svg" alt="auth__close"></a>
     <div class="auth__field main-form active">

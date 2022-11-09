@@ -5,7 +5,7 @@
     get_header();
 ?>
 <main class="contacts">
-    <div class="breadcrumbs container text text_fz14 text_fz14-1">
+    <div class="breadcrumbs container text text_fz14">
         <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
     </div>
     <section class="contacts__info">
