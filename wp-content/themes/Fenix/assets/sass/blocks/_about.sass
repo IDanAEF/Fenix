@@ -25,6 +25,7 @@
         &-img 
             width: 721px
     .main__advantages
+        display: block
         &-item 
             max-width: unset !important
             width: 32%
@@ -32,6 +33,8 @@
             flex-wrap: wrap
             gap: 50px 0px
     &__products
+        &.main__services
+            display: none
         &-item 
             padding: 40px
             background: #F9F9F9
@@ -46,11 +49,17 @@
     .main__services
         margin-top: 171px
     &__projects
+        .mobile-text
+            display: none
+        .main__services-pages
+            margin-bottom: 20px
         &-page
             padding: 40px
             display: flex
             align-items: center
             justify-content: space-between
+            border-top: none
+            background: #F6F6F6
             .mob_img
                 display: none
             &-title 
@@ -60,6 +69,7 @@
                 max-width: 510px
                 .top 
                     padding: 30px 30px 40px
+                    background-color: #fff
             &-result 
                 padding: 20px 30px
                 background: #D8612B

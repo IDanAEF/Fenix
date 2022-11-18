@@ -4,6 +4,7 @@ import mask from './blocks/mask';
 import animate from "./blocks/animate";
 import form from "./blocks/form";
 import search from "./blocks/search";
+import points from "./blocks/points";
 
 'use strict';
 
@@ -14,4 +15,5 @@ window.addEventListener('DOMContentLoaded', () => {
     mask('input[type="tel"]');
     form();
     search();
+    points();
 });

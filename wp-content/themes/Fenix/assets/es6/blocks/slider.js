@@ -106,6 +106,67 @@ function slider() {
     } catch (e) {
         console.log(e.stack);
     }
+
+    try {
+        //services slider
+        const sSliderCont = document.querySelectorAll('.services-slider-target');
+
+        sSliderCont.forEach(sSlider => {
+            const sSliderTap = sSlider.querySelectorAll('.main__services-name'),
+                  sSliderItem = sSlider.querySelectorAll('.main__services-page'),
+                  sSliderLine = sSlider.querySelector('.main__services-pages'),
+                  sSliderRage = sSlider.querySelector('.main__services-rage');
+
+            let count2 = 0;
+
+            function setSSlide(i = 0) {
+                sSliderTap.forEach(item => item.classList.remove('active'));
+                sSliderItem.forEach(item => item.classList.remove('slide'));
+
+                sSliderTap[i].classList.add('active');
+                sSliderRage.querySelector('.curr').textContent = (i + 1 < 10 ? '0' + (i + 1) : i + 1);
+
+                //i == sSliderItem.length - 1 ? sSliderSkip.classList.add('hide') : sSliderSkip.classList.remove('hide');
+
+                if (i != 0) {
+                    for (let j = sSliderItem.length - 1; j >= sSliderItem.length - i; j--) {
+                        sSliderItem[j].classList.add('slide');
+                    }
+                }
+            }
+
+            if (sSliderItem[0]) {
+                sSliderRage.querySelector('.all').textContent = (sSliderTap.length < 10 ? '0' + sSliderTap.length : sSliderTap.length);
+
+                setSSlide();
+
+                sSliderTap.forEach((item, i) => {
+                    item.addEventListener('click', () => {
+                        count2 = i;
+                        setSSlide(count2);
+                    });
+                });
+
+                let startPos = 0;
+                
+                sSliderLine.addEventListener('touchstart', (e) => {
+                    startPos = e.changedTouches[0].screenX;
+                });
+            
+                sSliderLine.addEventListener('touchend', (e) => {
+                    if (startPos - e.changedTouches[0].screenX > 50 && count2 + 1 < sSliderItem.length) {
+                        count2++;
+                        setSSlide(count2);
+                    } else if (startPos - e.changedTouches[0].screenX < -50 && count2 - 1 >= 0) {
+                        count2--;
+                        setSSlide(count2);
+                    }
+                });
+            }
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
 }
 
 export default slider;
