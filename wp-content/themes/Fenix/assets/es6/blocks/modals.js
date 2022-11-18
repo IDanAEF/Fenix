@@ -261,7 +261,7 @@ function modals() {
 
     try {
         //detail service tap
-        const sTap = document.querySelectorAll('.single-service__point-top');
+        const sTap = document.querySelectorAll('.some-tap-place');
 
         sTap.forEach(tap => {
             tap.addEventListener('click', () => {

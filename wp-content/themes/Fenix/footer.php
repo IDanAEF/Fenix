@@ -76,7 +76,7 @@
                     <span></span>
                     <a href="/en<?php echo $_SERVER['REQUEST_URI']; ?>">EN</a>
                 </div>-->
-                <span class="half text_fz10">Fenix 2022©</span>
+                <span class="half text_fz10">Fenix <?=date('Y')?>©</span>
                 <a href="#" class="policy text_fz10">Политика персональных данных</a>
             </div>
             <div class="footer__bott-right">

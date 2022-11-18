@@ -29,7 +29,7 @@
                 ?>
                 <div class="single-service__point">
                     <div class="single-service__point-number text text_fz12">(<?=($i < 10 ? '0'.$i++ : $i++)?>)</div>
-                    <div class="single-service__point-top">
+                    <div class="single-service__point-top some-tap-place">
                         <div class="single-service__point-title title title_fz24 text_fw700 text_upper"><?php the_sub_field('name'); ?></div>
                         <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="" class="single-service__point-tap">
                     </div>

@@ -23,6 +23,9 @@
         &__contact
             img 
                 width: 33px
+    .audit
+        &__scheme
+            max-width: 1900px
     .main
         &__blog 
             &-items 
@@ -66,6 +69,22 @@
         &__sert
             &-img 
                 width: 1028px 
+    .audit
+        &__banner 
+            min-height: 310px
+            &-left 
+                width: 730px
+            &-right 
+                width: 557px
+        &__work 
+            &-list 
+                li 
+                    img 
+                        width: 16px
+                        top: 5px
+            &-text 
+                min-width: 514px
+                max-width: 424px
     .market
         &__table 
             &-item 
@@ -260,6 +279,9 @@
         &_fz36 
             font-size: 30px
             line-height: 39px
+    .audit
+        &__title
+            white-space: unset
     .market
         &__table
             &-item 
@@ -276,7 +298,8 @@
                 span 
                     margin: 0px 0px 19px 23px
     .about
-        padding-top: 146px
+        &__title 
+            margin-top: 146px
         &__line 
             margin: 80px 0px
         &__sert 
@@ -450,6 +473,36 @@
         &_fz36 
             font-size: 28px
             line-height: 33px
+    .audit
+        &__title 
+            margin: 135px auto 100px
+        &__banner 
+            min-height: 183px
+            &-left 
+                width: 372px
+            &-right 
+                width: 424px
+            &-point 
+                left: 45%
+        &__work 
+            margin: 120px 0px 150px
+            .container
+                gap: 25px 
+                flex-direction: column
+            &-points 
+                gap: 50px
+            &-item 
+                h3 
+                    margin-bottom: 16px
+            &-list 
+                li 
+                    margin-bottom: 10px
+            &-text 
+                min-width: unset 
+                max-width: unset
+                flex-direction: row
+            &-result, &-bott 
+                width: 50%
     .market
         &__title 
             margin: 155px 0px 73px
@@ -473,7 +526,8 @@
                         font-size: 39px
                         line-height: 100%
     .about
-        padding-top: 115px
+        &__title 
+            margin-top: 115px
         &__line 
             margin: 51px 0px
         &__sert 
@@ -756,6 +810,28 @@
     a 
         &.back_top
             width: 43px
+    .audit
+        &__banner 
+            min-height: 217px
+            &-point 
+                display: none
+            .container 
+                flex-direction: column
+                align-items: flex-start
+                justify-content: center
+            &-left, &-right 
+                width: 100%
+            &-left 
+                margin-bottom: 16px
+        &__scheme 
+            width: 109%
+            margin: 0
+            position: relative
+            left: 50%
+            transform: translateX(-50%)
+        &__work 
+            &-points 
+                gap: 30px
     .market
         &__table 
             &-line 
@@ -1107,6 +1183,23 @@
             line-height: 59px
     .empty 
         min-height: 555px
+    .audit
+        &__title 
+            margin: 120px auto 80px
+        &__scheme 
+            display: none
+        &__banner 
+            min-height: 315px
+            &-scheme 
+                display: flex
+        &__work 
+            margin: 70px 0px 90px
+            &-points 
+                gap: 24px
+                grid-template: auto / repeat(1, 1fr)
+            &-item 
+                h3 
+                    margin-bottom: 11px
     .market
         &__title 
             margin: 120px 0px 50px
@@ -1368,6 +1461,62 @@
 @media (max-width: 576px)
     body, html 
         font-size: 90%
+    .audit
+        &__title
+            margin: 100px 0px 65px
+            br 
+                display: none
+        &__banner 
+            min-height: 497px
+            &-left 
+                font-size: 20px
+                line-height: 28px
+        &__work 
+            margin: 50px 0px 70px
+            .container 
+                gap: 50px
+            &-points 
+                gap: 25px
+            &-item 
+                padding-bottom: 25px
+                border-bottom: 1px solid #D9D9D9
+                h3 
+                    width: 240px
+                    font-size: 16px
+                    line-height: 22px
+                    margin-bottom: 0
+                    img 
+                        display: inline-block
+                    &.active
+                        img 
+                            filter: grayscale(1)
+                            transform: rotate(240deg)
+            &-list 
+                margin-top: 15px
+                opacity: 0
+                visibility: hidden
+                margin: 0
+                height: 0
+                transition: 0.4s all
+                li 
+                    margin-bottom: 10px
+                &.active
+                    margin-top: 15px
+                    opacity: 1
+                    visibility: visible
+                    height: auto
+            &-text 
+                flex-direction: column
+            &-result, &-bott 
+                width: 100vw
+                padding: 20px 15px
+                position: relative
+                left: 50%
+                transform: translateX(-50%)
+                h2 
+                    font-size: 22px
+                    line-height: 32px
+                    margin-bottom: 5px
     .market
         &__title
             margin: 100px auto 115px
@@ -1418,7 +1567,8 @@
                 &-title 
                     width: 240px
     .about
-        padding-top: 160px
+        &__title 
+            margin-top: 160px
         .hide_mobile
             display: none
         .hide_descr
