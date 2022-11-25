@@ -89,7 +89,8 @@
         &__table 
             &-item 
                 &-title 
-                    width: 553px
+                    //width: 553px
+                    width: 600px
                 &-descr
                     width: 445px
                 &-result 
@@ -462,6 +463,16 @@
                 &-image 
                     min-height: 518px
                     width: 765px
+@media (min-width: 1200px) 
+    .market
+        &__title 
+            width: 99%
+            max-width: 1500px
+            align-items: flex-end
+            margin-right: auto
+            margin-left: auto
+            &-bott 
+                align-self: flex-start
 @media (max-width: 1200px)
     //.container
     //    width: 960px
@@ -506,6 +517,12 @@
     .market
         &__title 
             margin: 155px 0px 73px
+            width: 900px
+            margin-right: auto
+            margin-left: auto
+            align-items: flex-end
+            &-bott 
+                align-self: flex-start
         &__table
             margin-bottom: 120px
             &-line 
@@ -833,6 +850,8 @@
             &-points 
                 gap: 30px
     .market
+        &__title 
+            width: 745px
         &__table 
             &-line 
                 height: 83px
@@ -1203,6 +1222,7 @@
     .market
         &__title 
             margin: 120px 0px 50px
+            width: 555px
             &-bott 
                 span 
                     margin: 0px 0px 0px 14px
@@ -1231,6 +1251,8 @@
                     strong 
                         font-size: 22px
             .main__services
+                &-title 
+                    margin-bottom: 40px
                 &-pages
                     min-height: 376px
                 &-page 
@@ -1461,6 +1483,9 @@
 @media (max-width: 576px)
     body, html 
         font-size: 90%
+    .text
+        &_fz14-14
+            font-size: 14px
     .audit
         &__title
             margin: 100px 0px 65px
@@ -1471,6 +1496,8 @@
             &-left 
                 font-size: 20px
                 line-height: 28px
+                br 
+                    display: none
         &__work 
             margin: 50px 0px 70px
             .container 
@@ -1485,6 +1512,8 @@
                     font-size: 16px
                     line-height: 22px
                     margin-bottom: 0
+                    br 
+                        display: inline
                     img 
                         display: inline-block
                     &.active
@@ -1519,9 +1548,15 @@
                     margin-bottom: 5px
     .market
         &__title
-            margin: 100px auto 115px
+            //margin: 100px auto 115px
             position: relative
-            width: 290px
+            //width: 290px
+            width: 97%
+            margin: 100px auto 37px
+            max-width: 340px
+            .title_fz120 
+                font-size: 37px
+                line-height: 47px
             &-top, &-bott
                 width: 100% 
                 span 
@@ -1540,12 +1575,14 @@
                 span 
                     margin: 0
                     top: calc(100% + 20px)
+                    display: none
         &__table 
             &-item 
                 padding: 20px 0px 72px
                 flex-direction: column
                 &-descr 
-                    width: fit-content
+                    //width: fit-content
+                    width: 104%
                 &-result 
                     width: fit-content
                     strong, b
@@ -1553,7 +1590,8 @@
                 &-cost 
                     right: 0
                 &-title 
-                    width: 220px
+                    //width: 220px
+                    width: 230px
                     .button
                         bottom: 15px
                         right: unset
@@ -1613,6 +1651,10 @@
                     gap: 25px
             .main__market-all
                 margin-right: 0
+                font-size: 16px
+                line-height: 22px
+                padding-bottom: 0
+                border-bottom: 2px solid #000
                 span 
                     display: none
             &-item 
@@ -1657,16 +1699,18 @@
                     width: 100vw
                 &-pages 
                     margin-top: 65px
-                    min-height: 481px
+                    //min-height: 481px
                     width: 100vw
                     left: 50%
                     transform: translateX(-50%)
+                    min-height: 560px
                 &-rage 
                     align-self: flex-end
                 &-title 
                     flex-direction: column
                     align-items: flex-start
                     gap: 25px
+                    margin-bottom: 12px
     .single-service
         &__title 
             margin-top: 100px
@@ -1689,6 +1733,8 @@
                 max-width: 100%
             &-title 
                 margin-bottom: 15px
+            &-button 
+                font-size: 14px
         &__points 
             padding: 0px 15px 70px 15px
         &__point 
@@ -1696,9 +1742,11 @@
             margin-bottom: 39px
             &-title 
                 max-width: 88%
+                font-size: 20px
             &-top 
                 padding-left: 19px
                 img 
+                    transform: translateY(11px) rotate(60deg)
                     width: 21px
             &-list 
                 &.active
@@ -1715,9 +1763,25 @@
         &__inter 
             flex-direction: column
             align-items: flex-start
+            &-block
+                margin: 0px 0px 25px 0px
+                &-image 
+                    min-width: 60px
+                &-descr 
+                    font-size: 14px
+                &-title
+                    font-size: 20px
+                    margin-bottom: 5px
         &__data 
             flex-direction: column
             align-items: flex-start
+            &-block 
+                font-size: 14px
+                img 
+                    width: 21px
+                    margin-right: 20px
+                .text_fz18
+                    font-size: 16px
     .empty
         min-height: auto
         padding-left: 15px 
@@ -1881,8 +1945,14 @@
             align-items: flex-start
         &__info 
             margin-top: 18px
+            .social 
+                img 
+                    margin-right: 20px
+                    width: 21px
+                    margin-left: 0
         &__button 
-            font-size: 16px
+            //font-size: 16px
+            font-size: 18px
             margin: 25px 0px 30px
             color: #D8612B
             border-bottom: 1px solid #d8612b
@@ -1939,10 +2009,14 @@
             &-image 
                 opacity: 0.2
         &__advantages
+            display: none
             &-title
                 display: none
         &__promo 
             padding: 0px 0px 60px
+            &-about 
+                &-button 
+                    font-size: 14px
             &-slider 
                 width: 100vw
                 position: relative
@@ -1963,6 +2037,8 @@
                 transition: 0.5s all
             &-item 
                 width: calc(100vw - 30px)
+                &-title 
+                    font-size: 14px
                 &-result, &-top
                     font-size: 12px
         &__services 
@@ -1970,6 +2046,8 @@
             .container
                 width: 100%
                 padding: 0px 15px
+            &-names 
+                font-size: 14px
             &-window 
                 display: flex
                 flex-direction: column-reverse
@@ -1986,9 +2064,14 @@
                     display: none
                     width: 0
                     margin-left: 0
+                &-button 
+                    font-size: 14px
                 &-blocks 
                     margin: 36px 0px
                     font-size: 1.2em
+                    &-title
+                        margin-bottom: 12px
+                        font-size: 14px
                     &-item 
                         &:first-child
                             margin-bottom: 24px
@@ -2001,10 +2084,13 @@
                 flex-direction: column-reverse
                 padding: 30px 0px
                 min-height: auto
+                &-button 
+                    font-size: 14px
                 &-title 
                     display: none
                 &-tap 
                     display: flex
+                    font-size: 26px
                     &.active
                         margin-bottom: 30px
                         img 
@@ -2030,7 +2116,8 @@
                         opacity: 1
                         height: 670px
                 &-blocks 
-                    font-size: 1.2em
+                    //font-size: 1.2em
+                    font-size: 12px
                     &-item 
                         &:first-child
                             margin-bottom: 24px
@@ -2061,6 +2148,8 @@
             &-item 
                 padding: 23px 0px
                 min-height: auto
+                &-undertitle
+                    font-size: 10px
                 &-number 
                     margin-right: 5px
                 &-title 
@@ -2086,9 +2175,14 @@
                 &-result 
                     display: flex
                     align-items: flex-end
-                    justify-content: space-around
+                    //justify-content: space-around
+                    justify-content: flex-start
                     flex-wrap: wrap
                     margin: 24px 0px
+                    b, strong 
+                        font-size: 24px
+                        line-height: 28px
+                        margin: 0px 14px 0px 4px
                 &-logo 
                     display: none
                 &-type 
@@ -2108,6 +2202,9 @@
         &__feed 
             //padding: 35px 0px 81px
             padding-bottom: 81px
+            .text
+                &_fz14, &_fz14-1 
+                    font-size: 14px !important
             form 
                 .form 
                     &_fields 
@@ -2118,6 +2215,7 @@
                     height: 78px
                 .policy
                     margin: 118px 0px 15px !important
+                    font-size: 12px
                 .undertitle 
                     margin-bottom: 30px
                 span
@@ -2189,6 +2287,11 @@
                     height: 0px
                     &.active
                         height: 578px
+@media (max-width: 430px)
+    .main
+        &__promo
+            &-slider 
+                height: 600px
 @media (max-width: 400px)
     .main
         &__market 

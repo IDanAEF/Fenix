@@ -2513,7 +2513,7 @@ class NewsletterModule {
     }
 
     function is_multilanguage() {
-        return class_exists('SitePress') || function_exists('pll_default_language') || class_exists('TRP_Translate_Press');
+        return apply_filters('newsletter_is_multilanguage', class_exists('SitePress') || function_exists('pll_default_language') || class_exists('TRP_Translate_Press'));
     }
 
     function get_posts($filters = array(), $language = '') {

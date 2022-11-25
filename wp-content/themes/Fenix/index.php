@@ -2,7 +2,7 @@
     get_header();
 ?>
 <main class="main">
-    <section class="main__promo text text_fz14 text_white">
+    <section class="main__promo text text_fz14 text_fz14-1 text_white">
         <div class="container">
             <h1 class="main__promo-logo">
                 <img src="<?php echo bloginfo('template_url') ?>/assets/images/logo.svg" alt="logo">
@@ -70,7 +70,7 @@
                 <?php
                     $names = [];
                     $my_posts = get_posts(array(
-                        'numberposts' => -1,
+                        'numberposts' => 5,
                         'category_name'    => 'services',
                         'orderby'     => 'date',
                         'order'       => 'DESC',

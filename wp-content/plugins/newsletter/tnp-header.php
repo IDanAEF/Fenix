@@ -194,6 +194,10 @@ $current_user_email = ''; //$current_user->user_email;
                         <a href="?page=newsletter_system_logs"><i class="fas fa-file"></i> <?php _e('Logs', 'newsletter') ?>
                             <small><?php _e('Plugin and addons logs', 'newsletter') ?></small></a>
                     </li>
+                    <li>
+                        <a href="https://www.thenewsletterplugin.com/documentation/developers/backup-recovery/" target="_blank"><i class="fas fa-file"></i> <?php _e('Backup', 'newsletter') ?>
+                            <small><?php _e('How to backup, recovery, delete', 'newsletter') ?></small></a>
+                    </li>
                 </ul>
             </li>
         <?php } ?>

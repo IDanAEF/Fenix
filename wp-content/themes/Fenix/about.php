@@ -36,7 +36,7 @@ get_header(); ?>
                 while(have_rows('advant')) {
                     the_row();
                     ?>
-                        <div class="main__advantages-item">
+                        <div class="main__advantages-item<?=(get_sub_field('hide-mobile') ? ' hide_mobile' : '')?>">
                             <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
                             <div class="main__advantages-item-info">
                                 <h3 class="main__advantages-item-title title title_fz24 text_fw700 text_upper"><?php the_sub_field('title'); ?></h3>
@@ -126,7 +126,7 @@ get_header(); ?>
                 <?php
                     $names = [];
                     $my_posts = get_posts(array(
-                        'numberposts' => -1,
+                        'numberposts' => 5,
                         'category_name'    => 'cases',
                         'orderby'     => 'date',
                         'order'       => 'DESC',

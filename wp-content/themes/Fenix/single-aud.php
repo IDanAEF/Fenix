@@ -16,10 +16,10 @@
 		<img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" class="audit__banner-point">
 		<div class="container text text_white">
 			<div class="audit__banner-left text_fz18 text_fw700 text_upper">
-				<?php the_field('banner_left') ?>
+				<?php the_field('banner-aud_left') ?>
 			</div>
 			<div class="audit__banner-right text_fz14 text_fz14-1">
-				<?php the_field('banner_right') ?>
+				<?php the_field('banner-aud_right') ?>
 			</div>
 			<a href="<?php the_field('scheme') ?>" download class="audit__banner-scheme text_fz18 text_upper text_orange">
 				<img src="<?php echo bloginfo('template_url') ?>/assets/images/pdf.svg" alt="pdf">
@@ -32,7 +32,7 @@
 		<div class="container">
 			<div class="audit__work-points">
 				<?php
-					while(have_rows('points')) {
+					while(have_rows('points-aud')) {
 						the_row();
 						?>
 						<div class="audit__work-item">
@@ -61,7 +61,7 @@
 			<div class="audit__work-text text_white text_fw700">
 				<div class="audit__work-result">
 					<h2 class="title_fz24 text_upper">Результат</h2>
-					<?php the_field('result') ?>
+					<?php the_field('result-block') ?>
 				</div>
 				<div class="audit__work-bott">
 					<h2 class="title_fz24 text_upper"><?php the_field('underresult_title') ?></h2>

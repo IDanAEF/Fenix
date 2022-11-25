@@ -7,11 +7,11 @@
 ?>
 <main class="develop">
     <div class="breadcrumbs container text text_fz14">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="">Сопровождение
     </div>
     <div class="container">
         <h1 class="develop__title title title_fz120 title_fz120-1 text_fw700 text_upper">
-            <?php the_field('title'); ?>
+            <?php the_field('title-esc'); ?>
         </h1>
     </div>
     <section class="develop__descr text text_fz16 text_upper">
@@ -99,7 +99,7 @@
         <div class="container">
             <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
             <div class="develop__banner-descr text_white title_fz24 text_upper text_fw700">
-                <?php the_field('banner') ?>
+                <?php the_field('banner-esc') ?>
             </div>
         </div>
     </section>

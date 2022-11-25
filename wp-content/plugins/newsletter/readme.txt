@@ -1,7 +1,7 @@
 === Newsletter - Send awesome emails from WordPress ===
 Tags: newsletter, email marketing, welcome email, signup forms, lead generation, marketing automation
 Tested up to: 6.1
-Stable tag: 7.5.5
+Stable tag: 7.5.6
 Contributors: satollo,webagile,michael-travan
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -125,6 +125,11 @@ Thank you, The Newsletter Team
 3. The Reports extension
 
 == Changelog ==
+
+= 7.5.6 =
+
+* Added new filter for multilanguage support for GTranslate (experimental)
+* Added link to the backup/recovery documentation
 
 = 7.5.5 =
 

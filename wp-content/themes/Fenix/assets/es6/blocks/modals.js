@@ -258,20 +258,6 @@ function modals() {
     } catch (e) {
         console.log(e.stack);
     }
-
-    try {
-        //detail service tap
-        const sTap = document.querySelectorAll('.some-tap-place');
-
-        sTap.forEach(tap => {
-            tap.addEventListener('click', () => {
-                tap.classList.toggle('active');
-                tap.nextElementSibling.classList.toggle('active');
-            });
-        });
-    } catch (e) {
-        console.log(e.stack);
-    }
 }
 
 export default modals;
