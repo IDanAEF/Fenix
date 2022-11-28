@@ -5,6 +5,7 @@ import animate from "./blocks/animate";
 import form from "./blocks/form";
 import search from "./blocks/search";
 import points from "./blocks/points";
+import other from "./blocks/other";
 
 'use strict';
 
@@ -16,4 +17,5 @@ window.addEventListener('DOMContentLoaded', () => {
     form();
     search();
     points();
+    other();
 });

@@ -936,6 +936,52 @@ function modals() {
 
 /***/ }),
 
+/***/ "./assets/es6/blocks/other.js":
+/*!************************************!*\
+  !*** ./assets/es6/blocks/other.js ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const other = () => {
+  try {
+    const mainSliderItems = document.querySelectorAll('.main__promo-slider-item');
+
+    const changeFile = () => {
+      mainSliderItems.forEach(slitem => {
+        if (window.innerWidth <= 430 && slitem.getAttribute('data-mobile') && slitem.src != slitem.getAttribute('data-mobile')) {
+          slitem.src = slitem.getAttribute('data-mobile');
+        } else if (window.innerWidth > 430 && slitem.src != slitem.getAttribute('data-mainsrc')) {
+          slitem.src = slitem.getAttribute('data-mainsrc');
+        }
+      });
+    };
+
+    changeFile();
+    window.addEventListener('resize', () => {
+      changeFile();
+    });
+  } catch (e) {
+    console.log(e.stack);
+  } //audit scheme anim
+
+
+  try {
+    const scheme = document.querySelector('.audit__scheme');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY + window.innerHeight >= scheme.getBoundingClientRect().y + window.innerHeight / 2) {
+        scheme.classList.remove('dont-play');
+      }
+    });
+  } catch (e) {
+    console.log(e.stack);
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (other);
+
+/***/ }),
+
 /***/ "./assets/es6/blocks/points.js":
 /*!*************************************!*\
   !*** ./assets/es6/blocks/points.js ***!
@@ -1251,6 +1297,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blocks/form */ "./assets/es6/blocks/form.js");
 /* harmony import */ var _blocks_search__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blocks/search */ "./assets/es6/blocks/search.js");
 /* harmony import */ var _blocks_points__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/points */ "./assets/es6/blocks/points.js");
+/* harmony import */ var _blocks_other__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/other */ "./assets/es6/blocks/other.js");
+
 
 
 
@@ -1268,6 +1316,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_blocks_form__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_blocks_search__WEBPACK_IMPORTED_MODULE_5__["default"])();
   (0,_blocks_points__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  (0,_blocks_other__WEBPACK_IMPORTED_MODULE_7__["default"])();
 });
 }();
 /******/ })()

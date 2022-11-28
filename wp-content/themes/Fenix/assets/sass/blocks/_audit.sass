@@ -7,6 +7,8 @@
         margin: 0 auto 
         max-width: 1600px
         width: 100%
+        position: relative
+        height: auto
     &__banner
         min-height: 240px
         padding: 10px 0px
@@ -89,3 +91,56 @@
             background: #1C1D1D
         &-bott 
             background: #D8612B
+    .dont-play
+        .opacity-aud, .scale-aud, .trans-aud, .path-anim-aud path
+            animation-play-state: paused
+    .opacity-aud
+        opacity: 0
+        animation: 1s opacity-aud 0s ease-in-out forwards 
+    .scale-aud
+        transform-box: fill-box
+        transform-origin: 50% 50%
+        transform: scale(0) translateY(100px)
+        animation: 0.5s scale-aud 0s ease-in-out forwards 
+    .trans-aud
+        transform-box: fill-box
+        transform-origin: 50% 50%
+        opacity: 0
+        transform: translateY(100px)
+        animation: 0.5s trans-aud 0s ease-in-out forwards 
+    .path-anim-aud path
+        stroke-dasharray: 2000
+        stroke-dashoffset: 2000
+        fill-opacity: 0
+        stroke-opacity: 0
+        animation: 1.5s dash ease-in-out forwards
+        animation-delay: inherit
+@keyframes trans-aud
+    0%
+        opacity: 0
+        transform: translateY(100px)
+    100%
+        opacity: 1
+        transform: translateY(0)
+@keyframes opacity-aud
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+@keyframes scale-aud
+    0%
+        transform: scale(0) translateY(100px)
+    100%
+        transform: scale(1) translateY(0px)
+@keyframes dash 
+    0% 
+        stroke-opacity: 0
+        stroke-dashoffset: 2000
+    35%
+        fill-opacity: 0
+    42%
+        fill-opacity: 1
+    100% 
+        fill-opacity: 1
+        stroke-opacity: 1
+        stroke-dashoffset: 0

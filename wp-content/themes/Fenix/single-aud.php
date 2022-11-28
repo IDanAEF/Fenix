@@ -27,7 +27,8 @@
 			</a>
 		</div>
 	</section>
-	<img src="<?php echo bloginfo('template_url') ?>/assets/images/scheme.svg" alt="scheme" class="audit__scheme">
+	<?php include('assets/images/scheme.svg'); ?>
+	<!-- <img src="<?php echo bloginfo('template_url') ?>/assets/images/scheme.svg" alt="scheme" class="audit__scheme"> -->
 	<section class="audit__work text text_fz14 text_fz14-1">
 		<div class="container">
 			<div class="audit__work-points">
