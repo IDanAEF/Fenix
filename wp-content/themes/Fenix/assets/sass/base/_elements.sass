@@ -141,6 +141,7 @@ html, body
         overflow: hidden
 .breadcrumbs
     display: flex
+    flex-wrap: wrap
     align-items: center
     position: absolute
     top: 131px
@@ -151,6 +152,17 @@ html, body
 p 
     padding: 0
     margin: 0
+.move-slider-field
+    *
+        pointer-events: none
+        user-select: none
+.hide_descr
+    display: none
+@media (max-width: 576px)
+    .hide_mobile
+        display: none
+    .hide_descr
+        display: block
 input, textarea
     outline: none
 *

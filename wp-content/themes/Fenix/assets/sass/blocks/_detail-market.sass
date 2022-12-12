@@ -1,0 +1,136 @@
+.single-market
+    .breadcrumbs
+        img
+            filter: invert(1)
+    &__promo
+        img
+            width: 100%
+    &__inter 
+        &-item 
+            background: #FFFFFF
+            border: 1px solid #EDEDED
+            position: relative
+            h3 
+                margin-bottom: 12px
+            &-top 
+                padding: 30px 20px 25px
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                height: 100%
+                span 
+                    margin-top: 25px
+            &-bott 
+                background: #D8612B
+                padding: 0px 20px
+                display: flex
+                align-items: center
+                height: 70px
+                position: absolute
+                width: 100%
+        &-list
+            margin: 60px 0px 220px
+            display: grid
+            grid-template: auto / repeat(4, 1fr)
+            gap: 90px 20px
+    &__slider
+        &-cont 
+            padding: 100px 0px
+            background: #F9F9F9
+        &-title 
+            margin-bottom: 60px
+        &-line 
+            display: flex
+            gap: 4.5%
+            width: fit-content
+        &-progress
+            border: 1px solid #E7E7E7
+            border-radius: 30px
+            width: 320px
+            height: 6px
+            margin: 30px auto 0px
+            overflow: hidden
+            span 
+                position: relative
+                background: #D8612B
+                border-radius: 30px
+                height: 100%
+                //width: 108px
+                display: block
+        &-item 
+            //width: 91vw
+            width: 100vw
+            display: flex
+            min-height: 340px
+            justify-content: space-between
+            background: #FFFFFF
+            border: 1px solid #F4F4F4
+            &-logo 
+                max-width: 220px
+                height: auto
+            &-descr
+                max-width: 448px
+            &-title 
+                margin: 65px 0px 20px
+            &-left 
+                padding: 38px 50px 65px
+            &-image 
+                height: 100%
+                //width: 646px
+                width: 45vw
+                object-fit: cover
+    &__review
+        padding: 130px 0px
+        &-item 
+            padding: 50px 82px
+            margin-top: 60px
+            background: #F9F9F9
+            &-title 
+                position: relative
+                img 
+                    width: 101px
+                    position: absolute
+                    top: 50%
+                    left: -53px
+                    transform: translateY(-50%)
+            &-descr
+                margin: 30px 0px 68px
+            &-user 
+                margin-bottom: 
+            &-level 
+                opacity: 0.5
+    &__info
+        padding: 120px 0px
+        &-descr
+            margin: 40px 0px
+        &-image 
+            max-height: 631px
+            width: auto
+        &-block 
+            display: flex
+            align-items: center
+            justify-content: space-between
+            gap: 111px
+        &-text
+            display: flex
+            flex-direction: column
+            ul
+                margin-bottom: 22px
+                li 
+                    display: flex
+                    align-items: center
+                    margin-bottom: 15px
+                    &:last-child
+                        margin-bottom: 0 !important
+                    img 
+                        margin-right: 5px
+                        width: 16px
+                        height: auto
+            span 
+                margin-bottom: 12px
+                &.mb8
+                    margin-bottom: 8px
+            p 
+                margin-bottom: 20px
+                &:last-child
+                    margin-bottom: 0 !important

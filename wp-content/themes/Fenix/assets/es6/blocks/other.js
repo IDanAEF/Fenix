@@ -25,11 +25,13 @@ const other = () => {
     try {
         const scheme = document.querySelector('.audit__scheme');
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY + window.innerHeight >= scheme.getBoundingClientRect().y + window.innerHeight / 2) {
-                scheme.classList.remove('dont-play');
-            }
-        });
+        if (scheme) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY + window.innerHeight >= scheme.getBoundingClientRect().y + window.innerHeight / 2) {
+                    scheme.classList.remove('dont-play');
+                }
+            });
+        }
     } catch (e) {
         console.log(e.stack);
     }

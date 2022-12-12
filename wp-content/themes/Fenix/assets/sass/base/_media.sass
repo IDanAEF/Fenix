@@ -58,6 +58,17 @@
     .auth
         &__form 
             width: 370px
+    .single-market
+        &__info
+            &-image
+                max-height: 720px
+        &__slider
+            &-progress 
+                width: 462px
+                height: 9px
+            &-item 
+                &-descr 
+                    max-width: 545px
     .single-service
         &__banner 
             padding: 0px 226px
@@ -335,6 +346,16 @@
                     strong
                         font-size: 39px
                         line-height: 100%
+    .single-market
+        &__info
+            &-image
+                max-height: 530px
+        &__review
+            &-item 
+                padding: 50px 68px
+        &__inter 
+            &-list 
+                gap: 78px 5px
     .single-service
         &__banner
             margin: 90px 0px
@@ -573,6 +594,51 @@
                     padding: 15px
                 &-image 
                     width: 55%
+    .single-market
+        &__review
+            padding: 70px 0px
+            &-item 
+                margin-top: 33px
+                padding: 33px
+                &-title 
+                    img 
+                        width: 73px
+                        left: -25px
+                &-descr 
+                    margin: 14px 0px 44px
+        &__slider 
+            &-title 
+                margin-bottom: 35px
+            &-item 
+                min-height: 274px
+                max-height: 340px
+                &-left 
+                    padding: 26px
+                &-logo 
+                    max-width: 167px
+                &-title 
+                    margin: 50px 0px 15px
+            &-cont
+                padding: 50px 0px
+            &-progress 
+                margin: 15px auto 0px
+        &__info 
+            padding: 70px 0px
+            &-image 
+                max-height: 376px
+            &-descr 
+                margin: 19px 0px
+        &__inter 
+            &-item 
+                &-top 
+                    padding: 11px
+                    span 
+                        margin-top: 11px
+                &-bott 
+                    padding: 0px 11px
+            &-list 
+                gap: 58px 3px 
+                margin: 35px 0px 153px
     .single-service
         &__title 
             margin-top: 120px
@@ -904,6 +970,29 @@
         &_fz120-1 
             font-size: 70px
             line-height: 79px
+    .single-market
+        &__slider 
+            &-item 
+                min-height: 240px
+                max-height: 340px
+                &-left 
+                    padding: 16px
+                &-logo 
+                    max-width: 135px
+                &-title 
+                    margin: 15px 0px
+                &-image 
+                    width: 37vw
+        &__info 
+            &-block 
+                gap: 15px
+        &__inter
+            &-item 
+                &-bott 
+                    height: 47px
+            &-list
+               gap: 51px 3px
+               grid-template: auto / repeat(2, 1fr)
     .single-service
         &__title
             padding: 0px 5%
@@ -1148,6 +1237,21 @@
     .button
         &_black 
             margin-right: 32px
+    .single-market
+        &__slider 
+            &-item 
+                min-height: 240px 
+                max-height: unset
+                flex-direction: column
+                &-image 
+                    width: 100%
+                    height: 200px
+        &__info 
+            &-block 
+                gap: 24px 
+                flex-direction: column
+            &-image 
+                max-height: 468px
     .single-service
         &__banner
             margin: 50px 0px
@@ -1486,6 +1590,68 @@
     .text
         &_fz14-14
             font-size: 14px
+    .single-market
+        &__info 
+            padding: 40px 0px 50px
+            &-title 
+                font-size: 29px
+                line-height: 40px
+            &-descr
+                font-size: 14px
+                line-height: 24px
+                margin: 15px 0px 20px
+        &__review, &__inter
+            &-title 
+                font-size: 30px
+                line-height: 40px
+        &__inter 
+            &-item 
+                h3 
+                    margin-bottom: 10px
+                    font-size: 16px
+                    line-height: 20px
+                &-top 
+                    padding: 22px 15px 20px
+                    span 
+                        margin-top: 40px
+                        font-size: 26px
+                        line-height: 36px
+            &-list 
+                gap: 68px
+                grid-template: auto/repeat(1,1fr)
+        &__review
+            padding: 50px 0px
+            &-item 
+                margin-top: 30px
+                padding: 20px 15px
+                &-descr 
+                    margin: 20px 0 11px
+                &-title 
+                    font-size: 32px
+                    line-height: 44px
+                    margin-left: 33px
+                    img 
+                        width: 61px
+                        left: -40px
+        &__slider 
+            &-progress 
+                height: 8px
+                width: 290px
+                max-width: 91vw
+            &-cont 
+                padding: 40px 0px
+            &-title 
+                margin-bottom: 25px
+                font-size: 30px
+                line-height: 40px
+            &-item 
+                &-left 
+                    padding: 30px 15px 15px
+                &-logo 
+                    max-width: 220px
+                    margin-bottom: 25px
+                &-image 
+                    height: 354px
     .audit
         &__title
             margin: 100px 0px 65px
