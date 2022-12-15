@@ -49,6 +49,8 @@
         font-weight: 400
     &_fw700
         font-weight: 700
+    &_ffIbm
+        font-family: 'IBM', Gogh, sans-serif
     &_upper
         text-transform: uppercase
     &_normal
@@ -98,6 +100,12 @@
             display: flex
             align-items: center
             justify-content: center
+        &_rev
+            .arrow
+                margin-right: 12px
+                margin-left: 0
+                img 
+                    transform: rotate(180deg)
     &_orange
         border-bottom: 1px solid #D8612B
         padding-bottom: 3px
@@ -147,6 +155,7 @@ html, body
     top: 131px
     left: 50%
     transform: translateX(-50%)
+    z-index: 1
     img 
         margin: 0px 7px
 p 

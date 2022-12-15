@@ -33,18 +33,10 @@
                 ?>
                     <article class="about__projects-page text text_fz14 text_fz14-1">
                         <div class="about__projects-page-info">
-                            <div class="mobile-text">
-                                <h3 class="mobile-text-title title title_fz32 text_upper text_fw700">
-                                    <?php the_title(); ?>
-                                </h3>
-                                <div class="mobile-text-udnertitle text text_fz14 text_fz14-1">
-                                    <?php the_field('descr'); ?>
-                                </div>
-                            </div>
                             <div class="top">
                                 <img src="<?php the_field('slider-image-mob') ?>" alt="" class="mob_img">
                                 <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
-                                <div class="about__projects-page-undertitle text text_fz14">
+                                <div class="about__projects-page-undertitle text text_fz14 text_fz14-1">
                                     <?php the_field('descr'); ?>
                                 </div>
                             </div>
@@ -58,7 +50,6 @@
                     </article>
                 <?php
             }
-
             wp_reset_postdata();
         ?>
         </div>

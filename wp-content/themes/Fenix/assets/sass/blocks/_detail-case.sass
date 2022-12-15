@@ -1,0 +1,120 @@
+.single-case
+    &__promo
+        position: relative
+        height: 859px
+        &-back 
+            z-index: -1
+            &.mob 
+                display: none
+        &-logo 
+            position: absolute
+            left: 50%
+            transform: translateX(-50%)
+            bottom: 35.5%
+            max-width: 91%
+        &-link
+            display: inline-flex
+            align-items: center
+            gap: 15px
+            position: absolute
+            bottom: 15.25%
+            right: 4%
+        &-slogan
+            position: absolute
+            top: 22.25%
+            right: 2.5%
+            max-width: 720px
+    &__stack
+        padding: 80px 12.15%
+        background: #1C1D1D
+        display: flex
+        align-items: center
+        justify-content: space-between
+        &-list 
+            li 
+                display: flex
+                margin-bottom: 20px
+                &:last-child
+                    margin-bottom: 0 !important
+                img 
+                    margin-right: 10px
+                    width: 16px
+                    height: fit-content
+    &__prolog
+        display: grid
+        grid-template: auto / 24.45% 1fr 24.45%
+        &-image 
+            max-width: 100%
+            height: 100%
+            object-fit: cover
+        &-title 
+            margin-bottom: 25px
+        &-text 
+            padding: 90px 64px
+            p 
+                margin-bottom: 12px
+    &__problem
+        background: #1C1D1D
+        padding: 80px 0px
+        &-lists 
+            margin-top: 40px
+            display: flex
+            justify-content: space-between
+            ul 
+                width: 45.2%
+                li 
+                    display: flex
+                    align-items: flex-start
+                    margin-bottom: 20px
+                    &:last-child
+                        margin-bottom: 0 !important
+                    img 
+                        width: 12px
+                        margin-right: 10px
+                        margin-top: 2px
+    &__realize
+        display: grid
+        grid-template: auto / 46.31% 1fr
+        &-title 
+            margin-bottom: 25px
+        &-image 
+            max-width: 100%
+            height: 100%
+            object-fit: cover
+        &-text 
+            padding: 110px 76px 110px 85px
+    &__banner
+        width: 100%
+    &__effect
+        background: #F9F9F9
+        padding: 110px 0px
+        &-list 
+            margin: 70px 0px 60px
+            display: grid
+            grid-template: minmax(210px, auto) / repeat(3, 1fr)
+            grid-auto-rows: minmax(210px, auto)
+            gap: 20px
+        &-item 
+            position: relative
+            background: #fff
+            border-bottom: 1px solid #D8612B
+            padding: 23px 15px
+            &-title 
+                margin: 0px 0px 19px 41px
+            &-number 
+                position: absolute
+                left: 0
+                top: 0
+                width: 38px
+                padding-top: 6px
+                display: flex
+                justify-content: center
+                span
+                    z-index: 1
+                    line-height: 100%
+                img 
+                    position: absolute
+                    width: 100%
+                    left: 0
+                    top: 0
+                    z-index: 0

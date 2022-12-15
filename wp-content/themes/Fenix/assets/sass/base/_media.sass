@@ -26,6 +26,11 @@
     .audit
         &__scheme
             max-width: 1900px
+    .single-case
+        &__promo
+            height: 1160px !important
+            &-slogan
+                max-width: 985px
     .main
         &__blog 
             &-items 
@@ -58,6 +63,13 @@
     .auth
         &__form 
             width: 370px
+    .single-case
+        &__effect
+            &-item
+                &-number
+                    width: 53px
+                &-title
+                    margin: 0 0 19px 63px
     .single-market
         &__info
             &-image
@@ -253,6 +265,9 @@
             &-page 
                 padding: 40px 100px
 @media (min-width: 1650px) 
+    .single-case
+        &__promo
+            height: 1000px
     .mobile
         &__close 
             width: 55px 
@@ -294,6 +309,24 @@
     .audit
         &__title
             white-space: unset
+    .single-case
+        &__promo
+            height: 682px
+            &-slogan 
+                width: 600px
+        &__stack 
+            padding: 60px 4.5%
+        &__prolog 
+            &-text 
+                padding: 50px 34px
+        &__problem 
+            padding: 60px 0px
+            &-lists 
+                ul 
+                    width: 48%
+        &__realize
+            &-text 
+                padding: 60px 50px
     .market
         &__table
             &-item 
@@ -418,6 +451,11 @@
                 margin-bottom: 9px
         &__right 
             &-slider 
+                height: 546px
+                width: 320px
+                &-item 
+                    &-file 
+                        height: 494px
                 &:first-child
                     margin-right: 18px
     .contacts
@@ -505,6 +543,16 @@
         &_fz36 
             font-size: 28px
             line-height: 33px
+    .single-case
+        &__promo 
+            height: 602px
+            &-slogan 
+                width: 557px
+        &__effect
+            padding: 70px 0px
+            &-list 
+                margin: 50px 0px
+                gap: 10px
     .audit
         &__title 
             margin: 135px auto 100px
@@ -893,6 +941,49 @@
     a 
         &.back_top
             width: 43px
+    .single-case
+        &__promo 
+            height: 474px
+            &-link 
+                gap: 7px 
+                img 
+                    width: 20px
+            &-slogan 
+                width: 442px
+        &__stack 
+            padding: 50px 4.5%
+            flex-direction: column
+            align-items: flex-start
+            &-list 
+                li 
+                    margin-bottom: 14px
+            &-title 
+                margin-bottom: 20px
+        &__prolog 
+            grid-template: auto/22.45% 1fr 22.45%
+            &-text 
+                padding: 40px 25px
+        &__problem
+            &-lists 
+                ul 
+                    li 
+                        margin-bottom: 14px
+        &__realize
+            &-text 
+                padding: 30px 20px
+        &__effect
+            padding: 50px 0px
+            &-list 
+                margin: 30px 0px
+                grid-template: minmax(140px, auto) / repeat(1,1fr)
+                grid-auto-rows: minmax(140px, auto)
+            &-item 
+                padding: 20px 14px
+                &-number 
+                    width: 30px
+                    padding-top: 4px
+                &-title 
+                    margin: 0px 0px 12px 27px
     .audit
         &__banner 
             min-height: 217px
@@ -1237,6 +1328,13 @@
     .button
         &_black 
             margin-right: 32px
+    .breadcrumbs
+        top: 100px
+    .single-case
+        &__promo 
+            height: 424px
+            &-slogan 
+                width: 350px
     .single-market
         &__slider 
             &-item 
@@ -1590,6 +1688,88 @@
     .text
         &_fz14-14
             font-size: 14px
+    .single-case
+        &__promo
+            height: 508px
+            &-slogan 
+                font-size: 14px
+                line-height: 20px
+                top: 31%
+                right: 15px
+                width: 160px
+            &-link 
+                gap: 10px
+                font-size: 16px
+                line-height: 20px
+                bottom: 35px
+                right: 15px
+                img 
+                    width: 24px
+        &__stack 
+            padding: 45px 15px
+            &-title 
+                margin-bottom: 20px
+                font-size: 26px
+                line-height: 32px
+            &-list 
+                font-size: 14px
+                line-height: 20px
+                li 
+                    margin-bottom: 20px
+        &__prolog 
+            grid-template: auto auto / 1fr 1fr
+            position: relative
+            padding-top: 92px
+            &-title 
+                position: absolute
+                top: 40px
+                font-size: 26px
+                line-height: 32px
+            &-text 
+                grid-row-start: 2
+                grid-column-start: 1
+                grid-column-end: 3
+                padding: 20px 15px 40px
+        &__problem 
+            padding: 45px 0px
+            &-title 
+                font-size: 20px
+                line-height: 26px
+            &-lists 
+                margin-top: 25px
+                gap: 20px
+                flex-direction: column
+                ul 
+                    width: 100%
+                    li 
+                        margin-bottom: 20px
+        &__realize
+            grid-template: auto auto / 1fr
+            padding-top: 92px
+            position: relative
+            &-title 
+                position: absolute
+                top: 40px
+                font-size: 26px
+                line-height: 32px
+            &-text 
+                padding: 20px 15px 40px
+        &__effect
+            padding: 40px 0px
+            &-item 
+                padding: 10px 10px 20px
+                &-title 
+                    margin: 0px 0px 6px 32px
+            &-title 
+                font-size: 26px
+                line-height: 32px
+            &-button 
+                font-size: 14px
+                line-height: 20px
+            &-list 
+                margin: 30px 0px 25px
+                grid-template: minmax(220px, auto) / repeat(1,1fr)
+                grid-auto-rows: minmax(220px, auto)
     .single-market
         &__info 
             padding: 40px 0px 50px
@@ -2485,4 +2665,10 @@
 @media (max-width: 372px) 
     body, html 
         font-size: 82%
-    
+    .single-case
+        &__promo 
+            &-back 
+                &.mob 
+                    display: inline-block
+                &.desk
+                    display: none
