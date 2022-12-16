@@ -72,7 +72,7 @@
     </section>
     <section class="single-market__review">
         <div class="container">
-            <h2 class="single-market__review-title title title_fz48 text_fw700 text_upper">Отзыв о решении</h2>
+            <h2 class="single-market__review-title title title_fz48 text_fw700 text_upper">Отзыв о&nbsp;решении</h2>
             <div class="single-market__review-item">
                 <div class="single-market__review-item-title title title_fz48 text_fw700 text_upper">
                     <img src="<?php echo bloginfo('template_url') ?>/assets/images/capt-double.svg" alt="">

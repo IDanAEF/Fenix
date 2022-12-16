@@ -39,7 +39,11 @@
         <img src="<?php the_field('prolog_left') ?>" alt="left" class="single-case__prolog-image">
         <div class="single-case__prolog-text text text_fz14 text_fz14-1">
             <h2 class="single-case__prolog-title title_fz48 text_upper">Пролог</h2>
-            <?php the_field('prolog_text') ?>
+            <div class="load-text">
+                <span><?php the_field('prolog_text') ?></span>
+                <span class="load-target">.. <span class="text_orange text_fw700">Читать далее</span></span>
+                <span class="load-mobile"><?php the_field('prolog_text-hide') ?></span>
+            </div>
         </div>
         <img src="<?php the_field('prolog_right') ?>" alt="right" class="single-case__prolog-image">
     </section>
@@ -74,7 +78,11 @@
         <img src="<?php the_field('realize_image') ?>" alt="real" class="single-case__realize-image">
         <div class="single-case__realize-text text text_fz14 text_fz14-1">
             <h2 class="single-case__realize-title title_fz48 text_upper text_fw700">РЕАЛИЗАЦИЯ</h2>
-            <?php the_field('realize_text') ?>
+            <div class="load-text">
+                <span><?php the_field('realize_text') ?></span>
+                <span class="load-target">.. <span class="text_orange text_fw700">Читать далее</span></span>
+                <span class="load-mobile"><?php the_field('realize_text-hide') ?></span>
+            </div>
         </div>
     </section>
     <img src="<?php the_field('banner_mobile') ?>" alt="banner" class="single-case__banner hide_descr">

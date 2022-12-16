@@ -177,7 +177,7 @@ function slider() {
                 slides = slider.querySelectorAll('.move-slider-item'),
                 scrollField = slider.querySelector('.move-slider-bar'),
                 scrollSpan,
-                slideWidth = window.outerWidth + (4.5 * window.outerWidth / 100),
+                slideWidth = window.outerWidth + (window.outerWidth > 576 ? (4.5 * window.outerWidth / 100) : 0),
                 slideIndex = 0,
                 posInit = 0,
                 posX1 = 0,

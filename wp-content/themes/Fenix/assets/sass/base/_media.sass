@@ -8,7 +8,7 @@
             font-size: 50px
             line-height: 57px
     .breadcrumbs 
-        top: 150px
+        top: 150px !important
     .header
         height: 100px
         &.fixed
@@ -1174,6 +1174,11 @@
             line-height: 30px
     .header
         overflow: hidden
+    .projects
+        hr 
+            margin: 80px 0px 50px
+        &__list
+            padding-bottom: 100px
     .mobile
         &__nav
             &-market
@@ -1329,7 +1334,7 @@
         &_black 
             margin-right: 32px
     .breadcrumbs
-        top: 100px
+        top: 100px !important
     .single-case
         &__promo 
             height: 424px
@@ -1498,6 +1503,9 @@
                 overflow: hidden
             img 
                 margin-left: -73px
+    .projects
+        &__title 
+            margin-top: 125px
     .contacts
         &__info 
             padding-top: 80px
@@ -1688,6 +1696,11 @@
     .text
         &_fz14-14
             font-size: 14px
+    .load-target
+        cursor: pointer
+        display: inline
+    .load-mobile
+        display: none
     .single-case
         &__promo
             height: 508px
@@ -1743,6 +1756,8 @@
                     width: 100%
                     li 
                         margin-bottom: 20px
+                        br 
+                            display: inline
         &__realize
             grid-template: auto auto / 1fr
             padding-top: 92px
@@ -1776,6 +1791,14 @@
             &-title 
                 font-size: 29px
                 line-height: 40px
+            &-text 
+                .text_upper 
+                    font-size: 14px
+                    line-height: 20px
+                ul 
+                    li 
+                        img 
+                            width: 12px
             &-descr
                 font-size: 14px
                 line-height: 24px
@@ -1791,7 +1814,7 @@
                     font-size: 16px
                     line-height: 20px
                 &-top 
-                    padding: 22px 15px 20px
+                    padding: 22px 12px 20px
                     span 
                         margin-top: 40px
                         font-size: 26px
@@ -1824,6 +1847,10 @@
                 margin-bottom: 25px
                 font-size: 30px
                 line-height: 40px
+            &-line
+                position: relative
+                left: -15px
+                gap: 0
             &-item 
                 &-left 
                     padding: 30px 15px 15px
@@ -1950,6 +1977,26 @@
                         width: 45%
                 &-title 
                     width: 240px
+    .projects
+        &__list 
+            padding-bottom: 70px
+        &__title 
+            margin-top: 100px
+        hr
+            margin: 65px 0px 40px
+        .button_refr
+            font-size: 14px
+            line-height: 20px
+            margin-top: 25px
+            img 
+                margin-bottom: 25px
+        .main__services
+            &-page 
+                padding: 40px 15px !important
+                .about__projects-page-info
+                    border: 1px solid #EEEEEE
+                .mobile-text
+                    padding: 20px
     .about
         &__title 
             margin-top: 160px
@@ -1973,11 +2020,6 @@
                 display: inline-block
             &-item 
                 width: 100%
-        .main__services-names
-            scrollbar-width: none
-            &::-webkit-scrollbar
-                width: 0px
-                height: 0px
         &__products
             &:not(&.main__services)
                 display: none
@@ -2220,7 +2262,7 @@
             font-size: 32px
             line-height: 37px
     .breadcrumbs
-        top: 75px
+        top: 75px !important
     .mobile
         overflow-y: auto
         padding: 55px 32px 32px
