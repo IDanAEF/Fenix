@@ -26,6 +26,13 @@
     .audit
         &__scheme
             max-width: 1900px
+    .single-market
+        &__inter
+            &-list 
+                gap: 120px 20px
+            &-item 
+                &-bott 
+                    height: 101px
     .single-case
         &__promo
             height: 1160px !important
@@ -72,13 +79,22 @@
                     margin: 0 0 19px 63px
     .single-market
         &__info
+            &-block 
+                gap: 220px
+            &-text 
+                max-width: 835px
             &-image
                 max-height: 720px
+        &__review
+            &-item 
+                &-descr
+                    max-width: 1140px
         &__slider
             &-progress 
                 width: 462px
                 height: 9px
             &-item 
+                min-height: 450px
                 &-descr 
                     max-width: 545px
     .single-service
@@ -268,6 +284,14 @@
     .single-case
         &__promo
             height: 1000px
+    .single-market
+        &__info 
+            &-block 
+                justify-content: flex-start
+        &__slider 
+            &-item 
+                &-descr 
+                    max-width: 68%
     .mobile
         &__close 
             width: 55px 
@@ -387,6 +411,9 @@
             &-item 
                 padding: 50px 68px
         &__inter 
+            &-item 
+                &-top 
+                    min-height: 296px
             &-list 
                 gap: 78px 5px
     .single-service
@@ -659,7 +686,7 @@
                 margin-bottom: 35px
             &-item 
                 min-height: 274px
-                max-height: 340px
+                //max-height: 340px
                 &-left 
                     padding: 26px
                 &-logo 
@@ -680,6 +707,7 @@
             &-item 
                 &-top 
                     padding: 11px
+                    min-height: 199px
                     span 
                         margin-top: 11px
                 &-bott 
@@ -1065,9 +1093,10 @@
         &__slider 
             &-item 
                 min-height: 240px
-                max-height: 340px
+                //max-height: 340px
                 &-left 
                     padding: 16px
+                    width: 53vw
                 &-logo 
                     max-width: 135px
                 &-title 
@@ -1079,6 +1108,9 @@
                 gap: 15px
         &__inter
             &-item 
+                aspect-ratio: 1.6/1
+                &-top 
+                    min-height: 153px
                 &-bott 
                     height: 47px
             &-list
@@ -1346,15 +1378,26 @@
                 min-height: 240px 
                 max-height: unset
                 flex-direction: column
+                &-left, &-descr 
+                    max-width: unset
+                    width: 100%
                 &-image 
                     width: 100%
                     height: 200px
+                    top: unset
+                    transform: unset
+                    position: static
+                    right: unset
         &__info 
             &-block 
                 gap: 24px 
                 flex-direction: column
             &-image 
                 max-height: 468px
+        &__inter 
+            &-item 
+                &-top 
+                    min-height: 189px
     .single-service
         &__banner
             margin: 50px 0px
@@ -1990,6 +2033,12 @@
             margin-top: 25px
             img 
                 margin-bottom: 25px
+        .mobile-text-udnertitle, .button, .about__projects-page-result
+            font-size: 14px
+            line-height: 20px
+        .about__projects-page-result strong 
+            font-size: 48px
+            line-height: 54px
         .main__services
             &-page 
                 padding: 40px 15px !important

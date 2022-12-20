@@ -9,9 +9,17 @@
     <div class="breadcrumbs container text text_white text_fz14 text_fz14-1">
         <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><a href="/market/">Маркетплейс решений</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><span class="text_upper"><?php the_title() ?></span>
     </div>
-    <section class="single-market__promo">
-        <img src="<?php the_field('promo'); ?>" alt="" class="hide_mobile">
-        <img src="<?php the_field('promo-mobile'); ?>" alt="" class="hide_descr">
+    <section class="single-market__promo<?=(get_field('promo-video') ? ' video' : '')?>">
+        <?php
+            if (get_field('promo-video')) {
+                echo get_field('promo-video');
+            } else {
+                ?>
+                <img src="<?php the_field('promo'); ?>" alt="" class="hide_mobile">
+                <img src="<?php the_field('promo-mobile'); ?>" alt="" class="hide_descr">
+                <?php
+            }
+        ?>
     </section>
     <section class="single-market__info">
         <div class="container">
@@ -20,7 +28,7 @@
                 <?php the_field('main-info_undertitle') ?>
             </div>
             <div class="single-market__info-block">
-                <div class="single-market__info-text text text_fz14 text_fz14-1">
+                <div class="single-market__info-text text text_fz16">
                     <span class="text_upper text_fw700 mb8">Для кого</span>
                     <p><?php the_field('main-info_who'); ?></p>
                     <span class="text_upper text_fw700 mb8">Для чего</span>
@@ -58,7 +66,8 @@
                                     <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper hide_mobile"><?php the_sub_field('name') ?></div>
                                     <div class="single-market__slider-item-descr text text_fz14 text_fz14-1"><?php the_sub_field('descr') ?></div>
                                 </div>
-                                <img src="<?php the_sub_field('image') ?>" alt="" class="single-market__slider-item-image">
+                                <img src="<?php the_sub_field('image-mobile') ?>" alt="" class="single-market__slider-item-image hide_descr">
+                                <img src="<?php the_sub_field('image') ?>" alt="" class="single-market__slider-item-image hide_mobile">
                             </div>
                             <?php
                         }
@@ -78,7 +87,7 @@
                     <img src="<?php echo bloginfo('template_url') ?>/assets/images/capt-double.svg" alt="">
                     <?php the_field('review_name'); ?>
                 </div>
-                <div class="single-market__review-item-descr text text_fz14 text_fz14-1">
+                <div class="single-market__review-item-descr text text_fz16">
                     <?php the_field('review_descr'); ?>
                 </div>
                 <div class="single-market__review-item-user text text_fz18 text_fw700">
@@ -93,7 +102,7 @@
     <section class="single-market__inter">
         <div class="container">
             <h2 class="single-market__inter-title title title_fz48 text_fw700 text_upper">Вам может быть интересно</h2>
-            <div class="single-market__inter-list text text_fz14 text_fz14-1">
+            <div class="single-market__inter-list text text_fz16">
                 <?php
                     while(have_rows('inter')) {
                         the_row();
@@ -101,7 +110,7 @@
                         <div class="single-market__inter-item">
                             <div class="single-market__inter-item-top">
                                 <div>
-                                    <h3 class="text_fz16 text_fw700 text_upper"><?php the_sub_field('name') ?></h3>
+                                    <h3 class="text_fz18 text_fw700 text_upper"><?php the_sub_field('name') ?></h3>
                                     <p><?php the_sub_field('desr') ?></p>
                                 </div>
                                 <span class="title title_fz32 text_fw700 text_upper"><?php the_sub_field('percent') ?></span>

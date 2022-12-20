@@ -14,7 +14,7 @@
         </h1>
     </div>
     <hr>
-    <section class="projects__list about__projects load-more-field" data-view="3">
+    <section class="projects__list about__projects load-more-field" data-view="6">
         <div class="container">
         <?php
             $names = [];
@@ -49,7 +49,7 @@
                             <div class="top">
                                 <img src="<?php the_field('slider-image-mob') ?>" alt="" class="mob_img">
                                 <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
-                                <div class="about__projects-page-undertitle text text_fz14">
+                                <div class="about__projects-page-undertitle text text_fz14 text_fz14-1">
                                     <?php the_field('descr-proj'); ?>
                                 </div>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
