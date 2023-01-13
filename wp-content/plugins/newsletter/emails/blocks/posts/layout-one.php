@@ -12,18 +12,17 @@ $text_style = TNP_Composer::get_style($options, '', $composer, 'text');
         line-height: normal !important;
         padding: 0 0 5px 0;
     }
-
+    .excerpt-td {
+        padding: 10px 0 15px 0;
+    }
     .excerpt {
         <?php $text_style->echo_css()?>
         line-height: 1.5em !important;
-        padding: 10px 0 15px 0;
+        text-decoration: none;
     }
 
     .meta {
-        font-family: <?php echo $text_style->font_family ?>;
-        color: <?php echo $text_style->font_color ?>;
-        font-size: <?php echo round($text_style->font_size * 0.9) ?>px;
-        font-weight: <?php echo $text_style->font_weight ?>;
+        <?php $text_style->echo_css(0.9)?>
         font-style: italic;
         padding: 0 0 10px 0;
         line-height: normal !important;
@@ -105,13 +104,15 @@ $text_style = TNP_Composer::get_style($options, '', $composer, 'text');
 
                                 <?php if ($excerpt_length) { ?>
                                     <tr>
-                                        <td align="<?php echo $align_left ?>" inline-class="excerpt" class="tnpc-row-edit tnpc-inline-editable"
+                                        <td align="<?php echo $align_left ?>" inline-class="excerpt-td">
+                                            <a href="<?php echo $url?>" inline-class="excerpt" class="tnpc-row-edit tnpc-inline-editable"
                                             data-type="text" data-id="<?php echo $post->ID ?>" dir="<?php echo $dir ?>">
                                                 <?php
                                                 echo TNP_Composer::is_post_field_edited_inline($options['inline_edits'], 'text', $post->ID) ?
                                                         TNP_Composer::get_edited_inline_post_field($options['inline_edits'], 'text', $post->ID) :
-                                                        tnp_post_excerpt($post, $excerpt_length)
+                                                        tnp_post_excerpt($post, $excerpt_length, $excerpt_length_in_chars)
                                                 ?>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php } ?>

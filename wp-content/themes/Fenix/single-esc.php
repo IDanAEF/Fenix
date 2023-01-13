@@ -38,7 +38,7 @@
         <div class="container">
             <div class="develop__situate-top">
                 <h2 class="develop__situate-title title title_fz48 text_fw700 text_upper">В каких случаях требуется сопровождение RetailCRM?</h2>
-                <div class="develop__situate-descr text text_fz14"><?php the_field('esc_right') ?></div>
+                <div class="develop__situate-descr text text_fz14 lh-24"><?php the_field('esc_right') ?></div>
             </div>
             <div class="develop__situate-undertitle text text_fz14 text_fw700">Помимо этого, поддержка нужна в следующих ситуациях:</div>
             <div class="develop__situate-items text_white text_fz14">

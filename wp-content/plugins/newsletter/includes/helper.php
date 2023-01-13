@@ -42,6 +42,12 @@ function tnp_post_thumbnail_src($post, $size = 'thumbnail', $alternative = '') {
     return $media[0];
 }
 
+$tnp_excerpt_length = 0;
+function tnp_excerpt_length($length) {
+    global $tnp_excerpt_length;
+    return $tnp_excerpt_length;
+}
+
 /**
  * @param WP_Post $post
  * @param int $length
@@ -49,19 +55,28 @@ function tnp_post_thumbnail_src($post, $size = 'thumbnail', $alternative = '') {
  * @return string
  */
 function tnp_post_excerpt($post, $length = 30, $characters = false) {
+    global $tnp_excerpt_length;
+    
     if (!$length) return '';
     
+    $tnp_excerpt_length = (int)($length*1.5);
+    
+    add_filter('excerpt_length', 'tnp_excerpt_length', PHP_INT_MAX);
+    
     $excerpt = get_the_excerpt($post->ID);
+    
+    remove_filter('excerpt_length', 'tnp_excerpt_length', PHP_INT_MAX);
+    
     $excerpt = tnp_delete_all_shordcodes_tags($excerpt);
     $excerpt = trim($excerpt);
     $excerpt = str_replace('&nbsp;', '', $excerpt);
 
     if ($characters) {
-        if (strlen($excerpt) > $length) {
-            $excerpt = substr($excerpt, 0, $length);
-            $i = strrpos($excerpt, ' ');
+        if (mb_strlen($excerpt) > $length) {
+            $excerpt = mb_substr($excerpt, 0, $length);
+            $i = mb_strrpos($excerpt, ' ');
             if ($i) {
-                $excerpt = substr($excerpt, 0, $i);
+                $excerpt = mb_substr($excerpt, 0, $i);
                 $excerpt .= '&hellip;';
             }
         }

@@ -37,6 +37,7 @@ $defaults = array(
     'block_padding_bottom' => 15,
     'block_background' => '',
     'excerpt_length' => 30,
+    'excerpt_length_type' => '',
     'post_offset' => 0,
     'automated_include' => 'new',
     'inline_edits' => [],
@@ -119,6 +120,8 @@ remove_all_filters('excerpt_more');
 $image_placeholder_url = plugins_url('newsletter') . '/emails/blocks/posts/images/blank-240x160.png';
 
 $excerpt_length = $options['excerpt_length'];
+$excerpt_length_in_chars = $options['excerpt_length_type'] == 'chars';
+
 
 $show_image = !empty($options['show_image']);
 $show_date = !empty($options['show_date']);

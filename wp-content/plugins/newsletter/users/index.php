@@ -137,7 +137,8 @@ $controls->data['search_page'] ++;
                 <?php $controls->text('search_text', 45, __('Search text', 'newsletter')); ?>
 
                 <?php _e('filter by', 'newsletter') ?>:
-                <?php $controls->select('search_status', ['' => 'Any status', 'T' => 'Test subscribers', 'C' => 'Confirmed', 'S' => 'Not confirmed', 'U' => 'Unsubscribed', 'B' => 'Bounced', 'P'=> TNP_User::get_status_label('P')]); ?>
+                <?php $controls->select('search_status', ['' => __('Any', 'newsletter'), 'T' => __('Test subscribers', 'newsletter'), 'C' => TNP_User::get_status_label('C'), 
+                    'S' => TNP_User::get_status_label('S'), 'U' => TNP_User::get_status_label('U'), 'B' => TNP_User::get_status_label('B'), 'P'=> TNP_User::get_status_label('P')]); ?>
                 <?php $controls->lists_select('search_list', '-'); ?>
 
                 <?php $controls->button('search', __('Search', 'newsletter')); ?>

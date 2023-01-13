@@ -1,7 +1,7 @@
 === Newsletter - Send awesome emails from WordPress ===
 Tags: newsletter, email marketing, welcome email, signup forms, lead generation, marketing automation
-Tested up to: 6.1
-Stable tag: 7.5.6
+Tested up to: 6.1.1
+Stable tag: 7.5.9
 Contributors: satollo,webagile,michael-travan
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -125,6 +125,25 @@ Thank you, The Newsletter Team
 3. The Reports extension
 
 == Changelog ==
+
+= 7.5.9 =
+
+* Fixed underlined excerpt on posts block
+
+= 7.5.8 =
+
+* Added filter on newsletter message before online view
+* Added excerpt lenght in character (useful for Chinese) on posts block
+* Improved the excerpt extraction
+* Add link on excerpt on posts block
+
+= 7.5.7 =
+
+* Check on ctype_space function (there are installation without it)
+* Improved the html-2-text conversion
+* Added language to the export
+* Status labels fixed on subscriber search and edit panel
+* Stripped HTML tags on block generated subjects
 
 = 7.5.6 =
 

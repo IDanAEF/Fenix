@@ -2,7 +2,7 @@
     get_header();
 ?>
 <main class="main">
-    <section class="main__promo text text_fz14 text_fz14-1 text_white">
+    <section class="main__promo text text_fz14 text_white">
         <div class="container">
             <h1 class="main__promo-logo">
                 <img src="<?php echo bloginfo('template_url') ?>/assets/images/logo.svg" alt="logo">
@@ -23,12 +23,12 @@
                             <?php
                         } else {
                             ?>
-                            <video <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted autoplay loop preload playsinline></video>
+                            <video <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted autoplay loop preload playsinline type='video/mp4'></video>
                             <?php
                         }
                     }
                 ?>
-                
+
             </div>
             <div class="main__promo-about">
                 <h2 class="main__promo-about-title title_fz32 text_fw700 text_upper">О компании</h2>

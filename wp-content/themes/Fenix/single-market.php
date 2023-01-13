@@ -28,7 +28,7 @@
                 <?php the_field('main-info_undertitle') ?>
             </div>
             <div class="single-market__info-block">
-                <div class="single-market__info-text text text_fz16">
+                <div class="single-market__info-text text text_fz18">
                     <span class="text_upper text_fw700 mb8">Для кого</span>
                     <p><?php the_field('main-info_who'); ?></p>
                     <span class="text_upper text_fw700 mb8">Для чего</span>
@@ -64,7 +64,7 @@
                                 <div class="single-market__slider-item-left">
                                     <img src="<?php the_sub_field('logo') ?>" alt="" class="single-market__slider-item-logo">
                                     <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper hide_mobile"><?php the_sub_field('name') ?></div>
-                                    <div class="single-market__slider-item-descr text text_fz14 text_fz14-1"><?php the_sub_field('descr') ?></div>
+                                    <div class="single-market__slider-item-descr text text_fz16"><?php the_sub_field('descr') ?></div>
                                 </div>
                                 <img src="<?php the_sub_field('image-mobile') ?>" alt="" class="single-market__slider-item-image hide_descr">
                                 <img src="<?php the_sub_field('image') ?>" alt="" class="single-market__slider-item-image hide_mobile">
@@ -87,7 +87,7 @@
                     <img src="<?php echo bloginfo('template_url') ?>/assets/images/capt-double.svg" alt="">
                     <?php the_field('review_name'); ?>
                 </div>
-                <div class="single-market__review-item-descr text text_fz16">
+                <div class="single-market__review-item-descr text text_fz18">
                     <?php the_field('review_descr'); ?>
                 </div>
                 <div class="single-market__review-item-user text text_fz18 text_fw700">

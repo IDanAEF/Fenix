@@ -9,7 +9,7 @@
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
         <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
     </div>
-    <h1 class="single-service__title title title_fz120 title_fz120-1 text_fw700 text_upper">
+    <h1 class="single-service__title title title_fz120 title_fz120-1 text_fw700 text_upper container">
         <span><?php the_field('title_top') ?></span>
         <span><?php the_field('title_bott') ?></span>
     </h1>

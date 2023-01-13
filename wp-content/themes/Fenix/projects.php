@@ -39,11 +39,17 @@
                                     <?php the_title(); ?>
                                 </h3>
                                 <div class="mobile-text-udnertitle text text_fz14 text_fz14-1">
-                                    <?php the_field('descr-proj'); ?>
+                                    <?php
+                                        if (get_field('descr-proj-mobile')) {
+                                            echo get_field('descr-proj-mobile');
+                                        } else {
+                                            echo get_field('descr-proj');
+                                        }
+                                    ?>
                                 </div>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
-                                    <div class="arrow"><img src="http://fenix/wp-content/themes/Fenix/assets/images/arrow_orange.svg" alt=""></div>
+                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt=""></div>
                                 </a>
                             </div>
                             <div class="top">
@@ -54,7 +60,7 @@
                                 </div>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
-                                    <div class="arrow"><img src="http://fenix/wp-content/themes/Fenix/assets/images/arrow_orange.svg" alt=""></div>
+                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt=""></div>
                                 </a>
                             </div>
                             <div class="about__projects-page-result text text_fz14 text_fz14-1 text_white">

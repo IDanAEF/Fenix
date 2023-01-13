@@ -138,7 +138,7 @@ class NewsletterUsers extends NewsletterModule {
         }
 
         echo '"Feed by mail"' . $sep . '"Follow up"' . $sep;
-        echo '"IP"' . $sep . '"Referrer"' . $sep . '"Country"';
+        echo '"IP"' . $sep . '"Referrer"' . $sep . '"Country"' . $sep . '"Language"';
 
         echo "\n";
 
@@ -171,6 +171,7 @@ class NewsletterUsers extends NewsletterModule {
                 echo '"' . $recipients[$i]->ip . '"' . $sep;
                 echo '"' . $recipients[$i]->referrer . '"' . $sep;
                 echo '"' . $recipients[$i]->country . '"' . $sep;
+                echo '"' . $recipients[$i]->language . '"' . $sep;
 
                 echo "\n";
                 flush();

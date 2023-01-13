@@ -14,40 +14,40 @@ if (class_exists('NewsletterExtensions')) {
 
 <?php if ($context['type'] == 'automated') { ?>
 
-<div class="tnp-field-box">
-    <p>
-        <strong>AUTOMATED</strong><br>
-        While composing all posts are shown while on sending posts are extrated following the rules below. 
-        <a href="https://www.thenewsletterplugin.com/documentation/addons/extended-features/automated-extension/#regeneration" target="_blank">Read more</a>.
-    </p>
-    <?php $fields->select('automated_disabled', '', ['' => 'Use the last newsletter date and...', '1' => 'Do not consider the last newsletter']) ?>
+    <div class="tnp-field-box">
+        <p>
+            <strong>AUTOMATED</strong><br>
+            While composing all posts are shown while on sending posts are extrated following the rules below. 
+            <a href="https://www.thenewsletterplugin.com/documentation/addons/extended-features/automated-extension/#regeneration" target="_blank">Read more</a>.
+        </p>
+        <?php $fields->select('automated_disabled', '', ['' => 'Use the last newsletter date and...', '1' => 'Do not consider the last newsletter']) ?>
 
-    <div class="tnp-field-row">
-        <div class="tnp-field-col-2">
-            <?php
-            $fields->select('automated_include', __('If there are new posts', 'newsletter'),
-                    [
-                        'new' => __('Include only new posts', 'newsletter'),
-                        'max' => __('Include specified max posts', 'newsletter')
-                    ],
-                    ['description' => '', 'class' => 'tnp-small'])
-            ?>
+        <div class="tnp-field-row">
+            <div class="tnp-field-col-2">
+                <?php
+                $fields->select('automated_include', __('If there are new posts', 'newsletter'),
+                        [
+                            'new' => __('Include only new posts', 'newsletter'),
+                            'max' => __('Include specified max posts', 'newsletter')
+                        ],
+                        ['description' => '', 'class' => 'tnp-small'])
+                ?>
+            </div>
+            <div class="tnp-field-col-2">
+                <?php
+                $fields->select('automated', __('If there are not new posts', 'newsletter'),
+                        [
+                            '' => 'Show the message below',
+                            '1' => 'Do not send the newsletter',
+                            '2' => 'Remove this block'
+                        ],
+                        ['description' => '', 'class' => 'tnp-small'])
+                ?>
+                <?php $fields->text('automated_no_contents', null, ['placeholder' => 'No new posts message']) ?>
+            </div>
         </div>
-        <div class="tnp-field-col-2">
-            <?php
-            $fields->select('automated', __('If there are not new posts', 'newsletter'),
-                    [
-                        '' => 'Show the message below',
-                        '1' => 'Do not send the newsletter',
-                        '2' => 'Remove this block'
-                    ],
-                    ['description' => '', 'class' => 'tnp-small'])
-            ?>
-            <?php $fields->text('automated_no_contents', null, ['placeholder' => 'No new posts message']) ?>
-        </div>
+        <div style="clear: both"></div>
     </div>
-    <div style="clear: both"></div>
-</div>
 <?php } ?>
 
 
@@ -87,10 +87,13 @@ $fields->select('layout', __('Layout', 'newsletter'),
 </div>
 
 <div class="tnp-field-row">
-    <div class="tnp-field-col-2">
-        <?php $fields->number('excerpt_length', __('Excerpt words', 'newsletter'), array('min' => 0)); ?>
+    <div class="tnp-field-col-3">
+        <?php $fields->number('excerpt_length', __('Excerpt length', 'newsletter'), array('min' => 0)); ?>
     </div>
-    <div class="tnp-field-col-2">
+    <div class="tnp-field-col-3">
+        <?php $fields->select('excerpt_length_type', 'Count', ['' => __('Words', 'newsletter'), 'chars' => __('Chars', 'newsletter')]); ?>
+    </div>
+    <div class="tnp-field-col-3">
         <?php $fields->yesno('show_read_more_button', 'Show read more button') ?>
     </div>
     <div style="clear: both"></div>
