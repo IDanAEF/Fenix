@@ -73,6 +73,46 @@ const other = () => {
         console.log(e.stack);
     }
 
+    //load more items ajax
+    try {
+        async function getData(url) {
+            let res = await fetch(url, {
+                method: "GET"
+            });
+        
+            return await res.text();
+        }
+
+        const loadField = document.querySelectorAll('.load-more-field-ajax');
+
+        loadField.forEach(field => {
+            const loadBtn = field.querySelector('.load-more-btn'),
+                  loadContainer = field.querySelector('.load-container-items');
+
+            field.getAttribute('data-all') > field.getAttribute('data-view') ? loadBtn.style.display = '' : '';
+
+            let url = field.getAttribute('data-url') + '?action='+field.getAttribute('data-action');
+
+            loadBtn.addEventListener('click', () => {
+                url += '&items='+field.querySelectorAll('.load-more-item').length;
+
+                if (field.querySelector('.load-more-item-two')) {
+                    url += '&items-two='+field.querySelectorAll('.load-more-item-two').length;
+                }
+            
+                getData(url)
+                .then((res) => {
+                    let data = JSON.parse(res);
+                    loadContainer.innerHTML += data['cont'];
+
+                    data['more'] ? loadBtn.style.display = '' : loadBtn.style.display = 'none';
+                });
+            });
+        });
+    } catch (e) {
+        console.log(e.stack);
+    }
+
     //load text
     try {
         const loadText = document.querySelectorAll('.load-text');

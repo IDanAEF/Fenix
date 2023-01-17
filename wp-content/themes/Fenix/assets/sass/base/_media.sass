@@ -9,6 +9,17 @@
             line-height: 57px
     .breadcrumbs 
         top: 150px !important
+    .clients
+        &__item 
+            min-height: 500px !important
+            &-image 
+                height: 315px !important
+            &.review
+                .descr
+                    max-width: 800px !important
+                &.black
+                    .descr
+                        max-width: 600px !important
     .header
         height: 100px
         &.fixed
@@ -70,6 +81,11 @@
     .auth
         &__form 
             width: 370px
+    .clients
+        &__item 
+            min-height: 445px
+            &-image 
+                height: 270px
     .single-case
         &__effect
             &-item
@@ -276,6 +292,12 @@
             &_fz12
                 font-size: 26px
                 line-height: 40px
+    .clients
+        &__item
+            &.review
+                &.black 
+                    &.descr 
+                        max-width: 470px
     .about
         &__projects 
             &-page 
@@ -292,6 +314,14 @@
             &-item 
                 &-descr 
                     max-width: 68%
+    .clients
+        &__item 
+            min-height: 400px
+            &-image 
+                height: 245px
+        &__line 
+            width: 100%
+            height: unset
     .mobile
         &__close 
             width: 55px 
@@ -318,6 +348,10 @@
 @media (max-width: 1650px) 
     body, html 
         font-size: 94%
+    .clients
+        &__line 
+            width: 100%
+            height: unset
 @media (max-width: 1400px)
     /*.container
         width: 1140px*/
@@ -333,6 +367,35 @@
     .audit
         &__title
             white-space: unset
+    .clients
+        &__items 
+            &-list 
+                gap: 10px
+        &__item 
+            min-height: 310px
+            &-descr
+                padding: 9px
+            &-image 
+                height: 180px
+                h3 
+                    bottom: 14px
+                    padding: 4px 0px
+            &.review
+                padding: 35px 46px
+                .logo 
+                    max-width: 160px
+                    bottom: 30px
+                    right: 30px
+                .image 
+                    right: -50px
+                &.black 
+                    padding: 30px 40px
+                    .descr
+                        max-width: 310px
+                .capt
+                    width: 75px
+                    top: 20px
+                    left: 20px
     .single-case
         &__promo
             height: 682px
@@ -571,6 +634,22 @@
         &_fz36 
             font-size: 28px
             line-height: 33px
+    .clients
+        &__title 
+            margin: 120px 0px 90px
+        &__line 
+            height: 102px
+            margin-bottom: 70px
+            width: unset
+        &__items 
+            &-list 
+                gap: 7px
+                grid-template: auto / repeat(3,1fr)
+                margin: 25px 0px 35px
+        &__item 
+            &.right
+                grid-column-start: 1
+                grid-column-end: 3
     .single-case
         &__promo 
             height: 602px
@@ -970,6 +1049,21 @@
     a 
         &.back_top
             width: 43px
+    .clients
+        &__slider 
+            padding-bottom: 60px
+        &__item 
+            min-height: 250px
+            &-image 
+                height: 160px
+            &.right, &.left
+                grid-column-end: 1
+                grid-column-end: 4
+            &.review
+                h3 
+                    margin-bottom: 15px
+                .image 
+                    right: 0
     .single-case
         &__promo 
             height: 474px
@@ -1102,7 +1196,7 @@
                     max-width: 135px
                 &-title 
                     margin: 15px 0px
-                &-image 
+                &-image, .review 
                     width: 37vw
         &__info 
             &-block 
@@ -1369,6 +1463,28 @@
             margin-right: 32px
     .breadcrumbs
         top: 100px !important
+    .clients
+        &__title 
+            margin: 90px 0px 70px
+        &__line 
+            margin-bottom: 50px
+            height: 65px
+        &__item 
+            &.right, &.left
+                grid-column-end: 1
+                grid-column-end: 3
+        &__items
+            &-list 
+                grid-template: auto / repeat(2, 1fr)
+        &__slider 
+            .single-market
+                &__slider
+                    &-item 
+                        .review
+                            position: absolute
+                            bottom: 0
+                        &-image, .review
+                            height: 270px
     .single-case
         &__promo 
             height: 424px
@@ -1383,7 +1499,7 @@
                 &-left, &-descr 
                     max-width: unset
                     width: 100%
-                &-image 
+                &-image, .review 
                     width: 100%
                     height: 200px
                     top: unset
@@ -1736,6 +1852,10 @@
             &-item 
                 &-top, &-title
                     font-size: 14px !important 
+    .clients
+        &__item
+            &-image 
+                height: 236px
 @media (max-width: 576px)
     body, html 
         font-size: 90%
@@ -1747,6 +1867,14 @@
         display: inline
     .load-mobile
         display: none
+    .clients
+        &__title 
+            margin: 100px 0px 65px
+        &__line 
+            height: 60px
+            margin-bottom: 40px
+        &__slider 
+            padding-bottom: 40px
     .single-case
         &__promo
             height: 508px
@@ -1898,13 +2026,14 @@
                 left: -15px
                 gap: 0
             &-item 
+                width: 100vw
                 &-left 
                     padding: 30px 15px 15px
                 &-logo 
                     max-width: 220px
                     margin-bottom: 25px
-                &-image 
-                    height: 354px
+                &-image, .review 
+                    height: 354px !important
     .audit
         &__title
             margin: 100px 0px 65px
@@ -2727,6 +2856,50 @@
                     height: 0px
                     &.active
                         height: 578px
+    .clients
+        padding-bottom: 70px
+        &__item 
+            min-height: 314px
+            &.left, &.right
+                grid-column-start: 1
+                grid-column-end: 2
+            &-image 
+                height: 202px
+                h3 
+                    padding: 9px
+                    font-size: 22px
+                    line-height: 30px
+            &-descr 
+                padding: 15px
+            &-bott 
+                h4 
+                    font-size: 16px
+                    line-height: 22px
+            &.review
+                padding: 20px 15px
+                h3 
+                    font-size: 32px
+                    line-height: 44px
+                    margin-bottom: 20px
+                    margin-left: 33px
+                .capt
+                    width: 61px
+                    top: 20px
+                    left: 15px
+                .pers-stat
+                    font-size: 12px
+                    line-height: 17px
+                .logo
+                    max-width: 90px
+                    bottom: 28px
+                    right: 15px
+                &.black
+                    padding: 44px 15px 25px
+        &__items
+            &-list 
+                grid-template: auto / 1fr
+                gap: 20px
+                margin: 40px 0px
 @media (max-width: 430px)
     .main
         &__promo

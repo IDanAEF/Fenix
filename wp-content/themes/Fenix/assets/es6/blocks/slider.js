@@ -177,7 +177,7 @@ function slider() {
                 slides = slider.querySelectorAll('.move-slider-item'),
                 scrollField = slider.querySelector('.move-slider-bar'),
                 scrollSpan,
-                slideWidth = window.outerWidth + (window.outerWidth > 576 ? (4.5 * window.outerWidth / 100) : 0),
+                slideWidth = window.innerWidth,
                 slideIndex = 0,
                 posInit = 0,
                 posX1 = 0,
@@ -337,7 +337,7 @@ function slider() {
             }
 
             window.addEventListener('resize', () => {
-                slideWidth = window.outerWidth + (4.5 * window.outerWidth / 100);
+                slideWidth = window.innerWidth;
                 sliderTrack.style.transform = `translate3d(-${slideIndex * slideWidth}px, 0px, 0px)`;
             });
         });
