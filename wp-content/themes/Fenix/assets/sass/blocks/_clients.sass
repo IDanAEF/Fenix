@@ -3,6 +3,24 @@
     &__line 
         margin-bottom: 100px
         height: 120px
+    &__brands
+        background-color: #D8612B
+        display: flex
+        align-items: center
+        gap: 70px
+        padding: 15px 0px
+        margin-bottom: 100px
+        width: fit-content
+        animation: brands 10s linear infinite forwards
+        img 
+            filter: invert(1) brightness(2)
+            max-height: 95px
+            width: auto
+        @keyframes brands
+            0%
+                transform: translate(0vw)
+            100%
+                transform: translateX(-1063px)
     &__title
         margin: 195px 0px 125px
     &__items

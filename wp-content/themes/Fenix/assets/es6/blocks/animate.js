@@ -44,14 +44,17 @@ function animate() {
             allBott = true,
             timing2 = false,
             once = false,
+            allStop = false,
             interval;
 
         if (document.querySelector('main.main')) {
             function scrollEvent() {
                 if (window.innerWidth >= 992 && !scrollingPage) {
-                    if (((window.pageYOffset + (window.innerHeight / 2)) >= contPos() && !stop && !allTop) || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott() && !stop && !allBott)) {
+                    if ((window.pageYOffset + (window.innerHeight / 2)) >= contPos() && !stop && !allTop) {
+                        // к if + || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott() && !stop && !allBott)
                         removeScroll();
                         stop = true;
+                        allStop = true;
                     }
                     if (stop && !once) {
                         once = true;
@@ -108,22 +111,6 @@ function animate() {
                         marketItem[count].classList.add('active');
                         count++;
                     }
-                    /*top -= 10;
-                    if (top == -10) {
-                        top = 100;
-                        count++;
-                    }
-                    if (count < marketItem.length) {
-                        marketItem[count].style.top = `${top}%`;
-                    } else {
-                        stop = false;
-                        count = marketItem.length - 1;
-                        top = 0;
-                        allTop = true;
-                        allBott = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }*/
                 } else {
                     count--;
                     if (count <= 0) {
@@ -137,22 +124,6 @@ function animate() {
                     } else {
                         marketItem[count].classList.remove('active');
                     }
-                    /*top += 10;
-                    if (top == 110) {
-                        top = 0;
-                        count--;
-                    }
-                    if (count >= 1) {
-                        marketItem[count].style.top = `${top}%`;
-                    } else {
-                        stop = false;
-                        count = 1;
-                        top = 100;
-                        allBott = true;
-                        allTop = false;
-                        document.querySelector('html').classList.remove('fixed');
-                        document.querySelector('body').classList.remove('fixed');
-                    }*/
                 }
             }
     
@@ -186,6 +157,7 @@ function animate() {
             skipTop = false,
             leftAnimate = false,
             rightAnimate = false,
+            allStop2 = false,
             interval2;
 
         let timeout;
@@ -196,16 +168,15 @@ function animate() {
             function scrollEvent2(e) {
                 if (skipTop && !scrollingPage) {
                     skipTop = false;
-                } else if (!skipTop && window.innerWidth >= 992 && !scrollingPage) {
-                    if ((window.pageYOffset + (window.innerHeight / 2) >= contPos2() && !stop2 && !allLeft) || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott2() && !stop2 && !allRight)) {
+                } else if (!allStop2 && !skipTop && window.innerWidth >= 992 && !scrollingPage) {
+                    if (window.pageYOffset + (window.innerHeight / 2) >= contPos2() && !stop2 && !allLeft) {
+                        // к if + || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott2() && !stop2 && !allRight)
                         removeScroll();
                         stop2 = true;
+                        allStop2 = true;
                     }
                     if (stop2 && !once2) {
                         once2 = true;
-                        //window.removeEventListener('scroll', scrollEvent2);
-                        //SmoothVerticalScrolling(sSliderWindow, 575, 'center');
-                        //window.scroll(0, contPos2() - (window.innerHeight / 2));
                         window.scrollBy({
                             top: (sSliderWindow.clientHeight / 2) + sSliderWindow.getBoundingClientRect().top - (window.innerHeight / 2) - 107,
                             behavior: 'smooth'
@@ -413,11 +384,6 @@ function animate() {
                 if (!notWh) {
                     SmoothVerticalScrolling(scrollTarget, 275, 'top');
                 }
-                
-                /*window.scrollBy({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });*/
             });
         });
     } catch (e) {

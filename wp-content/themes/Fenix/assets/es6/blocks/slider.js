@@ -202,7 +202,119 @@ function slider() {
             slide = function() {
                 if (transition) sliderTrack.style.transition = 'transform .5s';
                 sliderTrack.style.transform = `translate3d(-${slideIndex * slideWidth}px, 0px, 0px)`;
-                if (scrollSpan) scrollSpan.style.transform = `translateX(${100 * slideIndex}%)`;
+                if (scrollSpan) {
+                    scrollSpan.style.transform = `translateX(${100 * slideIndex}%)`;
+                    scrollSpan.style.left = '';
+                }
+            },
+            swipeStartSpan = function(event) {
+                let evt = getEvent(event);
+
+                if (allowSwipe) {
+
+                    swipeStartTime = Date.now();
+                    
+                    transition = true;
+
+                    nextTrf = (slideIndex + 1) * -slideWidth;
+                    prevTrf = (slideIndex - 1) * -slideWidth;
+
+                    posInit = posX1 = evt.clientX;
+                    posY1 = evt.clientY;
+
+                    sliderTrack.style.transition = '';
+
+                    document.addEventListener('touchmove', swipeActionSpan);
+                    document.addEventListener('mousemove', swipeActionSpan);
+                    document.addEventListener('touchend', swipeEndSpan);
+                    document.addEventListener('mouseup', swipeEndSpan);
+                }
+            },
+            swipeActionSpan = function(event) {
+
+                let evt = getEvent(event),
+                style = sliderTrack.style.transform,
+                transform = +style.match(trfRegExp)[0];
+
+                posX2 = posX1 - evt.clientX;
+                posX1 = evt.clientX;
+
+                posY2 = posY1 - evt.clientY;
+                posY1 = evt.clientY;
+
+                if (!isSwipe && !isScroll) {
+                    let posY = Math.abs(posY2);
+                    if (posY > 7 || posX2 === 0) {
+                        isScroll = true;
+                        allowSwipe = false;
+                    } else if (posY < 7) {
+                        isSwipe = true;
+                    }
+                }
+
+                if (isSwipe) {
+                    if (slideIndex === 0) {
+                        if (posInit > posX1) {
+                            setTransform(transform, 0);
+                            return;
+                        } else {
+                            allowSwipe = true;
+                        }
+                    }
+
+                    if (slideIndex === (slides.length - 1)) {
+                        if (posInit < posX1) {
+                            setTransform(transform, lastTrf);
+                            return;
+                        } else {
+                            allowSwipe = true;
+                        }
+                    }
+
+                    if (posInit < posX1 && transform < nextTrf || posInit > posX1 && transform > prevTrf) {
+                        reachEdge();
+                        return;
+                    }
+
+                    sliderTrack.style.transform = `translate3d(${transform - -posX2}px, 0px, 0px)`;
+                    if (scrollSpan) {
+                        scrollSpan.style.left = `calc(${Math.abs((transform - -posX2) / (sliderTrack.clientWidth / 100)) * 3}% - ${scrollSpan.clientWidth * slideIndex * 3}px)`;
+                    }
+                }
+
+            },
+            swipeEndSpan = function() {
+                posFinal = Math.abs(posInit - posX1);
+
+                isScroll = false;
+                isSwipe = false;
+
+                document.removeEventListener('touchmove', swipeActionSpan);
+                document.removeEventListener('mousemove', swipeActionSpan);
+                document.removeEventListener('touchend', swipeEndSpan);
+                document.removeEventListener('mouseup', swipeEndSpan);
+
+                if (allowSwipe) {
+                swipeEndTime = Date.now();
+                if (Math.abs(posFinal) > posThreshold || swipeEndTime - swipeStartTime < 300) {
+                    if (posInit > posX1) {
+                    slideIndex--;
+                    } else if (posInit < posX1) {
+                    slideIndex++;
+                    }
+                }
+
+                if (posInit !== posX1) {
+                    allowSwipe = false;
+                    slide();
+                } else {
+                    allowSwipe = true;
+                }
+
+                } else {
+                    allowSwipe = true;
+                }
+
             },
             swipeStart = function(event) {
                 let evt = getEvent(event);
@@ -251,6 +363,7 @@ function slider() {
 
                 if (isSwipe) {
                     if (slideIndex === 0) {
+                        console.log(posInit > posX1);
                         if (posInit < posX1) {
                             setTransform(transform, 0);
                             return;
@@ -274,6 +387,7 @@ function slider() {
                     }
 
                     sliderTrack.style.transform = `translate3d(${transform - posX2}px, 0px, 0px)`;
+                    if (scrollSpan) scrollSpan.style.left = `calc(${Math.abs((transform - posX2) / (sliderTrack.clientWidth / 100)) * 1.5}% - ${scrollSpan.clientWidth * slideIndex * 1.5}px)`;
                 }
 
             },
@@ -327,13 +441,16 @@ function slider() {
             sliderTrack.style.transform = 'translate3d(0px, 0px, 0px)';
 
             sliderTrack.addEventListener('transitionend', () => allowSwipe = true);
-            slider.addEventListener('touchstart', swipeStart);
-            slider.addEventListener('mousedown', swipeStart);
+            sliderTrack.addEventListener('touchstart', swipeStart);
+            sliderTrack.addEventListener('mousedown', swipeStart);
 
             if (scrollField) {
                 scrollSpan = scrollField.querySelector('span');
                 scrollSpan.style.width = `${100 / slides.length}%`;
-                scrollSpan.style.transition = 'transform .5s';
+                //scrollSpan.style.transition = 'transform .5s';
+                scrollSpan.addEventListener('transitionend', () => allowSwipe = true);
+                scrollSpan.addEventListener('touchstart', swipeStartSpan);
+                scrollSpan.addEventListener('mousedown', swipeStartSpan);
             }
 
             window.addEventListener('resize', () => {

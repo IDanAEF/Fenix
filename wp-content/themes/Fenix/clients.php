@@ -13,8 +13,35 @@
     <div class="container">
         <h1 class="clients__title title title_fz120 title_fz120-1 text_fw700 text_upper"><?=get_field('title')?></h1>
     </div>
-    <img class="clients__line hide_mobile" src="<?=bloginfo('template_url')?>/assets/images/line-clients.png" alt="line-clients">
-    <img class="clients__line hide_descr" src="<?=bloginfo('template_url')?>/assets/images/line-clients-mob.png" alt="line-clients">
+    <div class="clients__brands">
+        <?php
+            $my_posts = get_posts(array(
+                'numberposts' => 6,
+                'category_name'    => 'cases',
+                'orderby'     => 'date',
+                'order'       => 'DESC',
+                'post_type'   => 'post',
+                'exclude'     => array(199),
+                'suppress_filters' => true
+            ));
+
+            foreach ($my_posts as $post) {
+                setup_postdata($post);
+                the_post_thumbnail();
+            }
+            foreach ($my_posts as $post) {
+                setup_postdata($post);
+                the_post_thumbnail();
+            }
+            foreach ($my_posts as $post) {
+                setup_postdata($post);
+                the_post_thumbnail();
+            }
+            wp_reset_postdata();
+        ?>
+    </div>
+    <!-- <img class="clients__line hide_mobile" src="<?=bloginfo('template_url')?>/assets/images/line-clients.png" alt="line-clients">
+    <img class="clients__line hide_descr" src="<?=bloginfo('template_url')?>/assets/images/line-clients-mob.png" alt="line-clients"> -->
     <section class="clients__slider single-market__slider move-slider-field">
         <div class="single-market__slider-cont">
             <div class="container">
