@@ -7,7 +7,7 @@
 ?>
 <main class="single-case">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><a href="/projects/">Проекты</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><span class="text_upper"><?php the_title() ?></span>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><a href="/projects/">Проекты</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><span class="text_upper"><?php the_title() ?></span>
     </div>
     <h1 style="display: none;"><?php the_title() ?></h1>
     <section class="single-case__promo">
@@ -113,7 +113,7 @@
                 ?>
             </div>
             <a href="/projects/" class="single-case__effect-button button button_arrow button_arrow_rev text_upper">
-                <div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div>
+                <div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div>
                 назад ко всем проектам
             </a>
         </div>

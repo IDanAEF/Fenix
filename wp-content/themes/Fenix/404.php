@@ -3,7 +3,7 @@
 ?>
 <main class="empty">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="">Ошибка 404
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread">Ошибка 404
     </div>
     <h1 class="empty__title title title_fz120 title_fz120-1 text_fw700 text_upper">Ошибка</h1>
     <img class="empty__code" src="<?php echo bloginfo('template_url') ?>/assets/images/404.svg" alt="404">

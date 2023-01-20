@@ -1,7 +1,24 @@
 .lh-24 {
     line-height: 24px;
 }
-
+.projects__title, .about__title {
+    margin-bottom: 205px;
+}
+@media (max-width: 1400px) {
+    .about__title {
+        margin-bottom: 140px;
+    }
+}
+@media (max-width: 1200px) {
+    .about__title {
+        margin-bottom: 102px;
+    }
+}
+@media (max-width: 992px) {
+    .projects__title {
+        margin-bottom: 130px;
+    }
+}
 @media (max-width: 768px) {
     .mobile__nav-title {
         margin-bottom: 0;
@@ -10,9 +27,7 @@
         margin-bottom: 10px;
     }
 }
-
 @media (max-width: 767px) {
-
     .about__undertitle br,
     .about__sert-text>.text.text_fz16 br,
     .develop__descr>span br,
@@ -21,18 +36,16 @@
     .develop__banner-descr br {
         display: none;
     }
-
-
-
     .lh-24 {
         line-height: 18px;
     }
-
 }
-
 @media (max-width: 576px) {
     .mobile__nav-market ul.active, .mobile__nav-services ul.active {
         position: relative;
         padding: 2px 30px;
+    }
+    .projects__title, .about__title {
+        margin-bottom: 105px;
     }
 }

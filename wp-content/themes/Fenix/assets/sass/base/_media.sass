@@ -2521,14 +2521,14 @@
         &__nav 
             flex-wrap: wrap
             flex-direction: column-reverse
-            &-title
-                &.active
-                    color: #D8612B
-                    padding-left: 39px
             li, &-title 
                 transition: 0.5s all 
                 &:hover
                     color: #fff
+            &-title
+                &.active
+                    color: #D8612B !important
+                    padding-left: 39px
             &-pages, &-title
                 font-size: 22px
                 color: rgba(255, 255, 255, 0.8)
@@ -2539,7 +2539,7 @@
             &-market, &-services 
                 &-list 
                     width: 100vw
-                    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25)
+                    //box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25)
                     padding: 0px 32px
                     left: 50%
                     transform: translateX(-50%)

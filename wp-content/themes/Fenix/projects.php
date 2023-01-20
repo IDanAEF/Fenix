@@ -6,14 +6,14 @@
 ?>
 <main class="projects">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
     </div>
     <div class="container">
         <h1 class="projects__title title title_fz120-1 text_upper text_fw700">
             Наши проекты
         </h1>
     </div>
-    <hr>
+    <!-- <hr> -->
     <section class="projects__list about__projects load-more-field" data-view="6">
         <div class="container">
         <?php
@@ -49,18 +49,18 @@
                                 </div>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
-                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt=""></div>
+                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow"></div>
                                 </a>
                             </div>
                             <div class="top">
-                                <img src="<?php the_field('slider-image-mob') ?>" alt="" class="mob_img">
+                                <img src="<?php the_field('slider-image-mob') ?>" alt="<?php the_title(); ?>" class="mob_img">
                                 <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
                                 <div class="about__projects-page-undertitle text text_fz14 text_fz14-1">
                                     <?php the_field('descr-proj'); ?>
                                 </div>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
-                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt=""></div>
+                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow"></div>
                                 </a>
                             </div>
                             <div class="about__projects-page-result text text_fz14 text_fz14-1 text_white">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="about__projects-page-image">
-                            <img src="<?php the_field('slider-image') ?>" alt="">
+                            <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>">
                         </div>
                     </article>
                 <?php
@@ -77,7 +77,7 @@
         ?>
         </div>
         <div class="button button_refr load-more-btn text text_fz14 text_fz14-1" style="display: none;">
-            <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="">
+            <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr">
             <span>показать еще</span>
         </div>
     </section>

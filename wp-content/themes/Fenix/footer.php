@@ -6,8 +6,8 @@
     <div class="container">
         <div class="footer__top">
             <nav class="footer__nav-services">
-                <a href="/services/" class="footer__nav-title text_fw700 text_upper">Услуги</a>
-                <?php 
+                <span class="footer__nav-title text_fw700 text_upper">Услуги</span>
+                <?php
                     wp_nav_menu( [
                         'menu'            => 'Services',
                         'container'       => false,
@@ -21,7 +21,7 @@
             </nav>
             <nav class="footer__nav-market">
                 <a href="/market/" class="footer__nav-title text_fw700 text_upper">Маркетплейс решений</a>
-                <?php 
+                <?php
                     wp_nav_menu( [
                         'menu'            => 'Market',
                         'container'       => false,
@@ -34,7 +34,7 @@
                 ?>
             </nav>
             <nav class="footer__nav-pages text_fw700 text_upper">
-                <?php 
+                <?php
                     wp_nav_menu( [
                         'menu'            => 'Pages',
                         'container'       => false,
@@ -96,7 +96,7 @@
     <div class="mobile__top">
         <div class="mobile__nav">
             <nav class="mobile__nav-pages title_fz32 text_fw700 text_upper">
-                <?php 
+                <?php
                     wp_nav_menu( [
                         'menu'            => 'Mobile-pages',
                         'container'       => false,
@@ -109,8 +109,8 @@
                 ?>
             </nav>
             <nav class="mobile__nav-market text_fz12">
-                <a href="/market/" class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Маркетплейс решений<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
-                <?php 
+                <span class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" alt="left" class="mobile__arrows orange_left">Маркетплейс решений<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" alt="right" class="mobile__arrows active light_right"></span>
+                <?php
                     wp_nav_menu( [
                         'menu'            => 'Market',
                         'container'       => false,
@@ -123,8 +123,8 @@
                 ?>
             </nav>
             <nav class="mobile__nav-services text_fz12">
-                <a href="/services/" class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" class="mobile__arrows orange_left">Услуги<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" class="mobile__arrows active light_right"></a>
-                <?php 
+                <span class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" alt="left" class="mobile__arrows orange_left">Услуги<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" alt="right" class="mobile__arrows active light_right"></span>
+                <?php
                     wp_nav_menu( [
                         'menu'            => 'Services',
                         'container'       => false,
@@ -140,7 +140,7 @@
         <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="mobile__phone anim_left text_fz12"><?php the_field('phone', 12); ?></a>
     </div>
     <div class="mobile__bott text_fz12">
-        <a href="#feedmail" class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
+        <a href="#feedmail" class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
         <div class="mobile__info">
             <div class="social anim_left">
                 <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
@@ -162,11 +162,11 @@
     <div class="auth__field main-form active">
         <h2 class="auth__title title title_fz48 text_fw700 text_upper">войти</h2>
         <form action="/personal/" method="get" enctype="multipart/form-data" class="auth__form">
-            <div class="auth__form-block" class="text text_fz14">
+            <div class="auth__form-block text text_fz14">
                 <label for="authemail">E-mail</label>
                 <input type="email" name="authemail" id="authemail"<?=$_GET['authemail'] ? ' value="'.$_GET['authemail'].'"' : ''?> required>
             </div>
-            <div class="auth__form-block" class="text text_fz14">
+            <div class="auth__form-block text text_fz14">
                 <label for="authpass">Пароль</label>
                 <input type="password" name="authpass" id="authpass"<?=$_GET['authpass'] ? ' value="'.$_GET['authpass'].'"' : ''?> required>
             </div>
@@ -195,9 +195,9 @@
     <div class="auth__field rememb">
         <h2 class="auth__title title title_fz24 text_fw700 text_upper">Восстановление пароля</h2>
         <form action="/personal/" method="get" enctype="multipart/form-data" class="auth__form">
-            <div class="auth__form-block" class="text text_fz14">
+            <div class="auth__form-block text text_fz14">
                 <label for="authemail-rememb">E-mail</label>
-                <input type="email" name="authemail-rememb" id="authemail-rememb" require>
+                <input type="email" name="authemail-rememb" id="authemail-rememb" required>
             </div>
             <button class="auth__form-button text_white text_fz16 text_fw700 text_upper">восстановить пароль</button>
         </form>

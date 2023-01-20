@@ -7,7 +7,7 @@
 ?>
 <main class="single-service">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
     </div>
     <h1 class="single-service__title title title_fz120 title_fz120-1 text_fw700 text_upper container">
         <span><?php the_field('title_top') ?></span>
@@ -18,7 +18,7 @@
         <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" class="single-service__banner-img">
         <div class="single-service__banner-descr text_white text_fz14 text_fz14-1">
             <?php the_field('banner_descr'); ?>
-            <a href="#feedmail" class="single-service__banner-button button button_arrow">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt=""></div></a>
+            <a href="#feedmail" class="single-service__banner-button button button_arrow">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
         </div>
     </section>
     <section class="single-service__points">
@@ -31,7 +31,7 @@
                     <div class="single-service__point-number text text_fz12">(<?=($i < 10 ? '0'.$i++ : $i++)?>)</div>
                     <div class="single-service__point-top some-tap-place">
                         <div class="single-service__point-title title title_fz24 text_fw700 text_upper"><?php the_sub_field('name'); ?></div>
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="" class="single-service__point-tap">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" class="single-service__point-tap">
                     </div>
                     <div class="single-service__point-list text text_fz14 text_fz14-1">
                         <?php

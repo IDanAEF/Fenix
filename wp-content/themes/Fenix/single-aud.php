@@ -7,7 +7,7 @@
 ?>
 <main class="audit">
 	<div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
     </div>
 	<h1 class="audit__title title title_fz120 title_fz120-1 text_fw700 text_upper container">
 		Аудит <br>бизнес-процессов
@@ -39,7 +39,7 @@
 						<div class="audit__work-item">
 							<h3 class="text_fz16 text_fw700 text_upper some-tap-place">
 								<?php the_sub_field('name') ?>
-								<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
+								<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow">
 							</h3>
 							<ul class="audit__work-list">
 								<?php

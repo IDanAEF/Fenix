@@ -127,7 +127,22 @@ function clients_posts(){
 
     die();
 }
- 
- 
+
+
 add_action('wp_ajax_clients_posts', 'clients_posts');
 add_action('wp_ajax_nopriv_clients_posts', 'clients_posts');
+
+add_action( 'template_redirect', function(){
+    ob_start( function( $buffer ){
+        $buffer = str_replace('type="text/javascript"', '', $buffer );
+        $buffer = str_replace('type="text/css"', '', $buffer );
+        $buffer = str_replace("type='text/javascript'", '', $buffer );
+        $buffer = str_replace("type='text/css'", '', $buffer );
+        $buffer = preg_replace("~<meta (.*?)\/>~", "<meta $1>", $buffer);
+        $buffer = preg_replace("~<link (.*?)\/>~", "<link $1>", $buffer);
+        $buffer = preg_replace("~<input (.*?)\/>~", "<input $1>", $buffer);
+        $buffer = preg_replace("~<img (.*?)\/>~", "<img $1>", $buffer);
+        $buffer = str_replace("<br />", '<br>', $buffer );
+        return $buffer;
+    });
+});

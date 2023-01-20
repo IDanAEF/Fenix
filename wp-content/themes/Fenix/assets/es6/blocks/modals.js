@@ -39,20 +39,11 @@ function modals() {
             const mobileTiltes = document.querySelectorAll('.mobile__nav-title');
 
             mobileTiltes.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    if (e.target.nodeName == 'IMG' && e.target.classList.contains('light_right')) {
-                        e.preventDefault();
-                        item.classList.add('active');
-                        item.querySelector('.orange_left').classList.add('active');
-                        e.target.classList.remove('active');
-                        item.nextElementSibling.classList.add('active');
-                    } else if (e.target.nodeName == 'IMG' && e.target.classList.contains('orange_left')) {
-                        e.preventDefault();
-                        item.classList.remove('active');
-                        item.querySelector('.light_right').classList.add('active');
-                        e.target.classList.remove('active');
-                        item.nextElementSibling.classList.remove('active');
-                    }
+                item.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                    item.querySelector('.orange_left').classList.toggle('active');
+                    item.querySelector('.light_right').classList.toggle('active');
+                    item.nextElementSibling.classList.toggle('active');
                 });
             });
         }   

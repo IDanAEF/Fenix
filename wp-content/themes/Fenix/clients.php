@@ -8,7 +8,7 @@
 ?>
 <main class="clients">
     <div class="breadcrumbs container text text_fz14">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
     </div>
     <div class="container">
         <h1 class="clients__title title title_fz120 title_fz120-1 text_fw700 text_upper"><?=get_field('title')?></h1>
@@ -52,12 +52,12 @@
                             ?>
                             <div class="single-market__slider-item move-slider-item">
                                 <div class="single-market__slider-item-left">
-                                    <img src="<?php the_sub_field('logo') ?>" alt="" class="single-market__slider-item-logo">
+                                    <img src="<?php the_sub_field('logo') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-logo">
                                     <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper hide_mobile"><?php the_sub_field('title') ?></div>
                                     <div class="single-market__slider-item-descr text text_fz16"><?php the_sub_field('descr') ?></div>
                                 </div>
-                                <img src="<?php the_sub_field('image-mob') ?>" alt="" class="single-market__slider-item-image hide_descr">
-                                <img src="<?php the_sub_field('image') ?>" alt="" class="single-market__slider-item-image hide_mobile">
+                                <img src="<?php the_sub_field('image-mob') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image hide_descr">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image hide_mobile">
                                 <?php if (get_sub_field('review-add')) : ?>
                                 <?php
                                     $review = get_sub_field('review');
@@ -165,7 +165,7 @@
                 ?>
             </div>
             <div class="button button_refr load-more-btn text text_fz14 text_fz14-1" style="display: none;">
-                <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="">
+                <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr">
                 <span>показать еще</span>
             </div>
         </div>

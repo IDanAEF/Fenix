@@ -20,7 +20,7 @@
             <li>виджеты<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_side.svg" alt="arrow_side"></li>
         </ul>
         <div class="side_slide">
-            <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_right_slide_side.png" alt="">
+            <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_right_slide_side.png" alt="side-slide">
         </div>
     </div>
     <div class="user-profile__main">
@@ -47,10 +47,10 @@
                     </div>
                 </div>
                 <div class="input_block">
-                    <div class="input_block-text"><span>Теги</span><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_down_profile_gray.svg" alt=""></div>
+                    <div class="input_block-text"><span>Теги</span><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_down_profile_gray.svg" alt="down"></div>
                 </div>
                 <div class="input_block">
-                    <div class="input_block-text"><span>Сотрудник</span><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_down_profile_gray.svg" alt=""></div>
+                    <div class="input_block-text"><span>Сотрудник</span><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_down_profile_gray.svg" alt="down"></div>
                     <div class="input_block-list">
                         <div class="input_block-list-item">Александр</div>
                         <div class="input_block-list-item">Александр</div>
@@ -70,7 +70,7 @@
                 <div class="filter-item">Чаты</div>
                 <div class="filter-more text_normal text_orange">
                     Еще фильтры
-                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_down_menu_orange.svg" alt="">
+                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_down_menu_orange.svg" alt="down">
                 </div>
             </div>
             <div class="user-profile__main-cont-sett text text_fz14">
@@ -101,8 +101,8 @@
                                 <td class="phone-search">+7 (919) 053-19-13</td>
                                 <td>+7 (958) 003-19-13</td>
                                 <td></td>
-                                <td><img src="<?php echo bloginfo('template_url') ?>/assets/images/tag_1.svg" alt=""></td>
-                                <td><img src="<?php echo bloginfo('template_url') ?>/assets/images/tag_2.svg" alt=""><img src="<?php echo bloginfo('template_url') ?>/assets/images/tag_3.svg" alt=""></td>
+                                <td><img src="<?php echo bloginfo('template_url') ?>/assets/images/tag_1.svg" alt="tag"></td>
+                                <td><img src="<?php echo bloginfo('template_url') ?>/assets/images/tag_2.svg" alt="tag"><img src="<?php echo bloginfo('template_url') ?>/assets/images/tag_3.svg" alt="tag"></td>
                                 <td>00:00:21</td>
                                 <td>Звонок ВАТС</td>
                                 <td>Принятый</td>

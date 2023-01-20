@@ -6,7 +6,7 @@
 ?>
 <main class="contacts">
     <div class="breadcrumbs container text text_fz14">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
     </div>
     <section class="contacts__info">
         <div class="container">
@@ -36,8 +36,8 @@
             <div class="contacts__inter">
                 <a href="<?php the_field('inter_tel_link'); ?>" class="contacts__inter-block">
                     <div class="contacts__inter-block-image">
-                        <img src="<?php the_field('inter_tel_image'); ?>" alt="" class="personal img_bg">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="" class="center">
+                        <img src="<?php the_field('inter_tel_image'); ?>" alt="<?php the_field('inter_tel_name'); ?>" class="personal img_bg">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
                         <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('inter_tel_name'); ?></div>
@@ -46,8 +46,8 @@
                 </a>
                 <a href="<?php the_field('inter_whats_link'); ?>" class="contacts__inter-block">
                     <div class="contacts__inter-block-image">
-                        <img src="<?php the_field('inter_whats_image'); ?>" alt="" class="personal img_bg">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="" class="center">
+                        <img src="<?php the_field('inter_whats_image'); ?>" alt="<?php the_field('inter_whats_name'); ?>" class="personal img_bg">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
                         <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('inter_whats_name'); ?></div>
@@ -57,7 +57,7 @@
                 <a href="<?php the_field('boss_link', 12); ?>" class="contacts__inter-block">
                     <div class="contacts__inter-block-image">
                         <img src="<?php the_field('boss_photo', 12); ?>" alt="<?php the_field('boss_name', 12); ?>" class="personal img_bg">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="" class="center">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
                         <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('boss_name', 12); ?></div>

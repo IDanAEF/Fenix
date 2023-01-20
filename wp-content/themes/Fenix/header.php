@@ -188,7 +188,7 @@
                 <a href="/market/" class="market-sub__button button button_arrow text_fz14 text_white">
                     Все решения
                     <div class="arrow">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow">
                     </div>
                 </a>
             </div>
@@ -207,7 +207,7 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '3' : '0')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 2 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '3' : '0')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 2 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload playsinline></video>
                                                 <?php
                                             }
                                         ?>
@@ -235,7 +235,7 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '2' : '0')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 3 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload></video>
+                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '2' : '0')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 3 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload playsinline></video>
                                                 <?php
                                             }
                                         ?>

@@ -7,7 +7,7 @@
 ?>
 <main class="develop">
     <div class="breadcrumbs container text text_fz14">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt=""><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="">Сопровождение
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread">Сопровождение
     </div>
     <div class="container">
         <h1 class="develop__title title title_fz120 title_fz120-1 text_fw700 text_upper">
@@ -73,7 +73,7 @@
             <h2 class="develop__todo-title title title_fz48 text_fw700 text_upper">Чем занимается Аналитик CRM? </h2>
             <div class="develop__todo-block">
                 <div class="develop__todo-image">
-                    <img src="<?php the_field('analyz_image'); ?>" alt="" class="img_bg">
+                    <img src="<?php the_field('analyz_image'); ?>" alt="analyz" class="img_bg">
                 </div>
                 <div class="develop__todo-list">
                     <?php
