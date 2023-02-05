@@ -39,16 +39,18 @@
                             while(have_rows('items')) {
                                 the_row();
                                 ?>
-                                <div class="market__table-item" onclick="window.location.href='<?php the_sub_field('link') ?>'">
+                                <div class="market__table-item" <?php if (get_sub_field('link')) : ?>onclick="window.location.href='<?php the_sub_field('link') ?>'"<?php endif; ?>>
                                     <div class="market__table-item-title">
                                         <h3 class="title title_fz24 text_fw700 text_upper"><?php the_sub_field('name') ?></h3>
+                                        <?php if (get_sub_field('link')) : ?>
                                         <a href="<?php the_sub_field('link') ?>" class="button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="market__table-item-cost title title_fz24">
                                         <?php
                                             for ($i = 0; $i < 4; $i++) {
                                                 ?>
-                                                <span <?=($i >= get_sub_field('cost') ? 'style="opacity: 0.5;"' : '')?>>₽</span>
+                                                <span <?=($i >= get_sub_field('cost') ? 'class="half-op"' : '')?>>₽</span>
                                                 <?php
                                             }
                                         ?>

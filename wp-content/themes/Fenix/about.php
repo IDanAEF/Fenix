@@ -131,7 +131,7 @@ get_header(); ?>
                         'orderby'     => 'date',
                         'order'       => 'DESC',
                         'post_type'   => 'post',
-                        'exclude'     => array(197),
+                        'exclude'     => array(197, 945),
                         'suppress_filters' => true
                     ));
 
@@ -150,7 +150,7 @@ get_header(); ?>
                                         </div>
                                     </div>
                                     <div class="top">
-                                        <img src="<?php the_field('slider-image-mob') ?>" alt="<?php the_title(); ?>" class="mob_img">
+                                        <img src="<?=get_field('slider-image-mob') ?: get_field('slider-image')?>" alt="<?php the_title(); ?>" class="mob_img">
                                         <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
                                         <div class="about__projects-page-undertitle text text_fz14">
                                             <?php the_field('descr'); ?>
@@ -162,6 +162,11 @@ get_header(); ?>
                                 </div>
                                 <div class="about__projects-page-image">
                                     <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>">
+                                    <?php if (get_the_post_thumbnail()) : ?>
+                                    <div class="title_block_image">
+                                        <?=get_the_post_thumbnail()?>
+                                    </div>
+                                    <?php endif; ?>
                                 </div>
                             </article>
                         <?php

@@ -2,6 +2,15 @@
     global $post;
     if ($post->ID != 400) :
 ?>
+<?php if (get_field('show-popup')) : ?>
+<div class="popup popup-load">
+    <div class="popup__item">
+        <div class="popup__close"></div>
+        <img src="<?=bloginfo('template_url')?>/assets/images/logo.svg" alt="logo" class="popup__img">
+        <div class="popup__mess text_white text_fz18 text_fw700 text__upper"><?php the_field('popup-mess') ?></div>
+    </div>
+</div>
+<?php endif; ?>
 <footer class="footer text text_fz12 text_white">
     <div class="container">
         <div class="footer__top">
@@ -77,7 +86,8 @@
                     <a href="/en<?php echo $_SERVER['REQUEST_URI']; ?>">EN</a>
                 </div>-->
                 <span class="half text_fz10">Fenix <?=date('Y')?>©</span>
-                <a href="#" class="policy text_fz10">Политика персональных данных</a>
+                <a href="https://german-web.org/" target="_blank" class="creator text_fz10">Разработка сайта <b>GermanWeb</b></a>
+                <a href="/politika-konfidenczialnosti/" class="policy text_fz10">Политика персональных данных</a>
             </div>
             <div class="footer__bott-right">
                 <?php the_custom_logo(); ?>
@@ -140,7 +150,7 @@
         <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="mobile__phone anim_left text_fz12"><?php the_field('phone', 12); ?></a>
     </div>
     <div class="mobile__bott text_fz12">
-        <a href="#feedmail" class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
+        <a href="#feedmail" data-url="/contacts/" class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
         <div class="mobile__info">
             <div class="social anim_left">
                 <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>

@@ -336,7 +336,7 @@ function animate() {
         
                 const scrollTarget = document.getElementById(href),
                       topOffset = 0,
-                      elementPosition = scrollTarget.getBoundingClientRect().top,
+                      elementPosition = scrollTarget ? scrollTarget.getBoundingClientRect().top : -1,
                       offsetPosition = elementPosition - topOffset;
 
                 scrollingPage = true;
@@ -370,10 +370,15 @@ function animate() {
                     clearInterval(interval2);
                     clearInterval(interval);
                     addScroll();
-                    window.scrollBy({
-                        top: offsetPosition - 100,
-                        behavior: 'smooth'
-                    });
+
+                    if (elementPosition == -1) window.location.href = link.getAttribute('data-url');
+                    else {
+                        window.scrollBy({
+                            top: offsetPosition - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
                     notWh = true;
                 }
 

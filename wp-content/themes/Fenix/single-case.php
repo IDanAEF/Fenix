@@ -9,7 +9,7 @@
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
         <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><a href="/projects/">Проекты</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><span class="text_upper"><?php the_title() ?></span>
     </div>
-    <h1 style="display: none;"><?php the_title() ?></h1>
+    <!-- <h1 style="display: none;"><?php the_title() ?></h1> -->
     <section class="single-case__promo">
         <img src="<?php the_field('promo_back_mobile') ?>" alt="promo" class="single-case__promo-back img_bg mob">
         <img src="<?php the_field('promo_back') ?>" alt="promo" class="single-case__promo-back img_bg desk">

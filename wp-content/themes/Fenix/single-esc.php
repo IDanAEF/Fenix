@@ -6,7 +6,7 @@
     get_header();
 ?>
 <main class="develop">
-    <div class="breadcrumbs container text text_fz14">
+    <div class="breadcrumbs container text text_fz14 text_fz14-1">
         <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread">Сопровождение
     </div>
     <div class="container">
@@ -27,7 +27,7 @@
                     ?>
                     <div class="develop__services-item">
                         <div class="develop__services-item-number"><?=$i++?></div>
-                        <div class="develop__services-item-text text text_fz14"><?php the_sub_field('descr'); ?></div>
+                        <div class="develop__services-item-text text text_fz14 text_fz14-1"><?php the_sub_field('descr'); ?></div>
                     </div>
                     <?php
                 }
@@ -38,10 +38,10 @@
         <div class="container">
             <div class="develop__situate-top">
                 <h2 class="develop__situate-title title title_fz48 text_fw700 text_upper">В каких случаях требуется сопровождение RetailCRM?</h2>
-                <div class="develop__situate-descr text text_fz14 lh-24"><?php the_field('esc_right') ?></div>
+                <div class="develop__situate-descr text text_fz14 text_fz14-1 lh-24"><?php the_field('esc_right') ?></div>
             </div>
-            <div class="develop__situate-undertitle text text_fz14 text_fw700">Помимо этого, поддержка нужна в следующих ситуациях:</div>
-            <div class="develop__situate-items text_white text_fz14">
+            <div class="develop__situate-undertitle text text_fz14 text_fz14-1 text_fw700">Помимо этого, поддержка нужна в следующих ситуациях:</div>
+            <div class="develop__situate-items text_white text_fz14 text_fz14-1">
                 <div class="develop__situate-list">
                     <?php
                         $problems = [];
@@ -85,7 +85,7 @@
                                 <div class="develop__todo-item-number text_orange title_fz24 text_upper text_fw700"><?=($i < 10 ? '0'.$i++ : $i++)?></div>
                                 <div class="develop__todo-item-text">
                                     <div class="develop__todo-item-title text text_fz16 text_fw700 text_upper"><?php the_sub_field('name') ?></div>
-                                    <div class="develop__todo-item-descr text text_fz14"><?php the_sub_field('descr') ?></div>
+                                    <div class="develop__todo-item-descr text text_fz14 text_fz14-1"><?php the_sub_field('descr') ?></div>
                                 </div>
                             </div>
                             <?php

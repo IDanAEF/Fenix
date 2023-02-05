@@ -18,7 +18,7 @@
         <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" class="single-service__banner-img">
         <div class="single-service__banner-descr text_white text_fz14 text_fz14-1">
             <?php the_field('banner_descr'); ?>
-            <a href="#feedmail" class="single-service__banner-button button button_arrow">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
+            <a href="#feedmail" data-url="/contacts/" class="single-service__banner-button button button_arrow">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
         </div>
     </section>
     <section class="single-service__points">

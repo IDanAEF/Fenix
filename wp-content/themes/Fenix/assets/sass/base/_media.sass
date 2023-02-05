@@ -141,6 +141,16 @@
         &__sert
             &-img 
                 width: 1028px 
+        &__projects
+            &-page 
+                &-image 
+                    width: 929px !important
+                    height: 590px !important
+                    &.big
+                        height: 610px !important
+                .title_block_image
+                    width: 200px !important
+                    height: 200px !important
     .audit
         &__banner 
             min-height: 310px
@@ -323,6 +333,17 @@
     .single-case
         &__promo
             height: 1000px
+    .about
+        &__projects
+            &-page 
+                &-image 
+                    width: 720px
+                    height: 399px
+                    &.big 
+                        height: 470px
+                .title_block_image
+                    width: 175px
+                    height: 175px
     .single-market
         &__info 
             &-block 
@@ -473,7 +494,8 @@
             &-page 
                 padding: 20px
                 &-image 
-                    width: 59%
+                    //width: 59%
+                    width: 580px
                 &-info 
                     width: 39%
                     .top 
@@ -775,7 +797,16 @@
                 &-result 
                     padding: 15px
                 &-image 
-                    width: 55%
+                    //width: 55%
+                    width: 441px
+                    height: 294px
+                    &.big
+                        height: 366px
+                .title_block_image
+                    width: 120px
+                    height: 120px
+                    bottom: -20px
+                    right: -35px
     .single-market
         &__review
             padding: 70px 0px
@@ -1203,7 +1234,16 @@
                     .top 
                         padding: 8px
                 &-image 
-                    width: 55%
+                    //width: 55%
+                    width: 345px
+                    height: 233px
+                    &.big
+                        height: 305px
+                .title_block_image
+                    width: 100px
+                    height: 100px
+                    bottom: -20px
+                    right: -20px
     .title
         &_fz36 
             font-size: 22px
@@ -1653,8 +1693,12 @@
                 &-info 
                     width: 58%
                 &-image 
-                    width: 72%
-                    max-width: 418px
+                    //width: 72%
+                    //max-width: 418px
+                    width: 407px
+                    height: 213px
+                    &.big
+                        height: 385px
                 &-result 
                     strong 
                         font-size: 22px
@@ -1662,7 +1706,8 @@
                 &-title 
                     margin-bottom: 40px
                 &-pages
-                    min-height: 376px
+                    //min-height: 376px
+                    min-height: 419px
                 &-page 
                     flex-direction: column
                     padding: 10px 0px
@@ -2284,12 +2329,18 @@
         &__projects
             .mobile-text
                 display: block
-                padding: 0px 10px 35px 20px
+                padding: 20px 10px 35px 20px
                 background: #fff
                 &-title 
                     font-size: 22px
                     margin-bottom: 12px
             &-page 
+                .title_block_image
+                    bottom: unset 
+                    top: 10px
+                    width: 75px
+                    height: 75px
+                    right: 10px
                 &-result 
                     strong
                         font-size: 48px
@@ -2303,6 +2354,8 @@
                         padding: 0
                         position: relative
                         height: 267px
+                        .title_block_image
+                            display: flex !important
                         .mob_img 
                             position: absolute
                             display: inline-block

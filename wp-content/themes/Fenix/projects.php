@@ -24,7 +24,7 @@
                 'orderby'     => 'date',
                 'order'       => 'DESC',
                 'post_type'   => 'post',
-                'exclude'     => array(197),
+                'exclude'     => array(),
                 'suppress_filters' => true
             ));
 
@@ -47,21 +47,25 @@
                                         }
                                     ?>
                                 </div>
+                                <?php if (get_field('prolog_text')) : ?>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
                                     <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow"></div>
                                 </a>
+                                <?php endif; ?>
                             </div>
                             <div class="top">
-                                <img src="<?php the_field('slider-image-mob') ?>" alt="<?php the_title(); ?>" class="mob_img">
+                                <img src="<?=get_field('slider-image-mob') ?: get_field('slider-image')?>" alt="<?php the_title(); ?>" class="mob_img">
                                 <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
                                 <div class="about__projects-page-undertitle text text_fz14 text_fz14-1">
                                     <?php the_field('descr-proj'); ?>
                                 </div>
+                                <?php if (get_field('prolog_text')) : ?>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
                                     <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow"></div>
                                 </a>
+                                <?php endif; ?>
                             </div>
                             <div class="about__projects-page-result text text_fz14 text_fz14-1 text_white">
                                 <?php the_field('result'); ?>
@@ -69,6 +73,11 @@
                         </div>
                         <div class="about__projects-page-image">
                             <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>">
+                            <?php if (get_the_post_thumbnail()) : ?>
+                            <div class="title_block_image">
+                                <?=get_the_post_thumbnail()?>
+                            </div>
+                            <?php endif; ?>
                         </div>
                     </article>
                 <?php
@@ -76,7 +85,7 @@
             wp_reset_postdata();
         ?>
         </div>
-        <div class="button button_refr load-more-btn text text_fz14 text_fz14-1" style="display: none;">
+        <div class="button button_refr load-more-btn text text_fz14 text_fz14-1">
             <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr">
             <span>показать еще</span>
         </div>

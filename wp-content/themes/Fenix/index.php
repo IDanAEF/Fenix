@@ -23,7 +23,7 @@
                             <?php
                         } else {
                             ?>
-                            <video <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted autoplay loop preload playsinline></video>
+                            <video <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted autoplay loop preload="metadata" playsinline></video>
                             <?php
                         }
                     }
@@ -188,11 +188,11 @@
                                 <?php
                                     if (strpos($val['file'], '.jpg') !== false || strpos($val['file'], '.png') !== false || strpos($val['file'], '.svg') !== false || strpos($val['file'], '.jpeg') !== false || strpos($val['file'], '.webp') !== false) {
                                         ?>
-                                        <img class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" src="<?=$val['file']?>" alt="<?=$val['title']?>">
+                                        <img class="main__market-item-file-elem obj-pos-<?=$val['file_pos'] ? $val['file_pos'] : 'center'?>"  src="<?=$val['file']?>" alt="<?=$val['title']?>">
                                         <?php
                                     } else {
                                         ?>
-                                        <video class="main__market-item-file-elem" style="object-position: <?=$val['file_pos'] ? $val['file_pos'] : 'center'?>;" muted autoplay loop playsinline>
+                                        <video class="main__market-item-file-elem obj-pos-<?=$val['file_pos'] ? $val['file_pos'] : 'center'?>" muted autoplay loop preload="metadata" playsinline>
                                             <source src="<?=$val['file']?>" type="video/mp4">
                                         </video>
                                         <?php
@@ -302,18 +302,19 @@
             <div class="main__cases-items">
             <?php
                 $my_posts = get_posts(array(
-                    'numberposts' => 5,
+                    'numberposts' => 7,
                     'category_name'    => 'cases',
                     'orderby'     => 'date',
                     'order'       => 'ASC',
                     'post_type'   => 'post',
+                    'exclude' => array(704),
                     'suppress_filters' => true
                 ));
                 $i = 1;
                 foreach ($my_posts as $post) {
                     setup_postdata($post);
                     ?>
-                    <article class="main__cases-item text text_fz14" data-url="<?php echo get_the_permalink(); ?>">
+                    <article class="main__cases-item text text_fz14" <?php if (get_field('prolog_text')) : ?>data-url="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_permalink(); ?>"<?php endif; ?>>
                         <div class="main__cases-item-target">
                             <span></span>
                             <span></span>

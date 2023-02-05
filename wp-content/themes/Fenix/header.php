@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <title><?php the_title(); ?></title>
     <?php
         wp_head();
@@ -46,7 +48,7 @@
                     <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>"><?php the_field('phone', 12); ?></a>
                     <a href="<?php the_field('telegram', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
                 </div>
-                <a href="#feedmail" class="header__button button button_orange text_orange">
+                <a href="#feedmail" data-url="/contacts/" class="header__button button button_orange text_orange">
                     оставить заявку
                 </a>
             </div>
@@ -104,7 +106,7 @@
                             for ($i = 0; $i < count($markets) - 2; $i += 2) {
                                 ?>
                                     <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
-                                        <div class="market-sub__right-slider-item-file" style="background: <?=$markets[$i]['back']?>;">
+                                        <div class="market-sub__right-slider-item-file back-orange">
                                             <?=$markets[$i]['file']?>
                                         </div>
                                         <div class="market-sub__right-slider-item-title text_white text_fz16">
@@ -123,7 +125,7 @@
                                 if ($i % 2 != 0 || $i == count($markets) - 1) {
                                 ?>
                                     <a href="<?=$markets[$i]['link']?>" class="market-sub__right-slider-item">
-                                        <div class="market-sub__right-slider-item-file" style="background: <?=$markets[$i]['back']?>;">
+                                        <div class="market-sub__right-slider-item-file back-dark">
                                             <?=$markets[$i]['file']?>
                                         </div>
                                         <div class="market-sub__right-slider-item-title text_white text_fz16">
@@ -203,11 +205,11 @@
                                         <?php
                                             if (strpos($markets[$i]['file'], '.jpg') !== false || strpos($markets[$i]['file'], '.png') !== false || strpos($markets[$i]['file'], '.svg') !== false || strpos($markets[$i]['file'], '.jpeg') !== false || strpos($markets[$i]['file'], '.webp') !== false) {
                                                 ?>
-                                                <img class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" alt="<?=$markets[$i]['title']?>">
+                                                <img class="market-sub__right-slider-item-file-elem obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" alt="<?=$markets[$i]['title']?>">
                                                 <?php
                                             } else {
                                                 ?>
-                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '3' : '0')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 2 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload playsinline></video>
+                                                <video class="market-sub__right-slider-item-file-elem scale-<?=($i == 0 ? '3' : '0')?> obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" data-load="<?=($i == 2 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" src="" muted="muted" autoplay="autoplay" loop preload="metadata" playsinline></video>
                                                 <?php
                                             }
                                         ?>
@@ -231,11 +233,11 @@
                                         <?php
                                             if (strpos($markets[$i]['file'], '.jpg') !== false || strpos($markets[$i]['file'], '.png') !== false || strpos($markets[$i]['file'], '.svg') !== false || strpos($markets[$i]['file'], '.jpeg') !== false || strpos($markets[$i]['file'], '.webp') !== false) {
                                                 ?>
-                                                <img class="market-sub__right-slider-item-file-elem" style="object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=$markets[$i]['file']?>" alt="<?=$markets[$i]['title']?>">
+                                                <img class="market-sub__right-slider-item-file-elem obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" src="<?=$markets[$i]['file']?>" alt="<?=$markets[$i]['title']?>">
                                                 <?php
                                             } else {
                                                 ?>
-                                                <video class="market-sub__right-slider-item-file-elem" style="transform: scale(1.<?=($i == 0 ? '2' : '0')?>); object-position: <?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>;" src="<?=($i == 3 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" muted="muted" autoplay="autoplay" loop preload playsinline></video>
+                                                <video class="market-sub__right-slider-item-file-elem scale-<?=($i == 0 ? '2' : '0')?> obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" data-load="<?=($i == 3 ? $markets[$i]['file_mobile'] : $markets[$i]['file'])?>" src="" muted="muted" autoplay="autoplay" loop preload="metadata" playsinline></video>
                                                 <?php
                                             }
                                         ?>

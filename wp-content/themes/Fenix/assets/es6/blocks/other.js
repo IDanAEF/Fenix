@@ -59,7 +59,7 @@ const other = () => {
 
                 loadBtn.addEventListener('click', () => {
                     for(let i = count; i < count + page; i++) {
-                        loadItems[i].style.display = '';
+                        if (i < loadItems.length) loadItems[i].style.display = '';
                     }
                     count += page;
 

@@ -21,7 +21,7 @@
                 'orderby'     => 'date',
                 'order'       => 'DESC',
                 'post_type'   => 'post',
-                'exclude'     => array(199),
+                'include'     => array(704, 195, 188, 544, 209, 197),
                 'suppress_filters' => true
             ));
 
@@ -40,8 +40,6 @@
             wp_reset_postdata();
         ?>
     </div>
-    <!-- <img class="clients__line hide_mobile" src="<?=bloginfo('template_url')?>/assets/images/line-clients.png" alt="line-clients">
-    <img class="clients__line hide_descr" src="<?=bloginfo('template_url')?>/assets/images/line-clients-mob.png" alt="line-clients"> -->
     <section class="clients__slider single-market__slider move-slider-field">
         <div class="single-market__slider-cont">
             <div class="container">
@@ -53,11 +51,13 @@
                             <div class="single-market__slider-item move-slider-item">
                                 <div class="single-market__slider-item-left">
                                     <img src="<?php the_sub_field('logo') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-logo">
-                                    <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper hide_mobile"><?php the_sub_field('title') ?></div>
+                                    <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper"><?php the_sub_field('title') ?></div>
                                     <div class="single-market__slider-item-descr text text_fz16"><?php the_sub_field('descr') ?></div>
                                 </div>
-                                <img src="<?php the_sub_field('image-mob') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image hide_descr">
-                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image hide_mobile">
+                                <?php if (get_sub_field('image-mob')) : ?>
+                                    <img src="<?php the_sub_field('image-mob') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image hide_descr">
+                                <?php endif; ?>
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image<?=(get_sub_field('image-mob') ? ' hide_mobile' : '')?>">
                                 <?php if (get_sub_field('review-add')) : ?>
                                 <?php
                                     $review = get_sub_field('review');
@@ -164,7 +164,7 @@
                     }
                 ?>
             </div>
-            <div class="button button_refr load-more-btn text text_fz14 text_fz14-1" style="display: none;">
+            <div class="button button_refr load-more-btn text text_fz14 text_fz14-1">
                 <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr">
                 <span>показать еще</span>
             </div>
