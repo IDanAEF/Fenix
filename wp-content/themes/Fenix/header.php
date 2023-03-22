@@ -8,14 +8,28 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <title><?php the_title(); ?></title>
     <?php
+        $data = [
+            '@context' => 'http://schema.org',
+            '@type' => 'Organization',
+            'name' => get_bloginfo('name'),
+            'email' => get_field('email', 12),
+            'telephone' => get_field('phone', 12),
+            'openingHours' => [get_field('work', 12)],
+        ];
+        
+        $data = json_encode($data);
+        
+        echo '<script type="application/ld+json">' . $data . '</script>';
+    ?>
+    <?php
         wp_head();
         global $post;
     ?>
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/WebPage">
     <?php if ($post->ID != 400) : ?>
     <div id="header"></div>
-    <header class="header text text_fz14 text_white">
+    <header class="header text text_fz14 text_white" itemscope itemtype="https://schema.org/WPHeader">
         <div class="container">
             <div class="header__mobile">
                 <div class="header__humburger">
@@ -46,7 +60,7 @@
                 </div>-->
                 <div class="header__contact">
                     <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>"><?php the_field('phone', 12); ?></a>
-                    <a href="<?php the_field('telegram', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
+                    <a href="<?php the_field('telegram', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" title="telegram"></a>
                 </div>
                 <a href="#feedmail" data-url="/contacts/" class="header__button button button_orange text_orange">
                     оставить заявку
@@ -190,7 +204,7 @@
                 <a href="/market/" class="market-sub__button button button_arrow text_fz14 text_white">
                     Все решения
                     <div class="arrow">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Все решения">
                     </div>
                 </a>
             </div>
@@ -205,7 +219,7 @@
                                         <?php
                                             if (strpos($markets[$i]['file'], '.jpg') !== false || strpos($markets[$i]['file'], '.png') !== false || strpos($markets[$i]['file'], '.svg') !== false || strpos($markets[$i]['file'], '.jpeg') !== false || strpos($markets[$i]['file'], '.webp') !== false) {
                                                 ?>
-                                                <img class="market-sub__right-slider-item-file-elem obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" alt="<?=$markets[$i]['title']?>">
+                                                <img class="market-sub__right-slider-item-file-elem obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" alt="<?=$markets[$i]['title']?>" title="<?=$markets[$i]['title']?>">
                                                 <?php
                                             } else {
                                                 ?>
@@ -233,7 +247,7 @@
                                         <?php
                                             if (strpos($markets[$i]['file'], '.jpg') !== false || strpos($markets[$i]['file'], '.png') !== false || strpos($markets[$i]['file'], '.svg') !== false || strpos($markets[$i]['file'], '.jpeg') !== false || strpos($markets[$i]['file'], '.webp') !== false) {
                                                 ?>
-                                                <img class="market-sub__right-slider-item-file-elem obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" src="<?=$markets[$i]['file']?>" alt="<?=$markets[$i]['title']?>">
+                                                <img class="market-sub__right-slider-item-file-elem obj-pos-<?=$markets[$i]['file_pos'] ? $markets[$i]['file_pos'] : 'center'?>" src="<?=$markets[$i]['file']?>" alt="<?=$markets[$i]['title']?>" title="<?=$markets[$i]['title']?>">
                                                 <?php
                                             } else {
                                                 ?>

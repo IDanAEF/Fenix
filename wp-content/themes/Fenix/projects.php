@@ -6,7 +6,7 @@
 ?>
 <main class="projects">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
     <div class="container">
         <h1 class="projects__title title title_fz120-1 text_upper text_fw700">
@@ -50,7 +50,7 @@
                                 <?php if (get_field('prolog_text')) : ?>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
-                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow"></div>
+                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow" title="Смотреть кейс"></div>
                                 </a>
                                 <?php endif; ?>
                             </div>
@@ -63,7 +63,7 @@
                                 <?php if (get_field('prolog_text')) : ?>
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
-                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow"></div>
+                                    <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow" title="Смотреть кейс"></div>
                                 </a>
                                 <?php endif; ?>
                             </div>
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="about__projects-page-image">
-                            <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>">
+                            <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
                             <?php if (get_the_post_thumbnail()) : ?>
                             <div class="title_block_image">
                                 <?=get_the_post_thumbnail()?>
@@ -86,7 +86,7 @@
         ?>
         </div>
         <div class="button button_refr load-more-btn text text_fz14 text_fz14-1">
-            <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr">
+            <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr" title="Показать еще">
             <span>показать еще</span>
         </div>
     </section>

@@ -6,12 +6,12 @@
 <div class="popup popup-load">
     <div class="popup__item">
         <div class="popup__close"></div>
-        <img src="<?=bloginfo('template_url')?>/assets/images/logo.svg" alt="logo" class="popup__img">
+        <img src="<?=bloginfo('template_url')?>/assets/images/logo.svg" alt="logo" title="Fenix" class="popup__img">
         <div class="popup__mess text_white text_fz18 text_fw700 text__upper"><?php the_field('popup-mess') ?></div>
     </div>
 </div>
 <?php endif; ?>
-<footer class="footer text text_fz12 text_white">
+<footer class="footer text text_fz12 text_white" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
     <div class="container">
         <div class="footer__top">
             <nav class="footer__nav-services">
@@ -57,8 +57,8 @@
             </nav>
             <a href="<?php the_field('boss_link', 12); ?>" class="footer__boss">
                 <div class="footer__boss-image">
-                    <img src="<?php the_field('boss_photo', 12); ?>" alt="<?php the_field('boss_name', 12); ?>" class="personal img_bg">
-                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" class="telegram">
+                    <img src="<?php the_field('boss_photo', 12); ?>" alt="<?php the_field('boss_name', 12); ?>" title="<?php the_field('boss_name', 12); ?>" class="personal img_bg">
+                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" title="telegram" class="telegram">
                     <div class="online"></div>
                 </div>
                 <div class="footer__boss-info">
@@ -72,9 +72,9 @@
                 <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="phone text_fw700"><?php the_field('phone', 12); ?></a>
                 <span class="work"><?php the_field('work', 12); ?></span>
                 <div class="social">
-                    <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
-                    <a href="<?php the_field('whatsapp', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
-                    <a href="<?php the_field('youtube', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
+                    <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" title="telegram"></a>
+                    <a href="<?php the_field('whatsapp', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp" title="whatsapp"></a>
+                    <a href="<?php the_field('youtube', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube" title="youtube"></a>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
     </div>
 </footer>
 <a href="#header" class="back_top">
-    <img src="<?php echo bloginfo('template_url') ?>/assets/images/back_top.svg" alt="back_top">
+    <img src="<?php echo bloginfo('template_url') ?>/assets/images/back_top.svg" alt="back_top" title="К началу страницы">
 </a>
 <div class="mobile text_white">
     <div class="mobile__close">
@@ -119,7 +119,7 @@
                 ?>
             </nav>
             <nav class="mobile__nav-market text_fz12">
-                <span class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" alt="left" class="mobile__arrows orange_left">Маркетплейс решений<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" alt="right" class="mobile__arrows active light_right"></span>
+                <span class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" alt="left" title="Маркетплейс решений" class="mobile__arrows orange_left">Маркетплейс решений<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" alt="right" title="Маркетплейс решений" class="mobile__arrows active light_right"></span>
                 <?php
                     wp_nav_menu( [
                         'menu'            => 'Market',
@@ -133,7 +133,7 @@
                 ?>
             </nav>
             <nav class="mobile__nav-services text_fz12">
-                <span class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" alt="left" class="mobile__arrows orange_left">Услуги<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" alt="right" class="mobile__arrows active light_right"></span>
+                <span class="mobile__nav-title anim_left title_fz32 text_fw700 text_upper text_orange"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_orange.svg" alt="left" title="Услуги" class="mobile__arrows orange_left">Услуги<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_mobile_light.svg" alt="right" title="Услуги" class="mobile__arrows active light_right"></span>
                 <?php
                     wp_nav_menu( [
                         'menu'            => 'Services',
@@ -150,12 +150,12 @@
         <a href="tel:+<?php echo preg_replace('/[^0-9]/', '', get_field('phone', 12)); ?>" class="mobile__phone anim_left text_fz12"><?php the_field('phone', 12); ?></a>
     </div>
     <div class="mobile__bott text_fz12">
-        <a href="#feedmail" data-url="/contacts/" class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
+        <a href="#feedmail" data-url="/contacts/" class="mobile__button button button_arrow anim_left text_fz14 text_white">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Оставить заявку"></div></a>
         <div class="mobile__info">
             <div class="social anim_left">
-                <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
-                <a href="<?php the_field('whatsapp', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
-                <a href="<?php the_field('youtube', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
+                <a href="<?php the_field('telegram', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" title="telegram"></a>
+                <a href="<?php the_field('whatsapp', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp" title="whatsapp"></a>
+                <a href="<?php the_field('youtube', 12); ?>" target="_blank" class="social__item"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube" title="youtube"></a>
             </div>
             <!--<div class="header__lang text_fz12 anim_left">
                 <div>RU</div>
@@ -168,7 +168,7 @@
 <?php endif; ?>
 <div class="auth<?=(!is_user_logged_in() && $post->ID == 400 ? ' active' : '')?>">
     <?php the_custom_logo(); ?>
-    <a href="/" class="auth__close"><img src="<?php echo bloginfo('template_url') ?>/assets/images/close-circle.svg" alt="auth__close"></a>
+    <a href="/" class="auth__close"><img src="<?php echo bloginfo('template_url') ?>/assets/images/close-circle.svg" alt="auth__close" title="Закрыть"></a>
     <div class="auth__field main-form active">
         <h2 class="auth__title title title_fz48 text_fw700 text_upper">войти</h2>
         <form action="/personal/" method="get" enctype="multipart/form-data" class="auth__form">
@@ -184,7 +184,7 @@
             <div class="auth__form-check">
                 <div class="auth__form-check-field">
                     <input type="checkbox" name="authcheck" id="authcheck" hidden<?=$_GET['authcheck'] ? ' checked' : ''?>>
-                    <label for="authcheck" class="text text_fz14"><span><img src="<?php echo bloginfo('template_url') ?>/assets/images/check_field.svg" alt="check_field"></span>Запомнить меня</label>
+                    <label for="authcheck" class="text text_fz14"><span><img src="<?php echo bloginfo('template_url') ?>/assets/images/check_field.svg" alt="check_field" title="Запомнить меня"></span>Запомнить меня</label>
                 </div>
                 <span class="auth__forget text text_fz14">Забыли пароль?</span>
             </div>
@@ -192,13 +192,13 @@
         <?=($_GET['auth_error'] ? '<div class="res_field">Поле E-mail или Пароль неверно</div>' : '')?>
         <div class="auth__links">
             <a href="<?php the_field('telegram', 12); ?>" class="auth__link-item">
-                <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram_black.svg" alt="telegram">
+                <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram_black.svg" alt="telegram" title="telegram">
             </a>
             <a href="<?php the_field('whatsapp', 12); ?>" class="auth__link-item">
-                <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp_black.svg" alt="whatsapp">
+                <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp_black.svg" alt="whatsapp" title="whatsapp">
             </a>
             <a href="<?php the_field('youtube', 12); ?>" class="auth__link-item">
-                <img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube_black.svg" alt="youtube">
+                <img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube_black.svg" alt="youtube" title="youtube">
             </a>
         </div>
     </div>

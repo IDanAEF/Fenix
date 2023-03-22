@@ -1,6 +1,5 @@
 function animate() {
     try {
-        //main market scroll
         const marketItem = document.querySelectorAll('.main__market-item');
 
         let scrollingPage = false;
@@ -37,109 +36,6 @@ function animate() {
                 window.scrollBy(0, eAmt);
         }
 
-        let count = 1,
-            top = 100,
-            stop = false,
-            allTop = false,
-            allBott = true,
-            timing2 = false,
-            once = false,
-            allStop = false,
-            interval;
-
-        if (document.querySelector('main.main')) {
-            function scrollEvent() {
-                if (window.innerWidth >= 992 && !scrollingPage) {
-                    if ((window.pageYOffset + (window.innerHeight / 2)) >= contPos() && !stop && !allTop) {
-                        // к if + || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott() && !stop && !allBott)
-                        removeScroll();
-                        stop = true;
-                        allStop = true;
-                    }
-                    if (stop && !once) {
-                        once = true;
-                        //window.removeEventListener('scroll', scrollEvent);
-                        //SmoothVerticalScrolling(marketItem[0], 575, 'top');
-                        //window.scroll(0, contPos() - (window.innerHeight / 2));
-                        window.scrollBy({
-                            top: (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().top - (window.innerHeight / 2),
-                            behavior: 'smooth'
-                        });
-                        interval = setInterval(() => {
-                            window.scrollBy({
-                                top: (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().top - (window.innerHeight / 2),
-                                behavior: 'smooth'
-                            });
-                        }, 400);
-                    }
-                }
-            }
-    
-            function wheelEvent(e) {
-                if (stop && window.innerWidth >= 992 && !scrollingPage) {
-                    if (!timing2) {
-                        timing2 = true;
-                        setMarketSlide(e.deltaY);
-                        setTimeout(() => {
-                            timing2 = false;
-                        }, 1000);
-                    }
-                }
-            }
-    
-            const contPos = () => {
-                //return marketItem[0].getBoundingClientRect().y + window.pageYOffset
-                return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
-            }
-    
-            const contPosBott = () => {
-                //return marketItem[0].getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
-                return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
-            }
-    
-            function setMarketSlide(delta) {
-                if (delta > 0) {
-                    if (count >= marketItem.length) {
-                        stop = false;
-                        count = marketItem.length;
-                        allTop = true;
-                        allBott = false;
-                        addScroll();
-                        once = false;
-                        clearInterval(interval);
-                    } else {
-                        marketItem[count].classList.add('active');
-                        count++;
-                    }
-                } else {
-                    count--;
-                    if (count <= 0) {
-                        stop = false;
-                        count = 1;
-                        allTop = false;
-                        allBott = true;
-                        addScroll();
-                        once = false;
-                        clearInterval(interval);
-                    } else {
-                        marketItem[count].classList.remove('active');
-                    }
-                }
-            }
-    
-            if (marketItem[0]) {
-        
-                window.addEventListener('scroll', scrollEvent);
-                window.addEventListener('wheel', wheelEvent);
-            }
-            window.onbeforeunload = () => {
-                window.removeEventListener('scroll', scrollEvent);
-                window.removeEventListener('wheel', wheelEvent);
-                clearInterval(interval);
-                window.scroll(0, 0);
-            }
-        }
-
         //main-page services-slider
         const sSliderTap = document.querySelectorAll('.main__services-name'),
               sSliderItem = document.querySelectorAll('.main__services-page'),
@@ -157,7 +53,6 @@ function animate() {
             skipTop = false,
             leftAnimate = false,
             rightAnimate = false,
-            allStop2 = false,
             interval2;
 
         let timeout;
@@ -168,12 +63,12 @@ function animate() {
             function scrollEvent2(e) {
                 if (skipTop && !scrollingPage) {
                     skipTop = false;
-                } else if (!allStop2 && !skipTop && window.innerWidth >= 992 && !scrollingPage) {
+                } else if (!stop2 && !skipTop && window.innerWidth >= 992 && !scrollingPage) {
                     if (window.pageYOffset + (window.innerHeight / 2) >= contPos2() && !stop2 && !allLeft) {
                         // к if + || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott2() && !stop2 && !allRight)
+                        // если нужно останавливать в обратном скролле
                         removeScroll();
                         stop2 = true;
-                        allStop2 = true;
                     }
                     if (stop2 && !once2) {
                         once2 = true;
@@ -323,6 +218,109 @@ function animate() {
                 window.removeEventListener('scroll', scrollEvent2);
                 window.removeEventListener('wheel', wheelEvent2);
                 clearInterval(interval2);
+                window.scroll(0, 0);
+            }
+        }
+
+        //main market scroll
+        let count = 1,
+            top = 100,
+            stop = false,
+            allTop = false,
+            allBott = true,
+            timing2 = false,
+            once = false,
+            interval;
+
+        if (document.querySelector('main.main')) {
+            function scrollEvent() {
+                if (window.innerWidth >= 992 && !scrollingPage) {
+                    if ((window.pageYOffset + (window.innerHeight / 2)) >= contPos() && !stop && !stop2 && !allTop) {
+                        // к if + || (window.pageYOffset + (window.innerHeight / 2) <= contPosBott() && !stop && !allBott)
+                        // если нужно останавливать в обратном скролле
+                        removeScroll();
+                        stop = true;
+                    }
+                    if (stop && !once) {
+                        once = true;
+                        //window.removeEventListener('scroll', scrollEvent);
+                        //SmoothVerticalScrolling(marketItem[0], 575, 'top');
+                        //window.scroll(0, contPos() - (window.innerHeight / 2));
+                        window.scrollBy({
+                            top: (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().top - (window.innerHeight / 2),
+                            behavior: 'smooth'
+                        });
+                        interval = setInterval(() => {
+                            window.scrollBy({
+                                top: (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().top - (window.innerHeight / 2),
+                                behavior: 'smooth'
+                            });
+                        }, 400);
+                    }
+                }
+            }
+    
+            function wheelEvent(e) {
+                if (stop && window.innerWidth >= 992 && !scrollingPage) {
+                    if (!timing2) {
+                        timing2 = true;
+                        setMarketSlide(e.deltaY);
+                        setTimeout(() => {
+                            timing2 = false;
+                        }, 1000);
+                    }
+                }
+            }
+    
+            const contPos = () => {
+                //return marketItem[0].getBoundingClientRect().y + window.pageYOffset
+                return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
+            }
+    
+            const contPosBott = () => {
+                //return marketItem[0].getBoundingClientRect().y + window.pageYOffset + window.innerHeight;
+                return (marketItem[0].clientHeight / 2) + marketItem[0].getBoundingClientRect().y + window.pageYOffset;
+            }
+    
+            function setMarketSlide(delta) {
+                if (delta > 0) {
+                    if (count >= marketItem.length) {
+                        stop = false;
+                        count = marketItem.length;
+                        allTop = true;
+                        allBott = false;
+                        addScroll();
+                        once = false;
+                        clearInterval(interval);
+                    } else {
+                        marketItem[count].classList.add('active');
+                        count++;
+                    }
+                } else {
+                    count--;
+                    if (count <= 0) {
+                        stop = false;
+                        count = 1;
+                        allTop = false;
+                        allBott = true;
+                        addScroll();
+                        once = false;
+                        clearInterval(interval);
+                    } else {
+                        marketItem[count].classList.remove('active');
+                    }
+                }
+            }
+    
+            if (marketItem[0]) {
+        
+                window.addEventListener('scroll', scrollEvent);
+                window.addEventListener('wheel', wheelEvent);
+            }
+            window.onbeforeunload = () => {
+                window.removeEventListener('scroll', scrollEvent);
+                window.removeEventListener('wheel', wheelEvent);
+                clearInterval(interval);
                 window.scroll(0, 0);
             }
         }

@@ -7,7 +7,7 @@
 ?>
 <main class="develop">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread">Сопровождение
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><a href="/services/">Услуги</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›">Сопровождение
     </div>
     <div class="container">
         <h1 class="develop__title title title_fz120 title_fz120-1 text_fw700 text_upper">
@@ -15,7 +15,7 @@
         </h1>
     </div>
     <section class="develop__descr text text_fz16 text_upper">
-        <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
+        <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Fenix">
         <span><?php the_field('descr') ?></span>
     </section>
     <section class="develop__services">
@@ -51,7 +51,7 @@
                         }
                         for($i = 0; $i < round(count($problems) / 2); $i++) {
                             ?>
-                            <span><img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point"> <?=$problems[$i]?></span>
+                            <span><img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="<?=$problems[$i]?>"> <?=$problems[$i]?></span>
                             <?php
                         }
                     ?>
@@ -60,7 +60,7 @@
                     <?php
                         for($i = round(count($problems) / 2); $i < count($problems); $i++) {
                             ?>
-                            <span><img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point"> <?=$problems[$i]?></span>
+                            <span><img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="<?=$problems[$i]?>"> <?=$problems[$i]?></span>
                             <?php
                         }
                     ?>
@@ -73,7 +73,7 @@
             <h2 class="develop__todo-title title title_fz48 text_fw700 text_upper">Чем занимается Аналитик CRM? </h2>
             <div class="develop__todo-block">
                 <div class="develop__todo-image">
-                    <img src="<?php the_field('analyz_image'); ?>" alt="analyz" class="img_bg">
+                    <img src="<?php the_field('analyz_image'); ?>" alt="analyz" title="Аналитик" class="img_bg">
                 </div>
                 <div class="develop__todo-list">
                     <?php
@@ -97,7 +97,7 @@
     </section>
     <section class="develop__banner">
         <div class="container">
-            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
+            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Баннер">
             <div class="develop__banner-descr text_white title_fz24 text_upper text_fw700">
                 <?php the_field('banner-esc') ?>
             </div>

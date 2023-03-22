@@ -8,7 +8,7 @@
 ?>
 <main class="clients">
     <div class="breadcrumbs container text text_fz14">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
     <div class="container">
         <h1 class="clients__title title title_fz120 title_fz120-1 text_fw700 text_upper"><?=get_field('title')?></h1>
@@ -50,20 +50,20 @@
                             ?>
                             <div class="single-market__slider-item move-slider-item">
                                 <div class="single-market__slider-item-left">
-                                    <img src="<?php the_sub_field('logo') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-logo">
+                                    <img src="<?php the_sub_field('logo') ?>" alt="<?php the_sub_field('title') ?>" title="<?php the_sub_field('title') ?>" class="single-market__slider-item-logo">
                                     <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper"><?php the_sub_field('title') ?></div>
                                     <div class="single-market__slider-item-descr text text_fz16"><?php the_sub_field('descr') ?></div>
                                 </div>
                                 <?php if (get_sub_field('image-mob')) : ?>
-                                    <img src="<?php the_sub_field('image-mob') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image hide_descr">
+                                    <img src="<?php the_sub_field('image-mob') ?>" alt="<?php the_sub_field('title') ?>" title="<?php the_sub_field('title') ?>" class="single-market__slider-item-image hide_descr">
                                 <?php endif; ?>
-                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>" class="single-market__slider-item-image<?=(get_sub_field('image-mob') ? ' hide_mobile' : '')?>">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>" title="<?php the_sub_field('title') ?>" class="single-market__slider-item-image<?=(get_sub_field('image-mob') ? ' hide_mobile' : '')?>">
                                 <?php if (get_sub_field('review-add')) : ?>
                                 <?php
                                     $review = get_sub_field('review');
                                 ?>
                                 <div class="clients__slider-review hide_mobile clients__item review black<?= $review['white-text'] ? ' text_white' : ''?>">
-                                    <img class="capt" src="<?=bloginfo('template_url')?>/assets/images/<?=$review['white-text'] ? 'capt-double-white.svg' : 'capt-double.svg'?>" alt="capt-double">
+                                    <img class="capt" src="<?=bloginfo('template_url')?>/assets/images/<?=$review['white-text'] ? 'capt-double-white.svg' : 'capt-double.svg'?>" alt="capt-double" title="Отзыв">
                                     <div class="clients__item-top">
                                         <div class="descr text_fz14 text_fz14-1">
                                             <?=$review['message']?>
@@ -89,15 +89,15 @@
     <?php
         function reviewAdd($review, $r) {
             ?>
-            <img class="capt" src="<?=bloginfo('template_url')?>/assets/images/<?=$review['black'] ? 'capt-double-white.svg' : 'capt-double.svg'?>" alt="capt-double">
+            <img class="capt" src="<?=bloginfo('template_url')?>/assets/images/<?=$review['black'] ? 'capt-double-white.svg' : 'capt-double.svg'?>" alt="capt-double" title="Отзыв">
             <?php if ($review['image']) : ?>
-            <img class="image hide_mobile" src="<?=$review['image']?>" alt="review-<?=$r?>">
+            <img class="image hide_mobile" src="<?=$review['image']?>" alt="review-<?=$r?>" title="Отзыв от - <?=$review['person']['name']?>">
             <?php endif; ?>
             <?php if ($review['image-mob']) : ?>
-            <img class="image hide_descr" src="<?=$review['image-mob']?>" alt="review-<?=$r?>">
+            <img class="image hide_descr" src="<?=$review['image-mob']?>" alt="review-<?=$r?>" title="Отзыв от - <?=$review['person']['name']?>">
             <?php endif; ?>
             <?php if ($review['logo']) : ?>
-            <img class="logo" src="<?=$review['logo']?>" alt="review-logo-<?=$r?>">
+            <img class="logo" src="<?=$review['logo']?>" alt="review-logo-<?=$r?>" title="Отзыв от - <?=$review['person']['name']?>">
             <?php endif; ?>
             <div class="clients__item-top">
                 <?php if ($review['title']) : ?>
@@ -145,7 +145,7 @@
                         ?>
                         <div class="clients__item client load-more-item">
                             <div class="clients__item-image">
-                                <img src="<?=$clients[$i]['image']?>" alt="<?=$clients[$i]['name']?>">
+                                <img src="<?=$clients[$i]['image']?>" alt="<?=$clients[$i]['name']?>" title="<?=$clients[$i]['name']?>">
                                 <h3 class="text_white title_fz24 text_fw700 text_upper"><?=$clients[$i]['name']?></h3>
                             </div>
                             <div class="clients__item-descr text text_fz14 text_fz14-1">
@@ -165,7 +165,7 @@
                 ?>
             </div>
             <div class="button button_refr load-more-btn text text_fz14 text_fz14-1">
-                <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr">
+                <img src="<?=bloginfo('template_url')?>/assets/images/repfr.svg" alt="refr" title="Показать еще">
                 <span>показать еще</span>
             </div>
         </div>

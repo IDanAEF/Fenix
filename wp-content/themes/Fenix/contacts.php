@@ -3,10 +3,16 @@
         Template Name: Контакты
     */
     get_header();
+
+    wpcf7_include_module_file( 'recaptcha/service.php' );
+
+    $service = WPCF7_RECAPTCHA::get_instance();
+
+    print_r($service);
 ?>
 <main class="contacts">
     <div class="breadcrumbs container text text_fz14">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
     <section class="contacts__info">
         <div class="container">
@@ -27,17 +33,17 @@
                 <div class="contacts__data-block">
                     Социальные сети
                     <div class="contacts__data-social">
-                        <a href="<?php the_field('telegram', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram"></a>
-                        <a href="<?php the_field('whatsapp', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp"></a>
-                        <a href="<?php the_field('youtube', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube"></a>
+                        <a href="<?php the_field('telegram', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" title="telegram"></a>
+                        <a href="<?php the_field('whatsapp', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp" title="whatsapp"></a>
+                        <a href="<?php the_field('youtube', 12); ?>" target="_blank"><img src="<?php echo bloginfo('template_url') ?>/assets/images/youtube.svg" alt="youtube" title="youtube"></a>
                     </div>
                 </div>
             </div>
             <div class="contacts__inter">
                 <a href="<?php the_field('inter_tel_link'); ?>" class="contacts__inter-block">
                     <div class="contacts__inter-block-image">
-                        <img src="<?php the_field('inter_tel_image'); ?>" alt="<?php the_field('inter_tel_name'); ?>" class="personal img_bg">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" class="center">
+                        <img src="<?php the_field('inter_tel_image'); ?>" alt="<?php the_field('inter_tel_name'); ?>" title="<?php the_field('inter_tel_name'); ?>" class="personal img_bg">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" title="telegram" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
                         <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('inter_tel_name'); ?></div>
@@ -46,8 +52,8 @@
                 </a>
                 <a href="<?php the_field('inter_whats_link'); ?>" class="contacts__inter-block">
                     <div class="contacts__inter-block-image">
-                        <img src="<?php the_field('inter_whats_image'); ?>" alt="<?php the_field('inter_whats_name'); ?>" class="personal img_bg">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp" class="center">
+                        <img src="<?php the_field('inter_whats_image'); ?>" alt="<?php the_field('inter_whats_name'); ?>" title="<?php the_field('inter_whats_name'); ?>" class="personal img_bg">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/whatsapp.svg" alt="whatsapp" title="whatsapp" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
                         <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('inter_whats_name'); ?></div>
@@ -56,8 +62,8 @@
                 </a>
                 <a href="<?php the_field('boss_link', 12); ?>" class="contacts__inter-block">
                     <div class="contacts__inter-block-image">
-                        <img src="<?php the_field('boss_photo', 12); ?>" alt="<?php the_field('boss_name', 12); ?>" class="personal img_bg">
-                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" class="center">
+                        <img src="<?php the_field('boss_photo', 12); ?>" alt="<?php the_field('boss_name', 12); ?>" title="<?php the_field('boss_name', 12); ?>" class="personal img_bg">
+                        <img src="<?php echo bloginfo('template_url') ?>/assets/images/telegram.svg" alt="telegram" title="telegram" class="center">
                     </div>
                     <div class="contacts__inter-block-info">
                         <div class="contacts__inter-block-title title title_fz22 text_fw700"><?php the_field('boss_name', 12); ?></div>

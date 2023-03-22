@@ -7,7 +7,7 @@
 ?>
 <main class="single-market">
     <div class="breadcrumbs container text text_white text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><a href="/market/">Маркетплейс решений</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><span class="text_upper"><?php the_title() ?></span>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><a href="/market/">Маркетплейс решений</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><span class="text_upper"><?php the_title() ?></span>
     </div>
     <section class="single-market__promo<?=(get_field('promo-video') ? ' video' : '')?>">
         <?php
@@ -15,8 +15,8 @@
                 echo get_field('promo-video');
             } else {
                 ?>
-                <img src="<?php the_field('promo'); ?>" alt="promo" class="hide_mobile">
-                <img src="<?php the_field('promo-mobile'); ?>" alt="promo" class="hide_descr">
+                <img src="<?php the_field('promo'); ?>" alt="promo" title="Промо" class="hide_mobile">
+                <img src="<?php the_field('promo-mobile'); ?>" alt="promo" title="Промо" class="hide_descr">
                 <?php
             }
         ?>
@@ -39,7 +39,7 @@
                             while(have_rows('main-info_points_list')) {
                                 the_row();
                                 ?>
-                                <li><img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point"><?php the_sub_field('name'); ?></li>
+                                <li><img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="<?php the_sub_field('name'); ?>"><?php the_sub_field('name'); ?></li>
                                 <?php
                             }
                         ?>
@@ -47,7 +47,7 @@
                     <span class="text_orange text_upper text_fw700">Особенность:</span>
                     <p><?php the_field('main-info_feature'); ?></p>
                 </div>
-                <img src="<?php the_field('main-info_image'); ?>" alt="info-image" class="single-market__info-image hide_mobile">
+                <img src="<?php the_field('main-info_image'); ?>" alt="info-image" title="Особенность" class="single-market__info-image hide_mobile">
             </div>
         </div>
     </section>
@@ -62,12 +62,12 @@
                             ?>
                             <div class="single-market__slider-item move-slider-item">
                                 <div class="single-market__slider-item-left">
-                                    <img src="<?php the_sub_field('logo') ?>" alt="<?php the_sub_field('name') ?>" class="single-market__slider-item-logo">
+                                    <img src="<?php the_sub_field('logo') ?>" alt="<?php the_sub_field('name') ?>" title="<?php the_sub_field('name') ?>" class="single-market__slider-item-logo">
                                     <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper hide_mobile"><?php the_sub_field('name') ?></div>
                                     <div class="single-market__slider-item-descr text text_fz16"><?php the_sub_field('descr') ?></div>
                                 </div>
-                                <img src="<?php the_sub_field('image-mobile') ?>" alt="<?php the_sub_field('name') ?>" class="single-market__slider-item-image hide_descr">
-                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('name') ?>" class="single-market__slider-item-image hide_mobile">
+                                <img src="<?php the_sub_field('image-mobile') ?>" alt="<?php the_sub_field('name') ?>" title="<?php the_sub_field('name') ?>" class="single-market__slider-item-image hide_descr">
+                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('name') ?>" title="<?php the_sub_field('name') ?>" class="single-market__slider-item-image hide_mobile">
                             </div>
                             <?php
                         }
@@ -84,7 +84,7 @@
             <h2 class="single-market__review-title title title_fz48 text_fw700 text_upper">Отзыв о&nbsp;решении</h2>
             <div class="single-market__review-item">
                 <div class="single-market__review-item-title title title_fz48 text_fw700 text_upper">
-                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/capt-double.svg" alt="capt-double">
+                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/capt-double.svg" alt="capt-double" title="Отзыв">
                     <?php the_field('review_name'); ?>
                 </div>
                 <div class="single-market__review-item-descr text text_fz18">

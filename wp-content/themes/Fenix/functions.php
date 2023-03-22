@@ -55,10 +55,10 @@ add_theme_support( 'post-thumbnails' );
 function clients_posts(){
 	function reviewAdd($review, $r) {
         return '
-            <img class="capt" src="/wp-content/themes/Fenix/assets/images/'.($review['black'] ? 'capt-double-white.svg' : 'capt-double.svg').'" alt="capt-double">
-            '.($review['image'] ? '<img class="image hide_mobile" src="'.$review['image'].'" alt="review-'.$r.'">' : '').'
-            '.($review['image-mob'] ? '<img class="image hide_descr" src="'.$review['image-mob'].'" alt="review-'.$r.'">' : '').'
-            '.($review['logo'] ? '<img class="logo" src="'.$review['logo'].'" alt="review-logo-'.$r.'">' : '').'
+            <img class="capt" src="/wp-content/themes/Fenix/assets/images/'.($review['black'] ? 'capt-double-white.svg' : 'capt-double.svg').'" alt="capt-double" title="Отзыв">
+            '.($review['image'] ? '<img class="image hide_mobile" src="'.$review['image'].'" alt="review-'.$r.'" title="Отзыв от - '.$review['person']['name'].'">' : '').'
+            '.($review['image-mob'] ? '<img class="image hide_descr" src="'.$review['image-mob'].'" alt="review-'.$r.'" title="Отзыв от - '.$review['person']['name'].'">' : '').'
+            '.($review['logo'] ? '<img class="logo" src="'.$review['logo'].'" alt="review-logo-'.$r.'" title="Отзыв от - '.$review['person']['name'].'">' : '').'
             <div class="clients__item-top">
                 '.($review['title'] ? '<h3 class="title_fz48 text_fw700 text_upper">'.$review['title'].'</h3>' : '').'
                 <div class="descr text_fz14 text_fz14-1">
@@ -101,7 +101,7 @@ function clients_posts(){
         $res .= '
         <div class="clients__item client load-more-item">
             <div class="clients__item-image">
-                <img src="'.$clients[$i]['image'].'" alt="'.$clients[$i]['name'].'">
+                <img src="'.$clients[$i]['image'].'" alt="'.$clients[$i]['name'].'" title="'.$clients[$i]['name'].'">
                 <h3 class="text_white title_fz24 text_fw700 text_upper">'.$clients[$i]['name'].'</h3>
             </div>
             <div class="clients__item-descr text text_fz14 text_fz14-1">

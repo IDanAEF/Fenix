@@ -5,7 +5,7 @@
     <section class="main__promo text text_fz14 text_white">
         <div class="container">
             <h1 class="main__promo-logo">
-                <img src="<?php echo bloginfo('template_url') ?>/assets/images/logo.svg" alt="logo">
+                <img src="<?php echo bloginfo('template_url') ?>/assets/images/logo.svg" alt="logo" title="Fenix">
                 <div class="main__promo-under text_fw400 text_fz14">
                     VIP интегратор RetailCRM
                 </div>
@@ -19,7 +19,7 @@
                         $fileMobile = get_sub_field('file_mobile');
                         if (strpos($fileUrl, '.jpg') !== false || strpos($fileUrl, '.png') !== false || strpos($fileUrl, '.svg') !== false || strpos($fileUrl, '.jpeg') !== false || strpos($fileUrl, '.webp') !== false) {
                             ?>
-                            <img <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" src="<?=$fileUrl?>" alt="promo" class="main__promo-slider-item img_bg">
+                            <img <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" src="<?=$fileUrl?>" alt="promo" title="Промо" class="main__promo-slider-item img_bg">
                             <?php
                         } else {
                             ?>
@@ -34,7 +34,7 @@
                 <h2 class="main__promo-about-title title_fz32 text_fw700 text_upper">О компании</h2>
                 <div class="main__promo-about-descr">
                     <?php the_field('about_descr') ?>
-                    <a href="<?php the_field('about_button') ?>" class="main__promo-about-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
+                    <a href="<?php the_field('about_button') ?>" class="main__promo-about-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Подробнее"></div></a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     the_row();
                     ?>
                         <div class="main__advantages-item">
-                            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
+                            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Преимущество">
                             <div class="main__advantages-item-info">
                                 <h3 class="main__advantages-item-title title title_fz24 text_fw700 text_upper"><?php the_sub_field('name'); ?></h3>
                                 <div class="main__advantages-item-undertitle"><?php the_sub_field('descr'); ?></div>
@@ -95,7 +95,7 @@
                                             <div class="main__services-page-blocks-descr"><?php the_field('result'); ?></div>
                                         </div>
                                     </div>
-                                    <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="more"></div></a>
+                                    <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="more" title="Подробнее"></div></a>
                                 </div>
                                 <div class="main__services-page-image">
                                     <?php the_field('svg_code_anonce');//the_post_thumbnail(); ?>
@@ -112,15 +112,15 @@
                         for($i = count($names) - 1; $i >= 0; $i--) {
                             ?>
                             <div class="main__services-name">
-                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"><span><?=$names[$i]?></span>
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="<?=$names[$i]?>"><span><?=$names[$i]?></span>
                             </div>
                             <?php
                         }
                     ?>
                 </div>
                 <a href="#market" class="main__services-skip">
-                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="skip" class="anim_img">
-                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="skip">
+                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="skip" title="Пропустить" class="anim_img">
+                    <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="skip" title="Пропустить">
                 </a>
             </div>
         </div>
@@ -182,13 +182,13 @@
                                         <div class="main__market-item-blocks-undertitle<?=($key == 0 ? '' : '')?>"><?=$val['problem']?></div>
                                     </div>
                                 </div>
-                                <a href="<?=$val['link']?>" class="main__market-item-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
+                                <a href="<?=$val['link']?>" class="main__market-item-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Подробнее"></div></a>
                             </div>
                             <div class="main__market-item-file" data-file="<?=$val['file']?>" data-mobile="<?=$val['file_mobile']?>">
                                 <?php
                                     if (strpos($val['file'], '.jpg') !== false || strpos($val['file'], '.png') !== false || strpos($val['file'], '.svg') !== false || strpos($val['file'], '.jpeg') !== false || strpos($val['file'], '.webp') !== false) {
                                         ?>
-                                        <img class="main__market-item-file-elem obj-pos-<?=$val['file_pos'] ? $val['file_pos'] : 'center'?>"  src="<?=$val['file']?>" alt="<?=$val['title']?>">
+                                        <img class="main__market-item-file-elem obj-pos-<?=$val['file_pos'] ? $val['file_pos'] : 'center'?>"  src="<?=$val['file']?>" alt="<?=$val['title']?>" title="<?=$val['title']?>">
                                         <?php
                                     } else {
                                         ?>
@@ -201,7 +201,7 @@
                             </div>
                             <div class="main__market-item-tap title title_fz48 text_upper text_fw700">
                                 <?=$val['title']?>
-                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow">
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="<?=$val['title']?>">
                             </div>
                         </article>
                         <?php
@@ -252,7 +252,7 @@
                             <div class="main__blog-item-result text_white">
                                 <?php the_field('result'); ?>
                                 <?php if (get_field('result')) : ?>
-                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_light.svg" alt="arrow_light">
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_light.svg" alt="arrow_light" title="Результат">
                                 <?php endif; ?>
                             </div>
                         </article>
@@ -263,7 +263,7 @@
                     wp_reset_postdata();
                 ?>
                 </div>
-                <img src="<?php echo bloginfo('template_url'); ?>/assets/images/arrow_right_slider.png" alt="arrow" class="main__blog-arrow">
+                <img src="<?php echo bloginfo('template_url'); ?>/assets/images/arrow_right_slider.png" alt="arrow" title="Листать" class="main__blog-arrow">
             </div>
             <?php if ($i > 3) : ?>
             <a href="/blog/" class="main__market-all button button_black title title_fz48 text_fw700">смотреть все<span class="text text_fz12 text_fw400 text_normal">(35)</span></a>

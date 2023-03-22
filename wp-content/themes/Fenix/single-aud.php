@@ -7,13 +7,13 @@
 ?>
 <main class="audit">
 	<div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
 	<h1 class="audit__title title title_fz120 title_fz120-1 text_fw700 text_upper container">
 		Аудит <br>бизнес-процессов
 	</h1>
 	<section class="audit__banner">
-		<img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" class="audit__banner-point">
+		<img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Fenix" class="audit__banner-point">
 		<div class="container text text_white">
 			<div class="audit__banner-left text_fz18 text_fw700 text_upper">
 				<?php the_field('banner-aud_left') ?>
@@ -22,7 +22,7 @@
 				<?php the_field('banner-aud_right') ?>
 			</div>
 			<a href="<?php the_field('scheme') ?>" download class="audit__banner-scheme text_fz18 text_upper text_orange">
-				<img src="<?php echo bloginfo('template_url') ?>/assets/images/pdf.svg" alt="pdf">
+				<img src="<?php echo bloginfo('template_url') ?>/assets/images/pdf.svg" alt="pdf" title="Схемы процессов">
 				схемы процессов
 			</a>
 		</div>
@@ -39,7 +39,7 @@
 						<div class="audit__work-item">
 							<h3 class="text_fz16 text_fw700 text_upper some-tap-place">
 								<?php the_sub_field('name') ?>
-								<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow">
+								<img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="<?php the_sub_field('name') ?>">
 							</h3>
 							<ul class="audit__work-list">
 								<?php
@@ -47,7 +47,7 @@
 										the_row();
 										?>
 										<li>
-											<img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
+											<img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="<?php the_sub_field('name') ?>">
 											<?php the_sub_field('name') ?>
 										</li>
 										<?php

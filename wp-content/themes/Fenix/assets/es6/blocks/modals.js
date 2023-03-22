@@ -134,10 +134,10 @@ function modals() {
         if (casesItems[0]) {
             casesItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    if (window.innerWidth > 576) {
+                    if (window.innerWidth > 576 && item.getAttribute('data-url')) {
                         window.location.href = item.getAttribute('data-url');
                     } else if (window.innerWidth <= 576) {
-                        if (item.classList.contains('active') && !e.composedPath().some(it => it.nodeName == 'DIV' && it.classList.contains('main__cases-item-target'))) {
+                        if (item.getAttribute('data-url') && item.classList.contains('active') && !e.composedPath().some(it => it.nodeName == 'DIV' && it.classList.contains('main__cases-item-target'))) {
                             window.location.href = item.getAttribute('data-url');
                         }
                         if (e.composedPath().some(it => it == item || (it.nodeName == 'DIV' && it.classList.contains('main__cases-item-target')))) {

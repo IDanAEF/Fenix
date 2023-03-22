@@ -5,7 +5,7 @@
 get_header(); ?>
 <main class="about">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
     <div class="container">
         <h1 class="about__title title title_fz120-1 text_upper text_fw700">
@@ -23,7 +23,7 @@ get_header(); ?>
             <div class="about__sert-text">
                 <?php the_field('sert_text') ?>
             </div>
-            <img src="<?php the_field('sert_image') ?>" alt="sert" class="about__sert-img">
+            <img src="<?php the_field('sert_image') ?>" alt="sert" title="Сертификат" class="about__sert-img">
         </div>
     </section>
     <section class="main__advantages">
@@ -37,7 +37,7 @@ get_header(); ?>
                     the_row();
                     ?>
                         <div class="main__advantages-item<?=(get_sub_field('hide-mobile') ? ' hide_mobile' : '')?>">
-                            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point">
+                            <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Преимущество">
                             <div class="main__advantages-item-info">
                                 <h3 class="main__advantages-item-title title title_fz24 text_fw700 text_upper"><?php the_sub_field('title'); ?></h3>
                                 <div class="main__advantages-item-undertitle"><?php the_sub_field('descr'); ?></div>
@@ -71,7 +71,7 @@ get_header(); ?>
                                 <h3 class="about__products-item-title title title_fz32 text_fw700 text_upper"><?= $products[$i]['title'] ?></h3>
                                 <div class="about__products-item-undertitle text text_fz14 text_fz14-1"><?= $products[$i]['descr'] ?></div>
                                 <a href="<?= $products[$i]['link'] ?>" class="about__products-item-button button button_arrow text text_fz14 text_fz14-1 text_upper">
-                                    Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div>
+                                    Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Подробнее"></div>
                                 </a>
                             </div>
                         </article>
@@ -84,7 +84,7 @@ get_header(); ?>
                         foreach($products as $prod) {
                             ?>
                             <div class="main__services-name">
-                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"><span><?= $prod['title'] ?></span>
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="<?= $prod['title'] ?>"><span><?= $prod['title'] ?></span>
                             </div>
                             <?php
                         }
@@ -108,7 +108,7 @@ get_header(); ?>
                             <h3 class="about__products-item-title title title_fz32 text_fw700 text_upper"><?php the_sub_field('title') ?></h3>
                             <div class="about__products-item-undertitle text text_fz14 text_fz14-1"><?php the_sub_field('descr') ?></div>
                             <a href="<?php the_sub_field('link') ?>" class="about__products-item-button button button_arrow text text_fz14 text_fz14-1 text_upper">
-                                Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div>
+                                Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Подробнее"></div>
                             </a>
                         </div>
                         <?php
@@ -150,7 +150,7 @@ get_header(); ?>
                                         </div>
                                     </div>
                                     <div class="top">
-                                        <img src="<?=get_field('slider-image-mob') ?: get_field('slider-image')?>" alt="<?php the_title(); ?>" class="mob_img">
+                                        <img src="<?=get_field('slider-image-mob') ?: get_field('slider-image')?>" alt="<?php the_title(); ?>" tilte="<?php the_title(); ?>" class="mob_img">
                                         <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
                                         <div class="about__projects-page-undertitle text text_fz14">
                                             <?php the_field('descr'); ?>
@@ -161,7 +161,7 @@ get_header(); ?>
                                     </div>
                                 </div>
                                 <div class="about__projects-page-image">
-                                    <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>">
+                                    <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
                                     <?php if (get_the_post_thumbnail()) : ?>
                                     <div class="title_block_image">
                                         <?=get_the_post_thumbnail()?>
@@ -180,7 +180,7 @@ get_header(); ?>
                         for($i = count($names) - 1; $i >= 0; $i--) {
                             ?>
                             <div class="main__services-name">
-                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"><span><?=$names[$i]?></span>
+                                <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="<?=$names[$i]?>"><span><?=$names[$i]?></span>
                             </div>
                             <?php
                         }

@@ -6,7 +6,7 @@
 ?>
 <main class="market">
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
-        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread"><?php the_title() ?>
+        <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
     <h1 class="market__title">
         <div class="market__title-top">
@@ -43,7 +43,7 @@
                                     <div class="market__table-item-title">
                                         <h3 class="title title_fz24 text_fw700 text_upper"><?php the_sub_field('name') ?></h3>
                                         <?php if (get_sub_field('link')) : ?>
-                                        <a href="<?php the_sub_field('link') ?>" class="button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow"></div></a>
+                                        <a href="<?php the_sub_field('link') ?>" class="button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Подробнее"></div></a>
                                         <?php endif; ?>
                                     </div>
                                     <div class="market__table-item-cost title title_fz24">
