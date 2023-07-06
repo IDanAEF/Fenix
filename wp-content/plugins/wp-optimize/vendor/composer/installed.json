@@ -34,7 +34,7 @@
                     }
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Intervention\\HttpAuth\\": "src/"
@@ -92,7 +92,7 @@
                     "dev-master": "0.5.1-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "lessc.inc.php"
@@ -129,7 +129,7 @@
             "version_normalized": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/DavidAnderson684/minify.git",
+                "url": "git@github.com:DavidAnderson684/minify.git",
                 "reference": "aa9c91d9f7d871b8f886e553da568e9b6768d01b"
             },
             "dist": {
@@ -158,7 +158,7 @@
                 "bin/minifyjs"
             ],
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "MatthiasMullie\\Minify\\": "src/"
@@ -183,15 +183,6 @@
                 "js",
                 "minifier",
                 "minify"
-            ],
-            "support": {
-                "source": "https://github.com/DavidAnderson684/minify/tree/master"
-            },
-            "funding": [
-                {
-                    "type": "github",
-                    "url": "https://github.com/matthiasmullie"
-                }
             ],
             "install-path": "../matthiasmullie/minify"
         },
@@ -219,7 +210,7 @@
             },
             "time": "2019-02-05T23:41:09+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "MatthiasMullie\\PathConverter\\": "src/"
@@ -313,7 +304,7 @@
                     "dev-main": "2.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Monolog\\": "src/Monolog"
@@ -355,17 +346,17 @@
         },
         {
             "name": "mrclay/jsmin-php",
-            "version": "2.4.2",
-            "version_normalized": "2.4.2.0",
+            "version": "2.4.3",
+            "version_normalized": "2.4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mrclay/jsmin-php.git",
-                "reference": "34324f94d7664ce2e649fb0aa73854186cf503b2"
+                "reference": "49feaa85933458c15bb62ae65644bf22d60b7610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/jsmin-php/zipball/34324f94d7664ce2e649fb0aa73854186cf503b2",
-                "reference": "34324f94d7664ce2e649fb0aa73854186cf503b2",
+                "url": "https://api.github.com/repos/mrclay/jsmin-php/zipball/49feaa85933458c15bb62ae65644bf22d60b7610",
+                "reference": "49feaa85933458c15bb62ae65644bf22d60b7610",
                 "shasum": ""
             },
             "require": {
@@ -375,9 +366,9 @@
             "require-dev": {
                 "phpunit/phpunit": "^4.8.36|^9.5.26"
             },
-            "time": "2022-12-07T19:27:59+00:00",
+            "time": "2022-12-13T20:15:15+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "JSMin\\": "src/"
@@ -409,30 +400,30 @@
             "support": {
                 "email": "minify@googlegroups.com",
                 "issues": "https://github.com/mrclay/jsmin-php/issues",
-                "source": "https://github.com/mrclay/jsmin-php/tree/2.4.2"
+                "source": "https://github.com/mrclay/jsmin-php/tree/2.4.3"
             },
             "install-path": "../mrclay/jsmin-php"
         },
         {
             "name": "mrclay/minify",
-            "version": "3.0.13",
-            "version_normalized": "3.0.13.0",
+            "version": "3.0.14",
+            "version_normalized": "3.0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mrclay/minify.git",
-                "reference": "ae5b9f0bfb5f2ab0bcba45289268328be27a7ae6"
+                "reference": "dc02cdfba70737828c947fde33bc3f8235a742f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/minify/zipball/ae5b9f0bfb5f2ab0bcba45289268328be27a7ae6",
-                "reference": "ae5b9f0bfb5f2ab0bcba45289268328be27a7ae6",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/dc02cdfba70737828c947fde33bc3f8235a742f5",
+                "reference": "dc02cdfba70737828c947fde33bc3f8235a742f5",
                 "shasum": ""
             },
             "require": {
                 "ext-pcre": "*",
                 "intervention/httpauth": "^2.0|^3.0",
                 "marcusschwarz/lesserphp": "^0.5.5",
-                "monolog/monolog": "~1.1|~2.0",
+                "monolog/monolog": "~1.1|~2.0|~3.0",
                 "mrclay/jsmin-php": "~2",
                 "mrclay/props-dic": "^2.2|^3.0",
                 "php": "^5.3.0 || ^7.0 || ^8.0",
@@ -449,14 +440,14 @@
                 "firephp/firephp-core": "Use FirePHP for Log messages",
                 "meenie/javascript-packer": "Keep track of the Packer PHP port using Composer"
             },
-            "time": "2022-10-02T21:12:43+00:00",
+            "time": "2023-05-05T12:03:06+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.0.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "lib/"
@@ -478,37 +469,37 @@
             "support": {
                 "email": "minify@googlegroups.com",
                 "issues": "https://github.com/mrclay/minify/issues",
-                "source": "https://github.com/mrclay/minify/tree/3.0.13",
+                "source": "https://github.com/mrclay/minify/tree/3.0.14",
                 "wiki": "https://github.com/mrclay/minify/blob/master/docs"
             },
             "install-path": "../mrclay/minify"
         },
         {
             "name": "mrclay/props-dic",
-            "version": "3.0.0",
-            "version_normalized": "3.0.0.0",
+            "version": "3.0.1",
+            "version_normalized": "3.0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mrclay/Props.git",
-                "reference": "0b0fd254e33e2d60bc2bcd7867f2ab3cdd05a843"
+                "reference": "63fae3035770feee1836f57c7dd52c0a9b7e5b4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/Props/zipball/0b0fd254e33e2d60bc2bcd7867f2ab3cdd05a843",
-                "reference": "0b0fd254e33e2d60bc2bcd7867f2ab3cdd05a843",
+                "url": "https://api.github.com/repos/mrclay/Props/zipball/63fae3035770feee1836f57c7dd52c0a9b7e5b4d",
+                "reference": "63fae3035770feee1836f57c7dd52c0a9b7e5b4d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "pimple/pimple": "~3.0",
-                "psr/container": "^1.0"
+                "psr/container": "^1.0|^2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.8"
             },
-            "time": "2019-11-26T17:56:10+00:00",
+            "time": "2023-02-13T07:32:41+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Props\\": [
@@ -537,7 +528,7 @@
             ],
             "support": {
                 "issues": "https://github.com/mrclay/Props/issues",
-                "source": "https://github.com/mrclay/Props/tree/master"
+                "source": "https://github.com/mrclay/Props/tree/3.0.1"
             },
             "install-path": "../mrclay/props-dic"
         },
@@ -570,7 +561,7 @@
                     "dev-master": "3.4.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Pimple": "src/"
@@ -599,25 +590,30 @@
         },
         {
             "name": "psr/container",
-            "version": "1.1.2",
-            "version_normalized": "1.1.2.0",
+            "version": "2.0.2",
+            "version_normalized": "2.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.4.0"
             },
-            "time": "2021-11-05T16:50:12+00:00",
+            "time": "2021-11-05T16:47:00+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Psr\\Container\\": "src/"
@@ -644,7 +640,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/1.1.2"
+                "source": "https://github.com/php-fig/container/tree/2.0.2"
             },
             "install-path": "../psr/container"
         },
@@ -673,7 +669,7 @@
                     "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Psr\\Log\\": "Psr/Log/"
@@ -739,7 +735,7 @@
                     "test": "Launches the preconfigured PHPUnit"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "ExecWithFallback\\": "src/"
@@ -819,7 +815,7 @@
                     "test": "Launches the preconfigured PHPUnit"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "FileUtil\\": "src/"
@@ -895,7 +891,7 @@
                     "test": "Launches the preconfigured PHPUnit"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "HtaccessCapabilityTester\\": "src/"
@@ -971,7 +967,7 @@
                     "test": "Launches the preconfigured PHPUnit"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "ImageMimeTypeGuesser\\": "src/"
@@ -1048,7 +1044,7 @@
                     "test": "Launches the preconfigured PHPUnit"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "ImageMimeTypeSniffer\\": "src/"
@@ -1126,7 +1122,7 @@
                     "test": "Launches the preconfigured PHPUnit"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "LocateBinaries\\": "src/"
@@ -1173,7 +1169,7 @@
             "version_normalized": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/DavidAnderson684/webp-convert.git",
+                "url": "git@github.com:DavidAnderson684/webp-convert.git",
                 "reference": "d51a1799d12997696681a535d1aa2d4354ea8b8d"
             },
             "dist": {
@@ -1213,7 +1209,7 @@
                     "test": "Launches the preconfigured PHPUnit"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "WebPConvert\\": "src/"
@@ -1305,34 +1301,21 @@
                 "png2webp",
                 "webp"
             ],
-            "support": {
-                "source": "https://github.com/DavidAnderson684/webp-convert/tree/master"
-            },
-            "funding": [
-                {
-                    "type": "github",
-                    "url": "https://github.com/rosell-dk"
-                },
-                {
-                    "type": "ko_fi",
-                    "url": "https://ko-fi.com/rosell"
-                }
-            ],
             "install-path": "../rosell-dk/webp-convert"
         },
         {
             "name": "simplehtmldom/simplehtmldom",
-            "version": "2.0-RC2",
-            "version_normalized": "2.0.0.0-RC2",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/simplehtmldom/simplehtmldom.git",
-                "reference": "3c87726400e59d8e1bc4709cfe82353abeb0f4d1"
+                "url": "git@github.com:DavidAnderson684/simplehtmldom.git",
+                "reference": "56496c8ced3bfcf3518c98d89cdcd40404ea5ba5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simplehtmldom/simplehtmldom/zipball/3c87726400e59d8e1bc4709cfe82353abeb0f4d1",
-                "reference": "3c87726400e59d8e1bc4709cfe82353abeb0f4d1",
+                "url": "https://api.github.com/repos/DavidAnderson684/simplehtmldom/zipball/56496c8ced3bfcf3518c98d89cdcd40404ea5ba5",
+                "reference": "56496c8ced3bfcf3518c98d89cdcd40404ea5ba5",
                 "shasum": ""
             },
             "require": {
@@ -1340,29 +1323,31 @@
                 "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6 || ^7"
+                "dealerdirect/phpcodesniffer-composer-installer": "*",
+                "phpcompatibility/php-compatibility": "^9",
+                "phpunit/phpunit": "^6 || ^7",
+                "squizlabs/php_codesniffer": "^2"
             },
             "suggest": {
                 "ext-curl": "Needed to support cURL downloads in class HtmlWeb",
                 "ext-mbstring": "Allows better decoding for multi-byte documents",
                 "ext-openssl": "Allows loading HTTPS pages when using cURL"
             },
-            "time": "2019-11-09T15:42:50+00:00",
+            "time": "2023-03-08T10:06:37+00:00",
+            "default-branch": true,
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "./"
                 ],
                 "exclude-from-classmap": [
                     "/example/",
-                    "/manual/",
-                    "/testcase/",
+                    "/docs/",
                     "/tests/",
                     "simple_html_dom.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1383,34 +1368,34 @@
             "description": "A fast, simple and reliable HTML document parser for PHP.",
             "homepage": "https://simplehtmldom.sourceforge.io/",
             "keywords": [
-                "Simple",
                 "dom",
                 "html",
                 "parser",
                 "php",
+                "simple",
                 "simplehtmldom"
             ],
             "support": {
                 "issues": "https://sourceforge.net/p/simplehtmldom/bugs/",
-                "rss": "https://sourceforge.net/p/simplehtmldom/news/feed.rss",
+                "wiki": "https://simplehtmldom.sourceforge.io/docs/",
                 "source": "https://sourceforge.net/p/simplehtmldom/repository/",
-                "wiki": "https://simplehtmldom.sourceforge.io/docs/"
+                "rss": "https://sourceforge.net/p/simplehtmldom/news/feed.rss"
             },
             "install-path": "../simplehtmldom/simplehtmldom"
         },
         {
             "name": "team-updraft/common-libs",
-            "version": "3.0.4",
-            "version_normalized": "3.0.4.0",
+            "version": "3.0.6",
+            "version_normalized": "3.0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://source.updraftplus.com/team-updraft/common-libs.git",
-                "reference": "6f4fdb2dba754cd0a5b8457e35ac34f3cd3ef449"
+                "reference": "38ac0cd5b7f7b712ddfb6cb49919668fe810dc07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://source.updraftplus.com/api/v4/projects/28/packages/composer/archives/team-updraft/common-libs.zip?sha=6f4fdb2dba754cd0a5b8457e35ac34f3cd3ef449",
-                "reference": "6f4fdb2dba754cd0a5b8457e35ac34f3cd3ef449",
+                "url": "https://source.updraftplus.com/api/v4/projects/28/packages/composer/archives/team-updraft/common-libs.zip?sha=38ac0cd5b7f7b712ddfb6cb49919668fe810dc07",
+                "reference": "38ac0cd5b7f7b712ddfb6cb49919668fe810dc07",
                 "shasum": ""
             },
             "require-dev": {
@@ -1462,7 +1447,7 @@
                 "cssmin"
             ],
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "tubalmartin\\CssMin\\": "src"

@@ -8,7 +8,8 @@
     <div class="breadcrumbs container text text_fz14 text_fz14-1">
         <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
-    <h1 class="market__title">
+    <h1 style="display: none;"><?=$seoH1 ?: get_the_title()?></h1>
+    <h2 class="market__title">
         <div class="market__title-top">
             <span class="text text_fz16 text_fw400">(35+ готовых решений)</span>
             <div class="title title_fz120 text_fw700 text_upper"><?php the_field('title_top'); ?></div>
@@ -17,7 +18,7 @@
             <div class="title title_fz120 text_fw700 text_upper"><?php the_field('title_bott'); ?></div>
             <span class="text text_fz16 text_fw400"><?php the_field('title_undertitle'); ?></span>
         </div>
-    </h1>
+    </h2>
     <section class="market__table">
         <?php
             $j = 0;
@@ -39,10 +40,11 @@
                             while(have_rows('items')) {
                                 the_row();
                                 ?>
-                                <div class="market__table-item" <?php if (get_sub_field('link')) : ?>onclick="window.location.href='<?php the_sub_field('link') ?>'"<?php endif; ?>>
+                                <div class="market__table-item" <?php if (get_sub_field('link')) : ?>onclick="window.location.href='<?php the_sub_field('link') ?>'"<?php endif; ?> itemscope itemtype="https://schema.org/Article">
                                     <div class="market__table-item-title">
-                                        <h3 class="title title_fz24 text_fw700 text_upper"><?php the_sub_field('name') ?></h3>
+                                        <h3 class="title title_fz24 text_fw700 text_upper" itemprop="name"><?php the_sub_field('name') ?></h3>
                                         <?php if (get_sub_field('link')) : ?>
+                                        <meta itemprop="url" content="<?=get_sub_field('link')?>">
                                         <a href="<?php the_sub_field('link') ?>" class="button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Подробнее"></div></a>
                                         <?php endif; ?>
                                     </div>
@@ -55,14 +57,14 @@
                                             }
                                         ?>
                                     </div>
-                                    <div class="market__table-item-descr">
+                                    <div class="market__table-item-descr" itemprop="description">
                                         <?php the_sub_field('descr') ?>
                                     </div>
                                     <div class="market__table-item-result">
                                         <?php the_sub_field('result') ?>
                                     </div>
                                 </div>
-                                <?php 
+                                <?php
                             }
                         ?>
                     </div>

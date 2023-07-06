@@ -7,28 +7,48 @@
             <h1 class="main__promo-logo">
                 <img src="<?php echo bloginfo('template_url') ?>/assets/images/logo.svg" alt="logo" title="Fenix">
                 <div class="main__promo-under text_fw400 text_fz14">
-                    VIP интегратор RetailCRM
+                    <?=$seoH1 ?: 'VIP интегратор RetailCRM'?>
                 </div>
             </h1>
             <div class="main__promo-slider">
-                <?php
-                    $i = 0;
-                    while(have_rows('slider')) {
-                        the_row();
-                        $fileUrl = get_sub_field('image');
-                        $fileMobile = get_sub_field('file_mobile');
-                        if (strpos($fileUrl, '.jpg') !== false || strpos($fileUrl, '.png') !== false || strpos($fileUrl, '.svg') !== false || strpos($fileUrl, '.jpeg') !== false || strpos($fileUrl, '.webp') !== false) {
+                <svg class="main__promo-slider-content img_bg" width="3496" height="1310" viewBox="0 0 3496 1310" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <image href="<?=bloginfo('template_url')?>/assets/images/cup.png" height="1310" x="355px" />
+                    <g class="glare">
+                        <g class="glare-circle">
+                            <image class="image" href="<?=bloginfo('template_url')?>/assets/images/glare.png" width="95px" height="95px"/>
+                        </g>
+                    </g>
+                    <text fill="#ffffff" class="main__promo-slider-title text_upper text_fw700" y="255px" x="1550px"><?php the_field('slider_title') ?></text>
+                    <text fill="#ffffff" class="main__promo-slider-descr text_upper text_fw700" y="410px" x="1550px"><?php the_field('slider_descr') ?></text>
+                    <rect x="1550px" y="455" width="1950" height="630" fill="#1C1D1D"/>
+                    <?php
+                        while(have_rows('slider_slides')) {
+                            the_row();
                             ?>
-                            <img <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" src="<?=$fileUrl?>" alt="promo" title="Промо" class="main__promo-slider-item img_bg">
-                            <?php
-                        } else {
-                            ?>
-                            <video <?=($fileMobile ? 'data-mobile="'.$fileMobile.'"' : '')?> data-mainsrc="<?=$fileUrl?>" class="main__promo-slider-item img_bg" src="<?=$fileUrl?>" muted autoplay loop preload="metadata" playsinline></video>
+                            <g class="main__promo-slider-text">
+                                <text fill="#ffffff" class="main__promo-slider-col-descr" y="620px" x="1620px"><?php the_sub_field('descr') ?></text>
+                                <?php
+                                    $cols = get_sub_field('cols');
+                                ?>
+                                <text fill="#ffffff" class="main__promo-slider-col-name text_upper text_fw700" y="850px" x="1620px"><?=$cols[0]['name']?></text>
+                                <text fill="#ffffff" class="main__promo-slider-col-value text_upper" y="940px" x="1620px"><?=$cols[0]['value']?></text>
+                                <?php if ($cols[1]['name']) : ?>
+                                <text fill="#ffffff" class="main__promo-slider-col-name text_upper text_fw700" y="850px" x="2270px"><?=$cols[1]['name']?></text>
+                                <text fill="#ffffff" class="main__promo-slider-col-value text_upper" y="940px" x="2270px"><?=$cols[1]['value']?></text>
+                                <?php endif; ?>
+                            </g>
                             <?php
                         }
+                    ?>
+                </svg>
+                <?php
+                    while(have_rows('slider_slides')) {
+                        the_row();
+                        ?>
+                        <a href="<?php the_sub_field('link') ?>" target="_blank" class="main__promo-slider-item"></a>
+                        <?php
                     }
                 ?>
-
             </div>
             <div class="main__promo-about">
                 <h2 class="main__promo-about-title title_fz32 text_fw700 text_upper">О компании</h2>
@@ -86,14 +106,18 @@
                                 <div class="main__services-page-info">
                                     <h3 class="main__services-page-title title_fz32 text_fw700 text_upper"><?php the_title(); ?></h3>
                                     <div class="main__services-page-blocks">
+                                        <?php if (get_field('todo')) : ?>
                                         <div class="main__services-page-blocks-item">
                                             <div class="main__services-page-blocks-title text_fw700 text_upper">Что делаем</div>
                                             <div class="main__services-page-blocks-descr"><?php the_field('todo'); ?></div>
                                         </div>
+                                        <?php endif; ?>
+                                        <?php if (get_field('result')) : ?>
                                         <div class="main__services-page-blocks-item">
                                             <div class="main__services-page-blocks-title text_fw700 text_upper">Результат</div>
                                             <div class="main__services-page-blocks-descr"><?php the_field('result'); ?></div>
                                         </div>
+                                        <?php endif; ?>
                                     </div>
                                     <a href="<?php echo get_permalink(); ?>" class="main__services-page-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="more" title="Подробнее"></div></a>
                                 </div>
@@ -155,7 +179,7 @@
             wp_reset_postdata();
         ?>
         <div class="container">
-            <h1 class="main__market-title title text_fz14 text_fw700 text_upper">
+            <h2 class="main__market-title title text_fz14 text_fw700 text_upper">
                 <div class="main__market-title-top">
                     <span class="text_fw400 text_normal">(35+ готовых решений)</span>
                     <div class="title_fz120">Маркетплейс</div>
@@ -164,23 +188,27 @@
                     <div class="title_fz120"><div class="mob">Маркетплейс </div>решений</div>
                     <span class="text_fw400 text_normal">Не просто обновить систему для сбора заказов -<br>а в целом усовершенствовать свой магазин</span>
                 </div>
-            </h1>
+            </h2>
             <div class="main__market-items">
                 <?php
                     foreach($market as $key => $val) {
                         ?>
                         <article class="main__market-item text text_fz14">
                             <div class="main__market-item-info">
-                                <h2 class="main__market-item-title title_fz48 text_fw700 text_upper<?=($key == 0 ? '' : '')?>"><?=$val['title']?></h2>
+                                <h2 class="main__market-item-title title_fz48 text_fw700 text_upper"><?=$val['title']?></h2>
                                 <div class="main__market-item-blocks">
+                                    <?php if ($val['for']) : ?>
                                     <div class="main__market-item-blocks-item">
-                                        <div class="main__market-item-blocks-title title_fz24 text_fw700 text_upper<?=($key == 0 ? '' : '')?>">Для кого</div>
-                                        <div class="main__market-item-blocks-undertitle<?=($key == 0 ? '' : '')?>"><?=$val['for']?></div>
+                                        <div class="main__market-item-blocks-title title_fz24 text_fw700 text_upper">Для кого</div>
+                                        <div class="main__market-item-blocks-undertitle"><?=$val['for']?></div>
                                     </div>
+                                    <?php endif; ?>
+                                    <?php if ($val['problem']) : ?>
                                     <div class="main__market-item-blocks-item">
-                                        <div class="main__market-item-blocks-title title_fz24 text_fw700 text_upper<?=($key == 0 ? '' : '')?>">решает проблему</div>
-                                        <div class="main__market-item-blocks-undertitle<?=($key == 0 ? '' : '')?>"><?=$val['problem']?></div>
+                                        <div class="main__market-item-blocks-title title_fz24 text_fw700 text_upper">решает проблему</div>
+                                        <div class="main__market-item-blocks-undertitle"><?=$val['problem']?></div>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                                 <a href="<?=$val['link']?>" class="main__market-item-button button button_arrow">Подробнее<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Подробнее"></div></a>
                             </div>
@@ -232,7 +260,8 @@
                     foreach ($my_posts as $post) {
                         setup_postdata($post);
                         ?>
-                        <article class="main__blog-item text text_fz14 text_fz14-1" onclick="window.open('<?php echo get_field('link') ? get_field('link') : get_the_permalink(); ?>');">
+                        <article class="main__blog-item text text_fz14 text_fz14-1" onclick="window.open('<?php echo get_field('link') ? get_field('link') : get_the_permalink(); ?>');" itemscope itemtype="https://schema.org/Article">
+                            <meta itemprop="url" content="<?=get_field('link') ?: get_the_permalink()?>">
                             <div class="main__blog-item-info">
                                 <?php if (get_the_post_thumbnail()) : ?>
                                     <div class="main__blog-item-back<?php echo get_field('back_op') ? ' back_op' : ''; ?>">
@@ -240,8 +269,8 @@
                                     </div>
                                 <?php endif; ?>
                                 <div class="main__blog-item-top">
-                                    <h3 class="main__blog-item-title text_fw700 text_fz14-1 text_upper"><?php echo get_the_title() == 'Без названия' ? '' : get_the_title(); ?></h3>
-                                    <div class="main__blog-item-undertitle">
+                                    <h3 class="main__blog-item-title text_fw700 text_fz14-1 text_upper" itemprop="name"><?php echo get_the_title() == 'Без названия' ? '' : get_the_title(); ?></h3>
+                                    <div class="main__blog-item-undertitle" itemprop="description">
                                         <?php the_field('descr'); ?>
                                     </div>
                                 </div>
@@ -314,7 +343,10 @@
                 foreach ($my_posts as $post) {
                     setup_postdata($post);
                     ?>
-                    <article class="main__cases-item text text_fz14" <?php if (get_field('prolog_text')) : ?>data-url="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_permalink(); ?>"<?php endif; ?>>
+                    <article class="main__cases-item text text_fz14" <?php if (get_field('prolog_text')) : ?>data-url="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_permalink(); ?>"<?php endif; ?> itemscope itemtype="https://schema.org/Project">
+                        <?php if (get_field('prolog_text')) : ?>
+                        <meta itemprop="url" content="<?=get_the_permalink()?>">
+                        <?php endif; ?>
                         <div class="main__cases-item-target">
                             <span></span>
                             <span></span>
@@ -323,8 +355,8 @@
                             <div class="main__cases-item-number text_animate">(<?=$i++?>)</div>
                             <div class="main__cases-item-logo elem_animate"><?php the_post_thumbnail(); ?></div>
                             <div class="main__cases-item-info">
-                                <h3 class="main__cases-item-title title_fz48 text_fw700 text_upper text_animate"><?php the_title(); ?></h3>
-                                <div class="main__cases-item-undertitle elem_animate"><?php the_field('descr'); ?></div>
+                                <h3 class="main__cases-item-title title_fz48 text_fw700 text_upper text_animate" itemprop="name"><?php the_title(); ?></h3>
+                                <div class="main__cases-item-undertitle elem_animate" itemprop="description"><?php the_field('descr'); ?></div>
                             </div>
                         </div>
                         <div class="main__cases-item-character">

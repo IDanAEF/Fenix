@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * CONTACT FORM 7
+ * Disable WP Disallowed List for SPAM validation
+ */
+// add_filter('wpcf7_spam', '__return_false');
+
 add_theme_support( 'custom-logo' );
 
 add_theme_support( 'menus' );
@@ -11,6 +17,15 @@ function fenixAddScripts() {
     wp_enqueue_script( 'fenix_main_scrit', get_template_directory_uri() . '/assets/js/script.js', array(), null, true );
     wp_enqueue_script( 'fenix_custom_scrit', get_template_directory_uri() . '/custom.js', array(), null, true );
 }
+
+// add_filter( 'wpcf7_recaptcha_threshold',
+//   function( $threshold ) {
+//     $threshold = 0.65;
+//
+//     return $threshold;
+//   },
+//   10, 1
+// );
 
 add_action( 'wp_enqueue_scripts', 'fenixAddScripts' );
 
@@ -56,8 +71,12 @@ function clients_posts(){
 	function reviewAdd($review, $r) {
         return '
             <img class="capt" src="/wp-content/themes/Fenix/assets/images/'.($review['black'] ? 'capt-double-white.svg' : 'capt-double.svg').'" alt="capt-double" title="Отзыв">
-            '.($review['image'] ? '<img class="image hide_mobile" src="'.$review['image'].'" alt="review-'.$r.'" title="Отзыв от - '.$review['person']['name'].'">' : '').'
-            '.($review['image-mob'] ? '<img class="image hide_descr" src="'.$review['image-mob'].'" alt="review-'.$r.'" title="Отзыв от - '.$review['person']['name'].'">' : '').'
+            '.($review['image'] || $review['image-mob'] ? '
+            <picture>
+                <source media="(max-width: 576px)" srcset="'.$review['image-mob']['sizes']['large'].'">
+                <img class="image" src="'.$review['image']['sizes']['large'].'" alt="review-'.$r.'" title="Отзыв от - '.$review['person']['name'].'">
+            </picture>
+            ' : '').'
             '.($review['logo'] ? '<img class="logo" src="'.$review['logo'].'" alt="review-logo-'.$r.'" title="Отзыв от - '.$review['person']['name'].'">' : '').'
             <div class="clients__item-top">
                 '.($review['title'] ? '<h3 class="title_fz48 text_fw700 text_upper">'.$review['title'].'</h3>' : '').'
@@ -101,7 +120,10 @@ function clients_posts(){
         $res .= '
         <div class="clients__item client load-more-item">
             <div class="clients__item-image">
-                <img src="'.$clients[$i]['image'].'" alt="'.$clients[$i]['name'].'" title="'.$clients[$i]['name'].'">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="'.$clients[$i]['image']['sizes']['medium'].'">
+                    <img src="'.$clients[$i]['image']['sizes']['large'].'" alt="'.$clients[$i]['name'].'" title="'.$clients[$i]['name'].'" loading="lazy">
+                </picture>
                 <h3 class="text_white title_fz24 text_fw700 text_upper">'.$clients[$i]['name'].'</h3>
             </div>
             <div class="clients__item-descr text text_fz14 text_fz14-1">

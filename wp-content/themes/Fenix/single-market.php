@@ -23,16 +23,24 @@
     </section>
     <section class="single-market__info">
         <div class="container">
-            <h1 class="single-market__info-title title title_fz48 text_upper text_fw700"><?php the_title(); ?></h1>
+            <h1 class="single-market__info-title title title_fz48 text_upper text_fw700"><?=$seoH1 ?: get_the_title()?></h1>
             <div class="single-market__info-descr title title_fz24 text_upper text_fw700">
                 <?php the_field('main-info_undertitle') ?>
             </div>
             <div class="single-market__info-block">
                 <div class="single-market__info-text text text_fz18">
-                    <span class="text_upper text_fw700 mb8">Для кого</span>
-                    <p><?php the_field('main-info_who'); ?></p>
-                    <span class="text_upper text_fw700 mb8">Для чего</span>
-                    <p><?php the_field('main-info_what'); ?></p>
+                    <?php if (get_field('main-info_who')): ?>
+                      <span class="text_upper text_fw700 mb8">Для кого</span>
+                      <p><?php the_field('main-info_who'); ?></p>
+                    <?php endif; ?>
+                    <?php if (get_field('main-info_what')): ?>
+                      <span class="text_upper text_fw700 mb8">Для чего</span>
+                      <p><?php the_field('main-info_what'); ?></p>
+                    <?php endif; ?>
+                    <?php if (get_field('main-info_polza')): ?>
+                      <span class="text_upper text_fw700 mb8">Польза решения</span>
+                        <p><?php the_field('main-info_polza'); ?></p>
+                    <?php endif; ?>
                     <span class="text_upper text_fw700"><?php the_field('main-info_points_list-name'); ?></span>
                     <ul>
                         <?php
@@ -51,6 +59,7 @@
             </div>
         </div>
     </section>
+    <?php if (have_rows('users')) : ?>
     <section class="single-market__slider move-slider-field">
         <div class="single-market__slider-cont">
             <div class="container">
@@ -66,8 +75,10 @@
                                     <div class="single-market__slider-item-title title title_fz48 text_fw700 text_upper hide_mobile"><?php the_sub_field('name') ?></div>
                                     <div class="single-market__slider-item-descr text text_fz16"><?php the_sub_field('descr') ?></div>
                                 </div>
-                                <img src="<?php the_sub_field('image-mobile') ?>" alt="<?php the_sub_field('name') ?>" title="<?php the_sub_field('name') ?>" class="single-market__slider-item-image hide_descr">
-                                <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('name') ?>" title="<?php the_sub_field('name') ?>" class="single-market__slider-item-image hide_mobile">
+                                <picture>
+                                    <source media="(max-width: 576px)" srcset="<?=get_sub_field('image-mobile') ? get_sub_field('image-mobile')['sizes']['large'] : get_sub_field('image')['sizes']['medium']?>">
+                                    <img src="<?= get_sub_field('image')['sizes']['large'] ?>" alt="<?php the_sub_field('name') ?>" title="<?php the_sub_field('name') ?>" class="single-market__slider-item-image">
+                                </picture>
                             </div>
                             <?php
                         }
@@ -79,9 +90,11 @@
             <span></span>
         </div>
     </section>
+    <?php endif; ?>
+    <?php if(get_field('review_descr')) : ?>
     <section class="single-market__review">
         <div class="container">
-            <h2 class="single-market__review-title title title_fz48 text_fw700 text_upper">Отзыв о&nbsp;решении</h2>
+            <h2 class="single-market__review-title title title_fz48 text_fw700 text_upper">Случайный отзыв клиента</h2>
             <div class="single-market__review-item">
                 <div class="single-market__review-item-title title title_fz48 text_fw700 text_upper">
                     <img src="<?php echo bloginfo('template_url') ?>/assets/images/capt-double.svg" alt="capt-double" title="Отзыв">
@@ -99,6 +112,8 @@
             </div>
         </div>
     </section>
+    <?php endif; ?>
+    <?php if(have_rows('inter')) : ?>
     <section class="single-market__inter">
         <div class="container">
             <h2 class="single-market__inter-title title title_fz48 text_fw700 text_upper">Вам может быть интересно</h2>
@@ -107,24 +122,37 @@
                     while(have_rows('inter')) {
                         the_row();
                         ?>
-                        <div class="single-market__inter-item">
-                            <div class="single-market__inter-item-top">
-                                <div>
-                                    <h3 class="text_fz18 text_fw700 text_upper"><?php the_sub_field('name') ?></h3>
-                                    <p><?php the_sub_field('desr') ?></p>
-                                </div>
-                                <span class="title title_fz32 text_fw700 text_upper"><?php the_sub_field('percent') ?></span>
-                            </div>
-                            <div class="single-market__inter-item-bott text_white text_fw700">
-                                <?php the_sub_field('result') ?>
-                            </div>
+                        <div>
+                          <div class="single-market__inter-item">
+                              <div class="single-market__inter-item-top">
+                                  <div>
+                                      <h3 class="text_fz18 text_fw700 text_upper"><?php the_sub_field('name') ?></h3>
+                                      <p><?php the_sub_field('desr') ?></p>
+                                  </div>
+                                  <span class="title title_fz32 text_fw700 text_upper"><?php the_sub_field('percent') ?></span>
+                              </div>
+                              <div class="single-market__inter-item-bott text_white text_fw700">
+                                  <?php the_sub_field('result') ?>
+                              </div>
+                          </div>
+
+                          <?php if (get_sub_field('link-decisions')): ?>
+                            <a href="<?php get_sub_field('link-decisions'); ?>" class="button button_arrow text text_fz14 text_fz14-1">
+                                Перейти
+                                <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow" title="Смотреть кейс"></div>
+                            </a>
+                          <?php endif; ?>
+
                         </div>
+
+
                         <?php
                     }
                 ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     <section class="main__feed" id="feedmail">
         <div class="container">
             <h2 class="main__feed-title title title_fz120 title_fz120-1 text_fw700 text_upper">Напишите нам</h2>

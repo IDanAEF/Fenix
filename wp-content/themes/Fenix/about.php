@@ -9,7 +9,7 @@ get_header(); ?>
     </div>
     <div class="container">
         <h1 class="about__title title title_fz120-1 text_upper text_fw700">
-            <?php the_title(); ?>
+            <?=$seoH1 ?: get_the_title()?>
         </h1>
     </div>
     <!-- <hr class="about__line"> -->
@@ -94,9 +94,91 @@ get_header(); ?>
             <a href="/market/" class="main__market-all button button_black title title_fz48 text_fw700">все решения<span class="text text_fz12 text_fw400 text_normal">(35)+</span></a>
         </div>
     </section>
+    <section class="about__rates services-slider-target">
+        <div class="container">
+            <h2 class="about__rates-title main__services-title title title_fz120-1 text_upper text_fw700">Рейтинг рунета <br>2023<div class="main__services-rage text_fz18 text_fw400"><span class="curr text_orange"></span> / <span class="all"></span></div></h2>
+            <div class="about__rates-list">
+                <?php
+                    $i = 0;
+                    while(have_rows('slider_slides', 8)) {
+                        the_row();
+                        $i++;
+                        ?>
+                        <a href="<?php the_sub_field('link') ?>" target="_blank" class="about__rates-item">
+                            <div class="about__rates-item-head text_fz16">
+                                <?=preg_replace('/<tspan.+>(.*)<\/tspan>/', '<span>$1</span>', get_sub_field('descr'))?>
+                            </div>
+                            <div class="about__rates-item-bott text_white text_upper">
+                                <?php
+                                    $cols = get_sub_field('cols');
+                                ?>
+                                <?php if ($cols[0]['name']) : ?>
+                                    <div class="about__rates-item-side">
+                                        <span class="text_fz20 text_fw700"><?=$cols[0]['name']?></span>
+                                        <span class="text_fz18"><?=$cols[0]['value']?></span>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($cols[1]['name']) : ?>
+                                    <div class="about__rates-item-side">
+                                        <span class="text_fz20 text_fw700"><?=$cols[1]['name']?></span>
+                                        <span class="text_fz18"><?=$cols[1]['value']?></span>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </a>
+                        <?php
+                        if ($i == 3) echo '<hr>';
+                    }
+                ?>
+            </div>
+            <div class="about__rates-slider main__services-window">
+                <div class="main__services-pages">
+                    <?php
+                        while(have_rows('slider_slides', 8)) {
+                            the_row();
+                            ?>
+                            <a href="<?php the_sub_field('link') ?>" target="_blank" class="about__rates-item main__services-page about__products-page">
+                                <div class="about__rates-item-head text_fz16">
+                                    <?=preg_replace('/<tspan.+>(.*)<\/tspan>/', '<span>$1</span>', get_sub_field('descr'))?>
+                                </div>
+                                <div class="about__rates-item-bott text_white text_upper">
+                                    <?php
+                                        $cols = get_sub_field('cols');
+                                    ?>
+                                    <?php if ($cols[0]['name']) : ?>
+                                        <div class="about__rates-item-side">
+                                            <span class="text_fz20 text_fw700"><?=$cols[0]['name']?></span>
+                                            <span class="text_fz18"><?=$cols[0]['value']?></span>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($cols[1]['name']) : ?>
+                                        <div class="about__rates-item-side">
+                                            <span class="text_fz20 text_fw700"><?=$cols[1]['name']?></span>
+                                            <span class="text_fz18"><?=$cols[1]['value']?></span>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </a>
+                            <?php
+                        }
+                    ?>
+                </div>
+                <div class="main__services-names text text_fz14 text_fz14-1 text_upper">
+                    <?php
+                        while(have_rows('slider_slides', 8)) {
+                            the_row();
+                            ?>
+                            <div class="main__services-name"></div>
+                            <?php
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="about__products">
         <div class="container">
-            <h2 class="about__products title title_fz120-1 text_upper text_fw700">
+            <h2 class="about__products-title title title_fz120-1 text_upper text_fw700">
                 <?php the_field('products_title'); ?>
             </h2>
             <div class="about__products-blocks">
@@ -148,12 +230,25 @@ get_header(); ?>
                                         <div class="mobile-text-udnertitle text text_fz14 text_fz14-1">
                                             <?php the_field('descr'); ?>
                                         </div>
+                                        <div class="about_link-project">
+                                          <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
+                                              смотреть кейс
+                                              <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow" title="Смотреть кейс"></div>
+                                          </a>
+                                        </div>
                                     </div>
                                     <div class="top">
-                                        <img src="<?=get_field('slider-image-mob') ?: get_field('slider-image')?>" alt="<?php the_title(); ?>" tilte="<?php the_title(); ?>" class="mob_img">
+                                        <img src="<?=get_field('slider-image-mob')['sizes']['medium'] ?: get_field('slider-image')['sizes']['medium']?>" alt="<?php the_title(); ?>" tilte="<?php the_title(); ?>" class="mob_img" loading="lazy">
                                         <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
                                         <div class="about__projects-page-undertitle text text_fz14">
                                             <?php the_field('descr'); ?>
+                                        </div>
+                                        <meta itemprop="url" content="<?=get_permalink()?>">
+                                        <div class="about_link-project">
+                                          <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
+                                              смотреть кейс
+                                              <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow" title="Смотреть кейс"></div>
+                                          </a>
                                         </div>
                                     </div>
                                     <div class="about__projects-page-result text text_fz14 text_fz14-1 text_white">
@@ -161,7 +256,7 @@ get_header(); ?>
                                     </div>
                                 </div>
                                 <div class="about__projects-page-image">
-                                    <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+                                    <img src="<?=get_field('slider-image')['sizes']['large'] ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" loading="lazy">
                                     <?php if (get_the_post_thumbnail()) : ?>
                                     <div class="title_block_image">
                                         <?=get_the_post_thumbnail()?>

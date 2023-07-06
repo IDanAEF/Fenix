@@ -139,6 +139,10 @@
                 //max-width: 447px
                 max-width: 568px
     .about
+        &__rates 
+            &-item 
+                &-head, &-bott 
+                    padding: 40px 35px
         &__sert
             &-img 
                 width: 1028px 
@@ -254,7 +258,7 @@
     .main
         &__promo 
             &-slider 
-                height: 1100px
+                height: 870px
         &__cases 
             &-item 
                 &-type 
@@ -609,7 +613,7 @@
                 padding: 0px 48px
         &__promo
             &-slider 
-                height: 570px
+                height: 540px
         &__advantages
             &-item 
                 //width: 360px
@@ -769,6 +773,13 @@
                         font-size: 39px
                         line-height: 100%
     .about
+        &__rates 
+            margin-bottom: 100px
+            &-item 
+                &-head, &-bott 
+                    padding: 15px 20px
+                &-bott 
+                    column-gap: 35px
         &__title 
             margin-top: 115px
         &__line 
@@ -1014,7 +1025,7 @@
             &-logo 
                 display: none
             &-slider 
-                height: 500px
+                height: 445px
         &__advantages
             padding: 100px 0px
             &-items 
@@ -1220,6 +1231,15 @@
                     width: 265px
                     text-align: left
     .about
+        &__rates 
+            &-list 
+                margin-top: 40px
+                gap: 10px
+            &-item 
+                &-head, &-bott 
+                    padding: 10px
+                &-bott 
+                    column-gap: 22px
         &__sert
             &-img 
                 width: 683px
@@ -1398,7 +1418,7 @@
                     margin-top: 5px !important
         &__promo 
             &-slider 
-                height: 364px
+                height: 340px
             &-about 
                 &-descr
                     //max-width: 468px
@@ -1683,6 +1703,11 @@
                 &-descr 
                     width: 307px
     .about 
+        &__rates 
+            &-list 
+                grid-template: auto / repeat(2, 1fr)
+                hr 
+                    display: none
         &__sert 
             margin-top: 19px
             &-img 
@@ -1813,7 +1838,7 @@
                 right: -40px
         &__promo
             &-slider 
-                height: 281px
+                height: 255px
                 margin-bottom: 30px
             &-about 
                 flex-direction: column
@@ -2698,7 +2723,7 @@
                 position: relative
                 left: 50%
                 transform: translateX(-50%)
-                height: 512px
+                height: 48vw
         &__blog 
             padding: 100px 0px 67px
             &-arrow 
@@ -2963,6 +2988,44 @@
                     height: 0px
                     &.active
                         height: 578px
+    .about
+        &__rates
+            margin-bottom: 0
+            .main__services 
+                &-names 
+                    padding: 0
+                &-title 
+                    flex-direction: column
+                    align-items: flex-start
+                    gap: 25px
+                    margin-bottom: 12px
+                &-rage 
+                    display: block
+                    align-self: flex-end
+                &-pages 
+                    margin-top: 20px
+                    min-height: 167px
+            &-list 
+                display: none
+            &-slider 
+                display: flex !important
+            &-item 
+                display: flex
+                flex-direction: column
+                &-head 
+                    padding: 24px 30px
+                    font-size: 14px
+                    line-height: 19px
+                &-bott 
+                    padding: 20px 30px
+                    column-gap: 70px
+                    .text_fz
+                        &20 
+                            font-size: 16px
+                            line-height: 22px
+                        &18 
+                            font-size: 14px
+                            line-height: 19px
     .clients
         padding-bottom: 70px
         &__item 
@@ -3007,11 +3070,6 @@
                 grid-template: auto / 1fr
                 gap: 20px
                 margin: 40px 0px
-@media (max-width: 430px)
-    .main
-        &__promo
-            &-slider 
-                height: 600px
 @media (max-width: 400px)
     .main
         &__market 

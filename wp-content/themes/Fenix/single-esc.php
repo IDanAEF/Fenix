@@ -11,13 +11,14 @@
     </div>
     <div class="container">
         <h1 class="develop__title title title_fz120 title_fz120-1 text_fw700 text_upper">
-            <?php the_field('title-esc'); ?>
+            <?=$seoH1 ?: get_field('title-esc')?>
         </h1>
     </div>
     <section class="develop__descr text text_fz16 text_upper">
         <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Fenix">
         <span><?php the_field('descr') ?></span>
     </section>
+    <?php if (have_rows('services')) : ?>
     <section class="develop__services">
         <div class="container">
             <?php
@@ -34,6 +35,7 @@
             ?>
         </div>
     </section>
+    <?php endif; ?>
     <section class="develop__situate">
         <div class="container">
             <div class="develop__situate-top">
@@ -68,6 +70,7 @@
             </div>
         </div>
     </section>
+    <?php if(have_rows('analyz_services')) : ?>
     <section class="develop__todo">
         <div class="container">
             <h2 class="develop__todo-title title title_fz48 text_fw700 text_upper">Чем занимается Аналитик CRM? </h2>
@@ -95,6 +98,8 @@
             </div>
         </div>
     </section>
+    <?php endif; ?>
+    <?php if(get_field('banner-esc')) : ?>
     <section class="develop__banner">
         <div class="container">
             <img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Баннер">
@@ -103,6 +108,7 @@
             </div>
         </div>
     </section>
+    <?php endif; ?>
     <section class="main__feed" id="feedmail">
         <div class="container">
             <h2 class="main__feed-title title title_fz120 title_fz120-1 text_fw700 text_upper">Напишите нам</h2>

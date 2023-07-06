@@ -1,1 +1,0 @@
-26-09-2022 07:23:56 - ERROR - 7.5.1 - 40,9 МБ/2 ГБ - [cron] > Blocked by transient newsletter_main_engine set 0 seconds ago by C:\Users\IDanAEF\Documents\OpenServer\domains\fenix/;DESKTOP-58323J7

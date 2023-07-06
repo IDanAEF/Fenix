@@ -21,6 +21,11 @@
             <a href="#feedmail" data-url="/contacts/" class="single-service__banner-button button button_arrow">Оставить заявку<div class="arrow"><img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="Оставить заявку"></div></a>
         </div>
     </section>
+    <?php if (get_field('main-text')) : ?>
+    <section class="single-service__maintext single-service__points default-content">
+        <?php the_field('main-text') ?>
+    </section>
+    <?php endif; ?>
     <section class="single-service__points">
         <?php
             $i = 1;
@@ -30,7 +35,7 @@
                 <div class="single-service__point">
                     <div class="single-service__point-number text text_fz12">(<?=($i < 10 ? '0'.$i++ : $i++)?>)</div>
                     <div class="single-service__point-top some-tap-place">
-                        <div class="single-service__point-title title title_fz24 text_fw700 text_upper"><?php the_sub_field('name'); ?></div>
+                        <h2 class="single-service__point-title title title_fz24 text_fw700 text_upper"><?php the_sub_field('name'); ?></h2>
                         <img src="<?php echo bloginfo('template_url') ?>/assets/images/arrow_orange.svg" alt="arrow" title="<?php the_sub_field('name'); ?>" class="single-service__point-tap">
                     </div>
                     <div class="single-service__point-list text text_fz14 text_fz14-1">

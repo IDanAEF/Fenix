@@ -136,7 +136,7 @@ var WP_Optimize = function () {
 		 * After tables filtered check if we need show table footer and No tables message.
 		 */
 		table_list.on('filterEnd', function() {
-			var search_value = $.trim(table_list_filter.val());
+			var search_value = table_list_filter.val().trim();
 	
 			if ('' == search_value) {
 				table_footer_line.show();
@@ -1803,10 +1803,10 @@ var WP_Optimize = function () {
 			validate = field.data('validate');
 
 		if (!validate && required) {
-			return ('' != $.trim(value));
+			return ('' != value.trim());
 		}
 
-		if (validate && !required && '' == $.trim(value)) {
+		if (validate && !required && '' == value.trim()) {
 			return true;
 		}
 
@@ -1819,7 +1819,7 @@ var WP_Optimize = function () {
 					email = '';
 
 				for (var i = 0; i < emails.length; i++) {
-					email = $.trim(emails[i]);
+					email = emails[i].trim();
 
 					if ('' == email || !regex.test(email)) {
 						valid = false;
@@ -2189,7 +2189,7 @@ jQuery(function ($) {
 	function get_add_logging_form_html() {
 		var i,
 			select_options = [
-				'<option value="">Select destination</option>'
+				'<option value="">' + wpoptimize.select_destination + '</option>'
 			];
 
 		for (i in wpoptimize.loggers_classes_info) {
@@ -2205,8 +2205,8 @@ jQuery(function ($) {
 				'<select class="wpo_logger_type" name="wpo-logger-type[]">',
 					select_options.join(''),
 				'</select>',
-				'<div class="wpo_logging_edit_row" style="display:block;"><span class="wpo_delete_logger button button-secondary" title="'+wpoptimize.delete_logger+'">'+wpoptimize.delete_logger+'</span>',
-				'<span class="wpo_save_logging button button-primary" title="'+wpoptimize.add_logger+'">'+wpoptimize.add_logger+'</span></div>',
+				'<div class="wpo_logging_edit_row" style="display:block;"><span class="wpo_delete_logger button button-secondary" title="'+wpoptimize.cancel+'">'+wpoptimize.cancel+'</span>',
+				'<span class="wpo_save_logging button button-primary" title="'+wpoptimize.add+'">'+wpoptimize.add+'</span></div>',
 				'<div class="wpo_additional_logger_options"></div>',
 			'</div>'
 		].join('');
@@ -2232,10 +2232,10 @@ jQuery(function ($) {
 			if (!options.hasOwnProperty(i)) continue;
 
 			if (Array.isArray(options[i])) {
-				placeholder = $.trim(options[i][0]);
-				validate = $.trim(options[i][1]);
+				placeholder = options[i][0].trim();
+				validate = options[i][1].trim();
 			} else {
-				placeholder = $.trim(options[i]);
+				placeholder = options[i].trim();
 				validate = '';
 			}
 

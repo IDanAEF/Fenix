@@ -10,7 +10,7 @@
         <a href="/">Главная</a><img src="<?php echo bloginfo('template_url') ?>/assets/images/bread_arrow.svg" alt="bread" title="›"><?php the_title() ?>
     </div>
 	<h1 class="audit__title title title_fz120 title_fz120-1 text_fw700 text_upper container">
-		Аудит <br>бизнес-процессов
+		<?=$seoH1 ?: 'Аудит <br>бизнес-процессов'?>
 	</h1>
 	<section class="audit__banner">
 		<img src="<?php echo bloginfo('template_url') ?>/assets/images/point.svg" alt="point" title="Fenix" class="audit__banner-point">
@@ -29,6 +29,7 @@
 	</section>
 	<?php include('assets/images/scheme.svg'); ?>
 	<!-- <img src="<?php echo bloginfo('template_url') ?>/assets/images/scheme.svg" alt="scheme" class="audit__scheme"> -->
+	<?php if (have_rows('points-aud') || get_field('result-block') || get_field('underresult_descr')) : ?>
 	<section class="audit__work text text_fz14 text_fz14-1">
 		<div class="container">
 			<div class="audit__work-points">
@@ -71,6 +72,7 @@
 			</div>
 		</div>
 	</section>
+	<?php endif; ?>
 	<section class="main__feed" id="feedmail">
         <div class="container">
             <h2 class="main__feed-title title title_fz120 title_fz120-1 text_fw700 text_upper">Напишите нам</h2>

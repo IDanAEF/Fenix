@@ -19,15 +19,57 @@
             height: 655px
             position: relative
             margin-bottom: 50px
-            &-item 
-                opacity: 0
-                visibility: hidden
-                height: 0
-                transition: 1.5s opacity
+            // background-color: #cf521c
+            background: linear-gradient(260.87deg, #E95D1D 9.82%, #C8511B 92.38%)
+            overflow: hidden
+            opacity: 0
+            .glare-circle 
+                display: block
+                transform-box: fill-box
+                transform-origin: 50% 50%
+            .glare 
+                transform: translate(752px, 550px)
+                .image 
+                    width: 95px
+                    height: 95px
+                    display: block
+                    transform-box: fill-box
+                    transform-origin: 50% 50%
+                    object-fit: cover
+                    transform: scale(0)
+            &.play 
+                opacity: 1
+                .glare-circle 
+                    animation: glare 0.07s linear infinite
+                .glare 
+                    animation: glare-block 6s linear infinite
+                    .image 
+                        animation: glare-scale 6s linear infinite
+            &-text
+                transform: translateX(100%)
+                transition: 0.5s transform
                 &.active
-                    opacity: 1
-                    height: 100%
-                    visibility: visible
+                    transform: translateX(0%)
+            &-content 
+                width: auto
+            &-title 
+                font-size: 131px
+            &-descr 
+                font-size: 76px
+            &-col 
+                &-descr 
+                    font-size: 59px
+                &-name 
+                    font-size: 84px
+                &-value 
+                    font-size: 60px
+            &-item 
+                position: absolute
+                width: 100%
+                height: 100%
+                display: none
+                &.active
+                    display: block
         &-logo 
             display: flex
             align-items: flex-end

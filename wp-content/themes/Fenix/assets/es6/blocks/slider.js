@@ -1,22 +1,44 @@
 function slider() {
     try {
         //promo main-page slider
-        const promoSliderItems = document.querySelectorAll('.main__promo-slider-item');
+        const promoSliderCont = document.querySelector('.main__promo-slider'),
+              promoSliderLinks = document.querySelectorAll('.main__promo-slider-item'),
+              promoSliderTexts = document.querySelectorAll('.main__promo-slider-text');
 
-        let iter = 0;
+        let preImage = document.createElement('img');
+        preImage.src = '/wp-content/themes/Fenix/assets/images/glare.png';
 
-        const setPromoSlide = () => {
-            promoSliderItems.forEach(item => item.classList.remove('active'));
-            promoSliderItems[iter].classList.add('active');
-        }
+        preImage.addEventListener('load', () => {
+            promoSliderCont.classList.add('play');
 
-        setPromoSlide();
+            let iter = 0,
+                count = promoSliderLinks.length;
 
-        if (promoSliderItems.length > 1) {
+            const setPromoSlide = () => {
+                promoSliderLinks.forEach(link => link.classList.remove('active'));
+
+                promoSliderLinks[iter].classList.add('active');
+                promoSliderTexts[iter].classList.add('active');
+            }
+
+            const hideText = () => {
+                promoSliderTexts.forEach(text => text.classList.remove('active'));
+            }
+
+            setPromoSlide();
+
+            let fiveInt = setInterval(hideText, 5500);
+
             setInterval(() => {
-                setPromoSlide((iter >= promoSliderItems.length - 1 ? iter = 0 : ++iter));
-            }, 10000);
-        }
+                clearInterval(fiveInt);
+
+                iter == count - 1 ? iter = 0 : iter++;
+
+                setPromoSlide();
+
+                fiveInt = setInterval(hideText, 5500);
+            }, 6000);
+        });
     } catch (e) {
         console.log(e.stack);
     }

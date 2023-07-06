@@ -7,6 +7,39 @@
         background: #E2E2E2
         width: 100%
         margin: 125px 0px 80px
+    &__rates
+        margin-bottom: 170px
+        .main__services 
+            &-rage 
+                display: none
+        &-slider 
+            display: none !important
+        &-list 
+            margin-top: 80px
+            display: grid
+            grid-template: auto / repeat(3, 1fr)
+            gap: 20px
+            hr 
+                grid-column-start: 1
+                grid-column-end: 4
+                border: none 
+                height: 1px
+                background: #D9D9D9
+        &-item 
+            &-head, &-bott 
+                span 
+                    display: block
+            &-head 
+                background: #F9F9F9
+                border-width: 1px 1px 0px 1px
+                border-style: solid
+                border-color: #E2E2E2
+                padding: 21px 30px
+            &-bott 
+                padding: 23px 30px
+                background: #D8612B
+                display: flex
+                column-gap: 90px
     &__sert
         margin-top: 80px
         .container

@@ -3,12 +3,6 @@
         Template Name: Контакты
     */
     get_header();
-
-    wpcf7_include_module_file( 'recaptcha/service.php' );
-
-    $service = WPCF7_RECAPTCHA::get_instance();
-
-    print_r($service);
 ?>
 <main class="contacts">
     <div class="breadcrumbs container text text_fz14">
@@ -16,7 +10,7 @@
     </div>
     <section class="contacts__info">
         <div class="container">
-            <h1 class="contacts__title title title_fz120 title_fz120-1 text_fw700 text_upper"><?php the_title() ?></h1>
+            <h1 class="contacts__title title title_fz120 title_fz120-1 text_fw700 text_upper"><?=$seoH1 ?: get_the_title()?></h1>
             <div class="contacts__data text text_fz16">
                 <div class="contacts__data-block">
                     Адрес

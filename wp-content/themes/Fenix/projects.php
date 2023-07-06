@@ -10,7 +10,7 @@
     </div>
     <div class="container">
         <h1 class="projects__title title title_fz120-1 text_upper text_fw700">
-            Наши проекты
+            <?=$seoH1 ?: 'Наши проекты'?>
         </h1>
     </div>
     <!-- <hr> -->
@@ -32,7 +32,7 @@
                 setup_postdata($post);
                 $names[] = get_the_title();
                 ?>
-                    <article class="main__services-page about__projects-page load-more-item text text_fz14 text_fz14-1">
+                    <article class="main__services-page about__projects-page load-more-item text text_fz14 text_fz14-1" itemscope itemtype="https://schema.org/Project">
                         <div class="about__projects-page-info">
                             <div class="mobile-text">
                                 <h3 class="mobile-text-title title title_fz32 text_upper text_fw700">
@@ -55,12 +55,13 @@
                                 <?php endif; ?>
                             </div>
                             <div class="top">
-                                <img src="<?=get_field('slider-image-mob') ?: get_field('slider-image')?>" alt="<?php the_title(); ?>" class="mob_img">
-                                <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper"><?php the_title(); ?></h3>
-                                <div class="about__projects-page-undertitle text text_fz14 text_fz14-1">
+                                <img src="<?=get_field('slider-image-mob')['sizes']['medium'] ?: get_field('slider-image')['sizes']['medium']?>" alt="<?php the_title(); ?>" class="mob_img" loading="lazy">
+                                <h3 class="about__projects-page-title title title_fz48 text_fw700 text_upper" itemprop="name"><?php the_title(); ?></h3>
+                                <div class="about__projects-page-undertitle text text_fz14 text_fz14-1" itemprop="description">
                                     <?php the_field('descr-proj'); ?>
                                 </div>
                                 <?php if (get_field('prolog_text')) : ?>
+                                <meta itemprop="url" content="<?=get_permalink()?>">
                                 <a href="<?=get_permalink()?>" class="button button_arrow text text_fz14 text_fz14-1">
                                     смотреть кейс
                                     <div class="arrow"><img src="<?=bloginfo('template_url')?>/assets/images/arrow_orange.svg" alt="arrow" title="Смотреть кейс"></div>
@@ -72,7 +73,7 @@
                             </div>
                         </div>
                         <div class="about__projects-page-image">
-                            <img src="<?php the_field('slider-image') ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+                            <img src="<?=get_field('slider-image')['sizes']['large'] ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" itemprop="image" loading="lazy">
                             <?php if (get_the_post_thumbnail()) : ?>
                             <div class="title_block_image">
                                 <?=get_the_post_thumbnail()?>

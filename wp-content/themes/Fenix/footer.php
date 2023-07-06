@@ -88,6 +88,7 @@
                 <span class="half text_fz10">Fenix <?=date('Y')?>©</span>
                 <a href="https://german-web.org/" target="_blank" class="creator text_fz10">Разработка сайта <b>GermanWeb</b></a>
                 <a href="/politika-konfidenczialnosti/" class="policy text_fz10">Политика персональных данных</a>
+                <a href="/offer-agreement/" class="text_fz10 half">Договор оферты</a>
             </div>
             <div class="footer__bott-right">
                 <?php the_custom_logo(); ?>
@@ -219,8 +220,6 @@
         </div>
     </div>
 </div>
-<?php
-    wp_footer();
-?>
+<?php wp_footer(); ?>
 </body>
 </html>

@@ -28,6 +28,10 @@
 	add_action('wp_ajax_nopriv_dnd_codedropz_upload_delete', 'dnd_codedropz_upload_delete');
 	add_action('wp_ajax_dnd_codedropz_upload_delete','dnd_codedropz_upload_delete');
 
+    // Ajax Nonce check
+    add_action('wp_ajax__wpcf7_check_nonce', 'dnd_wpcf7_nonce_check');
+    add_action('wp_ajax_nopriv__wpcf7_check_nonce', 'dnd_wpcf7_nonce_check');
+
 	// Hook mail cf7
 	add_filter('wpcf7_posted_data', 'dnd_wpcf7_posted_data', 10, 1);
 	add_action('wpcf7_before_send_mail','dnd_cf7_before_send_mail', 30, 1);
@@ -53,6 +57,13 @@
 
 	// Flamingo Hooks
 	add_action('before_delete_post', 'dnd_remove_uploaded_files');
+
+    // Nonce
+    function dnd_wpcf7_nonce_check(){
+        if( ! check_ajax_referer( 'dnd-cf7-security-nonce', false, false ) ){
+            wp_send_json_success( wp_create_nonce( "dnd-cf7-security-nonce" ) );
+        }
+    }
 
     // Add links to settings
     function dnd_cf7_upload_links( $actions ) {
@@ -455,7 +466,7 @@
 				'disable_btn'		=>	( get_option('drag_n_drop_disable_btn') == 'yes' ? true : false )
 			)
 		);
-
+        
 		// enque style
 		wp_enqueue_style( 'dnd-upload-cf7', plugins_url ('/assets/css/dnd-upload-cf7.css', dirname(__FILE__) ), '', $version );
 	}
@@ -511,7 +522,7 @@
 		$atts['data-limit'] = $tag->get_option( 'limit','', true);
         $atts['data-min'] = $tag->get_option( 'min-file', '', true );
 		$atts['data-max'] = $tag->get_option( 'max-file','', true);
-		$atts['data-id'] = ( $form->id() ? $form->id() : 0 );
+		$atts['data-id'] = ( $form ? $form->id() : 0 );
         $atts['data-version'] = 'free version '. dnd_upload_cf7_version;
 
         // Accept data attributes
@@ -794,9 +805,9 @@
         $size_limit = dnd_cf7_get_size_limit( $cf7_id );
 
 		// check and verify ajax request
-		if( is_user_logged_in() ) {
-			check_ajax_referer( 'dnd-cf7-security-nonce', 'security' );
-		}
+        if( ! check_ajax_referer( 'dnd-cf7-security-nonce', 'security', false ) ) {
+            wp_send_json_error('The security nonce is invalid or expired.');
+        }
 
         // Get blacklist Types
         $blacklist_types = ( isset( $_POST['blacklist-types'] ) ?  explode( '|', sanitize_text_field( $_POST['blacklist-types'] ) ) : '' );
@@ -832,8 +843,30 @@
 
 		// validate file type
 		if ( ( ! preg_match( $file_type_pattern, $file['name'] ) || ! dnd_cf7_validate_type( $extension, $supported_type ) ) && $supported_type != '*' ) {
-			wp_send_json_error( get_option('drag_n_drop_error_invalid_file') ? get_option('drag_n_drop_error_invalid_file') : dnd_cf7_error_msg('invalid_type') );
+		    wp_send_json_error( get_option('drag_n_drop_error_invalid_file') ? get_option('drag_n_drop_error_invalid_file') : dnd_cf7_error_msg('invalid_type') );
 		}
+
+        // validate mime type
+        if( $supported_type && $supported_type != '*' ){
+
+            // wheather if we validate mime type
+            $validate_mime = apply_filters('dnd_cf7_validate_mime', false );
+
+            if( $validate_mime ){
+
+                if( ! function_exists('wp_check_filetype_and_ext') ){
+                    require_once ABSPATH .'wp-admin/includes/file.php'; 
+                }
+
+                // Get file type and extension name
+                $wp_filetype = wp_check_filetype_and_ext( $file['tmp_name'], $file['name'] ); //[ext, type]
+                $valid_mimes = explode('|', $supported_type); // array[png, jpg]
+
+                if( empty( $wp_filetype['type'] ) || empty( $wp_filetype['ext'] ) || ! in_array( $wp_filetype['ext'], $valid_mimes ) ){
+                    wp_send_json_error( get_option('drag_n_drop_error_invalid_file') ? get_option('drag_n_drop_error_invalid_file') : dnd_cf7_error_msg('invalid_type') );
+                }
+            }
+        }
 
 		// validate file size limit
 		if( isset( $size_limit["$cf7_upload_name"] ) && $file['size'] > $size_limit["$cf7_upload_name"] ) {
@@ -900,10 +933,11 @@
 		// Get folder directory
 		$dir = dnd_get_upload_dir();
 
-		// check and verify ajax request
-		if( is_user_logged_in() ) {
-			check_ajax_referer( 'dnd-cf7-security-nonce', 'security' );
-		}
+		// check and verify ajax request);
+        if( ! check_ajax_referer( 'dnd-cf7-security-nonce', 'security', false ) ) {
+            wp_send_json_error('The security nonce is invalid or expired.');
+        }
+
 
 		// Sanitize Path
 		$get_path = ( isset( $_POST['path'] ) ? sanitize_text_field( $_POST['path'] ) : null );

@@ -96,7 +96,7 @@ class WPO_Page_Cache {
 	 */
 	public function __construct() {
 		$this->config = WPO_Cache_Config::instance();
-		$this->rules  = WPO_Cache_Rules::instance();
+		WPO_Cache_Rules::instance();
 		$this->logger = new Updraft_PHP_Logger();
 
 		add_action('activated_plugin', array($this, 'activate_deactivate_plugin'));
@@ -117,6 +117,9 @@ class WPO_Page_Cache {
 		add_action('wp_loaded', array($this, 'handle_purge_single_page_cache'));
 
 		add_action('admin_init', array($this, 'admin_init'));
+
+		add_action('update_option_gmt_offset', array($this, 'update_gmt_offset_timezone_string_config'), 10, 3);
+		add_action('update_option_timezone_string', array($this, 'update_gmt_offset_timezone_string_config'), 10, 3);
 
 		$this->check_compatibility_issues();
 
@@ -672,7 +675,12 @@ if (empty(\$GLOBALS['wpo_cache_config'])) {
 	include_once(WPO_CACHE_CONFIG_DIR . '/$config_file_basename');
 }
 
-if (empty(\$GLOBALS['wpo_cache_config']) || empty(\$GLOBALS['wpo_cache_config']['enable_page_caching'])) { return; }
+if (empty(\$GLOBALS['wpo_cache_config'])) {
+	error_log('WP-Optimize: Caching failed because the configuration data could not be loaded from the config file.');
+	return;
+}
+
+if (empty(\$GLOBALS['wpo_cache_config']['enable_page_caching'])) { return; }
 
 if (false !== \$plugin_location) { include_once(\$plugin_location.'/file-based-page-cache.php'); }
 
@@ -1031,7 +1039,22 @@ EOF;
 	 * @return bool
 	 */
 	public static function delete_single_post_cache($post_id) {
-	
+		$is_cache_deleted = self::really_delete_single_post_cache($post_id);
+
+		do_action('wpo_single_post_cache_deleted', $post_id);
+
+		return $is_cache_deleted;
+	}
+
+	/**
+	 * Really delete cached files for single post.
+	 *
+	 * @param integer $post_id The post ID
+	 *
+	 * @return bool
+	 */
+	public static function really_delete_single_post_cache($post_id) {
+
 		if (!defined('WPO_CACHE_FILES_DIR')) return;
 
 		$post_url = get_permalink($post_id);
@@ -1113,6 +1136,15 @@ EOF;
 	 * Delete post feed from cache.
 	 */
 	public static function delete_post_feed_cache($post_id) {
+		self::really_delete_post_feed_cache($post_id);
+
+		do_action('wpo_single_post_feed_cache_deleted', $post_id);
+	}
+
+	/**
+	 * Really delete post feed from cache.
+	 */
+	public static function really_delete_post_feed_cache($post_id) {
 		if (!defined('WPO_CACHE_FILES_DIR')) return;
 
 		$post_url = get_permalink($post_id);
@@ -1192,6 +1224,33 @@ EOF;
 			self::$instance = new self();
 		}
 		return self::$instance;
+	}
+
+
+	/**
+	 * Update gmt_offset and timezone_string cache config value, used with hook `update_gmt_offset_timezone_string_config`.
+	 *
+	 * @param {float|string} $old_value GMT offset as a float value or timezone value supported by PHP as a string (https://www.php.net/manual/en/timezones.php)
+	 * @param {float|string} $new_value
+	 * @param {string}    	 $option    gmt_offset|timezone_string
+	 *
+	 * @return null
+	 */
+	public function update_gmt_offset_timezone_string_config($old_value, $new_value, $option) {
+		$option;
+		
+		if ('' == $new_value) return;
+
+		$current_config = $this->config->get();
+		if ('timezone_string' == $option) {
+			$timeZone = new DateTimeZone($new_value);
+			$dateTime = new DateTime("now");
+			$gmt_offset = $timeZone->getOffset($dateTime);
+			$current_config['gmt_offset'] = round($gmt_offset/3600, 1);
+		} elseif ('' !== $new_value) {
+			$current_config['gmt_offset'] = $new_value;
+		}
+		$this->config->update($current_config, true);
 	}
 
 	/**
